@@ -16,7 +16,7 @@ let uuus2MPI = 2.0 * .pi
 let uuusM2PI = 0.5 * .pi
 
 var app1ication = UIApplication.shared
-var appDe1egate = app1ication.delegate as! AppDelegate
+var appDe1egate = app1ication.delegate /*! as! AppDelegate */
 var ca1endar = Calendar.current
 var n0tification = NotificationCenter.default
 
