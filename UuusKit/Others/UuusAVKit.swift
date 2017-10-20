@@ -9,8 +9,8 @@
 import AVKit
 import RMUniversalAlert
 
-class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
-    class ScanView: UuusView {
+open class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+    open class ScanView: UuusView {
         private let line = "line"
         
         private lazy var backLayer: CAShapeLayer = { [unowned self] in
@@ -61,10 +61,10 @@ class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
             let name = NSNotification.Name.UIApplicationDidBecomeActive
             n0tification.addObserver(self, selector: #selector(roll), name: name, object: nil)
         }
-        required init?(coder aDecoder: NSCoder) {
+        required public init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        override func draw(_ rect: CGRect) {
+        override open func draw(_ rect: CGRect) {
             super.draw(rect)
             scanrect = scanned(rect)
             
@@ -88,7 +88,7 @@ class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
             roll()
         }
         
-        func scanned(_ rect: CGRect?) -> CGRect? {
+        public func scanned(_ rect: CGRect?) -> CGRect? {
             guard rect != nil else {
                 return nil
             }
@@ -106,14 +106,14 @@ class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
             let dy = (-screenHeight + screenWidth) / 2 + statusHeight
             return rectangle.offsetBy(dx: 0, dy: dy)
         }
-        @objc func roll() {
+        @objc open func roll() {
             let keys = moveLayer.animationKeys()
             guard keys?.contains(line) ?? false else {
                 moveLayer.add(animation, forKey: line)
                 return
             }
         }
-        @objc func stop() {
+        @objc open func stop() {
             moveLayer.removeAnimation(forKey: line)
         }
     }
@@ -165,18 +165,18 @@ class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
         
         return session
     }()
-    var rectOfInterest: CGRect {
+    public var rectOfInterest: CGRect {
         return .zero
     }
-    var didOutputMetadataObjectsClosure: completionc?
+    public var didOutputMetadataObjectsClosure: completionc?
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         interfaceOrientationMaskAll = false
         navigationItem.title = "扫描".local
         edgesForExtendedLayout = UIRectEdge()
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !(scanView.layer.sublayers?.first?.isKind(of: AVCaptureVideoPreviewLayer.self) ?? false) {
             if let prelayer = prelayer {
@@ -205,16 +205,16 @@ class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    func startRunning() {
+    open func startRunning() {
         scanView.roll()
         session?.startRunning()
     }
-    func stopRunning() {
+    open func stopRunning() {
         scanView.stop()
         session?.stopRunning()
     }
     
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    open func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard metadataObjects.count > 0 else {
             return
         }

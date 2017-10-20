@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    var image: UIImage {
+    public var image: UIImage {
         let size = CGSize(width: 1, height: 1)
         UIGraphicsBeginImageContext(size)
         let rect = CGRect(origin: .zero, size: size)
@@ -23,7 +23,7 @@ extension UIColor {
 }
 
 extension UIColor {
-    convenience init(hexColor: String) {
+    public convenience init(hexColor: String) {
         var R: UInt32 = 0, G: UInt32 = 0, B: UInt32 = 0
         Scanner(string: hexColor[0..<2]).scanHexInt32(&R)
         Scanner(string: hexColor[2..<4]).scanHexInt32(&G)
@@ -31,7 +31,7 @@ extension UIColor {
         self.init(R: CGFloat(R), G: CGFloat(G), B: CGFloat(B))
     }
     
-    convenience init(R: CGFloat, G: CGFloat, B: CGFloat, A: CGFloat = 1) {
+    public convenience init(R: CGFloat, G: CGFloat, B: CGFloat, A: CGFloat = 1) {
         self.init(red: R / 255, green: G / 255, blue: B / 255, alpha: A)
     }
 }

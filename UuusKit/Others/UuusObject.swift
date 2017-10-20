@@ -11,27 +11,27 @@ import KeychainAccess
 import ObjectMapper
 import RealmSwift
 
-class UuusObject: Object, Mappable {
-    required convenience init?(map: Map) {
+open class UuusObject: Object, Mappable {
+    required convenience public init?(map: Map) {
         self.init()
     }
     
-    func mapping(map: Map) {}
+    open func mapping(map: Map) {}
 }
 
 extension UuusObject {
-    class Uuid: Object {
+    public class Uuid: Object {
         @available(iOS 6.0, *)
-        static var dIFV: String? {
+        public static var dIFV: String? {
             let device = UIDevice.current
             let identifier = device.identifierForVendor
             return identifier?.uuidString
         }
         @available(iOS 6.0, *)
-        static var uuid: String {
+        public static var uuid: String {
             return NSUUID().uuidString
         }
-        static var rand: String? {
+        public static var rand: String? {
             let uuid = CFUUIDCreate(kCFAllocatorDefault)
             let char = CFUUIDCreateString(kCFAllocatorDefault, uuid)
             return char as String?
@@ -57,13 +57,13 @@ extension UuusObject {
 }
 
 extension UuusObject {
-    class Base64Transform: TransformType {
-        typealias Object = String
-        typealias JSON = String
+    public class Base64Transform: TransformType {
+        public typealias Object = String
+        public typealias JSON = String
         init() {}
         
         /// decode base64
-        func transformFromJSON(_ value: Any?) -> String? {
+        public func transformFromJSON(_ value: Any?) -> String? {
             guard let string = value as? String else {
                 return nil
             }
@@ -73,7 +73,7 @@ extension UuusObject {
             return String(data: data, encoding: .utf8)
         }
         /// encode base64
-        func transformToJSON(_ value: String?) -> String? {
+        public func transformToJSON(_ value: String?) -> String? {
             guard let string = value else {
                 return nil
             }
@@ -84,7 +84,7 @@ extension UuusObject {
 }
 
 extension UuusObject {
-    enum DeviceType: String {
+    public enum DeviceType: String {
         /// "iPhone1,1" on iPhone
         /// "iPhone1,2" on iPhone 3G
         /// "iPhone2,1" on iPhone 3GS
@@ -178,7 +178,7 @@ extension UuusObject {
         }
     }
     
-    static var deviceType: DeviceType {
+    public static var deviceType: DeviceType {
         switch (screenHeight, screenWidth) {
         case (320.0, 480.0), (480.0, 320.0):
             return .iPhone4s
@@ -194,28 +194,28 @@ extension UuusObject {
             return .retina
         }
     }
-    static var DeviceIdentifier = "DeviceIdentifier"
+    public static var DeviceIdentifier = "DeviceIdentifier"
 }
 
-class UuusRequest: Object {
-    enum Loaded: Int {
+open class UuusRequest: Object {
+    public enum Loaded: Int {
         case `default`
         case exception
     }
-    var loaded: Loaded = .default
+    public var loaded: Loaded = .default
     
-    var method: HTTPMethod = .post
+    public var method: HTTPMethod = .post
     
-    enum Loading: Int {
+    public enum Loading: Int {
         case `default`
         case animations
         case customized
     }
-    var loading: Loading = .default
+    public var loading: Loading = .default
     
-    var tag: Int = 0
+    public var tag: Int = 0
     
-    var loadURL: String? {
+    open var loadURL: String? {
         get {
             return loadURLString ?? (scheme+baseURL+port+prefix+path)
         }
@@ -224,19 +224,19 @@ class UuusRequest: Object {
         }
     }
     fileprivate(set) var loadURLString: String?
-    var scheme = String.http
-    var baseURL = String.empty
-    var port = String.empty
-    var prefix = String.empty
-    var path = String.empty
+    public var scheme = String.http
+    public var baseURL = String.empty
+    public var port = String.empty
+    public var prefix = String.empty
+    public var path = String.empty
     
-    var completion: completionc?
-    var exception: exceptionc?
-    var failure: failurec?
+    public var completion: completionc?
+    public var exception: exceptionc?
+    public var failure: failurec?
 }
 
-class UuusDelivery: NSObject {
-    static let shared = UuusDelivery()
+open class UuusDelivery: NSObject {
+    public static let shared = UuusDelivery()
     
     let manager = NetworkReachabilityManager(host: "www.apple.com")
     
@@ -263,18 +263,18 @@ class UuusDelivery: NSObject {
     }
 }
 
-class UuusMagician: NSObject {
+open class UuusMagician: NSObject {
     
 }
 
 extension NSObject {
-    static var name: String {
+    public static var name: String {
         return "\(classForCoder())"
     }
 }
 
 extension NSObject {
-    var className: String {
+    public var className: String {
         return "\(classForCoder)"
     }
 }

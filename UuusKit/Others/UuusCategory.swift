@@ -9,7 +9,7 @@
 import PKHUD
 
 extension HUD {
-    static func show(_ contentView: UIView, onView view: UIView? = nil) {
+    public static func show(_ contentView: UIView, onView view: UIView? = nil) {
         PKHUD.sharedHUD.contentView = contentView
         PKHUD.sharedHUD.show(onView: view)
     }

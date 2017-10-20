@@ -10,7 +10,7 @@ import EventKit
 import PKHUD
 
 extension EKEventStore {
-    static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, completion: completionc? = nil) {
+    public static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, completion: completionc? = nil) {
         let eventStore = EKEventStore()
         eventStore.requestAccess(to: .event) { (granted, error) in
             DispatchQueue.main.async {
@@ -47,7 +47,7 @@ extension EKEventStore {
         }
     }
     
-    func newEKCalendar(_ calendar: String?) -> EKCalendar {
+    public func newEKCalendar(_ calendar: String?) -> EKCalendar {
         guard calendar != nil else {
             return defaultCalendarForNewEvents!
         }

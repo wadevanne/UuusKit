@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    func colors(at point: CGPoint, count: Int) -> [UIColor] {
+    public func colors(at point: CGPoint, count: Int) -> [UIColor] {
         let height = cgImage!.height
         let width = cgImage!.width
         let bitmap = CGBitmapInfo.byteOrder32Big

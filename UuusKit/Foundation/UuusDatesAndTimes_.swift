@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    enum DateFormat: String {
+    public enum DateFormat: String {
         case none
         case count
         
@@ -48,26 +48,26 @@ extension Date {
 }
 
 extension Date {
-    var timestamp: TimeInterval {
+    public var timestamp: TimeInterval {
         return timeIntervalSince1970 * 1000
     }
-    var tomorrow: Date {
+    public var tomorrow: Date {
         return self + TimeInterval(60*60*24)
     }
-    var yesterday: Date {
+    public var yesterday: Date {
         return self - TimeInterval(60*60*24)
     }
-    var weekOfYear: Int {
+    public var weekOfYear: Int {
         return value(for: .weekOfYear)
     }
-    var weekday: String {
+    public var weekday: String {
         let weekdays = ["周六".local, "周日".local,
                         "周一".local, "周二".local,
                         "周三".local, "周四".local,
                         "周五".local, "周六".local]
         return weekdays[value(for: .weekday)]
     }
-    var mondate: Date {
+    public var mondate: Date {
         /// Sunday = 1, Monday = 2, Saturday = 7
         ca1endar.firstWeekday = 2
         var components: Set<Calendar.Component>
@@ -83,37 +83,37 @@ extension Date {
 }
 
 extension Date {
-    static func string(of string: String, input: [DateFormat], as output: [DateFormat]) -> String {
+    public static func string(of string: String, input: [DateFormat], as output: [DateFormat]) -> String {
         return date(of: string, input: input)?.string(as: output) ?? string
     }
     
-    static func date(of string: String, input: [DateFormat]) -> Date? {
+    public static func date(of string: String, input: [DateFormat]) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = input.dateFormat
         return formatter.date(from: string)
     }
-    static func date(of date: Date, _inout: [DateFormat]) -> Date? {
+    public static func date(of date: Date, _inout: [DateFormat]) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = _inout.dateFormat
         let string = formatter.string(from: date)
         return formatter.date(from: string)
     }
     
-    static func aged(of string: String, input: [DateFormat]) -> TimeInterval {
+    public static func aged(of string: String, input: [DateFormat]) -> TimeInterval {
         let birthdate = date(of: string, input: input)
         let components: Set<Calendar.Component> = [.month, .year]
         let dateComponents = ca1endar.dateComponents(components, from: birthdate ?? Date(), to: Date())
         return TimeInterval(dateComponents.year ?? 0) + TimeInterval(dateComponents.month ?? 0) / 12
     }
     
-    static func hour(of timestamp: TimeInterval) -> TimeInterval {
+    public static func hour(of timestamp: TimeInterval) -> TimeInterval {
         let hour = timestamp.date.value(for: .hour)
         let minute = timestamp.date.value(for: .minute)
         return TimeInterval(hour) + TimeInterval(minute) / 60
     }
     
     
-    static func jointed(as output: [DateFormat], start: TimeInterval, end: TimeInterval? = nil) -> (String, Int?) {
+    public static func jointed(as output: [DateFormat], start: TimeInterval, end: TimeInterval? = nil) -> (String, Int?) {
         guard end != nil else {
             return (start.date.string(as: output), nil)
         }
@@ -173,10 +173,10 @@ extension Date {
     }
     
     
-    typealias OutputItem = ([DateFormat], start: TimeInterval, end: TimeInterval, format: String)
-    typealias ExtentItem = (start: Date, end: Date, againstf: Bool, suffix: String?, now: String?)
+    public typealias OutputItem = ([DateFormat], start: TimeInterval, end: TimeInterval, format: String)
+    public typealias ExtentItem = (start: Date, end: Date, againstf: Bool, suffix: String?, now: String?)
     
-    static func string(as output: [OutputItem], timeInterval: [ExtentItem]) -> String {
+    public static func string(as output: [OutputItem], timeInterval: [ExtentItem]) -> String {
         let currentDate = Date()
         
         for interval in timeInterval {
@@ -290,11 +290,11 @@ extension Date {
 }
 
 extension Date {
-    func value(for component: Calendar.Component) -> Int {
+    public func value(for component: Calendar.Component) -> Int {
         return ca1endar.component(component, from: self)
     }
     
-    func string(as output: [DateFormat]) -> String {
+    public func string(as output: [DateFormat]) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = output.dateFormat
         return formatter.string(from: self)
@@ -302,59 +302,59 @@ extension Date {
 }
 
 extension TimeInterval {
-    static let oneweek: TimeInterval = 7 * oneday
-    static let oneday: TimeInterval = 24 * onehour
-    static let onehour: TimeInterval = 60 * oneminute
-    static let oneminute: TimeInterval = 60 * onesecond
-    static let onesecond: TimeInterval = TimeInterval(1000)
+    public static let oneweek: TimeInterval = 7 * oneday
+    public static let oneday: TimeInterval = 24 * onehour
+    public static let onehour: TimeInterval = 60 * oneminute
+    public static let oneminute: TimeInterval = 60 * onesecond
+    public static let onesecond: TimeInterval = TimeInterval(1000)
 }
 
 extension TimeInterval {
-    var date: Date {
+    public var date: Date {
         /// millisecond -> second
         return Date(timeIntervalSince1970: self * 0.001)
     }
     
-    var day: TimeInterval {
+    public var day: TimeInterval {
         return self / 1000 / 60 / 60 / 24
     }
-    var hour: TimeInterval {
+    public var hour: TimeInterval {
         return self / 1000 / 60 / 60
     }
-    var minute: Int {
+    public var minute: Int {
         return Int(self) / 1000 / 60 % 60
     }
-    var second: Int {
+    public var second: Int {
         return Int(self) / 1000 % 60
     }
     
-    var HHmm: String {
+    public var HHmm: String {
         let Hm = "\(Int(hour)):\(minute)"
         return Date.string(of: Hm, input: [.Hm], as: [.HHmm])
     }
-    var HHmmss: String {
+    public var HHmmss: String {
         let Hms = "\(Int(hour)):\(minute):\(second)"
         return Date.string(of: Hms, input: [.Hms], as: [.HHmmss])
     }
     
-    var oneweek: TimeInterval {
+    public var oneweek: TimeInterval {
         return TimeInterval.oneweek
     }
-    var oneday: TimeInterval {
+    public var oneday: TimeInterval {
         return TimeInterval.oneday
     }
-    var onehour: TimeInterval {
+    public var onehour: TimeInterval {
         return TimeInterval.onehour
     }
-    var oneminute: TimeInterval {
+    public var oneminute: TimeInterval {
         return TimeInterval.oneminute
     }
-    var onesecond: TimeInterval {
+    public var onesecond: TimeInterval {
         return TimeInterval.onesecond
     }
     
     
-    var history: String? {
+    public var history: String? {
         guard date < Date() else {
             return nil
         }

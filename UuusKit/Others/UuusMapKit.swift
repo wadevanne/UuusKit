@@ -8,10 +8,10 @@
 
 import MapKit
 
-class MapContro1ler: UuusController {
-    lazy var mapView = MKMapView()
+open class MapContro1ler: UuusController {
+    public var mapView = MKMapView()
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         let address = stevenash as? String ?? String.short
         navigationItem.title = address.local
@@ -29,7 +29,7 @@ class MapContro1ler: UuusController {
             self?.mapView.addAnnotation(MKPlacemark(placemark: placemark))
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard mapView.superview == nil else {
             return

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIDevice {
-    var modelName: String {
+    public var modelName: String {
         var systemInformation = utsname()
         uname(&systemInformation)
         let machine = systemInformation.machine

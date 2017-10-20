@@ -9,7 +9,7 @@
 import UIKit
 
 extension NSAttributedString {
-    func numberOfLines(bounded: CGFloat?) -> Int {
+    public func numberOfLines(bounded: CGFloat?) -> Int {
         let emptyString = NSAttributedString(string: String.empty)
         let eachHeight = emptyString.upright(boundedAclinic: bounded)
         let wholeHeight = upright(boundedAclinic: bounded)
@@ -18,15 +18,15 @@ extension NSAttributedString {
     ///  ________________
     /// ┃                ┃
     /// ┃________________┃ boundedUpright
-    ///  aclinic
-    func aclinic(boundedUpright: CGFloat?) -> CGFloat {
+    ///         aclinic
+    public func aclinic(boundedUpright: CGFloat?) -> CGFloat {
         return float(boundedUpright ?? CGFloat(UInt8.min), isBoundedVertical: true)
     }
     ///  ________________
     /// :                : upright
     /// :________________:
-    ///          boundedAclinic
-    func upright(boundedAclinic: CGFloat?) -> CGFloat {
+    ///                 boundedAclinic
+    public func upright(boundedAclinic: CGFloat?) -> CGFloat {
         return float(boundedAclinic ?? CGFloat(UInt8.min), isBoundedVertical: false)
     }
     

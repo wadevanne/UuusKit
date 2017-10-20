@@ -9,7 +9,7 @@
 import Foundation
 
 extension Double {
-    var currency: String {
+    public var currency: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencySymbol = "¥"

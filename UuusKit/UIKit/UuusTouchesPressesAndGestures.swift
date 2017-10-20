@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIResponder {
-    static var nib: UINib? {
+    public static var nib: UINib? {
         if Bundle.main.path(forResource: name, ofType: "nib") == nil {
             return nil
         }
         return UINib(nibName: name, bundle: nil)
     }
-    static var xib: UIResponder? {
+    public static var xib: UIResponder? {
         return nib?.instantiate(withOwner: self, options: nil).first as? UIResponder
     }
 }

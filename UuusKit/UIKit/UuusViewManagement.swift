@@ -10,10 +10,10 @@ import ALCameraViewController
 import PullToRefresh
 import RMUniversalAlert
 
-class UuusController: UIViewController {
-    class Pu1lToRefresh: PullToRefresh {
-        class RefreshView: UIView {
-            var images: [UIImage] = []
+open class UuusController: UIViewController {
+    open class Pu1lToRefresh: PullToRefresh {
+        open class RefreshView: UIView {
+            public var images: [UIImage] = []
             
             private(set) lazy var indicator: UIImageView? = {
                 guard images.count > 0 else {
@@ -30,25 +30,25 @@ class UuusController: UIViewController {
                 return imageView
             }()
             
-            override func willMove(toSuperview newSuperview: UIView?) {
+            override open func willMove(toSuperview newSuperview: UIView?) {
                 super.willMove(toSuperview: newSuperview)
                 setupFrame(in: superview)
                 centerActivityIndicator()
             }
-            override func layoutSubviews() {
+            override open func layoutSubviews() {
                 setupFrame(in: superview)
                 centerActivityIndicator()
                 indicator?.startAnimating()
                 super.layoutSubviews()
             }
             
-            func setupFrame(in newSuperview: UIView?) {
+            open func setupFrame(in newSuperview: UIView?) {
                 guard let superview = newSuperview else {
                     return
                 }
                 frame = CGRect(x: frame.minX, y: frame.minY, width: superview.frame.width, height: frame.height)
             }
-            func centerActivityIndicator() {
+            open func centerActivityIndicator() {
                 indicator?.center = convert(center, from: superview)
             }
         }
@@ -76,7 +76,7 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    var stevenash: Any? {
+    public var stevenash: Any? {
         get {
             return objc_getAssociatedObject(self, &UIViewController.SteveAssist)
         }
@@ -84,7 +84,7 @@ extension UIViewController {
             objc_setAssociatedObject(self, &UIViewController.SteveAssist, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    var interfaceOrientationMaskAll: Bool {
+    public var interfaceOrientationMaskAll: Bool {
         get {
             let object = objc_getAssociatedObject(self, &UIViewController.A1Interface)
             return (object as? NSNumber)?.boolValue ?? false
@@ -99,18 +99,18 @@ extension UIViewController {
     }
     
     /// bar button changed from [< title] to [<]
-    var backBarButtonItemPure: UIBarButtonItem {
+    public var backBarButtonItemPure: UIBarButtonItem {
         return UIBarButtonItem(title: String.empty, style: .plain, target: nil, action: nil)
     }
 }
 
 extension UIViewController {
-    static func new(storyboard name: String = "Main") -> UIViewController {
+    public static func new(storyboard name: String = "Main") -> UIViewController {
         let storyboard = UIStoryboard(name: name, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: self.name)
     }
     
-    static func playground(under: UIViewController? = app1ication.keyWindow?.rootViewController) -> UIViewController? {
+    public static func playground(under: UIViewController? = app1ication.keyWindow?.rootViewController) -> UIViewController? {
         if let tab = under as? UITabBarController {
             return playground(under: tab.selectedViewController)
         }
@@ -125,10 +125,10 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    func presentc(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
+    public func presentc(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         presentc(type.init(), assist: assist, animated: flag, completion: completion)
     }
-    func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
+    public func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
         let nav = NavigationContro1ler()
         nav.addChildViewController(controller)
@@ -136,26 +136,26 @@ extension UIViewController {
             self.present(nav, animated: flag, completion: completion)
         }
     }
-    func presents(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
+    public func presents(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         presents(type.init(), assist: assist, animated: flag, completion: completion)
     }
-    func presents(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
+    public func presents(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
         DispatchQueue.main.async {
             self.present(controller, animated: flag, completion: completion)
         }
     }
     
-    func pushController(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true) {
+    public func pushController(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true) {
         pushController(type.init(), assist: assist, animated: flag)
     }
-    func pushController(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true) {
+    public func pushController(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true) {
         controller.stevenash = assist
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(controller, animated: flag)
         }
     }
-    func popController(animated flag: Bool = true) {
+    public func popController(animated flag: Bool = true) {
         DispatchQueue.main.async {
             if 2 > self.navigationController?.viewControllers.count ?? 0 {
                 self.dismiss(animated: flag)
@@ -165,7 +165,7 @@ extension UIViewController {
         }
     }
     
-    func insert(below controller: UIViewController) {
+    public func insert(below controller: UIViewController) {
         guard let nav = controller.navigationController else {
             return
         }
@@ -176,7 +176,7 @@ extension UIViewController {
         controllers.insert(self, at: idx)
         nav.viewControllers = controllers
     }
-    func removeFromNavigationController() {
+    public func removeFromNavigationController() {
         guard let nav = navigationController else {
             return
         }
@@ -188,18 +188,18 @@ extension UIViewController {
         nav.viewControllers = controllers
     }
     
-    func initBackBarButtonItemPure() {
+    public func initBackBarButtonItemPure() {
         if 0 < navigationController?.navigationBar.items?.count ?? 0 {
             navigationItem.backBarButtonItem = backBarButtonItemPure
         }
     }
     
     
-    func reloadData() {}
-    func updateData() {}
+    open func reloadData() {}
+    open func updateData() {}
     
     
-    func showPhotoActionSheet(in viewController: UIViewController = contro1ler!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
+    public func showPhotoActionSheet(in viewController: UIViewController = contro1ler!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
         let cancelButtonTitle = "取消".local
         let photosButtonTitle = "相册".local
         let cameraButtonTitle = "拍照".local
@@ -225,42 +225,42 @@ extension UIViewController: UIGestureRecognizerDelegate {
         return false
     }
     
-    func addObserver4Keyboard() {
+    public func addObserver4Keyboard() {
         n0tification.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: .UIKeyboardWillShow, object: nil)
         n0tification.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: .UIKeyboardDidShow, object: nil)
         n0tification.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
         n0tification.addObserver(self, selector: #selector(keyboardWasHidden(_:)), name: .UIKeyboardDidHide, object: nil)
     }
-    func removeObserver() {
+    public func removeObserver() {
         n0tification.removeObserver(self)
     }
     /// called when the UIKeyboardWillShowNotification is sent
-    @objc func keyboardWillBeShown(_ notification: Notification) {}
+    @objc open func keyboardWillBeShown(_ notification: Notification) {}
     /// called when the UIKeyboardDidShowNotification is sent
-    @objc func keyboardWasShown(_ notification: Notification) {}
+    @objc open func keyboardWasShown(_ notification: Notification) {}
     /// called when the UIKeyboardWillHideNotification is sent
-    @objc func keyboardWillBeHidden(_ notification: Notification) {}
+    @objc open func keyboardWillBeHidden(_ notification: Notification) {}
     /// called when the UIKeyboardDidHideNotification is sent
-    @objc func keyboardWasHidden(_ notification: Notification) {}
+    @objc open func keyboardWasHidden(_ notification: Notification) {}
 }
 
-class NavigationContro1ler: UINavigationController {
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+open class NavigationContro1ler: UINavigationController {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    override open func pushViewController(_ viewController: UIViewController, animated: Bool) {
         viewController.hidesBottomBarWhenPushed = childViewControllers.count > 0
         super.pushViewController(viewController, animated: animated)
     }
 }
 
-class TabBarContro1ler: UITabBarController {
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+open class TabBarContro1ler: UITabBarController {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
-    func addController(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
+    open func addController(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
             let nav = NavigationContro1ler()

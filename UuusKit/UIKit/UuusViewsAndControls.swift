@@ -9,14 +9,14 @@
 import PKHUD
 import SnapKit
 
-class UuusView: UIView {
+open class UuusView: UIView {
     deinit {
         n0tification.removeObserver(self)
     }
 }
 
 extension UIView {
-    var controller: UIViewController {
+    public var controller: UIViewController {
         var next = superview?.next
         while !(next?.isKind(of: UIViewController.self) ?? false) {
             next = next?.next
@@ -26,18 +26,18 @@ extension UIView {
 }
 
 extension UIView {
-    func bringToFront() {
+    public func bringToFront() {
         superview?.bringSubview(toFront: self)
     }
-    func sendToBack() {
+    public func sendToBack() {
         superview?.sendSubview(toBack: self)
     }
 }
 
-class CollectionContro1ler: UuusController {
-    var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+open class CollectionContro1ler: UuusController {
+    open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         /// even if content is smaller than bounds
         collectionView.alwaysBounceVertical = true
@@ -52,8 +52,8 @@ class CollectionContro1ler: UuusController {
         collectionView.removePullToRefresh(Pu1lToRefresh(position: .bottom))
     }
     
-    func addPullToRefreshTop() {}
-    func addPullToRefreshBottom() {}
+    open func addPullToRefreshTop() {}
+    open func addPullToRefreshBottom() {}
 }
 
 extension UICollectionViewCell {
@@ -61,7 +61,7 @@ extension UICollectionViewCell {
 }
 
 extension UICollectionViewCell {
-    var ronartest: Bool {
+    public var ronartest: Bool {
         get {
             let object = objc_getAssociatedObject(self, &UICollectionViewCell.MettaArtest)
             return (object as? NSNumber)?.boolValue ?? false
@@ -88,7 +88,7 @@ extension UIButton {
         isExclusiveTouch = true
     }
     
-    func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
+    public func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
         let titleText = titleLabel!.text!
         let titleFont = titleLabel!.font!
         let titleWidth = titleText.aclinic(boundedUpright: boundedUpright, font: titleFont)
@@ -102,7 +102,7 @@ extension UIButton {
 
 extension UITextField {
     /// block queue outside as exception
-    func phone(check exception: Bool = true) -> Bool {
+    public func phone(check exception: Bool = true) -> Bool {
         guard text?.isChinaPhone ?? false else {
             if exception {
                 let local = "手机号码格式不正确".local
@@ -114,7 +114,7 @@ extension UITextField {
         return true
     }
     /// block queue outside as exception
-    func email(check exception: Bool = true) -> Bool {
+    public func email(check exception: Bool = true) -> Bool {
         guard text?.isValidEmail ?? false else {
             if exception {
                 let local = "电子邮箱格式不正确".local

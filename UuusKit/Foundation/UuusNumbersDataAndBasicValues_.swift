@@ -9,7 +9,7 @@
 import Foundation
 
 extension Data {
-    var dictionary: [AnyHashable : Any]? {
+    public var dictionary: [AnyHashable : Any]? {
         return (try? JSONSerialization.jsonObject(with: self, options: .mutableContainers)) as? [AnyHashable : Any]
     }
 }

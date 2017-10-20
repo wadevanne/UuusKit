@@ -8,30 +8,30 @@
 
 import UIKit
 
-typealias completionc = ((_ data: Any?) -> Swift.Void)
-typealias exceptionc = ((_ code: Int?, _ info: String?) -> Swift.Void)
-typealias failurec = ((_ error: Error?) -> Swift.Void)
+public typealias completionc = ((_ data: Any?) -> Swift.Void)
+public typealias exceptionc = ((_ code: Int?, _ info: String?) -> Swift.Void)
+public typealias failurec = ((_ error: Error?) -> Swift.Void)
 
-let uuus2MPI = 2.0 * .pi
-let uuusM2PI = 0.5 * .pi
+public let uuus2MPI = 2.0 * .pi
+public let uuusM2PI = 0.5 * .pi
 
-var app1ication = UIApplication.shared
-var appDe1egate = app1ication.delegate /*! as! AppDelegate */
-var ca1endar = Calendar.current
-var n0tification = NotificationCenter.default
+public var app1ication = UIApplication.shared
+public var appDe1egate = app1ication.delegate /*! as! AppDelegate */
+public var ca1endar = Calendar.current
+public var n0tification = NotificationCenter.default
 
-var contro1ler: UIViewController? {
+public var contro1ler: UIViewController? {
     return UIViewController.playground()
 }
 
-var screenBounds = UIScreen.main.bounds
-var screenHeight = screenBounds.height
-var screenWidth = screenBounds.width
-var screenWidth8 = screenWidth / 8
+public var screenBounds = UIScreen.main.bounds
+public var screenHeight = screenBounds.height
+public var screenWidth = screenBounds.width
+public var screenWidth8 = screenWidth / 8
 
-var statusHeight = app1ication.statusBarFrame.height
+public var statusHeight = app1ication.statusBarFrame.height
 
-func ceil<T>(_ comparable: T) -> T where T: Comparable {
+public func ceil<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
         let double = Double(comparable as! CGFloat)
         return CGFloat(ceil(double)) as! T
@@ -45,7 +45,7 @@ func ceil<T>(_ comparable: T) -> T where T: Comparable {
     return comparable
 }
 
-func floor<T>(_ comparable: T) -> T where T: Comparable {
+public func floor<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
         let double = Double(comparable as! CGFloat)
         return CGFloat(floor(double)) as! T
@@ -59,7 +59,7 @@ func floor<T>(_ comparable: T) -> T where T: Comparable {
     return comparable
 }
 
-func asyncAfter(_ seconds: TimeInterval, completion: @escaping completionc) {
+public func asyncAfter(_ seconds: TimeInterval, completion: @escaping completionc) {
     let integer = Int64(seconds * TimeInterval(NSEC_PER_SEC))
     let popTime = DispatchTime.now() + TimeInterval(integer) / TimeInterval(NSEC_PER_SEC)
     DispatchQueue.main.asyncAfter(deadline: popTime) {
