@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "UuusKit"
-  s.version      = "4.0.2"
+  s.version      = "4.0.2.1"
   s.summary      = "UuusKit is a Swift extension, requires Swift 4.0 or higher."
 
   # This description is used to generate tags and improve search results.
