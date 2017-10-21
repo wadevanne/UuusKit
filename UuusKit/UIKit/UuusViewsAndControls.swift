@@ -16,12 +16,12 @@ open class UuusView: UIView {
 }
 
 extension UIView {
-    public var controller: UIViewController {
+    public var controller: UIViewController? {
         var next = superview?.next
-        while !(next?.isKind(of: UIViewController.self) ?? false) {
-            next = next?.next
+        while next != nil, !next!.isKind(of: UIViewController.self) {
+            next = next!.next
         }
-        return next as! UIViewController
+        return next as? UIViewController
     }
 }
 
