@@ -9,6 +9,18 @@
 import UIKit
 
 extension UIDevice {
+    public static var isPad: Bool {
+        return current.userInterfaceIdiom == .pad
+    }
+    public static var isPhone: Bool {
+        return current.userInterfaceIdiom == .phone
+    }
+    public static var isSimulator: Bool {
+        return NSNumber(value: TARGET_OS_SIMULATOR).boolValue
+    }
+}
+
+extension UIDevice {
     public var modelName: String {
         var systemInformation = utsname()
         uname(&systemInformation)

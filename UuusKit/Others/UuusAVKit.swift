@@ -9,7 +9,9 @@
 import AVKit
 import RMUniversalAlert
 
-open class ScanContro1ler: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+@IBDesignable
+open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+    @IBDesignable
     open class ScanView: UuusView {
         private let line = "line"
         

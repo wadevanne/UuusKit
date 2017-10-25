@@ -10,8 +10,11 @@ import ALCameraViewController
 import PullToRefresh
 import RMUniversalAlert
 
+@IBDesignable
 open class UuusController: UIViewController {
-    open class Pu1lToRefresh: PullToRefresh {
+    @IBDesignable
+    open class Pul1ToRefresh: PullToRefresh {
+        @IBDesignable
         open class RefreshView: UIView {
             public var images: [UIImage] = []
             
@@ -130,7 +133,7 @@ extension UIViewController {
     }
     public func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
-        let nav = NavigationContro1ler()
+        let nav = NavigationControl1er()
         nav.addChildViewController(controller)
         DispatchQueue.main.async {
             self.present(nav, animated: flag, completion: completion)
@@ -165,6 +168,10 @@ extension UIViewController {
         }
     }
     
+    public func fade(keyroot controller: UIViewController) {
+        app1ication.keyWindow?.layer.add(CATransition.fade, forKey: kCATransition)
+        app1ication.keyWindow?.rootViewController = controller
+    }
     public func insert(below controller: UIViewController) {
         guard let nav = controller.navigationController else {
             return
@@ -174,17 +181,6 @@ extension UIViewController {
             return
         }
         controllers.insert(self, at: idx)
-        nav.viewControllers = controllers
-    }
-    public func removeFromNavigationController() {
-        guard let nav = navigationController else {
-            return
-        }
-        var controllers = nav.viewControllers
-        guard let idx = controllers.index(of: self) else {
-            return
-        }
-        controllers.remove(at: idx)
         nav.viewControllers = controllers
     }
     
@@ -199,7 +195,7 @@ extension UIViewController {
     open func updateData() {}
     
     
-    public func showPhotoActionSheet(in viewController: UIViewController = contro1ler!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
+    public func showPhotoActionSheet(in viewController: UIViewController = control1er!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
         let cancelButtonTitle = "取消".local
         let photosButtonTitle = "相册".local
         let cameraButtonTitle = "拍照".local
@@ -244,7 +240,7 @@ extension UIViewController: UIGestureRecognizerDelegate {
     @objc open func keyboardWasHidden(_ notification: Notification) {}
 }
 
-open class NavigationContro1ler: UINavigationController {
+open class NavigationControl1er: UINavigationController {
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
@@ -255,7 +251,37 @@ open class NavigationContro1ler: UINavigationController {
     }
 }
 
-open class TabBarContro1ler: UITabBarController {
+extension UINavigationController {
+    public func removeController(types: [UIViewController.Type]) {
+        var controllers = viewControllers
+        for (index, value) in viewControllers.enumerated() {
+            if types.contains(where: { $0 == value.classForCoder }) {
+                controllers.remove(at: index)
+            }
+        }
+        viewControllers = controllers
+    }
+    public func removeController(_ controller: UIViewController) {
+        var controllers = viewControllers
+        guard let index = controllers.index(of: controller) else {
+            return
+        }
+        controllers.remove(at: index)
+        viewControllers = controllers
+    }
+    public func removeAllMiddleViewControllers() {
+        guard viewControllers.count > 2 else {
+            return
+        }
+        let bounds = (1, viewControllers.count-1)
+        let range = Range(uncheckedBounds: bounds)
+        var controllers = viewControllers
+        controllers.removeSubrange(range)
+        viewControllers = controllers
+    }
+}
+
+open class TabBarControl1er: UITabBarController {
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
@@ -263,7 +289,7 @@ open class TabBarContro1ler: UITabBarController {
     open func addController(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
-            let nav = NavigationContro1ler()
+            let nav = NavigationControl1er()
             nav.addChildViewController(controller)
             nav.tabBarItem = tabBarItem
             addChildViewController(nav)

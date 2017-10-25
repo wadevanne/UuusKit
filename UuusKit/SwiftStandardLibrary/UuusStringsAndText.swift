@@ -21,8 +21,14 @@ extension String {
 }
 
 extension String {
+    public var data: Data? {
+        return data(using: .utf8)
+    }
     public var local: String {
         return localise(self)
+    }
+    public var unity: String {
+        return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "　", with: "")
     }
     public var color: UIColor {
         return UIColor(hexColor: self)
@@ -52,11 +58,38 @@ extension String {
         let regex = "(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$)|(^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$)"
         return match(regex: regex, value: self)
     }
+    public var isHasNumbers: Bool {
+        return match(regex: ".*?\\d+.*?", value: self)
+    }
+    public var isHasULetter: Bool {
+        return match(regex: ".*?[A-Z]+.*?", value: self)
+    }
+    public var isHasLLetter: Bool {
+        return match(regex: ".*?[a-z]+.*?", value: self)
+    }
+    public var isHasSpecial: Bool {
+        return match(regex: ".*?[^A-Za-z0-9]+.*?", value: self)
+    }
+    public var isHasChinese: Bool {
+        return match(regex: ".*?[\\u4e00-\\u9fa5]+.*?", value: self)
+    }
     
     public var urlEncode: String? {
         let str = "!*'();:@&=+$,/?%#[]"
         let set = CharacterSet(charactersIn: str).inverted
         return addingPercentEncoding(withAllowedCharacters: set)
+    }
+    public var enbase64Data: Data? {
+        return data?.base64EncodedData(options: .lineLength64Characters)
+    }
+    public var debase64Data: Data? {
+        return Data(base64Encoded: self, options: .ignoreUnknownCharacters)
+    }
+    public var enbase64String: String? {
+        return data?.base64EncodedString(options: .lineLength64Characters)
+    }
+    public var debase64String: String? {
+        return debase64Data?.string
     }
     
     public subscript(range: Range<Int>) -> String {

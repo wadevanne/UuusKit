@@ -20,7 +20,7 @@ public var appDe1egate = app1ication.delegate /*! as! AppDelegate */
 public var ca1endar = Calendar.current
 public var n0tification = NotificationCenter.default
 
-public var contro1ler: UIViewController? {
+public var control1er: UIViewController? {
     return UIViewController.playground()
 }
 
@@ -65,4 +65,11 @@ public func asyncAfter(_ seconds: TimeInterval, completion: @escaping completion
     DispatchQueue.main.asyncAfter(deadline: popTime) {
         completion(popTime)
     }
+}
+
+public func telephone(_ telephone: String) {
+    let uiWebView = UIWebView()
+    let url = URL(string: "tel:\(telephone)")
+    uiWebView.loadRequest(URLRequest(url: url!))
+    control1er?.view.addSubview(uiWebView)
 }

@@ -9,6 +9,7 @@
 import PKHUD
 import SnapKit
 
+@IBDesignable
 open class UuusView: UIView {
     deinit {
         n0tification.removeObserver(self)
@@ -34,7 +35,8 @@ extension UIView {
     }
 }
 
-open class CollectionContro1ler: UuusController {
+@IBDesignable
+open class CollectionControl1er: UuusController {
     open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override open func viewDidLoad() {
@@ -48,8 +50,8 @@ open class CollectionContro1ler: UuusController {
         }
     }
     deinit {
-        collectionView.removePullToRefresh(Pu1lToRefresh(position: .top))
-        collectionView.removePullToRefresh(Pu1lToRefresh(position: .bottom))
+        collectionView.removePullToRefresh(Pul1ToRefresh(position: .top))
+        collectionView.removePullToRefresh(Pul1ToRefresh(position: .bottom))
     }
     
     open func addPullToRefreshTop() {}

@@ -8,7 +8,8 @@
 
 import MapKit
 
-open class MapContro1ler: UuusController {
+@IBDesignable
+open class MapControl1er: UuusController {
     public var mapView = MKMapView()
     
     override open func viewDidLoad() {
