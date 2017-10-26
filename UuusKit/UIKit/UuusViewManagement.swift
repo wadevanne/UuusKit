@@ -10,11 +10,8 @@ import ALCameraViewController
 import PullToRefresh
 import RMUniversalAlert
 
-@IBDesignable
 open class UuusController: UIViewController {
-    @IBDesignable
     open class Pul1ToRefresh: PullToRefresh {
-        @IBDesignable
         open class RefreshView: UIView {
             public var images: [UIImage] = []
             
@@ -66,6 +63,10 @@ open class UuusController: UIViewController {
             springDamping = 1
             initialSpringVelocity = 0
         }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return interfaceOrientationMaskAll ? .all : .portrait
     }
     
     deinit {

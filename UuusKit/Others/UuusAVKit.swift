@@ -9,35 +9,36 @@
 import AVKit
 import RMUniversalAlert
 
-@IBDesignable
 open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegate {
-    @IBDesignable
     open class ScanView: UuusView {
         private let line = "line"
         
-        private lazy var backLayer: CAShapeLayer = { [unowned self] in
+        public lazy var backLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
+            layer.fillColor = UIColor.clear.cgColor
             layer.strokeColor = UIColor.black.cgColor
             layer.opacity = 1/2
             self.layer.addSublayer(layer)
             return layer
         }()
-        private lazy var lineLayer: CAShapeLayer = { [unowned self] in
+        public lazy var lineLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
+            layer.fillColor = UIColor.clear.cgColor
             layer.strokeColor = UIColor.white.cgColor
             layer.lineWidth = 1/2
             self.layer.addSublayer(layer)
             return layer
         }()
-        private lazy var overLayer: CAShapeLayer = { [unowned self] in
+        public lazy var overLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
+            layer.fillColor = UIColor.clear.cgColor
             layer.strokeColor = UIColor.white.cgColor
             layer.lineWidth = 3
             layer.lineDashPhase = 15
             self.layer.addSublayer(layer)
             return layer
         }()
-        private lazy var moveLayer: CAGradientLayer = { [unowned self] in
+        public lazy var moveLayer: CAGradientLayer = { [unowned self] in
             let layer = CAGradientLayer()
             let clear = UIColor.clear.cgColor
             let white = UIColor.white.cgColor
@@ -47,7 +48,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
             self.layer.addSublayer(layer)
             return layer
         }()
-        private lazy var animation: CABasicAnimation = { [unowned self] in
+        public lazy var animation: CABasicAnimation = { [unowned self] in
             let animation = CABasicAnimation()
             animation.keyPath = "position.y"
             animation.fromValue = self.moveLayer.position.y
@@ -90,7 +91,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
             roll()
         }
         
-        public func scanned(_ rect: CGRect?) -> CGRect? {
+        open func scanned(_ rect: CGRect?) -> CGRect? {
             guard rect != nil else {
                 return nil
             }
@@ -120,7 +121,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
     
-    lazy var prelayer: AVCaptureVideoPreviewLayer? = { [unowned self] in
+    public lazy var prelayer: AVCaptureVideoPreviewLayer? = { [unowned self] in
         guard let session = self.session else {
             return nil
         }
@@ -129,19 +130,19 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         layer.frame = self.scanView.bounds
         return layer
     }()
-    lazy var scanView: ScanView = { [unowned self] in
+    public lazy var scanView: ScanView = { [unowned self] in
         let view = ScanView(frame: self.view.bounds)
         view.clipsToBounds = true
         self.view.addSubview(view)
         return view
     }()
-    lazy var device: AVCaptureDevice? = {
+    public lazy var device: AVCaptureDevice? = {
         if #available(iOS 10.0, *) {
             return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
         }
         return AVCaptureDevice.default(for: .video)
     }()
-    lazy var session: AVCaptureSession? = { [unowned self] in
+    public lazy var session: AVCaptureSession? = { [unowned self] in
         guard let device = self.device else {
             return nil
         }
@@ -167,8 +168,30 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         
         return session
     }()
-    public var rectOfInterest: CGRect {
-        return .zero
+    private var rectOfInterest: CGRect {
+        let rect = view.bounds
+        let scan = scanView.scanned(rect) ?? .zero
+        let per1 = rect.height / rect.width
+        let per2 = CGFloat(1920.0 / 1080.0)
+        var minX, minY, width, height: CGFloat
+        if per1 < per2 {
+            let upright = rect.width * per2
+            let padding = upright/2 - rect.height/2
+            minX = (scan.minY + padding) / upright
+            minY = scan.minX / rect.width
+            width = scan.height / upright
+            height = scan.width / rect.width
+        } else {
+            let aclinic = rect.height / per2
+            let padding = aclinic/2 - rect.width/2
+            minX = scan.minY / rect.height
+            minY = (scan.minX + padding) / aclinic
+            width = scan.height / rect.height
+            height = scan.width / aclinic
+        }
+        let origin = CGPoint(x: minX, y: minY)
+        let size = CGSize(width: width, height: height)
+        return CGRect(origin: origin, size: size)
     }
     public var didOutputMetadataObjectsClosure: completionc?
     

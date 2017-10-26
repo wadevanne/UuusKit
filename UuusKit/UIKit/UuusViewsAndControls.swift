@@ -9,7 +9,6 @@
 import PKHUD
 import SnapKit
 
-@IBDesignable
 open class UuusView: UIView {
     deinit {
         n0tification.removeObserver(self)
@@ -35,7 +34,6 @@ extension UIView {
     }
 }
 
-@IBDesignable
 open class CollectionControl1er: UuusController {
     open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
