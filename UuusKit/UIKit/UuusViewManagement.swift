@@ -30,12 +30,12 @@ open class UuusController: UIViewController {
                 return imageView
             }()
             
-            override open func willMove(toSuperview newSuperview: UIView?) {
+            open override func willMove(toSuperview newSuperview: UIView?) {
                 super.willMove(toSuperview: newSuperview)
                 setupFrame(in: superview)
                 centerActivityIndicator()
             }
-            override open func layoutSubviews() {
+            open override func layoutSubviews() {
                 setupFrame(in: superview)
                 centerActivityIndicator()
                 indicator?.startAnimating()
@@ -65,7 +65,7 @@ open class UuusController: UIViewController {
         }
     }
     
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
@@ -242,11 +242,11 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 
 open class NavigationControl1er: UINavigationController {
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
-    override open func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         viewController.hidesBottomBarWhenPushed = childViewControllers.count > 0
         super.pushViewController(viewController, animated: animated)
     }
@@ -283,7 +283,7 @@ extension UINavigationController {
 }
 
 open class TabBarControl1er: UITabBarController {
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     

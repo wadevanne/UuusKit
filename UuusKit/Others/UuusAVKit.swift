@@ -67,7 +67,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         required public init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        override open func draw(_ rect: CGRect) {
+        open override func draw(_ rect: CGRect) {
             super.draw(rect)
             scanrect = scanned(rect)
             
@@ -195,13 +195,13 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
     }
     public var didOutputMetadataObjectsClosure: completionc?
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         interfaceOrientationMaskAll = false
         navigationItem.title = "扫描".local
         edgesForExtendedLayout = UIRectEdge()
     }
-    override open func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !(scanView.layer.sublayers?.first?.isKind(of: AVCaptureVideoPreviewLayer.self) ?? false) {
             if let prelayer = prelayer {

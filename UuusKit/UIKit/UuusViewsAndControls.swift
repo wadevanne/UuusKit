@@ -37,7 +37,7 @@ extension UIView {
 open class CollectionControl1er: UuusController {
     open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         /// even if content is smaller than bounds
         collectionView.alwaysBounceVertical = true
