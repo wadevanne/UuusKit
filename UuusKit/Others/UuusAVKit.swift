@@ -122,9 +122,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     public lazy var prelayer: AVCaptureVideoPreviewLayer? = { [unowned self] in
-        guard let session = self.session else {
-            return nil
-        }
+        guard let session = self.session else { return nil }
         let layer = AVCaptureVideoPreviewLayer(session: session)
         layer.videoGravity = .resizeAspect
         layer.frame = self.scanView.bounds
@@ -143,9 +141,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         return AVCaptureDevice.default(for: .video)
     }()
     public lazy var session: AVCaptureSession? = { [unowned self] in
-        guard let device = self.device else {
-            return nil
-        }
+        guard let device = self.device else { return nil }
         var input: AVCaptureDeviceInput?
         do {
             input = try AVCaptureDeviceInput(device: device)
@@ -250,7 +246,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         }
         
         let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
-        let message = metadataObject?.stringValue ?? String.empty
+        let message = metadataObject?.stringValue ?? .empty
         let cancelButtonTitle = "好的".local
         let otherButtonTitles = ["重新扫描".local]
         RMUniversalAlert.show(in: self, withTitle: nil, message: message, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles) { [unowned self] (alert, index) in

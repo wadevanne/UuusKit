@@ -64,19 +64,13 @@ extension UuusObject {
         
         /// decode base64
         public func transformFromJSON(_ value: Any?) -> String? {
-            guard let string = value as? String else {
-                return nil
-            }
-            guard let data = Data(base64Encoded: string, options: .ignoreUnknownCharacters) else {
-                return string
-            }
+            guard let string = value as? String else { return nil }
+            guard let data = Data(base64Encoded: string, options: .ignoreUnknownCharacters) else { return string }
             return String(data: data, encoding: .utf8)
         }
         /// encode base64
         public func transformToJSON(_ value: String?) -> String? {
-            guard let string = value else {
-                return nil
-            }
+            guard let string = value else { return nil }
             let data = Data(bytes: Array(string.utf8))
             return data.base64EncodedString(options: .lineLength64Characters)
         }

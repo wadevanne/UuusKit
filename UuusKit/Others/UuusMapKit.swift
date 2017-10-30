@@ -42,8 +42,8 @@ open class MapControl1er: UuusController {
         guard mapView.superview == nil else {
             return
         }
-        view.addSubview(mapView)
-        mapView.snp.makeConstraints { (make) in
+        view.insertSubview(mapView, at: 0)
+        mapView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }
@@ -53,9 +53,7 @@ open class MapControl1er: UuusController {
             guard error == nil else {
                 return
             }
-            guard let placemark = placemarks?.first else {
-                return
-            }
+            guard let placemark = placemarks?.first else { return }
             self?.setRegion(placemark.location?.coordinate)
             self?.addAnnotation(MKPlacemark(placemark: placemark))
         }

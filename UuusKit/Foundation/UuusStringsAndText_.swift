@@ -10,7 +10,7 @@ import UIKit
 
 extension NSAttributedString {
     public func numberOfLines(bounded: CGFloat?) -> Int {
-        let emptyString = NSAttributedString(string: String.empty)
+        let emptyString = NSAttributedString(string: .empty)
         let eachHeight = emptyString.upright(boundedAclinic: bounded)
         let wholeHeight = upright(boundedAclinic: bounded)
         return Int((wholeHeight/eachHeight).rounded(.up))

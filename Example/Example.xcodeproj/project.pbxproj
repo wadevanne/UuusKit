@@ -34,6 +34,7 @@
 		180A95371F97C5EB00AB0D07 /* UuusViewManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */; };
 		180A95391F97C95A00AB0D07 /* UuusTimDuncan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */; };
 		183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */; };
+		183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183479B51FA38BF30085E918 /* Neat9icker.xib */; };
 		186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */; };
 		32A1E9893B8D669AC4B60990 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523856E8203596A48DE22505 /* Pods_Example.framework */; };
 		A4785D96213369C13B270DF0 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6436242D4B7CFEEF4CF78FC2 /* Pods_ExampleTests.framework */; };
@@ -98,6 +99,7 @@
 		180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusViewManagement.swift; sourceTree = "<group>"; };
 		180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusTimDuncan.swift; sourceTree = "<group>"; };
 		183479AD1FA315AA0085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/UuusMapKit.storyboard; sourceTree = "<group>"; };
+		183479B61FA38BF30085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Neat9icker.xib; sourceTree = "<group>"; };
 		186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreAnimation.swift; sourceTree = "<group>"; };
 		30C664546E8DA20F957939FE /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleUITests/Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		523856E8203596A48DE22505 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 		180A95291F97C0D900AB0D07 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				183479B51FA38BF30085E918 /* Neat9icker.xib */,
 				1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */,
 				180A952A1F97C10300AB0D07 /* UuusDrawing.swift */,
 				180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */,
@@ -396,6 +399,7 @@
 				180A94E71F97AA8600AB0D07 /* Assets.xcassets in Resources */,
 				1800F02A1F986B1400ED6CB7 /* CameraView.strings in Resources */,
 				180A94E51F97AA8600AB0D07 /* Main.storyboard in Resources */,
+				183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */,
 				183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,6 +695,14 @@
 				183479AD1FA315AA0085E918 /* Base */,
 			);
 			name = UuusMapKit.storyboard;
+			sourceTree = "<group>";
+		};
+		183479B51FA38BF30085E918 /* Neat9icker.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				183479B61FA38BF30085E918 /* Base */,
+			);
+			name = Neat9icker.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -43,9 +43,7 @@ open class UuusController: UIViewController {
             }
             
             open func setupFrame(in newSuperview: UIView?) {
-                guard let superview = newSuperview else {
-                    return
-                }
+                guard let superview = newSuperview else { return }
                 frame = CGRect(x: frame.minX, y: frame.minY, width: superview.frame.width, height: frame.height)
             }
             open func centerActivityIndicator() {
@@ -102,9 +100,9 @@ extension UIViewController {
         }
     }
     
-    /// bar button changed from [< title] to [<]
+    /// back bar button changed from [< title] to [<]
     public var backBarButtonItemPure: UIBarButtonItem {
-        return UIBarButtonItem(title: String.empty, style: .plain, target: nil, action: nil)
+        return UIBarButtonItem(title: .empty, style: .plain, target: nil, action: nil)
     }
 }
 
@@ -174,13 +172,9 @@ extension UIViewController {
         app1ication.keyWindow?.rootViewController = controller
     }
     public func insert(below controller: UIViewController) {
-        guard let nav = controller.navigationController else {
-            return
-        }
+        guard let nav = controller.navigationController else { return }
         var controllers = nav.viewControllers
-        guard let idx = controllers.index(of: controller) else {
-            return
-        }
+        guard let idx = controllers.index(of: controller) else { return }
         controllers.insert(self, at: idx)
         nav.viewControllers = controllers
     }
@@ -242,17 +236,31 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 
 open class NavigationControl1er: UINavigationController {
+    open var hidesBottomBarWhen9ushed: Bool {
+        return childViewControllers.count > 0
+    }
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        viewController.hidesBottomBarWhenPushed = childViewControllers.count > 0
+        viewController.hidesBottomBarWhenPushed = hidesBottomBarWhen9ushed
         super.pushViewController(viewController, animated: animated)
     }
 }
 
 extension UINavigationController {
+    public func removeAllMiddleViewControllers() {
+        guard viewControllers.count > 2 else {
+            return
+        }
+        let bounds = (1, viewControllers.count-1)
+        let range = Range(uncheckedBounds: bounds)
+        var controllers = viewControllers
+        controllers.removeSubrange(range)
+        viewControllers = controllers
+    }
+    
     public func removeController(types: [UIViewController.Type]) {
         var controllers = viewControllers
         for (index, value) in viewControllers.enumerated() {
@@ -264,20 +272,8 @@ extension UINavigationController {
     }
     public func removeController(_ controller: UIViewController) {
         var controllers = viewControllers
-        guard let index = controllers.index(of: controller) else {
-            return
-        }
+        guard let index = controllers.index(of: controller) else { return }
         controllers.remove(at: index)
-        viewControllers = controllers
-    }
-    public func removeAllMiddleViewControllers() {
-        guard viewControllers.count > 2 else {
-            return
-        }
-        let bounds = (1, viewControllers.count-1)
-        let range = Range(uncheckedBounds: bounds)
-        var controllers = viewControllers
-        controllers.removeSubrange(range)
         viewControllers = controllers
     }
 }
@@ -287,7 +283,7 @@ open class TabBarControl1er: UITabBarController {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
     
-    open func addController(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
+    open func appendc(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
             let nav = NavigationControl1er()
@@ -298,5 +294,10 @@ open class TabBarControl1er: UITabBarController {
         }
         nav.tabBarItem = tabBarItem
         addChildViewController(nav)
+    }
+    open func appends(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
+        let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
+        controller.tabBarItem = tabBarItem
+        addChildViewController(controller)
     }
 }

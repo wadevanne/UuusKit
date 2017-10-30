@@ -16,6 +16,16 @@ open class UuusView: UIView {
 }
 
 extension UIView {
+    @IBInspectable open var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.masksToBounds = newValue > 0
+            layer.cornerRadius = newValue
+        }
+    }
+    
     public var controller: UIViewController? {
         var next = superview?.next
         while next != nil, !next!.isKind(of: UIViewController.self) {
@@ -82,6 +92,104 @@ extension UICollectionViewCell {
     }
 }
 
+@IBDesignable
+open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+    @IBOutlet weak var pickerTop: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var ensureButton: UIButton!
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    public var options: [Any]? {
+        didSet {
+            guard 0 < options?.count ?? 0 else {
+                options = ["壹", "贰", "叁"]
+                return
+            }
+        }
+    }
+    public var current: Int? = 0
+    public var actions: completionc?
+    
+    
+    public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
+        let neat9icker = self.xib as! Neat9icker
+        neat9icker.options = options
+        neat9icker.actions = actions
+        guard let happening = option else { return neat9icker }
+        for (index, value) in options.enumerated() {
+            if "\(value)" == "\(happening)" {
+                neat9icker.current = index
+                break
+            }
+        }
+        return neat9icker
+    }
+    
+    @IBAction func popAction(_ sender: UITapGestureRecognizer) {
+        removeAction(sender)
+        actions?(nil)
+    }
+    @IBAction func cancelAction(_ sender: UIButton) {
+        removeAction(sender)
+        actions?(nil)
+    }
+    @IBAction func ensureAction(_ sender: UIButton) {
+        removeAction(sender)
+        let row = pickerView.selectedRow(inComponent: 0)
+        guard let option = options?[row] else { return }
+        actions?(option)
+    }
+    
+    open func push() {
+        if let subview = app1ication.keyWindow?.subviews.last {
+            if subview.isMember(of: classForCoder) {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        app1ication.keyWindow?.addSubview(self)
+        if superview != nil {
+            snp.makeConstraints { (make) in
+                make.edges.equalTo(superview!)
+            }
+        }
+        
+        backgroundColor = .clear
+        pickerTop.constant = 0
+        layoutIfNeeded()
+        
+        pickerTop.constant = 294
+        let color = UIColor(white: 0, alpha: 1/2)
+        UIView.animate(withDuration: 1/4, animations: {
+            self.backgroundColor = color
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.pickerView.selectRow(self.current ?? 0, inComponent: 0, animated: true)
+        })
+    }
+    
+    open func removeAction(_ sender: Any) {
+        UIView.animate(withDuration: 1/4, animations: {
+            self.pickerTop.constant = 0
+            self.backgroundColor = .clear
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.removeFromSuperview()
+        })
+    }
+    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return options?.count ?? 0
+    }
+    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let option = options?[row] else { return .short }
+        return "\(option)"
+    }
+}
+
 extension UIButton {
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
@@ -99,6 +207,9 @@ extension UIButton {
         frame = CGRect(x: 0, y: 0, width: labelWidth + imageWidth, height: boundedUpright ?? CGFloat(UInt8.min))
     }
 }
+
+@IBDesignable
+open class Date9icker: UuusView {}
 
 extension UITextField {
     /// block queue outside as exception
@@ -126,3 +237,6 @@ extension UITextField {
         return true
     }
 }
+
+@IBDesignable
+open class RoundViEffectView: UIVisualEffectView {}

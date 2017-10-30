@@ -118,7 +118,7 @@ extension Date {
             return (start.date.string(as: output), nil)
         }
         
-        let white_space = String.white + String.short + String.white
+        let white_space: String = .white + .short + .white
         
         let output = output.sorted {
             $0.hashValue > $1.hashValue
@@ -219,7 +219,7 @@ extension Date {
                             return hourString
                         }
                     } else {
-                        return string(as: outputItem, count: currentDay) + (interval.suffix ?? String.empty)
+                        return string(as: outputItem, count: currentDay) + (interval.suffix ?? .empty)
                     }
                 }
                 return nil
@@ -231,7 +231,7 @@ extension Date {
                     if currentHour < outputItem.start.hour || currentHour > outputItem.end.hour {
                         continue
                     }
-                    return string(as: outputItem, count: currentHour) + (interval.suffix ?? String.empty)
+                    return string(as: outputItem, count: currentHour) + (interval.suffix ?? .empty)
                 }
                 return nil
             }
@@ -242,7 +242,7 @@ extension Date {
                     if currentMinute < outputItem.start.minute || currentMinute > outputItem.end.minute {
                         continue
                     }
-                    return string(as: outputItem, count: TimeInterval(currentMinute)) + (interval.suffix ?? String.empty)
+                    return string(as: outputItem, count: TimeInterval(currentMinute)) + (interval.suffix ?? .empty)
                 }
                 return nil
             }
@@ -253,7 +253,7 @@ extension Date {
                     if currentSecond < outputItem.start.second || currentSecond > outputItem.end.second {
                         continue
                     }
-                    return string(as: outputItem, count: TimeInterval(currentSecond)) + (interval.suffix ?? String.empty)
+                    return string(as: outputItem, count: TimeInterval(currentSecond)) + (interval.suffix ?? .empty)
                 }
                 return nil
             }
@@ -282,10 +282,10 @@ extension Date {
                 }
             }
             
-            return interval.now ?? String.short
+            return interval.now ?? .short
         }
         
-        return String.short
+        return .short
     }
 }
 
@@ -360,10 +360,10 @@ extension TimeInterval {
         }
         let future = Date.distantFuture
         var output: [Date.OutputItem] = []
-        output += [([.HHmm], 0, oneday-1, String.marka)] // in same day
-        output += [([.HHmm], oneday, 2*oneday-1, "昨天".local + String.marka)]
-        output += [([.HHmm], 2*oneday, oneweek-1, date.weekday.local + String.marka)]
-        output += [([.MMyddr, .HHmm], oneweek, future.timestamp, String.marka)]
+        output += [([.HHmm], 0, oneday-1, .marka)] // in same day
+        output += [([.HHmm], oneday, 2*oneday-1, "昨天".local + .marka)]
+        output += [([.HHmm], 2*oneday, oneweek-1, date.weekday.local + .marka)]
+        output += [([.MMyddr, .HHmm], oneweek, future.timestamp, .marka)]
         let extent: [Date.ExtentItem] = [(date, future, true, nil, "现在".local)]
         return Date.string(as: output, timeInterval: extent)
     }
