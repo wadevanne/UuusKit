@@ -192,7 +192,7 @@ extension UuusObject {
 }
 
 open class UuusRequest: Object {
-    public enum Loaded: Int {
+    public enum Loaded {
         case `default`
         case exception
     }
@@ -200,7 +200,7 @@ open class UuusRequest: Object {
     
     public var method: HTTPMethod = .post
     
-    public enum Loading: Int {
+    public enum Loading {
         case `default`
         case animations
         case customized

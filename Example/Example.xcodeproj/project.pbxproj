@@ -36,6 +36,8 @@
 		183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */; };
 		183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183479B51FA38BF30085E918 /* Neat9icker.xib */; };
 		186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */; };
+		187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E11FA6C78400F3DDFF /* UuusArea.plist */; };
+		187BE8E51FA6CC1A00F3DDFF /* Area9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */; };
 		32A1E9893B8D669AC4B60990 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523856E8203596A48DE22505 /* Pods_Example.framework */; };
 		A4785D96213369C13B270DF0 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6436242D4B7CFEEF4CF78FC2 /* Pods_ExampleTests.framework */; };
 		D71937438BD165E510F2269C /* Pods_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A5EF5291800CBCD2BE9C7 /* Pods_ExampleUITests.framework */; };
@@ -101,6 +103,8 @@
 		183479AD1FA315AA0085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/UuusMapKit.storyboard; sourceTree = "<group>"; };
 		183479B61FA38BF30085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Neat9icker.xib; sourceTree = "<group>"; };
 		186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreAnimation.swift; sourceTree = "<group>"; };
+		187BE8E11FA6C78400F3DDFF /* UuusArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UuusArea.plist; path = ../UuusArea.plist; sourceTree = "<group>"; };
+		187BE8E41FA6CC1A00F3DDFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Area9icker.xib; sourceTree = "<group>"; };
 		30C664546E8DA20F957939FE /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleUITests/Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		523856E8203596A48DE22505 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6436242D4B7CFEEF4CF78FC2 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,7 +248,9 @@
 		180A95291F97C0D900AB0D07 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */,
 				183479B51FA38BF30085E918 /* Neat9icker.xib */,
+				187BE8E11FA6C78400F3DDFF /* UuusArea.plist */,
 				1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */,
 				180A952A1F97C10300AB0D07 /* UuusDrawing.swift */,
 				180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */,
@@ -398,9 +404,11 @@
 				180A94EA1F97AA8600AB0D07 /* LaunchScreen.storyboard in Resources */,
 				180A94E71F97AA8600AB0D07 /* Assets.xcassets in Resources */,
 				1800F02A1F986B1400ED6CB7 /* CameraView.strings in Resources */,
+				187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */,
 				180A94E51F97AA8600AB0D07 /* Main.storyboard in Resources */,
 				183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */,
 				183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */,
+				187BE8E51FA6CC1A00F3DDFF /* Area9icker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +711,14 @@
 				183479B61FA38BF30085E918 /* Base */,
 			);
 			name = Neat9icker.xib;
+			sourceTree = "<group>";
+		};
+		187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				187BE8E41FA6CC1A00F3DDFF /* Base */,
+			);
+			name = Area9icker.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
