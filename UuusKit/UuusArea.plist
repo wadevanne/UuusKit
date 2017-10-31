@@ -736,7 +736,6 @@
 					<string>辽中县</string>
 					<string>康平县</string>
 					<string>新城子区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>沈阳</string>
@@ -754,7 +753,6 @@
 					<string>普兰店市</string>
 					<string>庄河市</string>
 					<string>长海县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>大连</string>
@@ -769,7 +767,6 @@
 					<string>海城市</string>
 					<string>台安县</string>
 					<string>岫岩满族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鞍山</string>
@@ -784,7 +781,6 @@
 					<string>抚顺县</string>
 					<string>清原满族自治县</string>
 					<string>新宾满族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>抚顺</string>
@@ -798,7 +794,6 @@
 					<string>南芬区</string>
 					<string>本溪满族自治县</string>
 					<string>桓仁满族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>本溪</string>
@@ -812,7 +807,6 @@
 					<string>东港市</string>
 					<string>凤城市</string>
 					<string>宽甸满族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>丹东</string>
@@ -827,7 +821,6 @@
 					<string>黑山县</string>
 					<string>义县</string>
 					<string>北宁市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>锦州</string>
@@ -841,7 +834,6 @@
 					<string>老边区</string>
 					<string>大石桥市</string>
 					<string>盖州市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>营口</string>
@@ -856,7 +848,6 @@
 					<string>细河区</string>
 					<string>彰武县</string>
 					<string>阜新蒙古族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阜新</string>
@@ -871,7 +862,6 @@
 					<string>弓长岭区</string>
 					<string>灯塔市</string>
 					<string>辽阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>辽阳</string>
@@ -883,7 +873,6 @@
 					<string>兴隆台区</string>
 					<string>盘山县</string>
 					<string>大洼县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>盘锦</string>
@@ -898,7 +887,6 @@
 					<string>铁岭县</string>
 					<string>昌图县</string>
 					<string>西丰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>铁岭</string>
@@ -913,7 +901,6 @@
 					<string>朝阳县</string>
 					<string>建平县</string>
 					<string>喀喇沁左翼蒙古族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>朝阳</string>
@@ -927,18 +914,9 @@
 					<string>兴城市</string>
 					<string>绥中县</string>
 					<string>建昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>葫芦岛</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -960,7 +938,6 @@
 					<string>榆树市</string>
 					<string>德惠市</string>
 					<string>农安县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>长春</string>
@@ -977,7 +954,6 @@
 					<string>蛟河市</string>
 					<string>磐石市</string>
 					<string>永吉县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>吉林</string>
@@ -991,7 +967,6 @@
 					<string>双辽市</string>
 					<string>梨树县</string>
 					<string>伊通满族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>四平</string>
@@ -1003,7 +978,6 @@
 					<string>西安区</string>
 					<string>东辽县</string>
 					<string>东丰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>辽源</string>
@@ -1018,7 +992,6 @@
 					<string>通化县</string>
 					<string>辉南县</string>
 					<string>柳河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>通化</string>
@@ -1032,7 +1005,6 @@
 					<string>靖宇县</string>
 					<string>抚松县</string>
 					<string>长白朝鲜族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>白山</string>
@@ -1045,7 +1017,6 @@
 					<string>长岭县</string>
 					<string>扶余县</string>
 					<string>前郭尔罗斯蒙古族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>松原</string>
@@ -1058,7 +1029,6 @@
 					<string>洮南市</string>
 					<string>镇赉县</string>
 					<string>通榆县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>白城</string>
@@ -1074,18 +1044,9 @@
 					<string>和龙市</string>
 					<string>安图县</string>
 					<string>汪清县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>延边朝鲜族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -1115,7 +1076,6 @@
 					<string>延寿县</string>
 					<string>木兰县</string>
 					<string>依兰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>哈尔滨</string>
@@ -1139,7 +1099,6 @@
 					<string>泰来县</string>
 					<string>克东县</string>
 					<string>龙江县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>齐齐哈尔</string>
@@ -1155,7 +1114,6 @@
 					<string>东山区</string>
 					<string>萝北县</string>
 					<string>绥滨县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鹤岗</string>
@@ -1171,7 +1129,6 @@
 					<string>宝清县</string>
 					<string>友谊县</string>
 					<string>饶河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>双鸭山</string>
@@ -1188,7 +1145,6 @@
 					<string>密山市</string>
 					<string>虎林市</string>
 					<string>鸡东县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鸡西</string>
@@ -1205,7 +1161,6 @@
 					<string>肇州县</string>
 					<string>肇源县</string>
 					<string>杜尔伯特蒙古族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>大庆</string>
@@ -1230,7 +1185,6 @@
 					<string>乌伊岭区</string>
 					<string>铁力市</string>
 					<string>嘉荫县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>伊春</string>
@@ -1248,7 +1202,6 @@
 					<string>穆棱市</string>
 					<string>林口县</string>
 					<string>东宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>牡丹江</string>
@@ -1266,7 +1219,6 @@
 					<string>抚远县</string>
 					<string>桦南县</string>
 					<string>汤原县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>佳木斯</string>
@@ -1278,7 +1230,6 @@
 					<string>新兴区</string>
 					<string>茄子河区</string>
 					<string>勃利县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>七台河</string>
@@ -1292,7 +1243,6 @@
 					<string>逊克县</string>
 					<string>嫩江县</string>
 					<string>孙吴县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黑河</string>
@@ -1310,7 +1260,6 @@
 					<string>青冈县</string>
 					<string>庆安县</string>
 					<string>望奎县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>绥化</string>
@@ -1322,18 +1271,9 @@
 					<string>塔河县</string>
 					<string>漠河县</string>
 					<string>大兴安岭辖区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>大兴安岭地区</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -1364,7 +1304,6 @@
 					<string>奉贤区</string>
 					<string>浦东新区</string>
 					<string>崇明县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>上海</string>
@@ -1392,7 +1331,6 @@
 					<string>六合区</string>
 					<string>溧水县</string>
 					<string>高淳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南京</string>
@@ -1411,7 +1349,6 @@
 					<string>昆山市</string>
 					<string>吴江市</string>
 					<string>太仓市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>苏州</string>
@@ -1427,7 +1364,6 @@
 					<string>惠山区</string>
 					<string>江阴市</string>
 					<string>宜兴市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>无锡</string>
@@ -1442,7 +1378,6 @@
 					<string>武进区</string>
 					<string>金坛市</string>
 					<string>溧阳市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>常州</string>
@@ -1456,7 +1391,6 @@
 					<string>丹阳市</string>
 					<string>扬中市</string>
 					<string>句容市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>镇江</string>
@@ -1472,7 +1406,6 @@
 					<string>启东市</string>
 					<string>海安县</string>
 					<string>如东县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南通</string>
@@ -1486,7 +1419,6 @@
 					<string>泰兴市</string>
 					<string>靖江市</string>
 					<string>兴化市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>泰州</string>
@@ -1501,7 +1433,6 @@
 					<string>仪征市</string>
 					<string>高邮市</string>
 					<string>宝应县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>扬州</string>
@@ -1518,7 +1449,6 @@
 					<string>阜宁县</string>
 					<string>滨海县</string>
 					<string>响水县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>盐城</string>
@@ -1533,7 +1463,6 @@
 					<string>灌云县</string>
 					<string>赣榆县</string>
 					<string>灌南县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>连云港</string>
@@ -1552,7 +1481,6 @@
 					<string>睢宁县</string>
 					<string>沛县</string>
 					<string>丰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>徐州</string>
@@ -1568,7 +1496,6 @@
 					<string>洪泽县</string>
 					<string>金湖县</string>
 					<string>盱眙县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>淮安</string>
@@ -1581,18 +1508,9 @@
 					<string>沭阳县</string>
 					<string>泗阳县</string>
 					<string>泗洪县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宿迁</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -1617,7 +1535,6 @@
 					<string>临安市</string>
 					<string>桐庐县</string>
 					<string>淳安县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>杭州</string>
@@ -1636,7 +1553,6 @@
 					<string>奉化市</string>
 					<string>宁海县</string>
 					<string>象山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宁波</string>
@@ -1655,7 +1571,6 @@
 					<string>苍南县</string>
 					<string>文成县</string>
 					<string>泰顺县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>温州</string>
@@ -1670,7 +1585,6 @@
 					<string>桐乡市</string>
 					<string>嘉善县</string>
 					<string>海盐县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>嘉兴</string>
@@ -1683,7 +1597,6 @@
 					<string>长兴县</string>
 					<string>德清县</string>
 					<string>安吉县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>湖州</string>
@@ -1697,7 +1610,6 @@
 					<string>嵊州市</string>
 					<string>绍兴县</string>
 					<string>新昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>绍兴</string>
@@ -1714,7 +1626,6 @@
 					<string>武义县</string>
 					<string>浦江县</string>
 					<string>磐安县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>金华</string>
@@ -1728,7 +1639,6 @@
 					<string>龙游县</string>
 					<string>常山县</string>
 					<string>开化县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>衢州</string>
@@ -1740,7 +1650,6 @@
 					<string>普陀区</string>
 					<string>岱山县</string>
 					<string>嵊泗县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>舟山</string>
@@ -1757,7 +1666,6 @@
 					<string>天台县</string>
 					<string>仙居县</string>
 					<string>三门县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>台州</string>
@@ -1774,18 +1682,9 @@
 					<string>松阳县</string>
 					<string>庆元县</string>
 					<string>景宁畲族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>丽水</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -1804,7 +1703,6 @@
 					<string>长丰县</string>
 					<string>肥东县</string>
 					<string>肥西县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>合肥</string>
@@ -1819,7 +1717,6 @@
 					<string>芜湖县</string>
 					<string>南陵县</string>
 					<string>繁昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>芜湖</string>
@@ -1834,7 +1731,6 @@
 					<string>怀远县</string>
 					<string>固镇县</string>
 					<string>五河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>蚌埠</string>
@@ -1848,7 +1744,6 @@
 					<string>八公山区</string>
 					<string>潘集区</string>
 					<string>凤台县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>淮南</string>
@@ -1860,7 +1755,6 @@
 					<string>花山区</string>
 					<string>金家庄区</string>
 					<string>当涂县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>马鞍山</string>
@@ -1872,7 +1766,6 @@
 					<string>杜集区</string>
 					<string>烈山区</string>
 					<string>濉溪县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>淮北</string>
@@ -1884,7 +1777,6 @@
 					<string>狮子山区</string>
 					<string>郊区</string>
 					<string>铜陵县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>铜陵</string>
@@ -1903,7 +1795,6 @@
 					<string>岳西县</string>
 					<string>望江县</string>
 					<string>潜山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>安庆</string>
@@ -1918,7 +1809,6 @@
 					<string>歙县</string>
 					<string>祁门县</string>
 					<string>黟县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黄山</string>
@@ -1934,7 +1824,6 @@
 					<string>来安县</string>
 					<string>定远县</string>
 					<string>凤阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>滁州</string>
@@ -1950,7 +1839,6 @@
 					<string>颍上县</string>
 					<string>阜南县</string>
 					<string>太和县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阜阳</string>
@@ -1963,7 +1851,6 @@
 					<string>泗县</string>
 					<string>砀山县</string>
 					<string>灵璧县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宿州</string>
@@ -1976,7 +1863,6 @@
 					<string>无为县</string>
 					<string>庐江县</string>
 					<string>和县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>巢湖</string>
@@ -1991,7 +1877,6 @@
 					<string>霍邱县</string>
 					<string>舒城县</string>
 					<string>金寨县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>六安</string>
@@ -2003,7 +1888,6 @@
 					<string>利辛县</string>
 					<string>涡阳县</string>
 					<string>蒙城县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>亳州</string>
@@ -2015,7 +1899,6 @@
 					<string>东至县</string>
 					<string>石台县</string>
 					<string>青阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>池州</string>
@@ -2030,18 +1913,9 @@
 					<string>泾县</string>
 					<string>旌德县</string>
 					<string>绩溪县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宣城</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -2066,7 +1940,6 @@
 					<string>连江县</string>
 					<string>罗源县</string>
 					<string>平潭县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>福州</string>
@@ -2080,7 +1953,6 @@
 					<string>集美区</string>
 					<string>同安区</string>
 					<string>翔安区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>厦门</string>
@@ -2093,7 +1965,6 @@
 					<string>荔城区</string>
 					<string>秀屿区</string>
 					<string>仙游县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>莆田</string>
@@ -2113,7 +1984,6 @@
 					<string>尤溪县</string>
 					<string>清流县</string>
 					<string>泰宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>三明</string>
@@ -2133,7 +2003,6 @@
 					<string>安溪县</string>
 					<string>德化县</string>
 					<string>金门县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>泉州</string>
@@ -2152,7 +2021,6 @@
 					<string>东山县</string>
 					<string>长泰县</string>
 					<string>云霄县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>漳州</string>
@@ -2170,7 +2038,6 @@
 					<string>顺昌县</string>
 					<string>浦城县</string>
 					<string>政和县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南平</string>
@@ -2185,7 +2052,6 @@
 					<string>上杭县</string>
 					<string>永定县</string>
 					<string>连城县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>龙岩</string>
@@ -2202,18 +2068,9 @@
 					<string>屏南县</string>
 					<string>古田县</string>
 					<string>周宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宁德</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -2234,7 +2091,6 @@
 					<string>南昌县</string>
 					<string>进贤县</string>
 					<string>安义县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南昌</string>
@@ -2246,7 +2102,6 @@
 					<string>昌江区</string>
 					<string>乐平市</string>
 					<string>浮梁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>景德镇</string>
@@ -2259,7 +2114,6 @@
 					<string>莲花县</string>
 					<string>上栗县</string>
 					<string>芦溪县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>萍乡</string>
@@ -2279,7 +2133,6 @@
 					<string>湖口县</string>
 					<string>德安县</string>
 					<string>都昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>九江</string>
@@ -2289,7 +2142,6 @@
 				<array>
 					<string>渝水区</string>
 					<string>分宜县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>新余</string>
@@ -2300,7 +2152,6 @@
 					<string>月湖区</string>
 					<string>贵溪市</string>
 					<string>余江县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鹰潭</string>
@@ -2326,7 +2177,6 @@
 					<string>全南县</string>
 					<string>大余县</string>
 					<string>会昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>赣州</string>
@@ -2347,7 +2197,6 @@
 					<string>安福县</string>
 					<string>吉水县</string>
 					<string>万安县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>吉安</string>
@@ -2365,7 +2214,6 @@
 					<string>奉新县</string>
 					<string>万载县</string>
 					<string>上高县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宜春</string>
@@ -2384,7 +2232,6 @@
 					<string>广昌县</string>
 					<string>黎川县</string>
 					<string>崇仁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>抚州</string>
@@ -2404,18 +2251,9 @@
 					<string>弋阳县</string>
 					<string>玉山县</string>
 					<string>万年县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>上饶</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -2437,7 +2275,6 @@
 					<string>平阴县</string>
 					<string>济阳县</string>
 					<string>商河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>济南</string>
@@ -2457,7 +2294,6 @@
 					<string>平度市</string>
 					<string>莱西市</string>
 					<string>即墨市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>青岛</string>
@@ -2473,7 +2309,6 @@
 					<string>桓台县</string>
 					<string>高青县</string>
 					<string>沂源县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>淄博</string>
@@ -2487,7 +2322,6 @@
 					<string>台儿庄区</string>
 					<string>薛城区</string>
 					<string>滕州市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>枣庄</string>
@@ -2500,7 +2334,6 @@
 					<string>垦利县</string>
 					<string>广饶县</string>
 					<string>利津县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>东营</string>
@@ -2520,7 +2353,6 @@
 					<string>栖霞市</string>
 					<string>海阳市</string>
 					<string>长岛县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>烟台</string>
@@ -2540,7 +2372,6 @@
 					<string>昌邑市</string>
 					<string>昌乐县</string>
 					<string>临朐县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>潍坊</string>
@@ -2560,7 +2391,6 @@
 					<string>汶上县</string>
 					<string>泗水县</string>
 					<string>梁山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>济宁</string>
@@ -2574,7 +2404,6 @@
 					<string>肥城市</string>
 					<string>宁阳县</string>
 					<string>东平县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>泰安</string>
@@ -2586,7 +2415,6 @@
 					<string>乳山市</string>
 					<string>文登市</string>
 					<string>荣成市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>威海</string>
@@ -2598,7 +2426,6 @@
 					<string>岚山区</string>
 					<string>五莲县</string>
 					<string>莒县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>日照</string>
@@ -2608,7 +2435,6 @@
 				<array>
 					<string>莱城区</string>
 					<string>钢城区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>莱芜</string>
@@ -2628,7 +2454,6 @@
 					<string>莒南县</string>
 					<string>蒙阴县</string>
 					<string>临沭县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>临沂</string>
@@ -2647,7 +2472,6 @@
 					<string>平原县</string>
 					<string>夏津县</string>
 					<string>临邑县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>德州</string>
@@ -2663,7 +2487,6 @@
 					<string>莘县</string>
 					<string>东阿县</string>
 					<string>冠县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>聊城</string>
@@ -2678,7 +2501,6 @@
 					<string>博兴县</string>
 					<string>阳信县</string>
 					<string>无棣县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>滨州</string>
@@ -2695,18 +2517,9 @@
 					<string>巨野县</string>
 					<string>东明县</string>
 					<string>成武县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>菏泽</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -2730,7 +2543,6 @@
 					<string>登封市</string>
 					<string>荥阳市</string>
 					<string>中牟县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>郑州</string>
@@ -2748,7 +2560,6 @@
 					<string>兰考县</string>
 					<string>杞县</string>
 					<string>通许县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>开封</string>
@@ -2771,7 +2582,6 @@
 					<string>宜阳县</string>
 					<string>新安县</string>
 					<string>栾川县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>洛阳</string>
@@ -2789,7 +2599,6 @@
 					<string>叶县</string>
 					<string>郏县</string>
 					<string>鲁山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>平顶山</string>
@@ -2806,7 +2615,6 @@
 					<string>滑县</string>
 					<string>内黄县</string>
 					<string>汤阴县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>安阳</string>
@@ -2819,7 +2627,6 @@
 					<string>鹤山区</string>
 					<string>浚县</string>
 					<string>淇县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鹤壁</string>
@@ -2839,7 +2646,6 @@
 					<string>长垣县</string>
 					<string>封丘县</string>
 					<string>延津县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>新乡</string>
@@ -2857,7 +2663,6 @@
 					<string>温县</string>
 					<string>武陟县</string>
 					<string>博爱县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>焦作</string>
@@ -2871,7 +2676,6 @@
 					<string>台前县</string>
 					<string>清丰县</string>
 					<string>范县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>濮阳</string>
@@ -2885,7 +2689,6 @@
 					<string>许昌县</string>
 					<string>鄢陵县</string>
 					<string>襄城县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>许昌</string>
@@ -2898,7 +2701,6 @@
 					<string>召陵区</string>
 					<string>临颍县</string>
 					<string>舞阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>漯河</string>
@@ -2912,7 +2714,6 @@
 					<string>渑池县</string>
 					<string>卢氏县</string>
 					<string>陕县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>三门峡</string>
@@ -2933,7 +2734,6 @@
 					<string>新野县</string>
 					<string>社旗县</string>
 					<string>西峡县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南阳</string>
@@ -2950,7 +2750,6 @@
 					<string>夏邑县</string>
 					<string>柘城县</string>
 					<string>睢县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>商丘</string>
@@ -2968,7 +2767,6 @@
 					<string>固始县</string>
 					<string>罗山县</string>
 					<string>光山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>信阳</string>
@@ -2986,7 +2784,6 @@
 					<string>扶沟县</string>
 					<string>沈丘县</string>
 					<string>郸城县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>周口</string>
@@ -3004,7 +2801,6 @@
 					<string>汝南县</string>
 					<string>遂平县</string>
 					<string>正阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>驻马店</string>
@@ -3013,18 +2809,9 @@
 				<key>area</key>
 				<array>
 					<string>济源市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>焦作</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -3049,7 +2836,6 @@
 					<string>江夏区</string>
 					<string>黄陂区</string>
 					<string>新洲区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>武汉</string>
@@ -3063,7 +2849,6 @@
 					<string>铁山区</string>
 					<string>大冶市</string>
 					<string>阳新县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黄石</string>
@@ -3079,7 +2864,6 @@
 					<string>房县</string>
 					<string>郧西县</string>
 					<string>竹溪县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>十堰</string>
@@ -3095,7 +2879,6 @@
 					<string>监利县</string>
 					<string>公安县</string>
 					<string>江陵县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>荆州</string>
@@ -3116,7 +2899,6 @@
 					<string>兴山县</string>
 					<string>五峰土家族自治县</string>
 					<string>长阳土家族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宜昌</string>
@@ -3133,7 +2915,6 @@
 					<string>南漳县</string>
 					<string>谷城县</string>
 					<string>保康县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>襄樊</string>
@@ -3144,7 +2925,6 @@
 					<string>鄂城区</string>
 					<string>华容区</string>
 					<string>梁子湖区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>鄂州</string>
@@ -3157,7 +2937,6 @@
 					<string>钟祥市</string>
 					<string>京山县</string>
 					<string>沙洋县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>荆门</string>
@@ -3172,7 +2951,6 @@
 					<string>云梦县</string>
 					<string>大悟县</string>
 					<string>孝昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>孝感</string>
@@ -3190,7 +2968,6 @@
 					<string>黄梅县</string>
 					<string>英山县</string>
 					<string>团风县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黄冈</string>
@@ -3204,7 +2981,6 @@
 					<string>通山县</string>
 					<string>崇阳县</string>
 					<string>通城县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>咸宁</string>
@@ -3214,7 +2990,6 @@
 				<array>
 					<string>曾都区</string>
 					<string>广水市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>随州</string>
@@ -3230,7 +3005,6 @@
 					<string>鹤峰县</string>
 					<string>宣恩县</string>
 					<string>咸丰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>恩施土家族苗族自治州</string>
@@ -3267,14 +3041,6 @@
 				<key>name</key>
 				<string>神农架林区</string>
 			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
-			</dict>
 		</array>
 		<key>name</key>
 		<string>湖北</string>
@@ -3294,7 +3060,6 @@
 					<string>长沙县</string>
 					<string>望城县</string>
 					<string>宁乡县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>长沙</string>
@@ -3311,7 +3076,6 @@
 					<string>炎陵县</string>
 					<string>茶陵县</string>
 					<string>攸县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>株洲</string>
@@ -3324,7 +3088,6 @@
 					<string>湘乡市</string>
 					<string>韶山市</string>
 					<string>湘潭县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>湘潭</string>
@@ -3344,7 +3107,6 @@
 					<string>衡山县</string>
 					<string>衡南县</string>
 					<string>祁东县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>衡阳</string>
@@ -3364,7 +3126,6 @@
 					<string>邵阳县</string>
 					<string>隆回县</string>
 					<string>城步苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>邵阳</string>
@@ -3381,7 +3142,6 @@
 					<string>湘阴县</string>
 					<string>平江县</string>
 					<string>华容县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>岳阳</string>
@@ -3398,7 +3158,6 @@
 					<string>汉寿县</string>
 					<string>安乡县</string>
 					<string>石门县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>常德</string>
@@ -3410,7 +3169,6 @@
 					<string>武陵源区</string>
 					<string>慈利县</string>
 					<string>桑植县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>张家界</string>
@@ -3424,7 +3182,6 @@
 					<string>桃江县</string>
 					<string>南县</string>
 					<string>安化县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>益阳</string>
@@ -3443,7 +3200,6 @@
 					<string>桂东县</string>
 					<string>永兴县</string>
 					<string>桂阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>郴州</string>
@@ -3462,7 +3218,6 @@
 					<string>道县</string>
 					<string>双牌县</string>
 					<string>江华瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>永州</string>
@@ -3482,7 +3237,6 @@
 					<string>通道侗族自治县</string>
 					<string>靖州苗族侗族自治县</string>
 					<string>麻阳苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>怀化</string>
@@ -3495,7 +3249,6 @@
 					<string>涟源市</string>
 					<string>新化县</string>
 					<string>双峰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>娄底</string>
@@ -3511,18 +3264,9 @@
 					<string>泸溪县</string>
 					<string>保靖县</string>
 					<string>花垣县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>湘西土家族苗族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -3546,7 +3290,6 @@
 					<string>萝岗区</string>
 					<string>增城市</string>
 					<string>从化市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>广州</string>
@@ -3560,7 +3303,6 @@
 					<string>宝安区</string>
 					<string>龙岗区</string>
 					<string>盐田区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>深圳</string>
@@ -3573,7 +3315,6 @@
 					<string>塘厦</string>
 					<string>塘厦</string>
 					<string>塘厦</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>东莞</string>
@@ -3592,7 +3333,6 @@
 					<string>湘桥区</string>
 					<string>潮安县</string>
 					<string>饶平县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>潮州</string>
@@ -3605,7 +3345,6 @@
 					<string>揭西县</string>
 					<string>惠来县</string>
 					<string>普宁市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>揭阳</string>
@@ -3618,7 +3357,6 @@
 					<string>郁南县</string>
 					<string>云安县</string>
 					<string>罗定市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>云浮</string>
@@ -3629,7 +3367,6 @@
 					<string>香洲区</string>
 					<string>斗门区</string>
 					<string>金湾区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>珠海</string>
@@ -3644,7 +3381,6 @@
 					<string>潮南区</string>
 					<string>澄海区</string>
 					<string>南澳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>汕头</string>
@@ -3662,7 +3398,6 @@
 					<string>翁源县</string>
 					<string>新丰县</string>
 					<string>乳源瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>韶关</string>
@@ -3675,7 +3410,6 @@
 					<string>顺德区</string>
 					<string>三水区</string>
 					<string>高明区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>佛山</string>
@@ -3690,7 +3424,6 @@
 					<string>台山市</string>
 					<string>开平市</string>
 					<string>鹤山市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>江门</string>
@@ -3707,7 +3440,6 @@
 					<string>雷州市</string>
 					<string>遂溪县</string>
 					<string>徐闻县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>湛江</string>
@@ -3721,7 +3453,6 @@
 					<string>信宜市</string>
 					<string>高州市</string>
 					<string>电白县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>茂名</string>
@@ -3737,7 +3468,6 @@
 					<string>怀集县</string>
 					<string>封开县</string>
 					<string>德庆县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>肇庆</string>
@@ -3750,7 +3480,6 @@
 					<string>博罗县</string>
 					<string>惠东县</string>
 					<string>龙门县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>惠州</string>
@@ -3766,7 +3495,6 @@
 					<string>五华县</string>
 					<string>平远县</string>
 					<string>蕉岭县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>梅州</string>
@@ -3778,7 +3506,6 @@
 					<string>陆丰市</string>
 					<string>海丰县</string>
 					<string>陆河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>汕尾</string>
@@ -3792,7 +3519,6 @@
 					<string>连平县</string>
 					<string>和平县</string>
 					<string>东源县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>河源</string>
@@ -3804,7 +3530,6 @@
 					<string>阳春市</string>
 					<string>阳西县</string>
 					<string>阳东县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阳江</string>
@@ -3820,7 +3545,6 @@
 					<string>清新县</string>
 					<string>连山壮族瑶族自治县</string>
 					<string>连南瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>清远</string>
@@ -3847,7 +3571,6 @@
 					<string>上林县</string>
 					<string>宾阳县</string>
 					<string>横县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南宁</string>
@@ -3865,7 +3588,6 @@
 					<string>融安县</string>
 					<string>融水苗族自治县</string>
 					<string>三江侗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>柳州</string>
@@ -3890,7 +3612,6 @@
 					<string>永福县</string>
 					<string>龙胜各族自治县</string>
 					<string>恭城瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>桂林</string>
@@ -3905,7 +3626,6 @@
 					<string>苍梧县</string>
 					<string>藤县</string>
 					<string>蒙山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>梧州</string>
@@ -3917,7 +3637,6 @@
 					<string>银海区</string>
 					<string>铁山港区</string>
 					<string>合浦县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>北海</string>
@@ -3929,7 +3648,6 @@
 					<string>防城区</string>
 					<string>东兴市</string>
 					<string>上思县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>防城港</string>
@@ -3941,7 +3659,6 @@
 					<string>钦北区</string>
 					<string>灵山县</string>
 					<string>浦北县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>钦州</string>
@@ -3954,7 +3671,6 @@
 					<string>覃塘区</string>
 					<string>桂平市</string>
 					<string>平南县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>贵港</string>
@@ -3968,7 +3684,6 @@
 					<string>陆川县</string>
 					<string>博白县</string>
 					<string>兴业县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>玉林</string>
@@ -3988,7 +3703,6 @@
 					<string>田东县</string>
 					<string>那坡县</string>
 					<string>隆林各族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>百色</string>
@@ -4000,7 +3714,6 @@
 					<string>钟山县</string>
 					<string>昭平县</string>
 					<string>富川瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>贺州</string>
@@ -4019,7 +3732,6 @@
 					<string>巴马瑶族自治县</string>
 					<string>环江毛南族自治县</string>
 					<string>大化瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>河池</string>
@@ -4033,7 +3745,6 @@
 					<string>武宣县</string>
 					<string>忻城县</string>
 					<string>金秀瑶族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>来宾</string>
@@ -4048,18 +3759,9 @@
 					<string>龙州县</string>
 					<string>大新县</string>
 					<string>天等县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>崇左</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -4075,7 +3777,6 @@
 					<string>秀英区</string>
 					<string>琼山区</string>
 					<string>美兰区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>海口</string>
@@ -4084,7 +3785,6 @@
 				<key>area</key>
 				<array>
 					<string>三亚市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>三亚</string>
@@ -4217,14 +3917,6 @@
 				<key>name</key>
 				<string>琼中黎族苗族自治县</string>
 			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
-			</dict>
 		</array>
 		<key>name</key>
 		<string>海南</string>
@@ -4275,7 +3967,6 @@
 					<string>秀山土家族苗族自治县</string>
 					<string>酉阳土家族苗族自治县</string>
 					<string>彭水苗族土家族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>重庆</string>
@@ -4309,7 +4000,6 @@
 					<string>双流县</string>
 					<string>蒲江县</string>
 					<string>大邑县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>成都</string>
@@ -4323,7 +4013,6 @@
 					<string>沿滩区</string>
 					<string>荣县</string>
 					<string>富顺县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>自贡</string>
@@ -4336,7 +4025,6 @@
 					<string>盐边县</string>
 					<string>东区</string>
 					<string>西区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>攀枝花</string>
@@ -4351,7 +4039,6 @@
 					<string>合江县</string>
 					<string>叙永县</string>
 					<string>古蔺县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>泸州</string>
@@ -4365,7 +4052,6 @@
 					<string>绵竹市</string>
 					<string>罗江县</string>
 					<string>中江县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>德阳</string>
@@ -4382,7 +4068,6 @@
 					<string>安县</string>
 					<string>梓潼县</string>
 					<string>北川羌族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>绵阳</string>
@@ -4397,7 +4082,6 @@
 					<string>剑阁县</string>
 					<string>苍溪县</string>
 					<string>市中区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>广元</string>
@@ -4410,7 +4094,6 @@
 					<string>射洪县</string>
 					<string>蓬溪县</string>
 					<string>大英县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>遂宁</string>
@@ -4423,7 +4106,6 @@
 					<string>资中县</string>
 					<string>隆昌县</string>
 					<string>威远县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>内江</string>
@@ -4442,7 +4124,6 @@
 					<string>沐川县</string>
 					<string>马边彝族自治县</string>
 					<string>峨边彝族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>乐山</string>
@@ -4459,7 +4140,6 @@
 					<string>仪陇县</string>
 					<string>南部县</string>
 					<string>西充县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>南充</string>
@@ -4473,7 +4153,6 @@
 					<string>洪雅县</string>
 					<string>丹棱县</string>
 					<string>青神县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>眉山</string>
@@ -4491,7 +4170,6 @@
 					<string>江安县</string>
 					<string>筠连县</string>
 					<string>屏山县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宜宾</string>
@@ -4504,7 +4182,6 @@
 					<string>岳池县</string>
 					<string>邻水县</string>
 					<string>武胜县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>广安</string>
@@ -4519,7 +4196,6 @@
 					<string>宣汉县</string>
 					<string>开江县</string>
 					<string>大竹县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>达州</string>
@@ -4535,7 +4211,6 @@
 					<string>荥经县</string>
 					<string>宝兴县</string>
 					<string>汉源县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>雅安</string>
@@ -4547,7 +4222,6 @@
 					<string>南江县</string>
 					<string>平昌县</string>
 					<string>通江县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>巴中</string>
@@ -4559,7 +4233,6 @@
 					<string>简阳市</string>
 					<string>安岳县</string>
 					<string>乐至县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>资阳</string>
@@ -4580,7 +4253,6 @@
 					<string>松潘县</string>
 					<string>壤塘县</string>
 					<string>茂县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阿坝藏族羌族自治州</string>
@@ -4606,7 +4278,6 @@
 					<string>巴塘县</string>
 					<string>泸定县</string>
 					<string>得荣县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>甘孜藏族自治州</string>
@@ -4631,18 +4302,9 @@
 					<string>德昌县</string>
 					<string>冕宁县</string>
 					<string>木里藏族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>凉山彝族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -4664,7 +4326,6 @@
 					<string>开阳县</string>
 					<string>修文县</string>
 					<string>息烽县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>贵阳</string>
@@ -4676,7 +4337,6 @@
 					<string>水城县</string>
 					<string>盘县</string>
 					<string>六枝特区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>六盘水</string>
@@ -4698,7 +4358,6 @@
 					<string>湄潭县</string>
 					<string>道真仡佬族苗族自治县</string>
 					<string>务川仡佬族苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>遵义</string>
@@ -4712,7 +4371,6 @@
 					<string>镇宁布依族苗族自治县</string>
 					<string>紫云苗族布依族自治县</string>
 					<string>关岭布依族苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>安顺</string>
@@ -4730,7 +4388,6 @@
 					<string>印江土家族苗族自治县</string>
 					<string>沿河土家族自治县</string>
 					<string>万山特区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>铜仁地区</string>
@@ -4746,7 +4403,6 @@
 					<string>赫章县</string>
 					<string>纳雍县</string>
 					<string>威宁彝族回族苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>毕节地区</string>
@@ -4762,7 +4418,6 @@
 					<string>晴隆县</string>
 					<string>贞丰县</string>
 					<string>安龙县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黔西南布依族苗族自治州</string>
@@ -4786,7 +4441,6 @@
 					<string>黎平县</string>
 					<string>岑巩县</string>
 					<string>丹寨县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黔东南苗族侗族自治州</string>
@@ -4806,18 +4460,9 @@
 					<string>长顺县</string>
 					<string>独山县</string>
 					<string>三都水族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黔南布依族苗族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -4843,7 +4488,6 @@
 					<string>石林彝族自治县</string>
 					<string>禄劝彝族苗族自治县</string>
 					<string>寻甸回族彝族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>昆明</string>
@@ -4860,7 +4504,6 @@
 					<string>师宗县</string>
 					<string>陆良县</string>
 					<string>会泽县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>曲靖</string>
@@ -4877,7 +4520,6 @@
 					<string>峨山彝族自治县</string>
 					<string>新平彝族傣族自治县</string>
 					<string>元江哈尼族彝族傣族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>玉溪</string>
@@ -4890,7 +4532,6 @@
 					<string>腾冲县</string>
 					<string>龙陵县</string>
 					<string>昌宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>保山</string>
@@ -4909,7 +4550,6 @@
 					<string>彝良县</string>
 					<string>威信县</string>
 					<string>水富县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>昭通</string>
@@ -4922,7 +4562,6 @@
 					<string>华坪县</string>
 					<string>玉龙纳西族自治县</string>
 					<string>宁蒗彝族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>丽江</string>
@@ -4940,7 +4579,6 @@
 					<string>孟连傣族拉祜族佤族自治县</string>
 					<string>澜沧拉祜族自治县</string>
 					<string>西盟佤族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>普洱</string>
@@ -4956,7 +4594,6 @@
 					<string>双江拉祜族佤族布朗族傣族自治县</string>
 					<string>耿马傣族佤族自治县</string>
 					<string>沧源佤族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>临沧</string>
@@ -4969,7 +4606,6 @@
 					<string>梁河县</string>
 					<string>盈江县</string>
 					<string>陇川县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>德宏傣族景颇族自治州</string>
@@ -4981,7 +4617,6 @@
 					<string>福贡县</string>
 					<string>贡山独龙族怒族自治县</string>
 					<string>兰坪白族普米族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>怒江傈僳族自治州</string>
@@ -4992,7 +4627,6 @@
 					<string>香格里拉县</string>
 					<string>德钦县</string>
 					<string>维西傈僳族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>迪庆藏族自治州</string>
@@ -5012,7 +4646,6 @@
 					<string>漾濞彝族自治县</string>
 					<string>南涧彝族自治县</string>
 					<string>巍山彝族回族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>大理白族自治州</string>
@@ -5030,7 +4663,6 @@
 					<string>元谋县</string>
 					<string>武定县</string>
 					<string>禄丰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>楚雄彝族自治州</string>
@@ -5051,7 +4683,6 @@
 					<string>金平苗族瑶族傣族自治县</string>
 					<string>河口瑶族自治县</string>
 					<string>屏边苗族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>红河哈尼族彝族自治州</string>
@@ -5067,7 +4698,6 @@
 					<string>丘北县</string>
 					<string>广南县</string>
 					<string>富宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>文山壮族苗族自治州</string>
@@ -5078,18 +4708,9 @@
 					<string>景洪市</string>
 					<string>勐海县</string>
 					<string>勐腊县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>西双版纳傣族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5109,7 +4730,6 @@
 					<string>堆龙德庆县</string>
 					<string>达孜县</string>
 					<string>墨竹工卡县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>拉萨</string>
@@ -5127,7 +4747,6 @@
 					<string>班戈县</string>
 					<string>巴青县</string>
 					<string>尼玛县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>那曲地区</string>
@@ -5146,7 +4765,6 @@
 					<string>芒康县</string>
 					<string>洛隆县</string>
 					<string>边坝县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>昌都地区</string>
@@ -5161,7 +4779,6 @@
 					<string>波密县</string>
 					<string>察隅县</string>
 					<string>朗县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>林芝地区</string>
@@ -5181,7 +4798,6 @@
 					<string>隆子县</string>
 					<string>错那县</string>
 					<string>浪卡子县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>山南地区</string>
@@ -5207,7 +4823,6 @@
 					<string>聂拉木县</string>
 					<string>萨嘎县</string>
 					<string>岗巴县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>日喀则地区</string>
@@ -5222,18 +4837,9 @@
 					<string>革吉县</string>
 					<string>改则县</string>
 					<string>措勤县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阿里地区</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5258,7 +4864,6 @@
 					<string>蓝田县</string>
 					<string>户县</string>
 					<string>周至县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>西安</string>
@@ -5270,7 +4875,6 @@
 					<string>王益区</string>
 					<string>印台区</string>
 					<string>宜君县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>铜川</string>
@@ -5290,7 +4894,6 @@
 					<string>千阳县</string>
 					<string>眉县</string>
 					<string>凤县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>宝鸡</string>
@@ -5312,7 +4915,6 @@
 					<string>乾县</string>
 					<string>武功县</string>
 					<string>淳化县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>咸阳</string>
@@ -5331,7 +4933,6 @@
 					<string>合阳县</string>
 					<string>富平县</string>
 					<string>大荔县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>渭南</string>
@@ -5352,7 +4953,6 @@
 					<string>志丹县</string>
 					<string>黄龙县</string>
 					<string>吴起县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>延安</string>
@@ -5371,7 +4971,6 @@
 					<string>勉县</string>
 					<string>西乡县</string>
 					<string>略阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>汉中</string>
@@ -5391,7 +4990,6 @@
 					<string>米脂县</string>
 					<string>吴堡县</string>
 					<string>定边县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>榆林</string>
@@ -5409,7 +5007,6 @@
 					<string>宁陕县</string>
 					<string>白河县</string>
 					<string>汉阴县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>安康</string>
@@ -5424,18 +5021,9 @@
 					<string>商南县</string>
 					<string>丹凤县</string>
 					<string>柞水县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>商洛</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5455,7 +5043,6 @@
 					<string>永登县</string>
 					<string>皋兰县</string>
 					<string>榆中县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>兰州</string>
@@ -5464,7 +5051,6 @@
 				<key>area</key>
 				<array>
 					<string>嘉峪关市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>嘉峪关</string>
@@ -5474,7 +5060,6 @@
 				<array>
 					<string>金川区</string>
 					<string>永昌县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>金昌</string>
@@ -5487,7 +5072,6 @@
 					<string>靖远县</string>
 					<string>会宁县</string>
 					<string>景泰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>白银</string>
@@ -5502,7 +5086,6 @@
 					<string>张家川回族自治县</string>
 					<string>北道区</string>
 					<string>秦城区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>天水</string>
@@ -5514,7 +5097,6 @@
 					<string>民勤县</string>
 					<string>古浪县</string>
 					<string>天祝藏族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>武威</string>
@@ -5529,7 +5111,6 @@
 					<string>肃北蒙古族自治县</string>
 					<string>阿克塞哈萨克族自治县</string>
 					<string>安西县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>酒泉</string>
@@ -5543,7 +5124,6 @@
 					<string>高台县</string>
 					<string>山丹县</string>
 					<string>肃南裕固族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>张掖</string>
@@ -5559,7 +5139,6 @@
 					<string>正宁县</string>
 					<string>宁县</string>
 					<string>镇原县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>庆阳</string>
@@ -5574,7 +5153,6 @@
 					<string>华亭县</string>
 					<string>庄浪县</string>
 					<string>静宁县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>平凉</string>
@@ -5589,7 +5167,6 @@
 					<string>岷县</string>
 					<string>渭源县</string>
 					<string>陇西县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>定西</string>
@@ -5606,7 +5183,6 @@
 					<string>礼县</string>
 					<string>两当县</string>
 					<string>徽县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>陇南</string>
@@ -5622,7 +5198,6 @@
 					<string>和政县</string>
 					<string>东乡族自治县</string>
 					<string>积石山保安族东乡族撒拉族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>临夏回族自治州</string>
@@ -5638,18 +5213,9 @@
 					<string>玛曲县</string>
 					<string>碌曲县</string>
 					<string>夏河县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>甘南藏族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5668,7 +5234,6 @@
 					<string>湟源县</string>
 					<string>湟中县</string>
 					<string>大通回族土族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>西宁</string>
@@ -5682,7 +5247,6 @@
 					<string>互助土族自治县</string>
 					<string>化隆回族自治县</string>
 					<string>循化撒拉族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>海东地区</string>
@@ -5694,7 +5258,6 @@
 					<string>祁连县</string>
 					<string>刚察县</string>
 					<string>门源回族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>海北藏族自治州</string>
@@ -5707,7 +5270,6 @@
 					<string>贵德县</string>
 					<string>兴海县</string>
 					<string>贵南县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>海南藏族自治州</string>
@@ -5719,7 +5281,6 @@
 					<string>尖扎县</string>
 					<string>泽库县</string>
 					<string>河南蒙古族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>黄南藏族自治州</string>
@@ -5733,7 +5294,6 @@
 					<string>达日县</string>
 					<string>久治县</string>
 					<string>玛多县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>果洛藏族自治州</string>
@@ -5747,7 +5307,6 @@
 					<string>治多县</string>
 					<string>囊谦县</string>
 					<string>曲麻莱县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>玉树藏族自治州</string>
@@ -5760,18 +5319,9 @@
 					<string>乌兰县</string>
 					<string>都兰县</string>
 					<string>天峻县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>海西蒙古族藏族自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5789,7 +5339,6 @@
 					<string>灵武市</string>
 					<string>永宁县</string>
 					<string>贺兰县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>银川</string>
@@ -5800,7 +5349,6 @@
 					<string>大武口区</string>
 					<string>惠农区</string>
 					<string>平罗县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>石嘴山</string>
@@ -5812,7 +5360,6 @@
 					<string>青铜峡市</string>
 					<string>盐池县</string>
 					<string>同心县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>吴忠</string>
@@ -5825,7 +5372,6 @@
 					<string>隆德县</string>
 					<string>泾源县</string>
 					<string>彭阳县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>固原</string>
@@ -5836,18 +5382,9 @@
 					<string>沙坡头区</string>
 					<string>中宁县</string>
 					<string>海原县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>中卫</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -5867,7 +5404,6 @@
 					<string>达坂城区</string>
 					<string>东山区</string>
 					<string>乌鲁木齐县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>乌鲁木齐</string>
@@ -5879,7 +5415,6 @@
 					<string>独山子区</string>
 					<string>白碱滩区</string>
 					<string>乌尔禾区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>克拉玛依</string>
@@ -5890,7 +5425,6 @@
 					<string>吐鲁番市</string>
 					<string>托克逊县</string>
 					<string>鄯善县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>吐鲁番地区</string>
@@ -5901,7 +5435,6 @@
 					<string>哈密市</string>
 					<string>伊吾县</string>
 					<string>巴里坤哈萨克自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>哈密地区</string>
@@ -5917,7 +5450,6 @@
 					<string>策勒县</string>
 					<string>于田县</string>
 					<string>墨玉县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>和田地区</string>
@@ -5934,7 +5466,6 @@
 					<string>柯坪县</string>
 					<string>新和县</string>
 					<string>乌什县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>阿克苏地区</string>
@@ -5954,7 +5485,6 @@
 					<string>莎车县</string>
 					<string>疏附县</string>
 					<string>塔什库尔干塔吉克自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>喀什地区</string>
@@ -5966,7 +5496,6 @@
 					<string>阿合奇县</string>
 					<string>乌恰县</string>
 					<string>阿克陶县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>克孜勒苏柯尔克孜自治州</string>
@@ -5983,7 +5512,6 @@
 					<string>轮台县</string>
 					<string>若羌县</string>
 					<string>焉耆回族自治县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>巴音郭楞蒙古自治州</string>
@@ -5999,7 +5527,6 @@
 					<string>呼图壁县</string>
 					<string>木垒哈萨克自治县</string>
 					<string>米泉市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>昌吉回族自治州</string>
@@ -6010,7 +5537,6 @@
 					<string>博乐市</string>
 					<string>精河县</string>
 					<string>温泉县</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>博尔塔拉蒙古自治州</string>
@@ -6062,18 +5588,9 @@
 					<string>察布查尔锡伯自治县</string>
 					<string>塔城地区</string>
 					<string>阿勒泰地区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>伊犁哈萨克自治州</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -6108,18 +5625,9 @@
 					<string>台中市</string>
 					<string>嘉义市</string>
 					<string>台南市</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>台湾</string>
-			</dict>
-			<dict>
-				<key>area</key>
-				<array>
-					<string>其他</string>
-				</array>
-				<key>name</key>
-				<string>其他</string>
 			</dict>
 		</array>
 		<key>name</key>
@@ -6139,7 +5647,6 @@
 					<string>嘉模堂区</string>
 					<string>圣方济各堂区</string>
 					<string>路凼</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>澳门</string>
@@ -6172,7 +5679,6 @@
 					<string>荃湾区</string>
 					<string>葵青区</string>
 					<string>离岛区</string>
-					<string>其他</string>
 				</array>
 				<key>name</key>
 				<string>香港</string>
