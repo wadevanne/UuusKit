@@ -377,15 +377,31 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return address?.district?.options?.count ?? 0
         }
     }
-    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    open func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch Type(rawValue: component)! {
         case .province:
-            return address?.province?.address(forRow: row)
+            return pickerView.frame.width / 5
         case .city:
-            return address?.city?.address(forRow: row)
+            return pickerView.frame.width / 3
         case .district:
-            return address?.district?.address(forRow: row)
+            return pickerView.frame.width / 3
         }
+    }
+    open func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = view as? UILabel ?? UILabel()
+        switch Type(rawValue: component)! {
+        case .province:
+            label.text = address?.province?.address(forRow: row)
+        case .city:
+            label.text = address?.city?.address(forRow: row)
+        case .district:
+            label.text = address?.district?.address(forRow: row)
+        }
+        let size = UIFont.buttonFontSize
+        label.font = UIFont.systemFont(ofSize: size, weight: .medium)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch Type(rawValue: component)! {
