@@ -210,8 +210,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return options(forKey: "name") as! String
         }
         /// the chosen area
-        public var area: [String]? {
-            return options(forKey: "area") as? [String]
+        public var area: [[String: Any]]? {
+            return options(forKey: "area") as? [[String: Any]]
         }
         /// the chosen city
         public var city: [[String: Any]]? {
@@ -375,16 +375,6 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return address?.city?.options?.count ?? 0
         case .district:
             return address?.district?.options?.count ?? 0
-        }
-    }
-    open func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        switch Type(rawValue: component)! {
-        case .province:
-            return pickerView.frame.width / 5
-        case .city:
-            return pickerView.frame.width / 3
-        case .district:
-            return pickerView.frame.width / 3
         }
     }
     open func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
