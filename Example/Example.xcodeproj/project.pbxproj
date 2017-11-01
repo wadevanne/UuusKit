@@ -37,6 +37,7 @@
 		183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */; };
 		183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183479B51FA38BF30085E918 /* Neat9icker.xib */; };
 		186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */; };
+		186BBA611FA97748003768CA /* UuusCoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BBA601FA97748003768CA /* UuusCoreGraphics.swift */; };
 		187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E11FA6C78400F3DDFF /* UuusArea.plist */; };
 		187BE8E51FA6CC1A00F3DDFF /* Area9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */; };
 		32A1E9893B8D669AC4B60990 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523856E8203596A48DE22505 /* Pods_Example.framework */; };
@@ -105,6 +106,7 @@
 		183479AD1FA315AA0085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/UuusMapKit.storyboard; sourceTree = "<group>"; };
 		183479B61FA38BF30085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Neat9icker.xib; sourceTree = "<group>"; };
 		186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreAnimation.swift; sourceTree = "<group>"; };
+		186BBA601FA97748003768CA /* UuusCoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreGraphics.swift; sourceTree = "<group>"; };
 		187BE8E11FA6C78400F3DDFF /* UuusArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UuusArea.plist; path = ../UuusArea.plist; sourceTree = "<group>"; };
 		187BE8E41FA6CC1A00F3DDFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Area9icker.xib; sourceTree = "<group>"; };
 		30C664546E8DA20F957939FE /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleUITests/Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				1800F0311F986F3300ED6CB7 /* UuusAVKit.swift */,
 				180A95271F97C02800AB0D07 /* UuusCategory.swift */,
 				186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */,
+				186BBA601FA97748003768CA /* UuusCoreGraphics.swift */,
 				180A95181F97B7DE00AB0D07 /* UuusEventKit.swift */,
 				183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */,
 				1800F02F1F986E8100ED6CB7 /* UuusMapKit.swift */,
@@ -622,6 +625,7 @@
 				180A951E1F97B9DE00AB0D07 /* UuusCollections.swift in Sources */,
 				180A95261F97BD2600AB0D07 /* UuusDatesAndTimes_.swift in Sources */,
 				180A952F1F97C2A700AB0D07 /* UuusObject.swift in Sources */,
+				186BBA611FA97748003768CA /* UuusCoreGraphics.swift in Sources */,
 				180A95281F97C02800AB0D07 /* UuusCategory.swift in Sources */,
 				1800F0341F987CEE00ED6CB7 /* UuusCoreApp.swift in Sources */,
 				180A95331F97C3AE00AB0D07 /* UuusViewsAndControls.swift in Sources */,

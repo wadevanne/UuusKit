@@ -15,33 +15,33 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         
         public lazy var backLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
-            layer.fillColor = UIColor.clear.cgColor
-            layer.strokeColor = UIColor.black.cgColor
+            layer.fillColor = .clear
+            layer.strokeColor = .black
             layer.opacity = 1/2
             self.layer.addSublayer(layer)
             return layer
         }()
         public lazy var lineLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
-            layer.fillColor = UIColor.clear.cgColor
-            layer.strokeColor = UIColor.white.cgColor
+            layer.fillColor = .clear
+            layer.strokeColor = .white
             layer.lineWidth = 1/2
             self.layer.addSublayer(layer)
             return layer
         }()
         public lazy var overLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
-            layer.fillColor = UIColor.clear.cgColor
-            layer.strokeColor = UIColor.white.cgColor
+            layer.fillColor = .clear
+            layer.strokeColor = .white
             layer.lineWidth = 3
             layer.lineDashPhase = 15
             self.layer.addSublayer(layer)
             return layer
         }()
         public lazy var moveLayer: CAGradientLayer = { [unowned self] in
+            let clear = CGColor.clear
+            let white = CGColor.white
             let layer = CAGradientLayer()
-            let clear = UIColor.clear.cgColor
-            let white = UIColor.white.cgColor
             layer.startPoint = CGPoint.zero
             layer.endPoint = CGPoint(x: 1, y: 0)
             layer.colors = [clear, white, clear]
