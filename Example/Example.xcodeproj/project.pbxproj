@@ -33,6 +33,7 @@
 		180A95351F97C4C600AB0D07 /* UuusImagesAndPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */; };
 		180A95371F97C5EB00AB0D07 /* UuusViewManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */; };
 		180A95391F97C95A00AB0D07 /* UuusTimDuncan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */; };
+		181745F41FA8C95E00E3289B /* Date9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181745F21FA8C95E00E3289B /* Date9icker.xib */; };
 		183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */; };
 		183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183479B51FA38BF30085E918 /* Neat9icker.xib */; };
 		186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */; };
@@ -100,6 +101,7 @@
 		180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusImagesAndPDF.swift; sourceTree = "<group>"; };
 		180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusViewManagement.swift; sourceTree = "<group>"; };
 		180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusTimDuncan.swift; sourceTree = "<group>"; };
+		181745F31FA8C95E00E3289B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Date9icker.xib; sourceTree = "<group>"; };
 		183479AD1FA315AA0085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/UuusMapKit.storyboard; sourceTree = "<group>"; };
 		183479B61FA38BF30085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Neat9icker.xib; sourceTree = "<group>"; };
 		186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreAnimation.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */,
+				181745F21FA8C95E00E3289B /* Date9icker.xib */,
 				183479B51FA38BF30085E918 /* Neat9icker.xib */,
 				187BE8E11FA6C78400F3DDFF /* UuusArea.plist */,
 				1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */,
@@ -403,6 +406,7 @@
 			files = (
 				180A94EA1F97AA8600AB0D07 /* LaunchScreen.storyboard in Resources */,
 				180A94E71F97AA8600AB0D07 /* Assets.xcassets in Resources */,
+				181745F41FA8C95E00E3289B /* Date9icker.xib in Resources */,
 				1800F02A1F986B1400ED6CB7 /* CameraView.strings in Resources */,
 				187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */,
 				180A94E51F97AA8600AB0D07 /* Main.storyboard in Resources */,
@@ -695,6 +699,14 @@
 				180A950F1F97AC5800AB0D07 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		181745F21FA8C95E00E3289B /* Date9icker.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				181745F31FA8C95E00E3289B /* Base */,
+			);
+			name = Date9icker.xib;
 			sourceTree = "<group>";
 		};
 		183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */ = {

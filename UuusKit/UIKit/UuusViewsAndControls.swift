@@ -437,7 +437,77 @@ extension UIButton {
 }
 
 @IBDesignable
-open class Date9icker: UuusView {}
+open class Date9icker: UuusView {
+    @IBOutlet weak var pickerTop: NSLayoutConstraint!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var ensureButton: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    public var predate: Date?
+    public var actions: completionc?
+    
+    
+    public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
+        let date9icker = self.xib as! Date9icker
+        date9icker.predate = date
+        date9icker.actions = actions
+        return date9icker
+    }
+    
+    @IBAction func popAction(_ sender: UITapGestureRecognizer) {
+        removeAction(sender)
+        actions?(nil)
+    }
+    @IBAction func cancelAction(_ sender: UIButton) {
+        removeAction(sender)
+        actions?(nil)
+    }
+    @IBAction func ensureAction(_ sender: UIButton) {
+        removeAction(sender)
+        actions?(datePicker.date)
+    }
+    
+    open func push() {
+        if let subview = app1ication.keyWindow?.subviews.last {
+            if subview.isMember(of: classForCoder) {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        app1ication.keyWindow?.addSubview(self)
+        if superview != nil {
+            snp.makeConstraints { (make) in
+                make.edges.equalTo(superview!)
+            }
+        }
+        
+        backgroundColor = .clear
+        pickerTop.constant = 0
+        layoutIfNeeded()
+        
+        pickerTop.constant = 294
+        let color = UIColor(white: 0, alpha: 1/2)
+        UIView.animate(withDuration: 1/4, animations: {
+            self.backgroundColor = color
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            if let predate = self.predate {
+                self.datePicker.setDate(predate, animated: true)
+            }
+        })
+    }
+    
+    open func removeAction(_ sender: Any) {
+        UIView.animate(withDuration: 1/4, animations: {
+            self.pickerTop.constant = 0
+            self.backgroundColor = .clear
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.removeFromSuperview()
+        })
+    }
+}
 
 extension UITextField {
     /// block queue outside as exception
