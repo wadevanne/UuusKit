@@ -107,7 +107,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = ["UuusKit/Base.lproj", "UuusKit/UuusArea.plist"]
+  s.resources = "UuusKit/Base.lproj", "UuusKit/UuusArea.plist"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
