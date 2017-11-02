@@ -44,7 +44,11 @@ open class MapControl1er: UuusController {
         }
         view.insertSubview(mapView, at: 0)
         mapView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
+            if #available(iOS 11.0, *) {
+                make.edges.equalTo(view.safeAreaInsets)
+            } else {
+                make.edges.equalTo(view)
+            }
         }
     }
     

@@ -52,6 +52,20 @@ extension UIView {
 }
 
 extension UIView {
+    public func blotWindow() {
+        if let subview = app1ication.keyWindow?.subviews.last {
+            if subview.isMember(of: classForCoder) {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        app1ication.keyWindow?.addSubview(self)
+        if superview != nil {
+            snp.makeConstraints { (make) in
+                make.edges.equalTo(superview!)
+            }
+        }
+    }
     public func bringToFront() {
         superview?.bringSubview(toFront: self)
     }
@@ -70,7 +84,11 @@ open class CollectionControl1er: UuusController {
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+            if #available(iOS 11.0, *) {
+                make.edges.equalTo(view.safeAreaInsets)
+            } else {
+                make.edges.equalTo(view)
+            }
         }
     }
     deinit {
@@ -157,18 +175,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     open func push() {
-        if let subview = app1ication.keyWindow?.subviews.last {
-            if subview.isMember(of: classForCoder) {
-                subview.removeFromSuperview()
-            }
-        }
-        
-        app1ication.keyWindow?.addSubview(self)
-        if superview != nil {
-            snp.makeConstraints { (make) in
-                make.edges.equalTo(superview!)
-            }
-        }
+        blotWindow()
         
         backgroundColor = .clear
         pickerTop.constant = 0
@@ -224,6 +231,10 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         /// the chosen name
         public var address: String {
             return options(forKey: "name") as! String
+        }
+        /// the chosen five
+        public var five: [String]? {
+            return options(forKey: "five") as? [String]
         }
         /// the chosen area
         public var area: [[String: Any]]? {
@@ -335,18 +346,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     open func push() {
-        if let subview = app1ication.keyWindow?.subviews.last {
-            if subview.isMember(of: classForCoder) {
-                subview.removeFromSuperview()
-            }
-        }
-        
-        app1ication.keyWindow?.addSubview(self)
-        if superview != nil {
-            snp.makeConstraints { (make) in
-                make.edges.equalTo(superview!)
-            }
-        }
+        blotWindow()
         
         backgroundColor = .clear
         pickerTop.constant = 0
@@ -407,6 +407,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         label.font = UIFont.systemFont(ofSize: size, weight: .medium)
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.69
         return label
     }
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -485,18 +486,7 @@ open class Date9icker: UuusView {
     }
     
     open func push() {
-        if let subview = app1ication.keyWindow?.subviews.last {
-            if subview.isMember(of: classForCoder) {
-                subview.removeFromSuperview()
-            }
-        }
-        
-        app1ication.keyWindow?.addSubview(self)
-        if superview != nil {
-            snp.makeConstraints { (make) in
-                make.edges.equalTo(superview!)
-            }
-        }
+        blotWindow()
         
         backgroundColor = .clear
         pickerTop.constant = 0

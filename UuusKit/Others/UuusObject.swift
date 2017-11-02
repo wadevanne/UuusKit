@@ -12,7 +12,8 @@ import ObjectMapper
 import RealmSwift
 
 open class UuusObject: Object, Mappable {
-    required convenience public init?(map: Map) {
+    convenience
+    public required init?(map: Map) {
         self.init()
     }
     
