@@ -92,12 +92,9 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         }
         
         open func scanned(_ rect: CGRect?) -> CGRect? {
-            guard rect != nil else {
-                return nil
-            }
-            
+            guard let rect = rect else { return nil }
             let inset = CGFloat(64)
-            var rectangle = rect!.insetBy(dx: inset, dy: inset)
+            var rectangle = rect.insetBy(dx: inset, dy: inset)
             let minimum = min(rectangle.width, rectangle.height)
             if rectangle.width != minimum {
                 rectangle.origin.x += (rectangle.width - minimum) / 2
@@ -199,7 +196,8 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
     }
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !(scanView.layer.sublayers?.first?.isKind(of: AVCaptureVideoPreviewLayer.self) ?? false) {
+        let kind = AVCaptureVideoPreviewLayer.self
+        if !(scanView.layer.sublayers?.first?.isKind(of: kind) ?? false) {
             if let prelayer = prelayer {
                 scanView.layer.insertSublayer(prelayer, at: 0)
             }

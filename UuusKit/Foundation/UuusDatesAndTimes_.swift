@@ -83,15 +83,43 @@ extension Date {
 }
 
 extension Date {
+    /// let a = "1992-02-29"
+    /// let b = "1992-02-29 20:00"
+    ///
+    /// let c: [Date.DateFormat] = [.yyyy_MM_dd]
+    /// let d: [Date.DateFormat] = [.yyyynMydr]
+    /// let e: [Date.DateFormat] = [.yyyy_MM_dd, .HHmm]
+    /// let f: [Date.DateFormat] = [.yyyynMydr, .HHmmss]
+    ///
+    /// let h = Date.string(of: a, input: c, as: e)
+    /// let i = Date.string(of: b, input: e, as: f)
+    /// let j = Date.string(of: b, input: e, as: d)
+    ///
+    /// print(h, i, j)
+    /// 1992-02-29 00:00 1992年2月29日 20:00:00 1992年2月29日
     public static func string(of string: String, input: [DateFormat], as output: [DateFormat]) -> String {
         return date(of: string, input: input)?.string(as: output) ?? string
     }
     
+    /// let a = "1992-02-29"
+    /// let b = [Date.DateFormat.yyyy_MM_dd]
+    /// let c = Date.date(of: a, input: b)
+    ///
+    /// print(a, b, c)
+    /// 1992-02-29 [Foundation.Date.DateFormat.yyyy_MM_dd] Optional(1992-02-28 16:00:00 +0000)
     public static func date(of string: String, input: [DateFormat]) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = input.dateFormat
         return formatter.date(from: string)
     }
+    /// let a = "1992-02-29 20:00"
+    /// let b = [Date.DateFormat.yyyy_MM_dd]
+    /// let c = [Date.DateFormat.yyyy_MM_dd, .HHmm]
+    /// let d = Date.date(of: a, input: c)!
+    /// let e = Date.date(of: d, _inout: b)
+    ///
+    /// print(a, d, e)
+    /// 1992-02-29 20:00 1992-02-29 12:00:00 +0000 Optional(1992-02-28 16:00:00 +0000)
     public static func date(of date: Date, _inout: [DateFormat]) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = _inout.dateFormat
@@ -99,13 +127,26 @@ extension Date {
         return formatter.date(from: string)
     }
     
+    /// let a = "1992-02-29"
+    /// let b = [Date.DateFormat.yyyy_MM_dd]
+    /// let c = Date.aged(of: a, input: b)
+    ///
+    /// print(a, b, c)
+    /// 1992-02-29 [Foundation.Date.DateFormat.yyyy_MM_dd] 25.6666666666667
     public static func aged(of string: String, input: [DateFormat]) -> TimeInterval {
-        let birthdate = date(of: string, input: input)
+        let birthdate = date(of: string, input: input) ?? .distantPast
         let components: Set<Calendar.Component> = [.month, .year]
-        let dateComponents = ca1endar.dateComponents(components, from: birthdate ?? Date(), to: Date())
+        let dateComponents = ca1endar.dateComponents(components, from: birthdate, to: Date())
         return TimeInterval(dateComponents.year ?? 0) + TimeInterval(dateComponents.month ?? 0) / 12
     }
     
+    /// let a = "1992-02-29 20:29"
+    /// let b = [Date.DateFormat.yyyy_MM_dd, .HHmm]
+    /// let c = Date.date(of: a, input: b)!
+    /// let d = Date.hour(of: c.timestamp)
+    ///
+    /// print(a, c, d)
+    /// 1992-02-29 20:29 1992-02-29 12:29:00 +0000 20.4833333333333
     public static func hour(of timestamp: TimeInterval) -> TimeInterval {
         let hour = timestamp.date.value(for: .hour)
         let minute = timestamp.date.value(for: .minute)
@@ -113,6 +154,24 @@ extension Date {
     }
     
     
+    /// let a = "1992-02-29"
+    /// let b = "1992-02-29 20:00"
+    /// let c = "1992-03-09 20:00"
+    ///
+    /// let d: [Date.DateFormat] = [.yyyy_MM_dd]
+    /// let e: [Date.DateFormat] = [.yyyy_MM_dd, .HHmm]
+    /// let f: [Date.DateFormat] = [.yyyynMydr, .HHmmss]
+    ///
+    /// let h = Date.date(of: a, input: d)!.timestamp
+    /// let i = Date.date(of: b, input: e)!.timestamp
+    /// let j = Date.date(of: c, input: e)!.timestamp
+    ///
+    /// let k = Date.jointed(as: f, start: h)
+    /// let l = Date.jointed(as: f, start: h, end: i)
+    /// let m = Date.jointed(as: e, start: h, end: j)
+    ///
+    /// print(k, l, m)
+    /// ("1992年2月29日 00:00:00", nil) ("1992年2月29日 00:00:00 - 20:00:00", Optional(1)) ("1992-02-29 00:00 - 03-09 20:00", Optional(10))
     public static func jointed(as output: [DateFormat], start: TimeInterval, end: TimeInterval? = nil) -> (String, Int?) {
         guard end != nil else {
             return (start.date.string(as: output), nil)
@@ -176,6 +235,7 @@ extension Date {
     public typealias OutputItem = ([DateFormat], start: TimeInterval, end: TimeInterval, format: String)
     public typealias ExtentItem = (start: Date, end: Date, againstf: Bool, suffix: String?, now: String?)
     
+    /// see TimeInterval.history
     public static func string(as output: [OutputItem], timeInterval: [ExtentItem]) -> String {
         let currentDate = Date()
         
@@ -290,10 +350,28 @@ extension Date {
 }
 
 extension Date {
+    /// let a = "1992-02-29"
+    /// let b = [Date.DateFormat.yyyy_MM_dd]
+    /// let c = Date.date(of: a, input: b)
+    ///
+    /// let d = c!.value(for: .day)
+    /// let e = c!.value(for: .weekday)
+    /// let f = c!.value(for: .weekOfMonth)
+    ///
+    /// print(d, e, f)
+    /// 29 7 5
     public func value(for component: Calendar.Component) -> Int {
         return ca1endar.component(component, from: self)
     }
     
+    /// let a = "1992-02-29"
+    /// let b = [Date.DateFormat.yyyynMydr]
+    /// let c = [Date.DateFormat.yyyy_MM_dd]
+    /// let d = Date.date(of: a, input: c)!
+    /// let e = d.string(as: b)
+    ///
+    /// print(a, d, e)
+    /// 1992-02-29 1992-02-28 16:00:00 +0000 1992年2月29日
     public func string(as output: [DateFormat]) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = output.dateFormat
@@ -304,9 +382,9 @@ extension Date {
 extension TimeInterval {
     public static let oneweek: TimeInterval = 7 * oneday
     public static let oneday: TimeInterval = 24 * onehour
-    public static let onehour: TimeInterval = 60 * oneminute
-    public static let oneminute: TimeInterval = 60 * onesecond
-    public static let onesecond: TimeInterval = TimeInterval(1000)
+    public static let onehour: TimeInterval = 60 * lminute
+    public static let lminute: TimeInterval = 60 * lsecond
+    public static let lsecond: TimeInterval = TimeInterval(1000)
 }
 
 extension TimeInterval {
@@ -346,11 +424,11 @@ extension TimeInterval {
     public var onehour: TimeInterval {
         return TimeInterval.onehour
     }
-    public var oneminute: TimeInterval {
-        return TimeInterval.oneminute
+    public var lminute: TimeInterval {
+        return TimeInterval.lminute
     }
-    public var onesecond: TimeInterval {
-        return TimeInterval.onesecond
+    public var lsecond: TimeInterval {
+        return TimeInterval.lsecond
     }
     
     

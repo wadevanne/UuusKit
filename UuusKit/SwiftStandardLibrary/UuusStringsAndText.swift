@@ -27,9 +27,17 @@ extension String {
     public var local: String {
         return localise(self)
     }
+    /// let a = "a bc  d    efg"
+    ///
+    /// print(a.unity)
+    /// abcdefg
     public var unity: String {
         return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "　", with: "")
     }
+    /// let a = "AEAEAE"
+    ///
+    /// print(a.color)
+    /// UIExtendedSRGBColorSpace 0.682353 0.682353 0.682353 1
     public var color: UIColor {
         return UIColor(hexColor: self)
     }
@@ -74,6 +82,10 @@ extension String {
         return match(regex: ".*?[\\u4e00-\\u9fa5]+.*?", value: self)
     }
     
+    /// let a = ".*?[\\u4e00-\\u9fa5]+.*?"
+    ///
+    /// print(a.urlEncode)
+    /// Optional(".%2A%3F%5B\\u4e00-\\u9fa5%5D%2B.%2A%3F")
     public var urlEncode: String? {
         let str = "!*'();:@&=+$,/?%#[]"
         let set = CharacterSet(charactersIn: str).inverted

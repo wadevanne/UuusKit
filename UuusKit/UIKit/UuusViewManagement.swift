@@ -13,13 +13,11 @@ import RMUniversalAlert
 open class UuusController: UIViewController {
     open class Pul1ToRefresh: PullToRefresh {
         open class RefreshView: UIView {
-            public var images: [UIImage] = []
+            open static var images: [UIImage]?
             
             private(set) lazy var indicator: UIImageView? = {
-                guard images.count > 0 else {
-                    return nil
-                }
-                
+                let animationImages = RefreshView.images
+                guard let images = animationImages else { return nil }
                 let size = images.first!.size
                 let frame = CGRect(origin: .zero, size: size)
                 let imageView = UIImageView(frame: frame)
