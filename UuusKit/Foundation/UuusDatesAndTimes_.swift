@@ -433,9 +433,7 @@ extension TimeInterval {
     
     
     public var history: String? {
-        guard date < Date() else {
-            return nil
-        }
+        if Date() < date { return nil }
         let future = Date.distantFuture
         var output: [Date.OutputItem] = []
         output += [([.HHmm], 0, oneday-1, .marka)] // in same day

@@ -303,7 +303,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         private(set) lazy var provinces: [[String: Any]] = {
             let area = "UuusArea"
-            let main = Bundle.main
+            let main = Bundle(for: Area9icker.self)
             let path = main.path(forResource: area, ofType: "plist")
             return NSArray(contentsOfFile: path!) as! [[String: Any]]
         }()

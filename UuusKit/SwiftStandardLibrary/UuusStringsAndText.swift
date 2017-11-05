@@ -120,7 +120,7 @@ extension String {
     }
     public func formattedIdNum(any: Character = Character(String.white)) -> String {
         var formattedIdNum = self
-        let i = formattedIdNum.characters.count < 17 ? 3 : 4
+        let i = formattedIdNum.count < 17 ? 3 : 4
         formattedIdNum.insert(any, at: index(endIndex, offsetBy: -i))
         formattedIdNum.insert(any, at: index(startIndex, offsetBy: 6))
         return formattedIdNum

@@ -106,7 +106,7 @@ extension UIViewController {
 
 extension UIViewController {
     public static func new(storyboard name: String = "Main") -> UIViewController {
-        let storyboard = UIStoryboard(name: name, bundle: nil)
+        let storyboard = UIStoryboard(name: name, bundle: Bundle(for: self))
         return storyboard.instantiateViewController(withIdentifier: self.name)
     }
     

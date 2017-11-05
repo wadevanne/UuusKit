@@ -14,7 +14,7 @@ open class MapControl1er: UuusController {
         didSet {
             let coordinate = "\(latitude), \(longitude)"
             navigationItem.title = address ?? coordinate
-            guard 2 > address?.characters.count ?? 0 else {
+            guard 2 > address?.count ?? 0 else {
                 geocodeAddressString(address!)
                 return
             }
@@ -30,12 +30,8 @@ open class MapControl1er: UuusController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        if let string = stevenash as? String {
-            address = string.local
-            return
-        }
-        let coordinate = "\(latitude), \(longitude)"
-        navigationItem.title = address ?? coordinate
+        let str = stevenash as? String
+        address = str?.local
     }
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

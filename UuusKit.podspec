@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   s.name         = "UuusKit"
-  s.version      = "4.0.2.4"
+  s.version      = "3.8.6.9"
   s.summary      = "UuusKit is a Swift extension, requires Swift 4.0 or higher."
   s.description  = <<-DESC
                     UuusKit is a Swift extension, requires Swift 4.0.0 or higher.
@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
 # s.resource  = "icon.png"
-  s.resources = "UuusKit/**/*.{xib,xcassets,imageset,json,storyboard,png}"
+  s.resources = "UuusKit/**/*.{xib,xcassets,imageset,plist,json,png,storyboard}"
 # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
 

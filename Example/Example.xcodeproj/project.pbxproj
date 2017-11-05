@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1800F02A1F986B1400ED6CB7 /* CameraView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1800F02C1F986B1400ED6CB7 /* CameraView.strings */; };
-		1800F0301F986E8100ED6CB7 /* UuusMapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F02F1F986E8100ED6CB7 /* UuusMapKit.swift */; };
-		1800F0321F986F3300ED6CB7 /* UuusAVKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F0311F986F3300ED6CB7 /* UuusAVKit.swift */; };
-		1800F0341F987CEE00ED6CB7 /* UuusCoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */; };
 		180A94E01F97AA8600AB0D07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A94DF1F97AA8600AB0D07 /* AppDelegate.swift */; };
 		180A94E21F97AA8600AB0D07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A94E11F97AA8600AB0D07 /* ViewController.swift */; };
 		180A94E51F97AA8600AB0D07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180A94E31F97AA8600AB0D07 /* Main.storyboard */; };
@@ -18,28 +14,9 @@
 		180A94EA1F97AA8600AB0D07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180A94E81F97AA8600AB0D07 /* LaunchScreen.storyboard */; };
 		180A94F51F97AA8600AB0D07 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A94F41F97AA8600AB0D07 /* ExampleTests.swift */; };
 		180A95001F97AA8600AB0D07 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A94FF1F97AA8600AB0D07 /* ExampleUITests.swift */; };
-		180A95191F97B7DE00AB0D07 /* UuusEventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95181F97B7DE00AB0D07 /* UuusEventKit.swift */; };
-		180A951E1F97B9DE00AB0D07 /* UuusCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A951D1F97B9DE00AB0D07 /* UuusCollections.swift */; };
-		180A95201F97BA3B00AB0D07 /* UuusStringsAndText_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A951F1F97BA3B00AB0D07 /* UuusStringsAndText_.swift */; };
-		180A95221F97BA9200AB0D07 /* UuusNumbersDataAndBasicValues_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95211F97BA9200AB0D07 /* UuusNumbersDataAndBasicValues_.swift */; };
-		180A95241F97BB4900AB0D07 /* UuusStringsAndText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95231F97BB4900AB0D07 /* UuusStringsAndText.swift */; };
-		180A95261F97BD2600AB0D07 /* UuusDatesAndTimes_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95251F97BD2600AB0D07 /* UuusDatesAndTimes_.swift */; };
-		180A95281F97C02800AB0D07 /* UuusCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95271F97C02800AB0D07 /* UuusCategory.swift */; };
-		180A952B1F97C10300AB0D07 /* UuusDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A952A1F97C10300AB0D07 /* UuusDrawing.swift */; };
-		180A952D1F97C23E00AB0D07 /* UuusNumbersDataAndBasicValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A952C1F97C23E00AB0D07 /* UuusNumbersDataAndBasicValues.swift */; };
-		180A952F1F97C2A700AB0D07 /* UuusObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A952E1F97C2A700AB0D07 /* UuusObject.swift */; };
-		180A95311F97C32600AB0D07 /* UuusTouchesPressesAndGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95301F97C32600AB0D07 /* UuusTouchesPressesAndGestures.swift */; };
-		180A95331F97C3AE00AB0D07 /* UuusViewsAndControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95321F97C3AE00AB0D07 /* UuusViewsAndControls.swift */; };
-		180A95351F97C4C600AB0D07 /* UuusImagesAndPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */; };
-		180A95371F97C5EB00AB0D07 /* UuusViewManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */; };
-		180A95391F97C95A00AB0D07 /* UuusTimDuncan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */; };
-		181745F41FA8C95E00E3289B /* Date9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181745F21FA8C95E00E3289B /* Date9icker.xib */; };
-		183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */; };
-		183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183479B51FA38BF30085E918 /* Neat9icker.xib */; };
-		186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */; };
-		186BBA611FA97748003768CA /* UuusCoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186BBA601FA97748003768CA /* UuusCoreGraphics.swift */; };
-		187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E11FA6C78400F3DDFF /* UuusArea.plist */; };
-		187BE8E51FA6CC1A00F3DDFF /* Area9icker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */; };
+		18DFC5F11FAE3CAD005B7FC6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 18DFC5EE1FAE3CAD005B7FC6 /* LICENSE */; };
+		18DFC5F21FAE3CAD005B7FC6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 18DFC5EF1FAE3CAD005B7FC6 /* README.md */; };
+		18DFC5F31FAE3CAD005B7FC6 /* UuusKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 18DFC5F01FAE3CAD005B7FC6 /* UuusKit.podspec */; };
 		32A1E9893B8D669AC4B60990 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523856E8203596A48DE22505 /* Pods_Example.framework */; };
 		A4785D96213369C13B270DF0 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6436242D4B7CFEEF4CF78FC2 /* Pods_ExampleTests.framework */; };
 		D71937438BD165E510F2269C /* Pods_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104A5EF5291800CBCD2BE9C7 /* Pods_ExampleUITests.framework */; };
@@ -64,12 +41,6 @@
 
 /* Begin PBXFileReference section */
 		104A5EF5291800CBCD2BE9C7 /* Pods_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1800F02B1F986B1400ED6CB7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CameraView.strings"; sourceTree = "<group>"; };
-		1800F02D1F986B1600ED6CB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CameraView.strings; sourceTree = "<group>"; };
-		1800F02E1F986B1800ED6CB7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CameraView.strings"; sourceTree = "<group>"; };
-		1800F02F1F986E8100ED6CB7 /* UuusMapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusMapKit.swift; sourceTree = "<group>"; };
-		1800F0311F986F3300ED6CB7 /* UuusAVKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusAVKit.swift; sourceTree = "<group>"; };
-		1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreApp.swift; sourceTree = "<group>"; };
 		180A94DC1F97AA8600AB0D07 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A94DF1F97AA8600AB0D07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		180A94E11F97AA8600AB0D07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,28 +58,9 @@
 		180A950E1F97AC5200AB0D07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		180A950F1F97AC5800AB0D07 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		180A95101F97AC5800AB0D07 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
-		180A95181F97B7DE00AB0D07 /* UuusEventKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusEventKit.swift; sourceTree = "<group>"; };
-		180A951D1F97B9DE00AB0D07 /* UuusCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCollections.swift; sourceTree = "<group>"; };
-		180A951F1F97BA3B00AB0D07 /* UuusStringsAndText_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusStringsAndText_.swift; sourceTree = "<group>"; };
-		180A95211F97BA9200AB0D07 /* UuusNumbersDataAndBasicValues_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusNumbersDataAndBasicValues_.swift; sourceTree = "<group>"; };
-		180A95231F97BB4900AB0D07 /* UuusStringsAndText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusStringsAndText.swift; sourceTree = "<group>"; };
-		180A95251F97BD2600AB0D07 /* UuusDatesAndTimes_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusDatesAndTimes_.swift; sourceTree = "<group>"; };
-		180A95271F97C02800AB0D07 /* UuusCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCategory.swift; sourceTree = "<group>"; };
-		180A952A1F97C10300AB0D07 /* UuusDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusDrawing.swift; sourceTree = "<group>"; };
-		180A952C1F97C23E00AB0D07 /* UuusNumbersDataAndBasicValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusNumbersDataAndBasicValues.swift; sourceTree = "<group>"; };
-		180A952E1F97C2A700AB0D07 /* UuusObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusObject.swift; sourceTree = "<group>"; };
-		180A95301F97C32600AB0D07 /* UuusTouchesPressesAndGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusTouchesPressesAndGestures.swift; sourceTree = "<group>"; };
-		180A95321F97C3AE00AB0D07 /* UuusViewsAndControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusViewsAndControls.swift; sourceTree = "<group>"; };
-		180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusImagesAndPDF.swift; sourceTree = "<group>"; };
-		180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusViewManagement.swift; sourceTree = "<group>"; };
-		180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusTimDuncan.swift; sourceTree = "<group>"; };
-		181745F31FA8C95E00E3289B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Date9icker.xib; sourceTree = "<group>"; };
-		183479AD1FA315AA0085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/UuusMapKit.storyboard; sourceTree = "<group>"; };
-		183479B61FA38BF30085E918 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Neat9icker.xib; sourceTree = "<group>"; };
-		186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreAnimation.swift; sourceTree = "<group>"; };
-		186BBA601FA97748003768CA /* UuusCoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuusCoreGraphics.swift; sourceTree = "<group>"; };
-		187BE8E11FA6C78400F3DDFF /* UuusArea.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UuusArea.plist; path = ../UuusArea.plist; sourceTree = "<group>"; };
-		187BE8E41FA6CC1A00F3DDFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/Area9icker.xib; sourceTree = "<group>"; };
+		18DFC5EE1FAE3CAD005B7FC6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		18DFC5EF1FAE3CAD005B7FC6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		18DFC5F01FAE3CAD005B7FC6 /* UuusKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UuusKit.podspec; path = ../../UuusKit.podspec; sourceTree = "<group>"; };
 		30C664546E8DA20F957939FE /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleUITests/Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		523856E8203596A48DE22505 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6436242D4B7CFEEF4CF78FC2 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +108,6 @@
 				2C406151BC46BC6495F4366F /* Frameworks */,
 				7515E46779E2DF98F7B58FF2 /* Pods */,
 				180A94DD1F97AA8600AB0D07 /* Products */,
-				180A95111F97AD9700AB0D07 /* UuusKit */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,10 +126,12 @@
 			children = (
 				180A94DF1F97AA8600AB0D07 /* AppDelegate.swift */,
 				180A94E61F97AA8600AB0D07 /* Assets.xcassets */,
-				1800F02C1F986B1400ED6CB7 /* CameraView.strings */,
 				180A94EB1F97AA8600AB0D07 /* Info.plist */,
 				180A94E81F97AA8600AB0D07 /* LaunchScreen.storyboard */,
+				18DFC5EE1FAE3CAD005B7FC6 /* LICENSE */,
 				180A94E31F97AA8600AB0D07 /* Main.storyboard */,
+				18DFC5EF1FAE3CAD005B7FC6 /* README.md */,
+				18DFC5F01FAE3CAD005B7FC6 /* UuusKit.podspec */,
 				180A94E11F97AA8600AB0D07 /* ViewController.swift */,
 			);
 			path = Example;
@@ -200,71 +153,6 @@
 				180A95011F97AA8600AB0D07 /* Info.plist */,
 			);
 			path = ExampleUITests;
-			sourceTree = "<group>";
-		};
-		180A95111F97AD9700AB0D07 /* UuusKit */ = {
-			isa = PBXGroup;
-			children = (
-				180A95141F97B44A00AB0D07 /* Foundation */,
-				180A95171F97B75000AB0D07 /* Others */,
-				180A951C1F97B97E00AB0D07 /* SwiftStandardLibrary */,
-				180A95291F97C0D900AB0D07 /* UIKit */,
-			);
-			name = UuusKit;
-			path = ../UuusKit;
-			sourceTree = "<group>";
-		};
-		180A95141F97B44A00AB0D07 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				180A95251F97BD2600AB0D07 /* UuusDatesAndTimes_.swift */,
-				180A95211F97BA9200AB0D07 /* UuusNumbersDataAndBasicValues_.swift */,
-				180A951F1F97BA3B00AB0D07 /* UuusStringsAndText_.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		180A95171F97B75000AB0D07 /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				1800F0311F986F3300ED6CB7 /* UuusAVKit.swift */,
-				180A95271F97C02800AB0D07 /* UuusCategory.swift */,
-				186A97961FA02EDC004A5ACF /* UuusCoreAnimation.swift */,
-				186BBA601FA97748003768CA /* UuusCoreGraphics.swift */,
-				180A95181F97B7DE00AB0D07 /* UuusEventKit.swift */,
-				183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */,
-				1800F02F1F986E8100ED6CB7 /* UuusMapKit.swift */,
-				180A952E1F97C2A700AB0D07 /* UuusObject.swift */,
-				180A95381F97C95A00AB0D07 /* UuusTimDuncan.swift */,
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		180A951C1F97B97E00AB0D07 /* SwiftStandardLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				180A951D1F97B9DE00AB0D07 /* UuusCollections.swift */,
-				180A952C1F97C23E00AB0D07 /* UuusNumbersDataAndBasicValues.swift */,
-				180A95231F97BB4900AB0D07 /* UuusStringsAndText.swift */,
-			);
-			path = SwiftStandardLibrary;
-			sourceTree = "<group>";
-		};
-		180A95291F97C0D900AB0D07 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */,
-				181745F21FA8C95E00E3289B /* Date9icker.xib */,
-				183479B51FA38BF30085E918 /* Neat9icker.xib */,
-				187BE8E11FA6C78400F3DDFF /* UuusArea.plist */,
-				1800F0331F987CEE00ED6CB7 /* UuusCoreApp.swift */,
-				180A952A1F97C10300AB0D07 /* UuusDrawing.swift */,
-				180A95341F97C4C600AB0D07 /* UuusImagesAndPDF.swift */,
-				180A95301F97C32600AB0D07 /* UuusTouchesPressesAndGestures.swift */,
-				180A95361F97C5EB00AB0D07 /* UuusViewManagement.swift */,
-				180A95321F97C3AE00AB0D07 /* UuusViewsAndControls.swift */,
-			);
-			path = UIKit;
 			sourceTree = "<group>";
 		};
 		2C406151BC46BC6495F4366F /* Frameworks */ = {
@@ -409,13 +297,10 @@
 			files = (
 				180A94EA1F97AA8600AB0D07 /* LaunchScreen.storyboard in Resources */,
 				180A94E71F97AA8600AB0D07 /* Assets.xcassets in Resources */,
-				181745F41FA8C95E00E3289B /* Date9icker.xib in Resources */,
-				1800F02A1F986B1400ED6CB7 /* CameraView.strings in Resources */,
-				187BE8E21FA6C78400F3DDFF /* UuusArea.plist in Resources */,
+				18DFC5F21FAE3CAD005B7FC6 /* README.md in Resources */,
+				18DFC5F11FAE3CAD005B7FC6 /* LICENSE in Resources */,
 				180A94E51F97AA8600AB0D07 /* Main.storyboard in Resources */,
-				183479B71FA38BF30085E918 /* Neat9icker.xib in Resources */,
-				183479AE1FA315AA0085E918 /* UuusMapKit.storyboard in Resources */,
-				187BE8E51FA6CC1A00F3DDFF /* Area9icker.xib in Resources */,
+				18DFC5F31FAE3CAD005B7FC6 /* UuusKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +472,7 @@
 				"${BUILT_PRODUCTS_DIR}/UIActionSheet+Blocks/UIActionSheet_Blocks.framework",
 				"${BUILT_PRODUCTS_DIR}/UIAlertController+Blocks/UIAlertController_Blocks.framework",
 				"${BUILT_PRODUCTS_DIR}/UIAlertView+Blocks/UIAlertView_Blocks.framework",
+				"${BUILT_PRODUCTS_DIR}/UuusKit/UuusKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -605,6 +491,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIActionSheet_Blocks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIAlertController_Blocks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIAlertView_Blocks.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UuusKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -618,27 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180A95351F97C4C600AB0D07 /* UuusImagesAndPDF.swift in Sources */,
-				180A952B1F97C10300AB0D07 /* UuusDrawing.swift in Sources */,
 				180A94E21F97AA8600AB0D07 /* ViewController.swift in Sources */,
-				1800F0321F986F3300ED6CB7 /* UuusAVKit.swift in Sources */,
-				180A951E1F97B9DE00AB0D07 /* UuusCollections.swift in Sources */,
-				180A95261F97BD2600AB0D07 /* UuusDatesAndTimes_.swift in Sources */,
-				180A952F1F97C2A700AB0D07 /* UuusObject.swift in Sources */,
-				186BBA611FA97748003768CA /* UuusCoreGraphics.swift in Sources */,
-				180A95281F97C02800AB0D07 /* UuusCategory.swift in Sources */,
-				1800F0341F987CEE00ED6CB7 /* UuusCoreApp.swift in Sources */,
-				180A95331F97C3AE00AB0D07 /* UuusViewsAndControls.swift in Sources */,
-				180A95311F97C32600AB0D07 /* UuusTouchesPressesAndGestures.swift in Sources */,
-				1800F0301F986E8100ED6CB7 /* UuusMapKit.swift in Sources */,
-				180A95191F97B7DE00AB0D07 /* UuusEventKit.swift in Sources */,
-				180A95221F97BA9200AB0D07 /* UuusNumbersDataAndBasicValues_.swift in Sources */,
-				186A97971FA02EDC004A5ACF /* UuusCoreAnimation.swift in Sources */,
-				180A95201F97BA3B00AB0D07 /* UuusStringsAndText_.swift in Sources */,
-				180A952D1F97C23E00AB0D07 /* UuusNumbersDataAndBasicValues.swift in Sources */,
-				180A95371F97C5EB00AB0D07 /* UuusViewManagement.swift in Sources */,
-				180A95241F97BB4900AB0D07 /* UuusStringsAndText.swift in Sources */,
-				180A95391F97C95A00AB0D07 /* UuusTimDuncan.swift in Sources */,
 				180A94E01F97AA8600AB0D07 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,16 +542,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1800F02C1F986B1400ED6CB7 /* CameraView.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1800F02B1F986B1400ED6CB7 /* zh-Hans */,
-				1800F02D1F986B1600ED6CB7 /* en */,
-				1800F02E1F986B1800ED6CB7 /* zh-Hant */,
-			);
-			name = CameraView.strings;
-			sourceTree = "<group>";
-		};
 		180A94E31F97AA8600AB0D07 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -703,38 +560,6 @@
 				180A950F1F97AC5800AB0D07 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		181745F21FA8C95E00E3289B /* Date9icker.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				181745F31FA8C95E00E3289B /* Base */,
-			);
-			name = Date9icker.xib;
-			sourceTree = "<group>";
-		};
-		183479AC1FA315AA0085E918 /* UuusMapKit.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				183479AD1FA315AA0085E918 /* Base */,
-			);
-			name = UuusMapKit.storyboard;
-			sourceTree = "<group>";
-		};
-		183479B51FA38BF30085E918 /* Neat9icker.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				183479B61FA38BF30085E918 /* Base */,
-			);
-			name = Neat9icker.xib;
-			sourceTree = "<group>";
-		};
-		187BE8E31FA6CC1A00F3DDFF /* Area9icker.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				187BE8E41FA6CC1A00F3DDFF /* Base */,
-			);
-			name = Area9icker.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

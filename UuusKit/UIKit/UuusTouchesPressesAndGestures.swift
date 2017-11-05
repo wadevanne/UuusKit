@@ -10,10 +10,11 @@ import UIKit
 
 extension UIResponder {
     public static var nib: UINib? {
-        if Bundle.main.path(forResource: name, ofType: "nib") == nil {
+        let bundle = Bundle(for: self)
+        if bundle.path(forResource: name, ofType: "nib") == nil {
             return nil
         }
-        return UINib(nibName: name, bundle: nil)
+        return UINib(nibName: name, bundle: bundle)
     }
     public static var xib: UIResponder? {
         return nib?.instantiate(withOwner: self, options: nil).first as? UIResponder
