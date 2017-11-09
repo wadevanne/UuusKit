@@ -16,6 +16,7 @@ extension Date {
         /// hour
         /// minute
         /// second
+        case hms
         case Hm = "H:m"
         case HHmm = "HH:mm"
         case ms = "m:s"
@@ -28,6 +29,7 @@ extension Date {
         /// year
         /// month
         /// day
+        case ymd
         case M_d = "M-d"
         case MM_dd = "MM-dd"
         case yyyy_M = "yyyy-M"
@@ -36,6 +38,7 @@ extension Date {
         case yyyy_MM_dd = "yyyy-MM-dd"
         
         /// 年 月 日
+        case nyr
         case dr = "d日"
         case ddr = "dd日"
         case Mydr = "M月d日"

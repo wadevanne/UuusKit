@@ -23,6 +23,18 @@ extension Dictionary {
     public var data: Data? {
         return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }
+    public var urlEncode: Dictionary {
+        var selves = self
+        for key in keys {
+            if var value = self[key] as? String {
+                let white = CharacterSet.whitespaces
+                value = value.trimmingCharacters(in: white)
+                selves[key] = value.urlEncode as? Value
+            }
+            continue
+        }
+        return selves
+    }
 }
 
 extension Dictionary {

@@ -64,7 +64,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
             let name = NSNotification.Name.UIApplicationDidBecomeActive
             n0tification.addObserver(self, selector: #selector(roll), name: name, object: nil)
         }
-        required public init?(coder aDecoder: NSCoder) {
+        public required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         open override func draw(_ rect: CGRect) {

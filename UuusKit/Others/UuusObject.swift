@@ -7,13 +7,14 @@
 //
 
 import Alamofire
+import AlamofireObjectMapper
 import KeychainAccess
 import ObjectMapper
+import PKHUD
 import RealmSwift
 
 open class UuusObject: Object, Mappable {
-    convenience
-    public required init?(map: Map) {
+    public convenience required init?(map: Map) {
         self.init()
     }
     
@@ -38,10 +39,9 @@ extension UuusObject {
             return char as String?
         }
         
-        private(set) var shared: String = {
-            let bundleIdentifier = Bundle.main.bundleIdentifier
-            let bundleId = bundleIdentifier ?? String.empty
-            let keychain = Keychain(service: bundleId)
+        public static let shared: String = {
+            let identifier = Bundle.main.bundleIdentifier
+            let keychain = Keychain(service: identifier ?? .empty)
             var uuid = keychain[DeviceIdentifier]
             if uuid == nil {
                 uuid = UserDefaults.standard.string(forKey: DeviceIdentifier)
@@ -212,18 +212,21 @@ open class UuusRequest: Object {
     
     open var loadURL: String? {
         get {
-            return loadURLString ?? (scheme+baseURL+port+prefix+path)
+            return loadurl ?? (scheme+baseURL+port+prefix+path)
         }
         set {
-            loadURLString = newValue
+            loadurl = newValue
         }
     }
-    fileprivate(set) var loadURLString: String?
+    private(set) var loadurl: String?
     public var scheme = String.http
     public var baseURL = String.empty
     public var port = String.empty
     public var prefix = String.empty
     public var path = String.empty
+    
+    open var headers: HTTPHeaders?
+    open var parameters: Parameters?
     
     public var completion: completionc?
     public var exception: exceptionc?
@@ -231,13 +234,35 @@ open class UuusRequest: Object {
 }
 
 open class UuusDelivery: NSObject {
-    public static let shared = UuusDelivery()
-    
     let manager = NetworkReachabilityManager(host: "www.apple.com")
     
-    private override init() {
+    public override init() {
         super.init()
         startListening()
+    }
+    
+    public func request(_ request: UuusRequest, completion: completionc? = nil, failure: failurec? = nil) {
+        switch request.loading {
+        case .default:
+            HUD.show(.systemActivity)
+        case .animations:
+            break
+        case .customized:
+            break
+        }
+        
+        Alamofire.request(request.loadURL!, method: request.method, parameters: request.parameters, headers: request.headers).responseJSON { (response) in
+            #if DEBUG
+                debugPrint(response)
+            #endif
+            HUD.hide(animated: true)
+            switch response.result {
+            case .success(let result):
+                completion?(result)
+            case .failure(let error):
+                failure?(error)
+            }
+        }
     }
     
     @discardableResult
