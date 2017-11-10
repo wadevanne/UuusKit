@@ -7,22 +7,14 @@
 //
 
 import Alamofire
-import AlamofireObjectMapper
 import KeychainAccess
 import ObjectMapper
 import PKHUD
-import RealmSwift
 
-open class UuusObject: Object, Mappable {
-    public convenience required init?(map: Map) {
-        self.init()
-    }
-    
-    open func mapping(map: Map) {}
-}
+open class UuusObject: NSObject {}
 
 extension UuusObject {
-    public class Uuid: Object {
+    public class Uuid: NSObject {
         @available(iOS 6.0, *)
         public static var dIFV: String? {
             let device = UIDevice.current
@@ -192,7 +184,7 @@ extension UuusObject {
     public static var DeviceIdentifier = "DeviceIdentifier"
 }
 
-open class UuusRequest: Object {
+open class UuusRequest: NSObject {
     public enum Loaded {
         case `default`
         case exception
@@ -283,17 +275,12 @@ open class UuusDelivery: NSObject {
     }
 }
 
-open class UuusMagician: NSObject {
-    
-}
+open class UuusMagician: NSObject {}
 
 extension NSObject {
     public static var name: String {
         return "\(classForCoder())"
     }
-}
-
-extension NSObject {
     public var className: String {
         return "\(classForCoder)"
     }
