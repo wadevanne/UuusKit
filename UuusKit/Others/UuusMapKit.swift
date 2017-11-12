@@ -21,18 +21,20 @@ open class MapControl1er: UuusController {
             address(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         }
     }
+
     /// CLLocationDegrees
     @IBInspectable public var latitude: Double = 22.320048
     /// CLLocationDegrees
     @IBInspectable public var longitude: Double = 114.173355
-    
+
     public var mapView = MKMapView()
-    
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         let str = stevenash as? String
         address = str?.local
     }
+
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard mapView.superview == nil else {
@@ -47,9 +49,9 @@ open class MapControl1er: UuusController {
             }
         }
     }
-    
+
     open func geocodeAddressString(_ address: String) {
-        CLGeocoder().geocodeAddressString(address) { [weak self] (placemarks, error) in
+        CLGeocoder().geocodeAddressString(address) { [weak self] placemarks, error in
             guard error == nil else {
                 return
             }
@@ -58,16 +60,19 @@ open class MapControl1er: UuusController {
             self?.addAnnotation(MKPlacemark(placemark: placemark))
         }
     }
+
     open func address(_ centerCoordinate: CLLocationCoordinate2D!) {
         let placemark = MKPlacemark(coordinate: centerCoordinate, addressDictionary: nil)
         setRegion(placemark.coordinate)
         addAnnotation(placemark)
     }
+
     open func setRegion(_ centerCoordinate: CLLocationCoordinate2D?) {
         let coordinate = centerCoordinate ?? CLLocationCoordinate2D()
         let region = MKCoordinateRegionMakeWithDistance(coordinate, 2046, 2046)
         mapView.setRegion(region, animated: true)
     }
+
     open func addAnnotation(_ annotation: MKAnnotation, isClear: Bool = true) {
         if isClear {
             mapView.removeAnnotations(mapView.annotations)

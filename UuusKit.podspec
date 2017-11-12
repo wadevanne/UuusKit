@@ -75,14 +75,17 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.dependency "ALCameraViewController"
   s.dependency "AlamofireImage"
+  s.dependency "CryptoSwift"
   s.dependency "EVReflection/CloudKit"
   s.dependency "EVReflection/Realm"
-  s.dependency "CryptoSwift"
   s.dependency "KeychainAccess"
   s.dependency "ObjectMapper"
   s.dependency "PKHUD"
   s.dependency "PullToRefresher"
   s.dependency "RMUniversalAlert"
+  s.dependency "RxCocoa"
+  s.dependency "RxSwift"
   s.dependency "SnapKit"
+  s.dependency "SwiftFormat/CLI"
 
 end

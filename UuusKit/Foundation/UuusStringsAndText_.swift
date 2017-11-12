@@ -13,8 +13,9 @@ extension NSAttributedString {
         let emptyString = NSAttributedString(string: .empty)
         let eachHeight = emptyString.upright(boundedAclinic: bounded)
         let wholeHeight = upright(boundedAclinic: bounded)
-        return Int((wholeHeight/eachHeight).rounded(.up))
+        return Int((wholeHeight / eachHeight).rounded(.up))
     }
+
     ///  ________________
     /// ┃                ┃
     /// ┃________________┃ boundedUpright
@@ -22,6 +23,7 @@ extension NSAttributedString {
     public func aclinic(boundedUpright: CGFloat?) -> CGFloat {
         return float(boundedUpright ?? CGFloat(UInt8.min), isBoundedVertical: true)
     }
+
     ///  ________________
     /// :                : upright
     /// :________________:
@@ -29,7 +31,7 @@ extension NSAttributedString {
     public func upright(boundedAclinic: CGFloat?) -> CGFloat {
         return float(boundedAclinic ?? CGFloat(UInt8.min), isBoundedVertical: false)
     }
-    
+
     private func float(_ float: CGFloat, isBoundedVertical: Bool) -> CGFloat {
         let height = isBoundedVertical ? float : CGFloat.greatestFiniteMagnitude
         let width = !isBoundedVertical ? float : CGFloat.greatestFiniteMagnitude

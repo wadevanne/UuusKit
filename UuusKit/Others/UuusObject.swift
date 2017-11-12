@@ -21,16 +21,18 @@ extension UuusObject {
             let identifier = device.identifierForVendor
             return identifier?.uuidString
         }
+
         @available(iOS 6.0, *)
         public static var uuid: String {
             return NSUUID().uuidString
         }
+
         public static var rand: String? {
             let uuid = CFUUIDCreate(kCFAllocatorDefault)
             let char = CFUUIDCreateString(kCFAllocatorDefault, uuid)
             return char as String?
         }
-        
+
         public static let shared: String = {
             let identifier = Bundle.main.bundleIdentifier
             let keychain = Keychain(service: identifier ?? .empty)
@@ -54,7 +56,7 @@ extension UuusObject {
         public typealias Object = String
         public typealias JSON = String
         init() {}
-        
+
         /// decode base64
         public func transformFromJSON(_ value: Any?) -> String? {
             guard let string = value as? String else { return nil }
@@ -86,12 +88,12 @@ extension UuusObject {
         /// "iPad2,6" on iPad Mini - Wifi + Cellular (model  A1454)
         /// "iPad2,7" on iPad Mini - Wifi + Cellular (model  A1455)
         case iPad
-        
+
         case retina
-        
+
         case appleWatch38 = "38mm"
         case appleWatch42 = "42mm"
-        
+
         /// "iPhone3,1" on iPhone 4 (GSM)
         /// "iPhone3,3" on iPhone 4 (CDMA/Verizon/Sprint)
         /// "iPhone4,1" on iPhone 4s
@@ -121,7 +123,7 @@ extension UuusObject {
         /// "iPhone10,3" on iPhone X (CDMA)
         /// "iPhone10,6" on iPhone X (GSM)
         case iPhoneX = "5.9-inch"
-        
+
         /// "iPad4,4" on iPad Mini 2 - Wifi (model A1489)
         /// "iPad4,5" on iPad Mini 2 - Wifi + Cellular (model A1490)
         /// "iPad4,6" on iPad Mini 2 - Wifi + Cellular (model A1491)
@@ -150,21 +152,24 @@ extension UuusObject {
         /// "iPad6,4" on iPad Pro 12.9" - Wifi + Cellular (model A1674)
         /// "iPad6,4" on iPad Pro 12.9" - Wifi + Cellular (model A1675)
         case iPadPro = "12.9-inch"
-        
-        static func <(lhs: DeviceType, rhs: DeviceType) -> Bool {
+
+        static func < (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue < rhs.hashValue
         }
-        static func <=(lhs: DeviceType, rhs: DeviceType) -> Bool {
+
+        static func <= (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue <= rhs.hashValue
         }
-        static func >(lhs: DeviceType, rhs: DeviceType) -> Bool {
+
+        static func > (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue > rhs.hashValue
         }
-        static func >=(lhs: DeviceType, rhs: DeviceType) -> Bool {
+
+        static func >= (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue >= rhs.hashValue
         }
     }
-    
+
     public static var deviceType: DeviceType {
         switch (screenHeight, screenWidth) {
         case (320.0, 480.0), (480.0, 320.0):
@@ -181,6 +186,7 @@ extension UuusObject {
             return .retina
         }
     }
+
     public static var DeviceIdentifier = "DeviceIdentifier"
 }
 
@@ -189,37 +195,40 @@ open class UuusRequest: NSObject {
         case `default`
         case exception
     }
+
     public var loaded: Loaded = .default
-    
+
     public var method: HTTPMethod = .post
-    
+
     public enum Loading {
         case `default`
         case animations
         case customized
     }
+
     public var loading: Loading = .default
-    
+
     public var tag: Int = 0
-    
+
     open var loadURL: String? {
         get {
-            return loadurl ?? (scheme+baseURL+port+prefix+path)
+            return loadurl ?? (scheme + baseURL + port + prefix + path)
         }
         set {
             loadurl = newValue
         }
     }
+
     private(set) var loadurl: String?
     public var scheme = String.http
     public var baseURL = String.empty
     public var port = String.empty
     public var prefix = String.empty
     public var path = String.empty
-    
+
     open var headers: HTTPHeaders?
     open var parameters: Parameters?
-    
+
     public var completion: completionc?
     public var exception: exceptionc?
     public var failure: failurec?
@@ -227,12 +236,12 @@ open class UuusRequest: NSObject {
 
 open class UuusDelivery: NSObject {
     let manager = NetworkReachabilityManager(host: "www.apple.com")
-    
+
     public override init() {
         super.init()
         startListening()
     }
-    
+
     public func request(_ request: UuusRequest, completion: completionc? = nil, failure: failurec? = nil) {
         switch request.loading {
         case .default:
@@ -242,24 +251,24 @@ open class UuusDelivery: NSObject {
         case .customized:
             break
         }
-        
-        Alamofire.request(request.loadURL!, method: request.method, parameters: request.parameters, headers: request.headers).responseJSON { (response) in
+
+        Alamofire.request(request.loadURL!, method: request.method, parameters: request.parameters, headers: request.headers).responseJSON { response in
             #if DEBUG
                 debugPrint(response)
             #endif
             HUD.hide(animated: true)
             switch response.result {
-            case .success(let result):
+            case let .success(result):
                 completion?(result)
-            case .failure(let error):
+            case let .failure(error):
                 failure?(error)
             }
         }
     }
-    
+
     @discardableResult
     private func startListening() -> Bool? {
-        manager?.listener = { (reachabilityStatus) in
+        manager?.listener = { reachabilityStatus in
             switch reachabilityStatus {
             case .unknown:
                 break
@@ -281,6 +290,7 @@ extension NSObject {
     public static var name: String {
         return "\(classForCoder())"
     }
+
     public var className: String {
         return "\(classForCoder)"
     }

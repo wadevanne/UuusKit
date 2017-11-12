@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Array {
+    public var data: Data? {
+        return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+    }
+}
+
 extension Array where Element == Date.DateFormat {
     public var dateFormat: String {
         let array = sorted {
@@ -23,6 +29,7 @@ extension Dictionary {
     public var data: Data? {
         return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }
+
     public var urlEncode: Dictionary {
         var selves = self
         for key in keys {
@@ -41,7 +48,7 @@ extension Dictionary {
     @discardableResult
     public mutating func removeValues(forKeys keys: [Dictionary.Key]) -> [Dictionary.Value]? {
         var removeValues: [Dictionary.Value] = []
-        keys.forEach { (key) in
+        keys.forEach { key in
             if let value = removeValue(forKey: key) {
                 removeValues.append(value)
             }

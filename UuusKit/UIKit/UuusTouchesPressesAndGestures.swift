@@ -16,6 +16,7 @@ extension UIResponder {
         }
         return UINib(nibName: name, bundle: bundle)
     }
+
     public static var xib: UIResponder? {
         return nib?.instantiate(withOwner: self, options: nil).first as? UIResponder
     }

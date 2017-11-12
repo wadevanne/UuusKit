@@ -30,9 +30,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="取消"/>
-                                <connections>
-                                    <action selector="cancelAction:" destination="RJN-hG-Z2v" eventType="touchUpInside" id="VKm-a8-Pq1"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-Kp-aci">
                                 <rect key="frame" x="65" y="12" width="229" height="28"/>
@@ -47,9 +44,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="完成"/>
-                                <connections>
-                                    <action selector="ensureAction:" destination="RJN-hG-Z2v" eventType="touchUpInside" id="Pu2-AO-vsM"/>
-                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -124,14 +118,11 @@
                 <outlet property="ensureButton" destination="sSU-Gt-OEC" id="EG4-qi-U7w"/>
                 <outlet property="pickerTop" destination="Zbn-0c-SQf" id="DU7-Um-Vjr"/>
                 <outlet property="pickerView" destination="iFr-MP-aF9" id="NNk-NP-GMf"/>
+                <outlet property="tapGesture" destination="gzr-Dn-1xT" id="fTt-Wo-sv2"/>
                 <outlet property="titleLabel" destination="wdz-Kp-aci" id="3g8-7e-KxR"/>
                 <outletCollection property="gestureRecognizers" destination="gzr-Dn-1xT" appends="YES" id="wPA-X2-0M0"/>
             </connections>
         </view>
-        <tapGestureRecognizer id="gzr-Dn-1xT">
-            <connections>
-                <action selector="popAction:" destination="RJN-hG-Z2v" id="Mef-oj-CU2"/>
-            </connections>
-        </tapGestureRecognizer>
+        <tapGestureRecognizer id="gzr-Dn-1xT"/>
     </objects>
 </document>

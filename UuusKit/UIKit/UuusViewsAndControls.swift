@@ -7,9 +7,13 @@
 //
 
 import PKHUD
+import RxCocoa
+import RxSwift
 import SnapKit
 
 open class UuusView: UIView {
+    open var disposeBag = DisposeBag()
+
     deinit {
         n0tification.removeObserver(self)
     }
@@ -25,6 +29,7 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
+
     @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -33,6 +38,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
+
     @IBInspectable open var borderColor: UIColor {
         get {
             return layer.borderColor?.uiColor ?? .clear
@@ -41,7 +47,7 @@ extension UIView {
             layer.borderColor = newValue.cgColor
         }
     }
-    
+
     public var controller: UIViewController? {
         var next = superview?.next
         while next != nil, !next!.isKind(of: UIViewController.self) {
@@ -58,17 +64,19 @@ extension UIView {
                 subview.removeFromSuperview()
             }
         }
-        
+
         app1ication.keyWindow?.addSubview(self)
         if superview != nil {
-            snp.makeConstraints { (make) in
+            snp.makeConstraints { make in
                 make.edges.equalTo(superview!)
             }
         }
     }
+
     public func bringToFront() {
         superview?.bringSubview(toFront: self)
     }
+
     public func sendToBack() {
         superview?.sendSubview(toBack: self)
     }
@@ -76,14 +84,14 @@ extension UIView {
 
 open class CollectionControl1er: UuusController {
     open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         /// even if content is smaller than bounds
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
-        collectionView.snp.makeConstraints { (make) in
+        collectionView.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
                 make.edges.equalTo(view.safeAreaInsets)
             } else {
@@ -91,11 +99,12 @@ open class CollectionControl1er: UuusController {
             }
         }
     }
+
     deinit {
         collectionView.removePullToRefresh(Pul1ToRefresh(position: .top))
         collectionView.removePullToRefresh(Pul1ToRefresh(position: .bottom))
     }
-    
+
     open func addPullToRefreshTop() {}
     open func addPullToRefreshBottom() {}
 }
@@ -113,13 +122,13 @@ extension UICollectionViewCell {
         set {
             let newValue = NSNumber(booleanLiteral: newValue)
             objc_setAssociatedObject(self, &UICollectionViewCell.MettaArtest, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
+
             guard newValue.boolValue else {
                 selectedBackgroundView = nil
                 selectedBackgroundView?.sendToBack()
                 return
             }
-            let image = UIColor(white: 1/2, alpha: 1/2).image
+            let image = UIColor(white: 0.5, alpha: 0.5).image
             selectedBackgroundView = UIImageView(image: image)
             selectedBackgroundView?.bringToFront()
         }
@@ -128,26 +137,40 @@ extension UICollectionViewCell {
 
 @IBDesignable
 open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
-    
+
     public var options: [Any]? {
         didSet {
-            guard 0 < options?.count ?? 0 else {
-                options = ["壹", "贰", "叁"]
+            if 0 < options?.count ?? 0 {
                 return
             }
+            options = ["壹", "贰", "叁"]
         }
     }
+
     public var current: Int? = 0
     public var actions: completionc?
-    
-    
+
     public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
         let neat9icker = self.xib as! Neat9icker
+        neat9icker.tapGesture.rx.event.bind { [unowned neat9icker] sender in
+            neat9icker.removeAction(sender)
+            neat9icker.actions?(nil)
+        }.disposed(by: neat9icker.disposeBag)
+        neat9icker.cancelButton.rx.tap.bind { [unowned neat9icker] sender in
+            neat9icker.removeAction(sender)
+            neat9icker.actions?(nil)
+        }.disposed(by: neat9icker.disposeBag)
+        neat9icker.ensureButton.rx.tap.bind { [unowned neat9icker] sender in
+            neat9icker.removeAction(sender)
+            guard let index = neat9icker.current else { return }
+            neat9icker.actions?(neat9icker.options![index])
+        }.disposed(by: neat9icker.disposeBag)
         neat9icker.options = options
         neat9icker.actions = actions
         guard let happening = option else { return neat9icker }
@@ -159,40 +182,26 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
         return neat9icker
     }
-    
-    @IBAction func popAction(_ sender: UITapGestureRecognizer) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func cancelAction(_ sender: UIButton) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func ensureAction(_ sender: UIButton) {
-        removeAction(sender)
-        guard let index = current else { return }
-        actions?(options![index])
-    }
-    
+
     open func push() {
         blotWindow()
-        
+
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
-        
+
         pickerTop.constant = 294
-        let color = UIColor(white: 0, alpha: 1/2)
-        UIView.animate(withDuration: 1/4, animations: {
+        let color = UIColor(white: 0, alpha: 0.5)
+        UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
             self.layoutIfNeeded()
         }, completion: { _ in
             self.pickerView.selectRow(self.current ?? 0, inComponent: 0, animated: true)
         })
     }
-    
-    open func removeAction(_ sender: Any) {
-        UIView.animate(withDuration: 1/4, animations: {
+
+    open func removeAction(_: Any) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.pickerTop.constant = 0
             self.backgroundColor = .clear
             self.layoutIfNeeded()
@@ -200,18 +209,21 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.removeFromSuperview()
         })
     }
-    
-    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
+    open func numberOfComponents(in _: UIPickerView) -> Int {
         return 1
     }
-    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+    open func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
         return options?.count ?? 0
     }
-    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+    open func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
         guard let option = options?[row] else { return .short }
         return "\(option)"
     }
-    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+    open func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
         current = row
     }
 }
@@ -223,28 +235,31 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         case city
         case district
     }
-    
+
     public struct Part {
-        public var options: [Any]? = nil
-        public var current: Int? = nil
-        
+        public var options: [Any]?
+        public var current: Int?
+
         /// the chosen name
         public var address: String {
             return options(forKey: "name") as! String
         }
+
         /// the chosen five
         public var five: [String]? {
             return options(forKey: "five") as? [String]
         }
+
         /// the chosen area
         public var area: [[String: Any]]? {
             return options(forKey: "area") as? [[String: Any]]
         }
+
         /// the chosen city
         public var city: [[String: Any]]? {
             return options(forKey: "city") as? [[String: Any]]
         }
-        
+
         public init(options: [Any]? = nil, title: String? = nil) {
             self.options = options
             guard let name = title else { return }
@@ -262,7 +277,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
                 }
             }
         }
-        
+
         public func options(forKey key: String) -> Any? {
             guard let count = options?.count else { return nil }
             guard let index = current, index < count else {
@@ -282,6 +297,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             }
             return options![index]
         }
+
         public func address(forRow row: Int) -> String! {
             if let dict = options as? [[String: Any]] {
                 return dict[row]["name"] as! String
@@ -289,72 +305,72 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return options![row] as! String
         }
     }
+
     public struct Area {
-        public var province: Part? = nil
-        public var city: Part? = nil
-        public var district: Part? = nil
-        
+        public var province: Part?
+        public var city: Part?
+        public var district: Part?
+
         public var address: String {
             let p = province?.address ?? .empty
             let c = city?.address ?? .empty
             let d = district?.address ?? .empty
             return (p == c ? p : p + c) + d
         }
-        
+
         private(set) lazy var provinces: [[String: Any]] = {
             let area = "UuusArea"
             let main = Bundle(for: Area9icker.self)
             let path = main.path(forResource: area, ofType: "plist")
             return NSArray(contentsOfFile: path!) as! [[String: Any]]
         }()
-        
+
         init(province: String? = nil, city: String? = nil, district: String? = nil) {
             self.province = Part(options: provinces, title: province)
             self.city = Part(options: self.province?.city, title: city)
             self.district = Part(options: self.city?.area, title: district)
         }
     }
-    
+
+    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
-    
+
     public var address: Area?
     public var actions: completionc?
-    
-    
+
     public class func xib(select province: String? = nil, city: String? = nil, district: String? = nil, actions: completionc?) -> Area9icker {
         let area9icker = self.xib as! Area9icker
+        area9icker.tapGesture.rx.event.bind { [unowned area9icker] sender in
+            area9icker.removeAction(sender)
+            area9icker.actions?(nil)
+        }.disposed(by: area9icker.disposeBag)
+        area9icker.cancelButton.rx.tap.bind { [unowned area9icker] sender in
+            area9icker.removeAction(sender)
+            area9icker.actions?(nil)
+        }.disposed(by: area9icker.disposeBag)
+        area9icker.ensureButton.rx.tap.bind { [unowned area9icker] sender in
+            area9icker.removeAction(sender)
+            area9icker.actions?(area9icker.address)
+        }.disposed(by: area9icker.disposeBag)
         area9icker.address = Area(province: province, city: city, district: district)
         area9icker.actions = actions
         return area9icker
     }
-    
-    @IBAction func popAction(_ sender: UITapGestureRecognizer) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func cancelAction(_ sender: UIButton) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func ensureAction(_ sender: UIButton) {
-        removeAction(sender)
-        actions?(address)
-    }
-    
+
     open func push() {
         blotWindow()
-        
+
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
-        
+
         pickerTop.constant = 294
-        let color = UIColor(white: 0, alpha: 1/2)
-        UIView.animate(withDuration: 1/4, animations: {
+        let color = UIColor(white: 0, alpha: 0.5)
+        UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
             self.layoutIfNeeded()
         }, completion: { _ in
@@ -369,9 +385,9 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             }
         })
     }
-    
-    open func removeAction(_ sender: Any) {
-        UIView.animate(withDuration: 1/4, animations: {
+
+    open func removeAction(_: Any) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.pickerTop.constant = 0
             self.backgroundColor = .clear
             self.layoutIfNeeded()
@@ -379,11 +395,12 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.removeFromSuperview()
         })
     }
-    
-    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
+    open func numberOfComponents(in _: UIPickerView) -> Int {
         return 3
     }
-    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+    open func pickerView(_: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch Type(rawValue: component)! {
         case .province:
             return address?.province?.options?.count ?? 0
@@ -393,7 +410,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return address?.district?.options?.count ?? 0
         }
     }
-    open func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+
+    open func pickerView(_: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = view as? UILabel ?? UILabel()
         switch Type(rawValue: component)! {
         case .province:
@@ -410,6 +428,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         label.minimumScaleFactor = 0.69
         return label
     }
+
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch Type(rawValue: component)! {
         case .province:
@@ -440,14 +459,14 @@ extension UIButton {
         super.willMove(toSuperview: newSuperview)
         isExclusiveTouch = true
     }
-    
+
     public func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
         let titleText = titleLabel!.text!
         let titleFont = titleLabel!.font!
         let titleWidth = titleText.aclinic(boundedUpright: boundedUpright, font: titleFont)
         let imageWidth = imageView!.image!.size.width
         let labelWidth = (titleWidth + imageWidth > greatestAclinic) ? greatestAclinic - imageWidth : titleWidth
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth-4, bottom: 0, right: imageWidth+4)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth - 4, bottom: 0, right: imageWidth + 4)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth, bottom: 0, right: -labelWidth)
         frame = CGRect(x: 0, y: 0, width: labelWidth + imageWidth, height: boundedUpright ?? CGFloat(UInt8.min))
     }
@@ -455,46 +474,45 @@ extension UIButton {
 
 @IBDesignable
 open class Date9icker: UuusView {
+    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
+
     public var predate: Date?
     public var actions: completionc?
-    
-    
+
     public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
         let date9icker = self.xib as! Date9icker
+        date9icker.tapGesture.rx.event.bind { [unowned date9icker] sender in
+            date9icker.removeAction(sender)
+            date9icker.actions?(nil)
+        }.disposed(by: date9icker.disposeBag)
+        date9icker.cancelButton.rx.tap.bind { [unowned date9icker] sender in
+            date9icker.removeAction(sender)
+            date9icker.actions?(nil)
+        }.disposed(by: date9icker.disposeBag)
+        date9icker.ensureButton.rx.tap.bind { [unowned date9icker] sender in
+            date9icker.removeAction(sender)
+            date9icker.actions?(date9icker.datePicker.date)
+        }.disposed(by: date9icker.disposeBag)
         date9icker.predate = date
         date9icker.actions = actions
         return date9icker
     }
-    
-    @IBAction func popAction(_ sender: UITapGestureRecognizer) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func cancelAction(_ sender: UIButton) {
-        removeAction(sender)
-        actions?(nil)
-    }
-    @IBAction func ensureAction(_ sender: UIButton) {
-        removeAction(sender)
-        actions?(datePicker.date)
-    }
-    
+
     open func push() {
         blotWindow()
-        
+
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
-        
+
         pickerTop.constant = 294
-        let color = UIColor(white: 0, alpha: 1/2)
-        UIView.animate(withDuration: 1/4, animations: {
+        let color = UIColor(white: 0, alpha: 0.5)
+        UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
             self.layoutIfNeeded()
         }, completion: { _ in
@@ -503,9 +521,9 @@ open class Date9icker: UuusView {
             }
         })
     }
-    
-    open func removeAction(_ sender: Any) {
-        UIView.animate(withDuration: 1/4, animations: {
+
+    open func removeAction(_: Any) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.pickerTop.constant = 0
             self.backgroundColor = .clear
             self.layoutIfNeeded()
@@ -521,19 +539,20 @@ extension UITextField {
         guard text?.isChinaPhone ?? false else {
             if exception {
                 let local = "手机号码格式不正确".local
-                HUD.flash(.label(local), delay: 1/2)
+                HUD.flash(.label(local), delay: 0.5)
                 becomeFirstResponder()
             }
             return false
         }
         return true
     }
+
     /// block queue outside as exception
     public func email(check exception: Bool = true) -> Bool {
         guard text?.isValidEmail ?? false else {
             if exception {
                 let local = "电子邮箱格式不正确".local
-                HUD.flash(.label(local), delay: 1/2)
+                HUD.flash(.label(local), delay: 0.5)
                 becomeFirstResponder()
             }
             return false

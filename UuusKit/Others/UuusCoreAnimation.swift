@@ -13,7 +13,7 @@ extension CATransition {
         let transition = CATransition()
         transition.type = kCATransitionFade
         transition.subtype = kCATransitionFromTop
-        transition.duration = 1/4
+        transition.duration = 0.25
         return transition
     }
 }

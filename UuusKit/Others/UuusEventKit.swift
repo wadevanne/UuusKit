@@ -12,31 +12,31 @@ import PKHUD
 extension EKEventStore {
     public static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, completion: completionc? = nil) {
         let eventStore = EKEventStore()
-        eventStore.requestAccess(to: .event) { (granted, error) in
+        eventStore.requestAccess(to: .event) { granted, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     completion?(error)
                     return
                 }
-                
+
                 guard granted else {
                     let local = "无法新建日程提醒, 请到隐私设置开放日历权限".local
-                    HUD.flash(.label(local), delay: 1/2)
+                    HUD.flash(.label(local), delay: 0.5)
                     completion?(nil)
                     return
                 }
-                
+
                 let event = EKEvent(eventStore: eventStore)
                 event.title = title
                 event.location = location
                 event.isAllDay = isAllDay
                 event.startDate = startDate
                 event.endDate = endDate
-                alarms?.forEach({ (interval) in
+                alarms?.forEach({ interval in
                     event.addAlarm(EKAlarm(relativeOffset: interval))
                 })
                 event.calendar = eventStore.newEKCalendar(calendar)
-                
+
                 do {
                     try eventStore.save(event, span: .thisEvent)
                 } catch _ {
@@ -46,21 +46,21 @@ extension EKEventStore {
             }
         }
     }
-    
+
     public func newEKCalendar(_ calendar: String?) -> EKCalendar {
         guard calendar != nil else {
             return defaultCalendarForNewEvents!
         }
-        
+
         for ekCalendar in calendars(for: .event) {
             if ekCalendar.title == calendar {
                 return ekCalendar
             }
         }
-        
-        var cloudSource: EKSource? = nil
-        var localSource: EKSource? = nil
-        sources.forEach { (source) in
+
+        var cloudSource: EKSource?
+        var localSource: EKSource?
+        sources.forEach { source in
             switch source.sourceType {
             case .local:
                 localSource = source
@@ -72,7 +72,7 @@ extension EKEventStore {
                 break
             }
         }
-        
+
         let ekCalendar = EKCalendar(for: .event, eventStore: self)
         ekCalendar.source = cloudSource ?? localSource!
         ekCalendar.title = calendar ?? String.short
@@ -82,7 +82,7 @@ extension EKEventStore {
         } catch _ {
             return defaultCalendarForNewEvents!
         }
-        
+
         return ekCalendar
     }
 }
