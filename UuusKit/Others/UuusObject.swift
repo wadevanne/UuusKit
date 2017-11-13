@@ -245,7 +245,7 @@ open class UuusDelivery: NSObject {
     public func request(_ request: UuusRequest, completion: completionc? = nil, failure: failurec? = nil) {
         switch request.loading {
         case .default:
-            HUD.show(.systemActivity)
+            HUD.show(.systemActivity, onView: control1er?.view)
         case .animations:
             break
         case .customized:
