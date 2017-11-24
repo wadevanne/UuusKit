@@ -9,6 +9,8 @@
 import Foundation
 
 extension Data {
+    // MARK: - Properties
+
     public var array: [Any]? {
         return (try? JSONSerialization.jsonObject(with: self, options: .mutableContainers)) as? [Any]
     }

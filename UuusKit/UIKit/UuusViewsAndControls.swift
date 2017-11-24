@@ -12,14 +12,20 @@ import RxSwift
 import SnapKit
 
 open class UuusView: UIView {
-    open var disposeBag = DisposeBag()
+    // MARK: - Deinitialization
 
     deinit {
         n0tification.removeObserver(self)
     }
+
+    // MARK: - Properties
+
+    open var disposeBag = DisposeBag()
 }
 
 extension UIView {
+    // MARK: - IBInspectable
+
     @IBInspectable open var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -48,6 +54,8 @@ extension UIView {
         }
     }
 
+    // MARK: - Properties
+
     public var controller: UIViewController? {
         var next = superview?.next
         while next != nil, !next!.isKind(of: UIViewController.self) {
@@ -58,6 +66,8 @@ extension UIView {
 }
 
 extension UIView {
+    // MARK: - Public - Functions
+
     public func blotWindow() {
         if let subview = app1ication.keyWindow?.subviews.last {
             if subview.isMember(of: classForCoder) {
@@ -83,7 +93,18 @@ extension UIView {
 }
 
 open class CollectionControl1er: UuusController {
+    // MARK: - Deinitialization
+
+    deinit {
+        collectionView.removePullToRefresh(at: .top)
+        collectionView.removePullToRefresh(at: .bottom)
+    }
+
+    // MARK: - Properties
+
     open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+
+    // MARK: - View Handling
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,20 +121,17 @@ open class CollectionControl1er: UuusController {
         }
     }
 
-    deinit {
-        collectionView.removePullToRefresh(Pul1ToRefresh(position: .top))
-        collectionView.removePullToRefresh(Pul1ToRefresh(position: .bottom))
-    }
+    // MARK: - Public - Functions
 
     open func addPullToRefreshTop() {}
     open func addPullToRefreshBottom() {}
 }
 
 extension UICollectionViewCell {
-    private static var MettaArtest = "MettaArtest"
-}
+    // MARK: - Properties
 
-extension UICollectionViewCell {
+    private static var MettaArtest = "MettaArtest"
+
     public var ronartest: Bool {
         get {
             let object = objc_getAssociatedObject(self, &UICollectionViewCell.MettaArtest)
@@ -135,8 +153,9 @@ extension UICollectionViewCell {
     }
 }
 
-@IBDesignable
 open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+    // MARK: - IBOutlets
+
     @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
@@ -144,17 +163,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
 
-    public var options: [Any]? {
-        didSet {
-            if 0 < options?.count ?? 0 {
-                return
-            }
-            options = ["壹", "贰", "叁"]
-        }
-    }
-
-    public var current: Int? = 0
-    public var actions: completionc?
+    // MARK: - Initialization
 
     public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
         let neat9icker = self.xib as! Neat9icker
@@ -183,6 +192,25 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         return neat9icker
     }
 
+    // MARK: - Closures
+
+    public var actions: completionc?
+
+    // MARK: - Properties
+
+    public var options: [Any]? {
+        didSet {
+            if 0 < options?.count ?? 0 {
+                return
+            }
+            options = ["壹", "贰", "叁"]
+        }
+    }
+
+    public var current: Int? = 0
+
+    // MARK: - Public - Functions
+
     open func push() {
         blotWindow()
 
@@ -210,6 +238,8 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         })
     }
 
+    // MARK: - UIPickerViewDataSource
+
     open func numberOfComponents(in _: UIPickerView) -> Int {
         return 1
     }
@@ -217,6 +247,8 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
         return options?.count ?? 0
     }
+
+    // MARK: - UIPickerViewDelegate
 
     open func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
         guard let option = options?[row] else { return .short }
@@ -228,15 +260,40 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
-@IBDesignable
 open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+    // MARK: - Enumerations
+
     public enum `Type`: Int {
         case province
         case city
         case district
     }
 
+    // MARK: - Classes and Structures
+
     public struct Part {
+        // MARK: - Initialization
+
+        public init(options: [Any]? = nil, title: String? = nil) {
+            self.options = options
+            guard let name = title else { return }
+            guard let array = options else { return }
+            for (index, value) in array.enumerated() {
+                if let dict = value as? [String: Any] {
+                    if name == dict["name"] as! String {
+                        self.current = index
+                        break
+                    }
+                }
+                if name == value as? String ?? .empty {
+                    self.current = index
+                    break
+                }
+            }
+        }
+
+        // MARK: - Properties
+
         public var options: [Any]?
         public var current: Int?
 
@@ -260,23 +317,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             return options(forKey: "city") as? [[String: Any]]
         }
 
-        public init(options: [Any]? = nil, title: String? = nil) {
-            self.options = options
-            guard let name = title else { return }
-            guard let array = options else { return }
-            for (index, value) in array.enumerated() {
-                if let dict = value as? [String: Any] {
-                    if name == dict["name"] as! String {
-                        self.current = index
-                        break
-                    }
-                }
-                if name == value as? String ?? .empty {
-                    self.current = index
-                    break
-                }
-            }
-        }
+        // MARK: - Public - Functions
 
         public func options(forKey key: String) -> Any? {
             guard let count = options?.count else { return nil }
@@ -307,6 +348,25 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     public struct Area {
+        // MARK: - Initialization
+
+        init(province: String? = nil, city: String? = nil, district: String? = nil) {
+            self.province = Part(options: provinces, title: province)
+            self.city = Part(options: self.province?.city, title: city)
+            self.district = Part(options: self.city?.area, title: district)
+        }
+
+        // MARK: - Lazy Initialization
+
+        private(set) lazy var provinces: [[String: Any]] = {
+            let area = "UuusArea"
+            let main = Bundle(for: Area9icker.self)
+            let path = main.path(forResource: area, ofType: "plist")
+            return NSArray(contentsOfFile: path!) as! [[String: Any]]
+        }()
+
+        // MARK: - Properties
+
         public var province: Part?
         public var city: Part?
         public var district: Part?
@@ -317,20 +377,9 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             let d = district?.address ?? .empty
             return (p == c ? p : p + c) + d
         }
-
-        private(set) lazy var provinces: [[String: Any]] = {
-            let area = "UuusArea"
-            let main = Bundle(for: Area9icker.self)
-            let path = main.path(forResource: area, ofType: "plist")
-            return NSArray(contentsOfFile: path!) as! [[String: Any]]
-        }()
-
-        init(province: String? = nil, city: String? = nil, district: String? = nil) {
-            self.province = Part(options: provinces, title: province)
-            self.city = Part(options: self.province?.city, title: city)
-            self.district = Part(options: self.city?.area, title: district)
-        }
     }
+
+    // MARK: - IBOutlets
 
     @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
@@ -339,8 +388,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
 
-    public var address: Area?
-    public var actions: completionc?
+    // MARK: - Initialization
 
     public class func xib(select province: String? = nil, city: String? = nil, district: String? = nil, actions: completionc?) -> Area9icker {
         let area9icker = self.xib as! Area9icker
@@ -360,6 +408,13 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         area9icker.actions = actions
         return area9icker
     }
+
+    // MARK: - Properties
+
+    public var address: Area?
+    public var actions: completionc?
+
+    // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
@@ -396,6 +451,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         })
     }
 
+    // MARK: - UIPickerViewDataSource
+
     open func numberOfComponents(in _: UIPickerView) -> Int {
         return 3
     }
@@ -411,6 +468,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
 
+    // MARK: - UIPickerViewDelegate
+
     open func pickerView(_: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = view as? UILabel ?? UILabel()
         switch Type(rawValue: component)! {
@@ -421,11 +480,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         case .district:
             label.text = address?.district?.address(forRow: row)
         }
-        let size = UIFont.buttonFontSize
-        label.font = UIFont.systemFont(ofSize: size, weight: .medium)
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.69
         return label
     }
 
@@ -455,10 +511,14 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 extension UIButton {
+    // MARK: - View Handling
+
     open override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         isExclusiveTouch = true
     }
+
+    // MARK: - Public - Functions
 
     public func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
         let titleText = titleLabel!.text!
@@ -472,8 +532,9 @@ extension UIButton {
     }
 }
 
-@IBDesignable
 open class Date9icker: UuusView {
+    // MARK: - IBOutlets
+
     @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pickerTop: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
@@ -481,8 +542,7 @@ open class Date9icker: UuusView {
     @IBOutlet weak var ensureButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
 
-    public var predate: Date?
-    public var actions: completionc?
+    // MARK: - Initialization
 
     public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
         let date9icker = self.xib as! Date9icker
@@ -502,6 +562,13 @@ open class Date9icker: UuusView {
         date9icker.actions = actions
         return date9icker
     }
+
+    // MARK: - Properties
+
+    public var predate: Date?
+    public var actions: completionc?
+
+    // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
@@ -534,6 +601,8 @@ open class Date9icker: UuusView {
 }
 
 extension UITextField {
+    // MARK: - Public - Functions
+
     /// block queue outside as exception
     public func phone(check exception: Bool = true) -> Bool {
         guard text?.isChinaPhone ?? false else {

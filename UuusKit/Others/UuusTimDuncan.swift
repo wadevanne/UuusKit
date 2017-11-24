@@ -8,9 +8,12 @@
 
 import UIKit
 
-public typealias completionc = ((_ data: Any?) -> Swift.Void)
-public typealias exceptionc = ((_ code: Int?, _ info: String?) -> Swift.Void)
-public typealias failurec = ((_ error: Error?) -> Swift.Void)
+// MARK: - Enumerations
+// MARK: - Classes and Structures
+
+// MARK: - IBOutlets
+// MARK: - IBActions
+// MARK: - Singleton
 
 public let uuus2MPI = 2.0 * .pi
 public let uuusM2PI = 0.5 * .pi
@@ -19,6 +22,17 @@ public var app1ication = UIApplication.shared
 public var appDe1egate = app1ication.delegate /*! as! AppDelegate */
 public var ca1endar = Calendar.current
 public var n0tification = NotificationCenter.default
+
+// MARK: - Initialization
+// MARK: - Deinitialization
+// MARK: - Lazy Initialization
+// MARK: - Closures
+
+public typealias completionc = ((_ data: Any?) -> Swift.Void)
+public typealias exceptionc = ((_ code: Int?, _ info: String?) -> Swift.Void)
+public typealias failurec = ((_ error: Error?) -> Swift.Void)
+
+// MARK: - Properties
 
 public var control1er: UIViewController? {
     return UIViewController.playground()
@@ -30,6 +44,10 @@ public var screenWidth = screenBounds.width
 public var screenWidth8 = screenWidth / 8
 
 public var statusHeight = app1ication.statusBarFrame.height
+
+// MARK: - Serialization
+// MARK: - View Handling
+// MARK: - Public - Functions
 
 public func ceil<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
@@ -73,3 +91,8 @@ public func telephone(_ telephone: String) {
     uiWebView.loadRequest(URLRequest(url: url!))
     control1er?.view.addSubview(uiWebView)
 }
+
+// MARK: - Private - Functions
+// MARK: - Delegates
+// MARK: - KVO
+// MARK: - Error Handling

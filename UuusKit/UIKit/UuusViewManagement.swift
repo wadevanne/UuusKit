@@ -12,9 +12,13 @@ import RMUniversalAlert
 import RxSwift
 
 open class UuusController: UIViewController {
+    // MARK: - Classes and Structures
+
     open class Pul1ToRefresh: PullToRefresh {
+        // MARK: - Classes and Structures
+
         open class RefreshView: UIView {
-            open static var images: [UIImage]?
+            // MARK: - Lazy Initialization
 
             private(set) lazy var indicator: UIImageView? = {
                 let animationImages = RefreshView.images
@@ -29,6 +33,12 @@ open class UuusController: UIViewController {
                 return imageView
             }()
 
+            // MARK: - Properties
+
+            open static var images: [UIImage]?
+
+            // MARK: - View Handling
+
             open override func willMove(toSuperview newSuperview: UIView?) {
                 super.willMove(toSuperview: newSuperview)
                 setupFrame(in: superview)
@@ -42,6 +52,8 @@ open class UuusController: UIViewController {
                 super.layoutSubviews()
             }
 
+            // MARK: - Public - Functions
+
             open func setupFrame(in newSuperview: UIView?) {
                 guard let superview = newSuperview else { return }
                 frame = CGRect(x: frame.minX, y: frame.minY, width: superview.frame.width, height: frame.height)
@@ -51,6 +63,8 @@ open class UuusController: UIViewController {
                 indicator?.center = convert(center, from: superview)
             }
         }
+
+        // MARK: - Initialization
 
         override init(refreshView: UIView, animator: RefreshViewAnimator, height: CGFloat, position: Position) {
             let refreshView = RefreshView()
@@ -64,23 +78,27 @@ open class UuusController: UIViewController {
         }
     }
 
+    // MARK: - Deinitialization
+
+    deinit {
+        n0tification.removeObserver(self)
+    }
+
+    // MARK: - Properties
+
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
 
     open var disposeBag = DisposeBag()
-
-    deinit {
-        n0tification.removeObserver(self)
-    }
 }
 
 extension UIViewController {
+    // MARK: - Properties
+
     private static var SteveAssist = "SteveAssist"
     private static var A1Interface = "A1Interface"
-}
 
-extension UIViewController {
     public var stevenash: Any? {
         get {
             return objc_getAssociatedObject(self, &UIViewController.SteveAssist)
@@ -111,6 +129,8 @@ extension UIViewController {
 }
 
 extension UIViewController {
+    // MARK: - Public - Functions
+
     public static func new(storyboard name: String = "Main") -> UIViewController {
         let storyboard = UIStoryboard(name: name, bundle: Bundle(for: self))
         return storyboard.instantiateViewController(withIdentifier: self.name)
@@ -131,6 +151,8 @@ extension UIViewController {
 }
 
 extension UIViewController {
+    // MARK: - Public - Functions
+
     public func presentc(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         presentc(type.init(), assist: assist, animated: flag, completion: completion)
     }
@@ -217,12 +239,16 @@ extension UIViewController {
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {
+    // MARK: - UIGestureRecognizerDelegate
+
     public func gestureRecognizer(_: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard touch.view?.isKind(of: UIControl.self) ?? false else {
             return true
         }
         return false
     }
+
+    // MARK: - KVO
 
     public func addObserver4Keyboard() {
         n0tification.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: .UIKeyboardWillShow, object: nil)
@@ -246,6 +272,8 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 
 open class NavigationControl1er: UINavigationController {
+    // MARK: - Properties
+
     open var hidesBottomBarWhen9ushed: Bool {
         return childViewControllers.count > 0
     }
@@ -254,6 +282,8 @@ open class NavigationControl1er: UINavigationController {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
 
+    // MARK: - Public - Functions
+
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         viewController.hidesBottomBarWhenPushed = hidesBottomBarWhen9ushed
         super.pushViewController(viewController, animated: animated)
@@ -261,6 +291,8 @@ open class NavigationControl1er: UINavigationController {
 }
 
 extension UINavigationController {
+    // MARK: - Public - Functions
+
     public func removeAllMiddleViewControllers() {
         guard viewControllers.count > 2 else {
             return
@@ -291,9 +323,13 @@ extension UINavigationController {
 }
 
 open class TabBarControl1er: UITabBarController {
+    // MARK: - Properties
+
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return interfaceOrientationMaskAll ? .all : .portrait
     }
+
+    // MARK: - Public - Functions
 
     open func appendc(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)

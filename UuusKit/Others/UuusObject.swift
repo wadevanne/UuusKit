@@ -14,65 +14,8 @@ import PKHUD
 open class UuusObject: NSObject {}
 
 extension UuusObject {
-    public class Uuid: NSObject {
-        @available(iOS 6.0, *)
-        public static var dIFV: String? {
-            let device = UIDevice.current
-            let identifier = device.identifierForVendor
-            return identifier?.uuidString
-        }
+    // MARK: - Enumerations
 
-        @available(iOS 6.0, *)
-        public static var uuid: String {
-            return NSUUID().uuidString
-        }
-
-        public static var rand: String? {
-            let uuid = CFUUIDCreate(kCFAllocatorDefault)
-            let char = CFUUIDCreateString(kCFAllocatorDefault, uuid)
-            return char as String?
-        }
-
-        public static let shared: String = {
-            let identifier = Bundle.main.bundleIdentifier
-            let keychain = Keychain(service: identifier ?? .empty)
-            var uuid = keychain[DeviceIdentifier]
-            if uuid == nil {
-                uuid = UserDefaults.standard.string(forKey: DeviceIdentifier)
-                if uuid == nil {
-                    uuid = Uuid.dIFV
-                    keychain[DeviceIdentifier] = uuid
-                    UserDefaults.standard.set(uuid, forKey: DeviceIdentifier)
-                    UserDefaults.standard.synchronize()
-                }
-            }
-            return uuid!
-        }()
-    }
-}
-
-extension UuusObject {
-    public class Base64Transform: TransformType {
-        public typealias Object = String
-        public typealias JSON = String
-        init() {}
-
-        /// decode base64
-        public func transformFromJSON(_ value: Any?) -> String? {
-            guard let string = value as? String else { return nil }
-            guard let data = string.debase64Data else { return string }
-            return String(data: data, encoding: .utf8)
-        }
-        /// encode base64
-        public func transformToJSON(_ value: String?) -> String? {
-            guard let string = value else { return nil }
-            let data = Data(bytes: Array(string.utf8))
-            return data.enbase64String
-        }
-    }
-}
-
-extension UuusObject {
     public enum DeviceType: String {
         /// "iPhone1,1" on iPhone
         /// "iPhone1,2" on iPhone 3G
@@ -169,6 +112,79 @@ extension UuusObject {
             return lhs.hashValue >= rhs.hashValue
         }
     }
+}
+
+extension UuusObject {
+    // MARK: - Classes and Structures
+
+    public class Uuid: NSObject {
+        // MARK: - Singleton
+
+        public static let shared: String = {
+            let identifier = Bundle.main.bundleIdentifier
+            let keychain = Keychain(service: identifier ?? .empty)
+            var uuid = keychain[DeviceIdentifier]
+            if uuid == nil {
+                uuid = UserDefaults.standard.string(forKey: DeviceIdentifier)
+                if uuid == nil {
+                    uuid = Uuid.dIFV
+                    keychain[DeviceIdentifier] = uuid
+                    UserDefaults.standard.set(uuid, forKey: DeviceIdentifier)
+                    UserDefaults.standard.synchronize()
+                }
+            }
+            return uuid!
+        }()
+
+        // MARK: - Properties
+
+        @available(iOS 6.0, *)
+        public static var uuid: String {
+            return NSUUID().uuidString
+        }
+
+        @available(iOS 6.0, *)
+        public static var dIFV: String? {
+            let device = UIDevice.current
+            let identifier = device.identifierForVendor
+            return identifier?.uuidString
+        }
+
+        public static var rand: String? {
+            let uuid = CFUUIDCreate(kCFAllocatorDefault)
+            let char = CFUUIDCreateString(kCFAllocatorDefault, uuid)
+            return char as String?
+        }
+    }
+}
+
+extension UuusObject {
+    // MARK: - Classes and Structures
+
+    public class Base64Transform: TransformType {
+        public typealias Object = String
+        public typealias JSON = String
+        init() {}
+
+        /// decode base64
+        public func transformFromJSON(_ value: Any?) -> String? {
+            guard let string = value as? String else { return nil }
+            guard let data = string.debase64Data else { return string }
+            return String(data: data, encoding: .utf8)
+        }
+        /// encode base64
+        public func transformToJSON(_ value: String?) -> String? {
+            guard let string = value else { return nil }
+            let data = Data(bytes: Array(string.utf8))
+            return data.enbase64String
+        }
+    }
+}
+
+extension UuusObject {
+    // MARK: - Properties
+
+    public static var DeviceIdentifier = "DeviceIdentifier"
 
     public static var deviceType: DeviceType {
         switch (screenHeight, screenWidth) {
@@ -186,25 +202,33 @@ extension UuusObject {
             return .retina
         }
     }
-
-    public static var DeviceIdentifier = "DeviceIdentifier"
 }
 
 open class UuusRequest: NSObject {
+    // MARK: - Enumerations
+
     public enum Loaded {
         case `default`
         case exception
     }
-
-    public var loaded: Loaded = .default
-
-    public var method: HTTPMethod = .post
 
     public enum Loading {
         case `default`
         case animations
         case customized
     }
+
+    // MARK: - Closures
+
+    public var completion: completionc?
+    public var exception: exceptionc?
+    public var failure: failurec?
+
+    // MARK: - Properties
+
+    public var loaded: Loaded = .default
+
+    public var method: HTTPMethod = .post
 
     public var loading: Loading = .default
 
@@ -228,19 +252,21 @@ open class UuusRequest: NSObject {
 
     open var headers: HTTPHeaders?
     open var parameters: Parameters?
-
-    public var completion: completionc?
-    public var exception: exceptionc?
-    public var failure: failurec?
 }
 
 open class UuusDelivery: NSObject {
-    let manager = NetworkReachabilityManager(host: "www.apple.com")
+    // MARK: - Initialization
 
     public override init() {
         super.init()
         startListening()
     }
+
+    // MARK: - Properties
+
+    let manager = NetworkReachabilityManager(host: "www.apple.com")
+
+    // MARK: - Public - Functions
 
     public func request(_ request: UuusRequest, completion: completionc? = nil, failure: failurec? = nil) {
         switch request.loading {
@@ -266,6 +292,8 @@ open class UuusDelivery: NSObject {
         }
     }
 
+    // MARK: - Private - Functions
+
     @discardableResult
     private func startListening() -> Bool? {
         manager?.listener = { reachabilityStatus in
@@ -287,6 +315,8 @@ open class UuusDelivery: NSObject {
 open class UuusMagician: NSObject {}
 
 extension NSObject {
+    // MARK: - Properties
+
     public static var name: String {
         return "\(classForCoder())"
     }

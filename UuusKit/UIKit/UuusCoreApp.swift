@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIDevice {
+    // MARK: - Properties
+
     public static var isPad: Bool {
         return current.userInterfaceIdiom == .pad
     }
@@ -23,6 +25,8 @@ extension UIDevice {
 }
 
 extension UIDevice {
+    // MARK: - Properties
+
     public var modelName: String {
         var systemInformation = utsname()
         uname(&systemInformation)

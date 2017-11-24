@@ -10,8 +10,27 @@ import AVKit
 import RMUniversalAlert
 
 open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+    // MARK: - Classes and Structures
+
     open class ScanView: UuusView {
+        // MARK: - Singleton
+
         private let line = "line"
+
+        // MARK: - Initialization
+
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            let roll = #selector(ScanControl1er.ScanView.roll)
+            let name = NSNotification.Name.UIApplicationDidBecomeActive
+            n0tification.addObserver(self, selector: roll, name: name, object: nil)
+        }
+
+        public required init?(coder _: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        // MARK: - Lazy Initialization
 
         public lazy var backLayer: CAShapeLayer = { [unowned self] in
             let layer = CAShapeLayer()
@@ -62,17 +81,11 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
             return animation
         }()
 
+        // MARK: - Properties
+
         private(set) var scanrect: CGRect?
 
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            let name = NSNotification.Name.UIApplicationDidBecomeActive
-            n0tification.addObserver(self, selector: #selector(roll), name: name, object: nil)
-        }
-
-        public required init?(coder _: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+        // MARK: - View Handling
 
         open override func draw(_ rect: CGRect) {
             super.draw(rect)
@@ -97,6 +110,8 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
 
             roll()
         }
+
+        // MARK: - Public - Functions
 
         open func scanned(_ rect: CGRect?) -> CGRect? {
             guard let rect = rect else { return nil }
@@ -126,6 +141,8 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
             moveLayer.removeAnimation(forKey: line)
         }
     }
+
+    // MARK: - Lazy Initialization
 
     public lazy var prelayer: AVCaptureVideoPreviewLayer? = { [unowned self] in
         guard let session = self.session else { return nil }
@@ -174,6 +191,12 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         return session
     }()
 
+    // MARK: - Closures
+
+    public var didOutputMetadataObjectsClosure: completionc?
+
+    // MARK: - Properties
+
     private var rectOfInterest: CGRect {
         let rect = view.bounds
         let scan = scanView.scanned(rect) ?? .zero
@@ -200,7 +223,7 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         return CGRect(origin: origin, size: size)
     }
 
-    public var didOutputMetadataObjectsClosure: completionc?
+    // MARK: - View Handling
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,6 +262,8 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
 
+    // MARK: - Public - Functions
+
     open func startRunning() {
         scanView.roll()
         session?.startRunning()
@@ -248,6 +273,8 @@ open class ScanControl1er: UuusController, AVCaptureMetadataOutputObjectsDelegat
         scanView.stop()
         session?.stopRunning()
     }
+
+    // MARK: - AVCaptureMetadataOutputObjectsDelegate
 
     open func metadataOutput(_: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from _: AVCaptureConnection) {
         guard metadataObjects.count > 0 else {

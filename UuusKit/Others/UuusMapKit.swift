@@ -10,6 +10,8 @@ import MapKit
 
 @IBDesignable
 open class MapControl1er: UuusController {
+    // MARK: - IBInspectable
+
     @IBInspectable public var address: String? {
         didSet {
             let coordinate = "\(latitude), \(longitude)"
@@ -27,7 +29,11 @@ open class MapControl1er: UuusController {
     /// CLLocationDegrees
     @IBInspectable public var longitude: Double = 114.173355
 
+    // MARK: - Properties
+
     public var mapView = MKMapView()
+
+    // MARK: - View Handling
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,8 @@ open class MapControl1er: UuusController {
             }
         }
     }
+
+    // MARK: - Public - Functions
 
     open func geocodeAddressString(_ address: String) {
         CLGeocoder().geocodeAddressString(address) { [weak self] placemarks, error in

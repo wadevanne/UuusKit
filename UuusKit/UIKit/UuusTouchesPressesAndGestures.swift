@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIResponder {
+    // MARK: - Properties
+
     public static var nib: UINib? {
         let bundle = Bundle(for: self)
         if bundle.path(forResource: name, ofType: "nib") == nil {

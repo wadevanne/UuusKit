@@ -9,6 +9,8 @@
 import UIKit
 
 extension String {
+    // MARK: - Singleton
+
     public static let empty = ""
     public static let white = " "
     public static let short = "-"
@@ -21,6 +23,8 @@ extension String {
 }
 
 extension String {
+    // MARK: - Properties
+
     public var data: Data? {
         return data(using: .utf8)
     }
@@ -54,12 +58,8 @@ extension String {
         return match(regex: regex, value: self)
     }
 
-    public var isMaybePhone: Bool {
-        return match(regex: "^[0-9]*$", value: self)
-    }
-
     public var isChinaPhone: Bool {
-        let regex = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$"
+        let regex = "((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}"
         return match(regex: regex, value: self)
     }
 
@@ -71,8 +71,12 @@ extension String {
     /// /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/
     /// /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/
     public var isValidIdNum: Bool {
-        let regex = "(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$)|(^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$)"
+        let regex = "([1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3})|([1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X))"
         return match(regex: regex, value: self)
+    }
+
+    public var isAllNumbers: Bool {
+        return match(regex: "[0-9]{1,}", value: self)
     }
 
     public var isHasNumbers: Bool {
@@ -129,6 +133,8 @@ extension String {
 }
 
 extension String {
+    // MARK: - Public - Functions
+
     public func formattedPhone(any: Character = Character(String.white)) -> String {
         var formattedPhone = self
         formattedPhone.insert(any, at: index(endIndex, offsetBy: -4))
@@ -194,6 +200,8 @@ extension String {
     public func upright(boundedAclinic: CGFloat?, font: UIFont) -> CGFloat {
         return float(boundedAclinic ?? CGFloat(UInt8.min), font: font, isBoundedVertical: false)
     }
+
+    // MARK: - Private - Functions
 
     private func float(_ float: CGFloat, font: UIFont, isBoundedVertical: Bool) -> CGFloat {
         let height = isBoundedVertical ? float : CGFloat.greatestFiniteMagnitude

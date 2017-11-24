@@ -9,6 +9,8 @@
 import QuartzCore
 
 extension CATransition {
+    // MARK: - Properties
+
     public static var fade: CATransition {
         let transition = CATransition()
         transition.type = kCATransitionFade

@@ -9,6 +9,8 @@
 import UIKit
 
 extension NSAttributedString {
+    // MARK: - Public - Functions
+
     public func numberOfLines(bounded: CGFloat?) -> Int {
         let emptyString = NSAttributedString(string: .empty)
         let eachHeight = emptyString.upright(boundedAclinic: bounded)
@@ -31,6 +33,8 @@ extension NSAttributedString {
     public func upright(boundedAclinic: CGFloat?) -> CGFloat {
         return float(boundedAclinic ?? CGFloat(UInt8.min), isBoundedVertical: false)
     }
+
+    // MARK: - Private - Functions
 
     private func float(_ float: CGFloat, isBoundedVertical: Bool) -> CGFloat {
         let height = isBoundedVertical ? float : CGFloat.greatestFiniteMagnitude

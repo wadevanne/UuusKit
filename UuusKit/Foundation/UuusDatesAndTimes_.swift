@@ -9,6 +9,8 @@
 import Foundation
 
 extension Date {
+    // MARK: - Enumerations
+
     public enum DateFormat: String {
         case none
         case count
@@ -51,6 +53,8 @@ extension Date {
 }
 
 extension Date {
+    // MARK: - Properties
+
     public var timestamp: TimeInterval {
         return timeIntervalSince1970 * 1000
     }
@@ -88,11 +92,13 @@ extension Date {
             leading = ca1endar.firstWeekday - (dateComponents.weekday ?? 0)
         }
         dateComponents.day = dateComponents.day! + leading
-        return ca1endar.date(from: dateComponents) ?? Date()
+        return ca1endar.date(from: dateComponents)!
     }
 }
 
 extension Date {
+    // MARK: - Public - Functions
+
     /// let a = "1992-02-29"
     /// let b = "1992-02-29 20:00"
     ///
@@ -359,6 +365,8 @@ extension Date {
 }
 
 extension Date {
+    // MARK: - Public - Functions
+
     /// let a = "1992-02-29"
     /// let b = [Date.DateFormat.yyyy_MM_dd]
     /// let c = Date.date(of: a, input: b)
@@ -389,6 +397,8 @@ extension Date {
 }
 
 extension TimeInterval {
+    // MARK: - Singleton
+
     public static let oneweek: TimeInterval = 7 * oneday
     public static let oneday: TimeInterval = 24 * onehour
     public static let onehour: TimeInterval = 60 * lminute
@@ -397,6 +407,8 @@ extension TimeInterval {
 }
 
 extension TimeInterval {
+    // MARK: - Properties
+
     public var date: Date {
         /// millisecond -> second
         return Date(timeIntervalSince1970: self * 0.001)

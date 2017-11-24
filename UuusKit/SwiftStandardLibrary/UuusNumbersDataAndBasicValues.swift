@@ -9,6 +9,8 @@
 import Foundation
 
 extension Double {
+    // MARK: - Properties
+
     public var currency: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

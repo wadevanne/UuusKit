@@ -9,12 +9,16 @@
 import Foundation
 
 extension Array {
+    // MARK: - Properties
+
     public var data: Data? {
         return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }
 }
 
 extension Array where Element == Date.DateFormat {
+    // MARK: - Properties
+
     public var dateFormat: String {
         let array = sorted {
             $0.hashValue > $1.hashValue
@@ -26,6 +30,8 @@ extension Array where Element == Date.DateFormat {
 }
 
 extension Dictionary {
+    // MARK: - Properties
+
     public var data: Data? {
         return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }
@@ -45,6 +51,8 @@ extension Dictionary {
 }
 
 extension Dictionary {
+    // MARK: - Public - Functions
+
     @discardableResult
     public mutating func removeValues(forKeys keys: [Dictionary.Key]) -> [Dictionary.Value]? {
         var removeValues: [Dictionary.Value] = []

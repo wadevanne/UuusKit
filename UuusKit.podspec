@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   s.name         = "UuusKit"
-  s.version      = "3.9.6.9"
+  s.version      = "3.9.8.9"
   s.summary      = "UuusKit is a Swift extension, requires Swift 4.0 or higher."
   s.description  = <<-DESC
                     UuusKit is a Swift extension, requires Swift 4.0.0 or higher.
@@ -75,9 +75,6 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.dependency "ALCameraViewController"
   s.dependency "AlamofireImage"
-  s.dependency "CryptoSwift"
-  s.dependency "EVReflection/CloudKit"
-  s.dependency "EVReflection/Realm"
   s.dependency "KeychainAccess"
   s.dependency "ObjectMapper"
   s.dependency "PKHUD"
