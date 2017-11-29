@@ -156,12 +156,12 @@ extension UICollectionViewCell {
 open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - IBOutlets
 
-    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
-    @IBOutlet weak var pickerTop: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var ensureButton: UIButton!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var pickerTop: NSLayoutConstraint!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var ensureButton: UIButton!
+    @IBOutlet var pickerView: UIPickerView!
 
     // MARK: - Initialization
 
@@ -381,12 +381,12 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
-    @IBOutlet weak var pickerTop: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var ensureButton: UIButton!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var pickerTop: NSLayoutConstraint!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var ensureButton: UIButton!
+    @IBOutlet var pickerView: UIPickerView!
 
     // MARK: - Initialization
 
@@ -535,12 +535,12 @@ extension UIButton {
 open class Date9icker: UuusView {
     // MARK: - IBOutlets
 
-    @IBOutlet weak var tapGesture: UITapGestureRecognizer!
-    @IBOutlet weak var pickerTop: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var ensureButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var pickerTop: NSLayoutConstraint!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var ensureButton: UIButton!
+    @IBOutlet var datePicker: UIDatePicker!
 
     // MARK: - Initialization
 
