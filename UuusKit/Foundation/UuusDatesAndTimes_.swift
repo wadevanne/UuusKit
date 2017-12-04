@@ -83,16 +83,16 @@ extension Date {
 
     public var mondate: Date {
         /// Sunday = 1, Monday = 2, Saturday = 7
-        ca1endar.firstWeekday = 2
+        ccalendar.firstWeekday = 2
         var components: Set<Calendar.Component>
         components = [.day, .month, .weekday, .year]
-        var dateComponents = ca1endar.dateComponents(components, from: self)
+        var dateComponents = ccalendar.dateComponents(components, from: self)
         var leading = -6
         if dateComponents.weekday != 1 {
-            leading = ca1endar.firstWeekday - (dateComponents.weekday ?? 0)
+            leading = ccalendar.firstWeekday - (dateComponents.weekday ?? 0)
         }
         dateComponents.day = dateComponents.day! + leading
-        return ca1endar.date(from: dateComponents)!
+        return ccalendar.date(from: dateComponents)!
     }
 }
 
@@ -153,7 +153,7 @@ extension Date {
     public static func aged(of string: String, input: [DateFormat]) -> TimeInterval {
         let birthdate = date(of: string, input: input) ?? .distantPast
         let components: Set<Calendar.Component> = [.month, .year]
-        let dateComponents = ca1endar.dateComponents(components, from: birthdate, to: Date())
+        let dateComponents = ccalendar.dateComponents(components, from: birthdate, to: Date())
         return TimeInterval(dateComponents.year ?? 0) + TimeInterval(dateComponents.month ?? 0) / 12
     }
 
@@ -203,8 +203,8 @@ extension Date {
         }
 
         let components: Set<Calendar.Component> = [.day, .month, .year]
-        let endComponents = ca1endar.dateComponents(components, from: end!.date)
-        let startComponents = ca1endar.dateComponents(components, from: start.date)
+        let endComponents = ccalendar.dateComponents(components, from: end!.date)
+        let startComponents = ccalendar.dateComponents(components, from: start.date)
 
         let day = startComponents.day == endComponents.day
         let year = startComponents.year == endComponents.year
@@ -262,9 +262,9 @@ extension Date {
             let components: Set<Calendar.Component> = [.second, .minute, .hour, .day, .month, .year]
             let from = interval.againstf ? interval.start : currentDate
             let to = interval.againstf ? currentDate : interval.end
-            let fromComponents = ca1endar.dateComponents(components, from: from)
-            let toComponents = ca1endar.dateComponents(components, from: to)
-            let dateComponents = ca1endar.dateComponents(components, from: from, to: to)
+            let fromComponents = ccalendar.dateComponents(components, from: from)
+            let toComponents = ccalendar.dateComponents(components, from: to)
+            let dateComponents = ccalendar.dateComponents(components, from: from, to: to)
             let againstDate = interval.againstf ? interval.start : interval.end
 
             func string(as output: OutputItem, count: TimeInterval) -> String {
@@ -378,7 +378,7 @@ extension Date {
     /// print(d, e, f)
     /// 29 7 5
     public func value(for component: Calendar.Component) -> Int {
-        return ca1endar.component(component, from: self)
+        return ccalendar.component(component, from: self)
     }
 
     /// let a = "1992-02-29"

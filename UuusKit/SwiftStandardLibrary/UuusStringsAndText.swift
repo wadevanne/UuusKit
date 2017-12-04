@@ -14,8 +14,8 @@ extension String {
     public static let empty = ""
     public static let white = " "
     public static let short = "-"
-    public static let leave = "--"
     public static let marka = "%@"
+    public static let leave = "--"
 
     public static let ftp = "ftp://"
     public static let http = "http://"

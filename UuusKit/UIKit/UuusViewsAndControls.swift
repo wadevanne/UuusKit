@@ -15,7 +15,7 @@ open class UuusView: UIView {
     // MARK: - Deinitialization
 
     deinit {
-        n0tification.removeObserver(self)
+        notificationc.removeObserver(self)
     }
 
     // MARK: - Properties
@@ -69,13 +69,13 @@ extension UIView {
     // MARK: - Public - Functions
 
     public func blotWindow() {
-        if let subview = app1ication.keyWindow?.subviews.last {
+        if let subview = uiapplication.keyWindow?.subviews.last {
             if subview.isMember(of: classForCoder) {
                 subview.removeFromSuperview()
             }
         }
 
-        app1ication.keyWindow?.addSubview(self)
+        uiapplication.keyWindow?.addSubview(self)
         if superview != nil {
             snp.makeConstraints { make in
                 make.edges.equalTo(superview!)
@@ -92,7 +92,7 @@ extension UIView {
     }
 }
 
-open class CollectionControl1er: UuusController {
+open class CollectionControllor: UuusController {
     // MARK: - Deinitialization
 
     deinit {

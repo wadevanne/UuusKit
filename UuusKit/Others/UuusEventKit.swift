@@ -22,7 +22,7 @@ extension EKEventStore {
                 }
 
                 guard granted else {
-                    let local = "无法新建日程提醒, 请到隐私设置开放日历权限".local
+                    let local = "新建提醒失败, 请到隐私设置日历权限".local
                     HUD.flash(.label(local), delay: 0.5)
                     completion?(nil)
                     return

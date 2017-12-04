@@ -15,13 +15,12 @@ import UIKit
 // MARK: - IBActions
 // MARK: - Singleton
 
-public let uuus2MPI = 2.0 * .pi
-public let uuusM2PI = 0.5 * .pi
+public let uuus2mpi = 2.0 * .pi
+public let uuusm2pi = 0.5 * .pi
 
-public var app1ication = UIApplication.shared
-public var appDe1egate = app1ication.delegate /*! as! AppDelegate */
-public var ca1endar = Calendar.current
-public var n0tification = NotificationCenter.default
+public var ccalendar = Calendar.current
+public var uiapplication = UIApplication.shared
+public var notificationc = NotificationCenter.default
 
 // MARK: - Initialization
 // MARK: - Deinitialization
@@ -34,7 +33,7 @@ public typealias failurec = ((_ error: Error?) -> Swift.Void)
 
 // MARK: - Properties
 
-public var control1er: UIViewController? {
+public var playground: UIViewController? {
     return UIViewController.playground()
 }
 
@@ -43,7 +42,7 @@ public var screenHeight = screenBounds.height
 public var screenWidth = screenBounds.width
 public var screenWidth8 = screenWidth / 8
 
-public var statusHeight = app1ication.statusBarFrame.height
+public var statusHeight = uiapplication.statusBarFrame.height
 
 // MARK: - Serialization
 // MARK: - View Handling
@@ -51,8 +50,7 @@ public var statusHeight = app1ication.statusBarFrame.height
 
 public func ceil<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
-        let double = Double(comparable as! CGFloat)
-        return CGFloat(ceil(double)) as! T
+        return CGFloat(ceil(comparable as! CGFloat)) as! T
     }
     if comparable is Double {
         return ceil(comparable as! Double) as! T
@@ -65,8 +63,7 @@ public func ceil<T>(_ comparable: T) -> T where T: Comparable {
 
 public func floor<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
-        let double = Double(comparable as! CGFloat)
-        return CGFloat(floor(double)) as! T
+        return CGFloat(floor(comparable as! CGFloat)) as! T
     }
     if comparable is Double {
         return floor(comparable as! Double) as! T
@@ -89,7 +86,7 @@ public func telephone(_ telephone: String) {
     let uiWebView = UIWebView()
     let url = URL(string: "tel:\(telephone)")
     uiWebView.loadRequest(URLRequest(url: url!))
-    control1er?.view.addSubview(uiWebView)
+    playground?.view.addSubview(uiWebView)
 }
 
 // MARK: - Private - Functions

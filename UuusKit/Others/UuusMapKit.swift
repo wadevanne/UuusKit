@@ -9,7 +9,7 @@
 import MapKit
 
 @IBDesignable
-open class MapControl1er: UuusController {
+open class MapControllor: UuusController {
     // MARK: - IBInspectable
 
     @IBInspectable public var address: String? {

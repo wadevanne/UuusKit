@@ -14,7 +14,7 @@ import RxSwift
 open class UuusController: UIViewController {
     // MARK: - Classes and Structures
 
-    open class Pul1ToRefresh: PullToRefresh {
+    open class PullToRofresh: PullToRefresh {
         // MARK: - Classes and Structures
 
         open class RefreshView: UIView {
@@ -81,7 +81,7 @@ open class UuusController: UIViewController {
     // MARK: - Deinitialization
 
     deinit {
-        n0tification.removeObserver(self)
+        notificationc.removeObserver(self)
     }
 
     // MARK: - Properties
@@ -136,7 +136,7 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: self.name)
     }
 
-    public static func playground(under: UIViewController? = app1ication.keyWindow?.rootViewController) -> UIViewController? {
+    public static func playground(under: UIViewController? = uiapplication.keyWindow?.rootViewController) -> UIViewController? {
         if let tab = under as? UITabBarController {
             return playground(under: tab.selectedViewController)
         }
@@ -159,7 +159,7 @@ extension UIViewController {
 
     public func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
-        let nav = NavigationControl1er()
+        let nav = NavigationControllor()
         nav.addChildViewController(controller)
         DispatchQueue.main.async {
             self.present(nav, animated: flag, completion: completion)
@@ -199,8 +199,8 @@ extension UIViewController {
     }
 
     public func fade(keyroot controller: UIViewController) {
-        app1ication.keyWindow?.layer.add(CATransition.fade, forKey: kCATransition)
-        app1ication.keyWindow?.rootViewController = controller
+        uiapplication.keyWindow?.layer.add(CATransition.fade, forKey: kCATransition)
+        uiapplication.keyWindow?.rootViewController = controller
     }
 
     public func insert(below controller: UIViewController) {
@@ -220,7 +220,7 @@ extension UIViewController {
     open func reloadData() {}
     open func updateData() {}
 
-    public func showPhotoActionSheet(in viewController: UIViewController = control1er!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
+    public func showPhotoActionSheet(in viewController: UIViewController = UuusKit.playground!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
         let cancelButtonTitle = "取消".local
         let photosButtonTitle = "相册".local
         let cameraButtonTitle = "拍照".local
@@ -251,14 +251,14 @@ extension UIViewController: UIGestureRecognizerDelegate {
     // MARK: - KVO
 
     public func addObserver4Keyboard() {
-        n0tification.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: .UIKeyboardWillShow, object: nil)
-        n0tification.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: .UIKeyboardDidShow, object: nil)
-        n0tification.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
-        n0tification.addObserver(self, selector: #selector(keyboardWasHidden(_:)), name: .UIKeyboardDidHide, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: .UIKeyboardWillShow, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: .UIKeyboardDidShow, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWasHidden(_:)), name: .UIKeyboardDidHide, object: nil)
     }
 
     public func removeObserver() {
-        n0tification.removeObserver(self)
+        notificationc.removeObserver(self)
     }
 
     /// called when the UIKeyboardWillShowNotification is sent
@@ -271,7 +271,7 @@ extension UIViewController: UIGestureRecognizerDelegate {
     @objc open func keyboardWasHidden(_: Notification) {}
 }
 
-open class NavigationControl1er: UINavigationController {
+open class NavigationControllor: UINavigationController {
     // MARK: - Properties
 
     open var hidesBottomBarWhen9ushed: Bool {
@@ -322,7 +322,7 @@ extension UINavigationController {
     }
 }
 
-open class TabBarControl1er: UITabBarController {
+open class TabBarControllor: UITabBarController {
     // MARK: - Properties
 
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -334,7 +334,7 @@ open class TabBarControl1er: UITabBarController {
     open func appendc(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
-            let nav = NavigationControl1er()
+            let nav = NavigationControllor()
             nav.addChildViewController(controller)
             nav.tabBarItem = tabBarItem
             addChildViewController(nav)
