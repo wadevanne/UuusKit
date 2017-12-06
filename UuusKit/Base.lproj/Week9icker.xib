@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xue-PQ-pkc" customClass="Week9icker" customModule="UuusKit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-rD-7m5" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
+                    <rect key="frame" x="8" y="373" width="359" height="52"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pQK-iJ-0LY">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="52"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRf-73-VB9">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tRf-73-VB9" secondAttribute="height" multiplier="5:4" id="5TK-Vc-03A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="取消"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pL2-8s-IvG">
+                                <rect key="frame" x="65" y="12" width="229" height="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcd-Nv-WzL">
+                                <rect key="frame" x="294" y="0.0" width="65" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gcd-Nv-WzL" secondAttribute="height" multiplier="5:4" id="0cO-l3-OdH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="完成"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gcd-Nv-WzL" secondAttribute="trailing" id="0iK-Pe-D9Y"/>
+                            <constraint firstItem="pL2-8s-IvG" firstAttribute="leading" secondItem="tRf-73-VB9" secondAttribute="trailing" id="Mnv-cP-lyD"/>
+                            <constraint firstAttribute="bottom" secondItem="tRf-73-VB9" secondAttribute="bottom" id="SGR-ll-vZh"/>
+                            <constraint firstItem="gcd-Nv-WzL" firstAttribute="top" secondItem="pQK-iJ-0LY" secondAttribute="top" id="Vs7-cK-qOb"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tRf-73-VB9" secondAttribute="trailing" constant="20" symbolic="YES" id="YsA-bs-weM"/>
+                            <constraint firstAttribute="bottom" secondItem="gcd-Nv-WzL" secondAttribute="bottom" id="ajB-gc-YOF"/>
+                            <constraint firstItem="tRf-73-VB9" firstAttribute="top" secondItem="pQK-iJ-0LY" secondAttribute="top" id="azg-Ie-Zwc"/>
+                            <constraint firstItem="pL2-8s-IvG" firstAttribute="top" secondItem="pQK-iJ-0LY" secondAttribute="top" constant="12" id="ceK-RH-9Za"/>
+                            <constraint firstAttribute="bottom" secondItem="pL2-8s-IvG" secondAttribute="bottom" constant="12" id="fzE-1C-ex5"/>
+                            <constraint firstItem="gcd-Nv-WzL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pQK-iJ-0LY" secondAttribute="leading" constant="20" symbolic="YES" id="j4r-Qf-nnj"/>
+                            <constraint firstItem="tRf-73-VB9" firstAttribute="leading" secondItem="pQK-iJ-0LY" secondAttribute="leading" id="l2M-iH-JCj"/>
+                            <constraint firstItem="gcd-Nv-WzL" firstAttribute="leading" secondItem="pL2-8s-IvG" secondAttribute="trailing" id="qDk-ih-Gl4"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="v3z-Vb-zqX"/>
+                    </constraints>
+                    <blurEffect style="prominent"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </visualEffectView>
+                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHh-Pj-zgM" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
+                    <rect key="frame" x="8" y="433" width="359" height="216"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ctg-iW-2pQ">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="216"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DiA-2T-Spp">
+                                <rect key="frame" x="169" y="99" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8Y-a1-TsK">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xue-PQ-pkc" id="TwX-Yh-csP"/>
+                                    <outlet property="delegate" destination="xue-PQ-pkc" id="N4L-hC-bKJ"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="B8Y-a1-TsK" firstAttribute="leading" secondItem="ctg-iW-2pQ" secondAttribute="leading" id="4xg-XD-Lp4"/>
+                            <constraint firstAttribute="trailing" secondItem="B8Y-a1-TsK" secondAttribute="trailing" id="Ddn-8e-cS7"/>
+                            <constraint firstItem="B8Y-a1-TsK" firstAttribute="top" secondItem="ctg-iW-2pQ" secondAttribute="top" id="KjU-YL-RHa"/>
+                            <constraint firstAttribute="bottom" secondItem="B8Y-a1-TsK" secondAttribute="bottom" id="NXt-HL-tfJ"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="216" id="1IQ-P0-g5Z"/>
+                    </constraints>
+                    <blurEffect style="prominent"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </visualEffectView>
+            </subviews>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="LHh-Pj-zgM" firstAttribute="leading" secondItem="GIO-rD-7m5" secondAttribute="leading" id="8ml-bN-HIf"/>
+                <constraint firstItem="GIO-rD-7m5" firstAttribute="leading" secondItem="kRK-tI-kFG" secondAttribute="leading" constant="8" id="BJ3-9U-3H6"/>
+                <constraint firstItem="LHh-Pj-zgM" firstAttribute="top" secondItem="GIO-rD-7m5" secondAttribute="bottom" constant="8" id="aRa-x3-ayK"/>
+                <constraint firstItem="kRK-tI-kFG" firstAttribute="bottom" secondItem="GIO-rD-7m5" secondAttribute="top" constant="294" id="b60-4G-Lcd"/>
+                <constraint firstItem="kRK-tI-kFG" firstAttribute="trailing" secondItem="GIO-rD-7m5" secondAttribute="trailing" constant="8" id="f1n-j0-GJh"/>
+                <constraint firstItem="LHh-Pj-zgM" firstAttribute="trailing" secondItem="GIO-rD-7m5" secondAttribute="trailing" id="gFm-4t-Nec"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="kRK-tI-kFG"/>
+            <connections>
+                <outlet property="activityIndicatorView" destination="DiA-2T-Spp" id="aes-qn-nzR"/>
+                <outlet property="cancelButton" destination="tRf-73-VB9" id="AgR-mk-Nwa"/>
+                <outlet property="ensureButton" destination="gcd-Nv-WzL" id="BHq-JR-cSt"/>
+                <outlet property="pickerTop" destination="b60-4G-Lcd" id="nVG-hT-3Db"/>
+                <outlet property="pickerView" destination="B8Y-a1-TsK" id="dgR-zK-Lbp"/>
+                <outlet property="tapGesture" destination="ZVX-Oy-syL" id="gQ2-jQ-0LF"/>
+                <outlet property="titleLabel" destination="pL2-8s-IvG" id="WV4-ZV-KX2"/>
+                <outletCollection property="gestureRecognizers" destination="ZVX-Oy-syL" appends="YES" id="aWg-UG-zuf"/>
+            </connections>
+        </view>
+        <tapGestureRecognizer id="ZVX-Oy-syL"/>
+    </objects>
+</document>

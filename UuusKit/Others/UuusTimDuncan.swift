@@ -33,6 +33,12 @@ public typealias failurec = ((_ error: Error?) -> Swift.Void)
 
 // MARK: - Properties
 
+public var bundleName: String {
+    let infoDict = Bundle.main.infoDictionary!
+    let bundleName = infoDict["CFBundleName"]
+    return (bundleName as! String).local
+}
+
 public var playground: UIViewController? {
     return UIViewController.playground()
 }

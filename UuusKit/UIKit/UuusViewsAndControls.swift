@@ -182,11 +182,17 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         }.disposed(by: neat9icker.disposeBag)
         neat9icker.options = options
         neat9icker.actions = actions
+
         guard let happening = option else { return neat9icker }
-        for (index, value) in options.enumerated() {
-            if "\(value)" == "\(happening)" {
-                neat9icker.current = index
-                break
+        DispatchQueue.global().async {
+            for (index, value) in options.enumerated() {
+                if "\(value)" == "\(happening)" {
+                    neat9icker.current = index
+                    break
+                }
+            }
+            DispatchQueue.main.async {
+                neat9icker.pickerView.selectRow(neat9icker.current ?? 0, inComponent: 0, animated: true)
             }
         }
         return neat9icker
@@ -218,14 +224,13 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        pickerTop.constant = 294
+        let iPhoneX = UIDevice.type == .iPhoneX
+        pickerTop.constant = iPhoneX ? 276 : 284
         let color = UIColor(white: 0, alpha: 0.5)
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
             self.layoutIfNeeded()
-        }, completion: { _ in
-            self.pickerView.selectRow(self.current ?? 0, inComponent: 0, animated: true)
-        })
+        }
     }
 
     open func removeAction(_: Any) {
@@ -257,6 +262,264 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     open func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
         current = row
+    }
+}
+
+open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+    // MARK: - Enumerations
+
+    public enum `Type`: Int {
+        case year
+        case week
+    }
+
+    // MARK: - Classes and Structures
+
+    public struct Week {
+        // MARK: - Initialization
+
+        init(date: Date? = nil, year: String? = nil, week: String? = nil) {
+            var year = year
+            if let int = date?.value(for: .year) {
+                year = "\(int)"
+            }
+            typealias Part = Area9icker.Part
+            self.year = Part(options: years, title: year)
+            self.week = Part(options: self.year?.week, title: week)
+
+            guard let mondate = date?.mondate else { return }
+            guard let array = self.week?.options else { return }
+            for (index, value) in array.enumerated() {
+                if let dict = value as? [String: Any] {
+                    let monday = mondate.string(as: [.MMyddr])
+                    if (dict["name"] as! String).contains(monday) {
+                        self.week?.current = index
+                        break
+                    }
+                }
+            }
+        }
+
+        // MARK: - Lazy Initialization
+
+        private(set) lazy var years: [[String: Any]] = {
+            let week = "UuusWeek"
+            let main = Bundle(for: Week9icker.self)
+            let path = main.path(forResource: week, ofType: "plist")
+            return NSArray(contentsOfFile: path!) as! [[String: Any]]
+        }()
+
+        // MARK: - Properties
+
+        public var year: Area9icker.Part?
+        public var week: Area9icker.Part?
+
+        // MARK: - Public - Functions
+
+        /// print(Week9icker.Week.allYearJsonInRecent().data!.string!)
+        /// plutil -convert xml1 UuusWeek.json -o UuusWeek.plist
+        public static func allYearJsonInRecent() -> [[String: Any]] {
+            let yearInterval = (1970, 2100)
+            var allYear = [[String: Any]]()
+            for index in yearInterval.0 ... yearInterval.1 {
+                let allWeek = Week.allWeek(of: index)
+                allYear.append(["name": "\(index)", "week": allWeek])
+            }
+            return allYear
+        }
+
+        public static func allWeek(of year: Int) -> [[String: Any]] {
+            var weekInterval = (1, 53)
+
+            let ccomponent: Set<Calendar.Component> = [
+                .year, .month, .day, .yearForWeekOfYear, .weekOfYear,
+            ]
+
+            var leftComponents = DateComponents()
+            leftComponents.yearForWeekOfYear = year
+            leftComponents.weekOfYear = weekInterval.0
+            leftComponents.weekday = 5 // Thursday
+            let dateLeft = ccalendar.date(from: leftComponents)!
+            leftComponents = ccalendar.dateComponents(ccomponent, from: dateLeft)
+            if leftComponents.year != year {
+                weekInterval = (weekInterval.0 + 1, weekInterval.1)
+            }
+
+            var lastComponents = DateComponents()
+            lastComponents.yearForWeekOfYear = year
+            lastComponents.weekOfYear = weekInterval.1
+            lastComponents.weekday = 5 // Thursday
+            let dateLast = ccalendar.date(from: lastComponents)!
+            lastComponents = ccalendar.dateComponents(ccomponent, from: dateLast)
+            if lastComponents.year != year {
+                weekInterval = (weekInterval.0, weekInterval.1 - 1)
+            }
+
+            var allWeek = [[String: Any]]()
+            for index in weekInterval.0 ... weekInterval.1 {
+                var dateComponents = DateComponents()
+                dateComponents.yearForWeekOfYear = year
+                dateComponents.weekOfYear = index
+                dateComponents.weekday = 6
+                let date = ccalendar.date(from: dateComponents)!
+                let mondate = date.mondate
+                let tuesdate = mondate.tomorrow
+                let wednesdate = tuesdate.tomorrow
+                let thursdate = wednesdate.tomorrow
+                let fridate = thursdate.tomorrow
+                let saturdate = fridate.tomorrow
+                let sundate = saturdate.tomorrow
+                let oneWeek = [
+                    ["name": mondate.timestamp],
+                    ["name": tuesdate.timestamp],
+                    ["name": wednesdate.timestamp],
+                    ["name": thursdate.timestamp],
+                    ["name": fridate.timestamp],
+                    ["name": saturdate.timestamp],
+                    ["name": sundate.timestamp],
+                ]
+                let monday = mondate.string(as: [.MMyddr])
+                let sunday = sundate.string(as: [.MMyddr])
+                let weekof = index - weekInterval.0 + 1
+                let name = "第\(weekof)周, \(monday)~\(sunday)"
+                allWeek.append(["name": name, "date": oneWeek])
+            }
+
+            return allWeek
+        }
+    }
+
+    // MARK: - IBOutlets
+
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var pickerTop: NSLayoutConstraint!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var ensureButton: UIButton!
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet var pickerView: UIPickerView!
+
+    // MARK: - Initialization
+
+    public class func xib(select date: Date? = nil, year: String? = nil, week: String? = nil, actions: completionc?) -> Week9icker {
+        let week9icker = xib as! Week9icker
+        week9icker.tapGesture.rx.event.bind { [unowned week9icker] sender in
+            week9icker.removeAction(sender)
+            week9icker.actions?(nil)
+        }.disposed(by: week9icker.disposeBag)
+        week9icker.cancelButton.rx.tap.bind { [unowned week9icker] sender in
+            week9icker.removeAction(sender)
+            week9icker.actions?(nil)
+        }.disposed(by: week9icker.disposeBag)
+        week9icker.ensureButton.rx.tap.bind { [unowned week9icker] sender in
+            week9icker.removeAction(sender)
+            week9icker.actions?(week9icker.current)
+        }.disposed(by: week9icker.disposeBag)
+
+        DispatchQueue.global().async {
+            week9icker.current = Week(date: date, year: year, week: week)
+            DispatchQueue.main.async {
+                week9icker.pickerView.reloadAllComponents()
+                week9icker.activityIndicatorView.stopAnimating()
+                if let y = week9icker.current?.year, 0 < y.options?.count ?? 0 {
+                    week9icker.pickerView.selectRow(y.current ?? 0, inComponent: Type.year.hashValue, animated: true)
+                }
+                if let w = week9icker.current?.week, 0 < w.options?.count ?? 0 {
+                    week9icker.pickerView.selectRow(w.current ?? 0, inComponent: Type.week.hashValue, animated: true)
+                }
+            }
+        }
+        week9icker.actions = actions
+        return week9icker
+    }
+
+    // MARK: - Closures
+
+    public var actions: completionc?
+
+    // MARK: - Properties
+
+    public var current: Week?
+
+    // MARK: - Public - Functions
+
+    open func push() {
+        blotWindow()
+
+        backgroundColor = .clear
+        pickerTop.constant = 0
+        layoutIfNeeded()
+
+        let iPhoneX = UIDevice.type == .iPhoneX
+        pickerTop.constant = iPhoneX ? 276 : 284
+        let color = UIColor(white: 0, alpha: 0.5)
+        UIView.animate(withDuration: 0.25) {
+            self.backgroundColor = color
+            self.layoutIfNeeded()
+        }
+    }
+
+    open func removeAction(_: Any) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.pickerTop.constant = 0
+            self.backgroundColor = .clear
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.removeFromSuperview()
+        })
+    }
+
+    // MARK: - UIPickerViewDataSource
+
+    open func numberOfComponents(in _: UIPickerView) -> Int {
+        return 2
+    }
+
+    open func pickerView(_: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch Type(rawValue: component)! {
+        case .year:
+            return current?.year?.options?.count ?? 0
+        case .week:
+            return current?.week?.options?.count ?? 0
+        }
+    }
+
+    // MARK: - UIPickerViewDelegate
+
+    open func pickerView(_: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        switch Type(rawValue: component)! {
+        case .year:
+            return screenWidth * 0.18
+        case .week:
+            return screenWidth * 0.76
+        }
+    }
+
+    open func pickerView(_: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = view as? UILabel ?? UILabel()
+        switch Type(rawValue: component)! {
+        case .year:
+            label.text = current?.year?.address(forRow: row)
+        case .week:
+            label.text = current?.week?.address(forRow: row)
+        }
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textAlignment = .center
+        return label
+    }
+
+    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch Type(rawValue: component)! {
+        case .year:
+            current?.year?.current = row
+            current?.week = Area9icker.Part(options: current?.year?.week, title: nil)
+            pickerView.reloadComponent(Type.week.hashValue)
+            if let w = current?.week, 0 < w.options?.count ?? 0 {
+                pickerView.selectRow(w.current ?? 0, inComponent: Type.week.hashValue, animated: true)
+            }
+        case .week:
+            current?.week?.current = row
+        }
     }
 }
 
@@ -305,6 +568,16 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         /// the chosen five
         public var five: [String]? {
             return options(forKey: "five") as? [String]
+        }
+
+        /// the chosen date
+        public var date: [[String: Any]]? {
+            return options(forKey: "date") as? [[String: Any]]
+        }
+
+        /// the chosen week
+        public var week: [[String: Any]]? {
+            return options(forKey: "week") as? [[String: Any]]
         }
 
         /// the chosen area
@@ -386,6 +659,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var ensureButton: UIButton!
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var pickerView: UIPickerView!
 
     // MARK: - Initialization
@@ -404,15 +678,34 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             area9icker.removeAction(sender)
             area9icker.actions?(area9icker.address)
         }.disposed(by: area9icker.disposeBag)
-        area9icker.address = Area(province: province, city: city, district: district)
+
+        DispatchQueue.global().async {
+            area9icker.address = Area(province: province, city: city, district: district)
+            DispatchQueue.main.async {
+                area9icker.pickerView.reloadAllComponents()
+                area9icker.activityIndicatorView.stopAnimating()
+                if let p = area9icker.address?.province, 0 < p.options?.count ?? 0 {
+                    area9icker.pickerView.selectRow(p.current ?? 0, inComponent: Type.province.hashValue, animated: true)
+                }
+                if let c = area9icker.address?.city, 0 < c.options?.count ?? 0 {
+                    area9icker.pickerView.selectRow(c.current ?? 0, inComponent: Type.city.hashValue, animated: true)
+                }
+                if let d = area9icker.address?.district, 0 < d.options?.count ?? 0 {
+                    area9icker.pickerView.selectRow(d.current ?? 0, inComponent: Type.district.hashValue, animated: true)
+                }
+            }
+        }
         area9icker.actions = actions
         return area9icker
     }
 
+    // MARK: - Closures
+
+    public var actions: completionc?
+
     // MARK: - Properties
 
     public var address: Area?
-    public var actions: completionc?
 
     // MARK: - Public - Functions
 
@@ -423,22 +716,13 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        pickerTop.constant = 294
+        let iPhoneX = UIDevice.type == .iPhoneX
+        pickerTop.constant = iPhoneX ? 276 : 284
         let color = UIColor(white: 0, alpha: 0.5)
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
             self.layoutIfNeeded()
-        }, completion: { _ in
-            if let p = self.address?.province, 0 < p.options?.count ?? 0 {
-                self.pickerView.selectRow(p.current ?? 0, inComponent: Type.province.hashValue, animated: true)
-            }
-            if let c = self.address?.city, 0 < c.options?.count ?? 0 {
-                self.pickerView.selectRow(c.current ?? 0, inComponent: Type.city.hashValue, animated: true)
-            }
-            if let d = self.address?.district, 0 < d.options?.count ?? 0 {
-                self.pickerView.selectRow(d.current ?? 0, inComponent: Type.district.hashValue, animated: true)
-            }
-        })
+        }
     }
 
     open func removeAction(_: Any) {
@@ -488,11 +772,13 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch Type(rawValue: component)! {
         case .province:
-            address = Area(province: address?.province?.address(forRow: row), city: nil, district: nil)
+            address?.province?.current = row
+            address?.city = Part(options: address?.province?.city, title: nil)
             pickerView.reloadComponent(Type.city.hashValue)
             if let c = address?.city, 0 < c.options?.count ?? 0 {
                 pickerView.selectRow(c.current ?? 0, inComponent: Type.city.hashValue, animated: true)
             }
+            address?.district = Part(options: address?.city?.area, title: nil)
             pickerView.reloadComponent(Type.district.hashValue)
             if let d = address?.district, 0 < d.options?.count ?? 0 {
                 pickerView.selectRow(d.current ?? 0, inComponent: Type.district.hashValue, animated: true)
@@ -577,7 +863,8 @@ open class Date9icker: UuusView {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        pickerTop.constant = 294
+        let iPhoneX = UIDevice.type == .iPhoneX
+        pickerTop.constant = iPhoneX ? 276 : 284
         let color = UIColor(white: 0, alpha: 0.5)
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
