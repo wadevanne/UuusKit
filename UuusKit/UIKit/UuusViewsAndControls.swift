@@ -512,7 +512,8 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         switch Type(rawValue: component)! {
         case .year:
             current?.year?.current = row
-            current?.week = Area9icker.Part(options: current?.year?.week, title: nil)
+            let options = current?.year?.week
+            current?.week = Area9icker.Part(options: options, title: nil)
             pickerView.reloadComponent(Type.week.hashValue)
             if let w = current?.week, 0 < w.options?.count ?? 0 {
                 pickerView.selectRow(w.current ?? 0, inComponent: Type.week.hashValue, animated: true)
@@ -773,7 +774,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         switch Type(rawValue: component)! {
         case .province:
             address?.province?.current = row
-            address?.city = Part(options: address?.province?.city, title: nil)
+            let options = address?.province?.city
+            address?.city = Part(options: options, title: nil)
             pickerView.reloadComponent(Type.city.hashValue)
             if let c = address?.city, 0 < c.options?.count ?? 0 {
                 pickerView.selectRow(c.current ?? 0, inComponent: Type.city.hashValue, animated: true)
