@@ -12,6 +12,7 @@ import RxSwift
 import SnapKit
 
 open class UuusView: UIView {
+
     // MARK: - Deinitialization
 
     deinit {
@@ -24,6 +25,7 @@ open class UuusView: UIView {
 }
 
 extension UIView {
+
     // MARK: - IBInspectable
 
     @IBInspectable open var cornerRadius: CGFloat {
@@ -66,6 +68,7 @@ extension UIView {
 }
 
 extension UIView {
+
     // MARK: - Public - Functions
 
     public func blotWindow() {
@@ -93,6 +96,7 @@ extension UIView {
 }
 
 open class CollectionControllor: UuusController {
+
     // MARK: - Deinitialization
 
     deinit {
@@ -128,6 +132,7 @@ open class CollectionControllor: UuusController {
 }
 
 extension UICollectionViewCell {
+
     // MARK: - Properties
 
     private static var MettaArtest = "MettaArtest"
@@ -154,6 +159,7 @@ extension UICollectionViewCell {
 }
 
 open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
@@ -166,7 +172,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Initialization
 
     public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
-        let neat9icker = self.xib as! Neat9icker
+        let neat9icker = xib as! Neat9icker
         neat9icker.tapGesture.rx.event.bind { [unowned neat9icker] sender in
             neat9icker.removeAction(sender)
             neat9icker.actions?(nil)
@@ -225,7 +231,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 276 : 284
+        pickerTop.constant = iPhoneX ? 206 : 214
         let color = UIColor(white: 0, alpha: 0.5)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -266,6 +272,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+
     // MARK: - Enumerations
 
     public enum `Type`: Int {
@@ -276,6 +283,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Classes and Structures
 
     public struct Week {
+
         // MARK: - Initialization
 
         init(date: Date? = nil, year: String? = nil, week: String? = nil) {
@@ -451,7 +459,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 276 : 284
+        pickerTop.constant = iPhoneX ? 206 : 214
         let color = UIColor(white: 0, alpha: 0.5)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -525,6 +533,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+
     // MARK: - Enumerations
 
     public enum `Type`: Int {
@@ -536,6 +545,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Classes and Structures
 
     public struct Part {
+
         // MARK: - Initialization
 
         public init(options: [Any]? = nil, title: String? = nil) {
@@ -545,12 +555,12 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             for (index, value) in array.enumerated() {
                 if let dict = value as? [String: Any] {
                     if name == dict["name"] as! String {
-                        self.current = index
+                        current = index
                         break
                     }
                 }
                 if name == value as? String ?? .empty {
-                    self.current = index
+                    current = index
                     break
                 }
             }
@@ -622,6 +632,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     public struct Area {
+
         // MARK: - Initialization
 
         init(province: String? = nil, city: String? = nil, district: String? = nil) {
@@ -666,7 +677,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Initialization
 
     public class func xib(select province: String? = nil, city: String? = nil, district: String? = nil, actions: completionc?) -> Area9icker {
-        let area9icker = self.xib as! Area9icker
+        let area9icker = xib as! Area9icker
         area9icker.tapGesture.rx.event.bind { [unowned area9icker] sender in
             area9icker.removeAction(sender)
             area9icker.actions?(nil)
@@ -718,7 +729,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 276 : 284
+        pickerTop.constant = iPhoneX ? 206 : 214
         let color = UIColor(white: 0, alpha: 0.5)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -774,20 +785,22 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         switch Type(rawValue: component)! {
         case .province:
             address?.province?.current = row
-            let options = address?.province?.city
-            address?.city = Part(options: options, title: nil)
+            let optionz = address?.province?.city
+            address?.city = Part(options: optionz, title: nil)
             pickerView.reloadComponent(Type.city.hashValue)
             if let c = address?.city, 0 < c.options?.count ?? 0 {
                 pickerView.selectRow(c.current ?? 0, inComponent: Type.city.hashValue, animated: true)
             }
-            address?.district = Part(options: address?.city?.area, title: nil)
+            let options = address?.city?.area
+            address?.district = Part(options: options, title: nil)
             pickerView.reloadComponent(Type.district.hashValue)
             if let d = address?.district, 0 < d.options?.count ?? 0 {
                 pickerView.selectRow(d.current ?? 0, inComponent: Type.district.hashValue, animated: true)
             }
         case .city:
             address?.city?.current = row
-            address?.district = Part(options: address?.city?.area, title: nil)
+            let options = address?.city?.area
+            address?.district = Part(options: options, title: nil)
             pickerView.reloadComponent(Type.district.hashValue)
             if let d = address?.district, 0 < d.options?.count ?? 0 {
                 pickerView.selectRow(d.current ?? 0, inComponent: Type.district.hashValue, animated: true)
@@ -799,6 +812,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 }
 
 extension UIButton {
+
     // MARK: - View Handling
 
     open override func willMove(toSuperview newSuperview: UIView?) {
@@ -821,6 +835,7 @@ extension UIButton {
 }
 
 open class Date9icker: UuusView {
+
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
@@ -833,7 +848,7 @@ open class Date9icker: UuusView {
     // MARK: - Initialization
 
     public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
-        let date9icker = self.xib as! Date9icker
+        let date9icker = xib as! Date9icker
         date9icker.tapGesture.rx.event.bind { [unowned date9icker] sender in
             date9icker.removeAction(sender)
             date9icker.actions?(nil)
@@ -866,7 +881,7 @@ open class Date9icker: UuusView {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 276 : 284
+        pickerTop.constant = iPhoneX ? 206 : 214
         let color = UIColor(white: 0, alpha: 0.5)
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
@@ -890,6 +905,7 @@ open class Date9icker: UuusView {
 }
 
 extension UITextField {
+
     // MARK: - Public - Functions
 
     /// block queue outside as exception

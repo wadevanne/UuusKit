@@ -9,6 +9,7 @@
 import PKHUD
 
 extension HUD {
+
     // MARK: - Public - Functions
 
     public static func show(_ contentView: UIView, onView view: UIView? = nil) {

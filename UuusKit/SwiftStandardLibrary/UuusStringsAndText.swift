@@ -9,6 +9,7 @@
 import UIKit
 
 extension String {
+
     // MARK: - Singleton
 
     public static let empty = ""
@@ -23,6 +24,7 @@ extension String {
 }
 
 extension String {
+
     // MARK: - Properties
 
     public var data: Data? {
@@ -133,6 +135,7 @@ extension String {
 }
 
 extension String {
+
     // MARK: - Public - Functions
 
     public func formattedPhone(any: Character = Character(String.white)) -> String {

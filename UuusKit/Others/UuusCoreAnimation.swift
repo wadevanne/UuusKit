@@ -9,6 +9,7 @@
 import QuartzCore
 
 extension CATransition {
+
     // MARK: - Properties
 
     public static var fade: CATransition {

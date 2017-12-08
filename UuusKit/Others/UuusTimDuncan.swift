@@ -9,10 +9,13 @@
 import UIKit
 
 // MARK: - Enumerations
+
 // MARK: - Classes and Structures
 
 // MARK: - IBOutlets
+
 // MARK: - IBActions
+
 // MARK: - Singleton
 
 public let uuus2mpi = 2.0 * .pi
@@ -23,8 +26,11 @@ public var uiapplication = UIApplication.shared
 public var notificationc = NotificationCenter.default
 
 // MARK: - Initialization
+
 // MARK: - Deinitialization
+
 // MARK: - Lazy Initialization
+
 // MARK: - Closures
 
 public typealias completionc = ((_ data: Any?) -> Swift.Void)
@@ -51,7 +57,9 @@ public var screenWidth8 = screenWidth / 8
 public var statusHeight = uiapplication.statusBarFrame.height
 
 // MARK: - Serialization
+
 // MARK: - View Handling
+
 // MARK: - Public - Functions
 
 public func ceil<T>(_ comparable: T) -> T where T: Comparable {
@@ -96,6 +104,9 @@ public func telephone(_ telephone: String) {
 }
 
 // MARK: - Private - Functions
+
 // MARK: - Delegates
+
 // MARK: - KVO
+
 // MARK: - Error Handling

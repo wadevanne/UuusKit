@@ -17,83 +17,81 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-Is-O2q" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
-                    <rect key="frame" x="8" y="373" width="359" height="52"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lBO-0G-fPS">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="52"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LL9-PV-S7E">
-                                <rect key="frame" x="0.0" y="0.0" width="65" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LL9-PV-S7E" secondAttribute="height" multiplier="5:4" id="3Lz-dg-ErF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="取消"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-dQ-mSp">
-                                <rect key="frame" x="65" y="12" width="229" height="28"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-IZ-m4m">
-                                <rect key="frame" x="294" y="0.0" width="65" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="E6g-IZ-m4m" secondAttribute="height" multiplier="5:4" id="foj-hs-u7p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="完成"/>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="E6g-IZ-m4m" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" id="3tb-FI-NhR"/>
-                            <constraint firstItem="LL9-PV-S7E" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" id="5YL-bg-IP2"/>
-                            <constraint firstAttribute="bottom" secondItem="E6g-IZ-m4m" secondAttribute="bottom" id="6iV-oT-UUW"/>
-                            <constraint firstAttribute="bottom" secondItem="LL9-PV-S7E" secondAttribute="bottom" id="6mc-y8-8YL"/>
-                            <constraint firstItem="LL9-PV-S7E" firstAttribute="leading" secondItem="lBO-0G-fPS" secondAttribute="leading" id="FAI-To-S0Y"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LL9-PV-S7E" secondAttribute="trailing" constant="20" symbolic="YES" id="Q5C-TI-Geh"/>
-                            <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lBO-0G-fPS" secondAttribute="leading" constant="20" symbolic="YES" id="RdA-Rq-0p8"/>
-                            <constraint firstItem="kpz-dQ-mSp" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" constant="12" id="aBR-w0-eP9"/>
-                            <constraint firstItem="kpz-dQ-mSp" firstAttribute="leading" secondItem="LL9-PV-S7E" secondAttribute="trailing" id="fEY-Qc-tcC"/>
-                            <constraint firstAttribute="bottom" secondItem="kpz-dQ-mSp" secondAttribute="bottom" constant="12" id="gPm-zY-RSc"/>
-                            <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" secondItem="kpz-dQ-mSp" secondAttribute="trailing" id="lH9-X9-L6w"/>
-                            <constraint firstAttribute="trailing" secondItem="E6g-IZ-m4m" secondAttribute="trailing" id="uGN-5G-JGo"/>
-                        </constraints>
-                    </view>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="52" id="pn4-GB-O83"/>
-                    </constraints>
-                    <blurEffect style="prominent"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </visualEffectView>
                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJU-5j-2lH" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
-                    <rect key="frame" x="8" y="433" width="359" height="216"/>
+                    <rect key="frame" x="8" y="453" width="359" height="206"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="To2-h9-0zC">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="216"/>
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="206"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-Is-O2q">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lBO-0G-fPS">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LL9-PV-S7E">
+                                            <rect key="frame" x="0.0" y="0.0" width="55" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LL9-PV-S7E" secondAttribute="height" multiplier="5:4" id="3Lz-dg-ErF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="取消"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-dQ-mSp">
+                                            <rect key="frame" x="55" y="12" width="249" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-IZ-m4m">
+                                            <rect key="frame" x="304" y="0.0" width="55" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="E6g-IZ-m4m" secondAttribute="height" multiplier="5:4" id="foj-hs-u7p"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="完成"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="E6g-IZ-m4m" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" id="3tb-FI-NhR"/>
+                                        <constraint firstItem="LL9-PV-S7E" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" id="5YL-bg-IP2"/>
+                                        <constraint firstAttribute="bottom" secondItem="E6g-IZ-m4m" secondAttribute="bottom" id="6iV-oT-UUW"/>
+                                        <constraint firstAttribute="bottom" secondItem="LL9-PV-S7E" secondAttribute="bottom" id="6mc-y8-8YL"/>
+                                        <constraint firstItem="LL9-PV-S7E" firstAttribute="leading" secondItem="lBO-0G-fPS" secondAttribute="leading" id="FAI-To-S0Y"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LL9-PV-S7E" secondAttribute="trailing" constant="20" symbolic="YES" id="Q5C-TI-Geh"/>
+                                        <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lBO-0G-fPS" secondAttribute="leading" constant="20" symbolic="YES" id="RdA-Rq-0p8"/>
+                                        <constraint firstItem="kpz-dQ-mSp" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" constant="12" id="aBR-w0-eP9"/>
+                                        <constraint firstItem="kpz-dQ-mSp" firstAttribute="leading" secondItem="LL9-PV-S7E" secondAttribute="trailing" id="fEY-Qc-tcC"/>
+                                        <constraint firstAttribute="bottom" secondItem="kpz-dQ-mSp" secondAttribute="bottom" constant="12" id="gPm-zY-RSc"/>
+                                        <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" secondItem="kpz-dQ-mSp" secondAttribute="trailing" id="lH9-X9-L6w"/>
+                                        <constraint firstAttribute="trailing" secondItem="E6g-IZ-m4m" secondAttribute="trailing" id="uGN-5G-JGo"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pn4-GB-O83"/>
+                                </constraints>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zkX-D4-Et3">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="216"/>
+                                <rect key="frame" x="0.0" y="44" width="359" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="H4p-Jw-S7J"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="531155408.48589998">
                                     <!--2017-10-31 15:10:08 +0000-->
                                 </date>
                             </datePicker>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="zkX-D4-Et3" firstAttribute="top" secondItem="5xI-Is-O2q" secondAttribute="bottom" id="3Sw-N6-bQz"/>
+                            <constraint firstAttribute="trailing" secondItem="5xI-Is-O2q" secondAttribute="trailing" id="6sm-Uq-KNm"/>
+                            <constraint firstItem="5xI-Is-O2q" firstAttribute="leading" secondItem="To2-h9-0zC" secondAttribute="leading" id="IoB-Fe-ktt"/>
                             <constraint firstItem="zkX-D4-Et3" firstAttribute="leading" secondItem="To2-h9-0zC" secondAttribute="leading" id="Oyt-TB-KH2"/>
-                            <constraint firstItem="zkX-D4-Et3" firstAttribute="top" secondItem="To2-h9-0zC" secondAttribute="top" id="aVX-AE-gvY"/>
+                            <constraint firstItem="5xI-Is-O2q" firstAttribute="top" secondItem="To2-h9-0zC" secondAttribute="top" id="T5s-sd-OfJ"/>
                             <constraint firstAttribute="trailing" secondItem="zkX-D4-Et3" secondAttribute="trailing" id="bQs-LI-EeC"/>
                             <constraint firstAttribute="bottom" secondItem="zkX-D4-Et3" secondAttribute="bottom" id="pkj-gi-Jo5"/>
                         </constraints>
                     </view>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="216" id="o1c-kE-1Ie"/>
-                    </constraints>
                     <blurEffect style="prominent"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,19 +102,16 @@
             </subviews>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="cJU-5j-2lH" firstAttribute="leading" secondItem="5xI-Is-O2q" secondAttribute="leading" id="CHh-PC-6Dh"/>
-                <constraint firstItem="4JJ-4W-uuS" firstAttribute="bottom" secondItem="5xI-Is-O2q" secondAttribute="top" constant="294" id="JUK-ta-KZh"/>
-                <constraint firstItem="4JJ-4W-uuS" firstAttribute="trailing" secondItem="5xI-Is-O2q" secondAttribute="trailing" constant="8" id="Wrr-uu-lUv"/>
-                <constraint firstItem="5xI-Is-O2q" firstAttribute="leading" secondItem="4JJ-4W-uuS" secondAttribute="leading" constant="8" id="ahD-ut-X6q"/>
-                <constraint firstItem="cJU-5j-2lH" firstAttribute="top" secondItem="5xI-Is-O2q" secondAttribute="bottom" constant="8" id="ate-GC-8s7"/>
-                <constraint firstItem="cJU-5j-2lH" firstAttribute="trailing" secondItem="5xI-Is-O2q" secondAttribute="trailing" id="b0d-2s-Y6n"/>
+                <constraint firstItem="cJU-5j-2lH" firstAttribute="leading" secondItem="4JJ-4W-uuS" secondAttribute="leading" constant="8" id="DXP-2Y-LPy"/>
+                <constraint firstItem="4JJ-4W-uuS" firstAttribute="trailing" secondItem="cJU-5j-2lH" secondAttribute="trailing" constant="8" id="G2m-Np-RNr"/>
+                <constraint firstItem="4JJ-4W-uuS" firstAttribute="bottom" secondItem="cJU-5j-2lH" secondAttribute="top" constant="214" id="oYB-CY-LDe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="4JJ-4W-uuS"/>
             <connections>
                 <outlet property="cancelButton" destination="LL9-PV-S7E" id="748-Rc-73P"/>
                 <outlet property="datePicker" destination="zkX-D4-Et3" id="Wwi-4d-vdf"/>
                 <outlet property="ensureButton" destination="E6g-IZ-m4m" id="4YL-6D-KEu"/>
-                <outlet property="pickerTop" destination="JUK-ta-KZh" id="YMe-30-DNM"/>
+                <outlet property="pickerTop" destination="oYB-CY-LDe" id="xyg-mV-L4a"/>
                 <outlet property="tapGesture" destination="pMi-ea-C4Z" id="5In-HR-1ky"/>
                 <outlet property="titleLabel" destination="kpz-dQ-mSp" id="pz1-v1-y3d"/>
                 <outletCollection property="gestureRecognizers" destination="pMi-ea-C4Z" appends="YES" id="oQ0-pE-uVR"/>

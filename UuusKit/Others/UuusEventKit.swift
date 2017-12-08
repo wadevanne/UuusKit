@@ -10,6 +10,7 @@ import EventKit
 import PKHUD
 
 extension EKEventStore {
+
     // MARK: - Public - Functions
 
     public static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, completion: completionc? = nil) {

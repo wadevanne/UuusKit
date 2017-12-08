@@ -10,9 +10,11 @@ import AVKit
 import RMUniversalAlert
 
 open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+
     // MARK: - Classes and Structures
 
     open class ScanView: UuusView {
+
         // MARK: - Singleton
 
         private let line = "line"

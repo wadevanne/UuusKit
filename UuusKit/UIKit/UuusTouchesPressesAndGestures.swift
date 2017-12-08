@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIResponder {
+
     // MARK: - Properties
 
     public static var nib: UINib? {

@@ -9,6 +9,7 @@
 import UIKit
 
 extension CGColor {
+
     // MARK: - Properties
 
     /// 0.0 white
@@ -88,6 +89,7 @@ extension CGColor {
 }
 
 extension CGColor {
+
     // MARK: - Properties
 
     public var uiColor: UIColor {

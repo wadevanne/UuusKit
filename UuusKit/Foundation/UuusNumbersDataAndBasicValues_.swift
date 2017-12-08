@@ -9,6 +9,7 @@
 import Foundation
 
 extension Data {
+
     // MARK: - Properties
 
     public var array: [Any]? {

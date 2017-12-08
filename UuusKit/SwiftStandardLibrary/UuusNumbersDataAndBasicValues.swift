@@ -9,6 +9,7 @@
 import Foundation
 
 extension Double {
+
     // MARK: - Properties
 
     public var currency: String {

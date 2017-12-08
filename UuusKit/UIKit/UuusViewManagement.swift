@@ -12,12 +12,15 @@ import RMUniversalAlert
 import RxSwift
 
 open class UuusController: UIViewController {
+
     // MARK: - Classes and Structures
 
     open class PullToRofresh: PullToRefresh {
+
         // MARK: - Classes and Structures
 
         open class RefreshView: UIView {
+
             // MARK: - Lazy Initialization
 
             private(set) lazy var indicator: UIImageView? = {
@@ -94,6 +97,7 @@ open class UuusController: UIViewController {
 }
 
 extension UIViewController {
+
     // MARK: - Properties
 
     private static var SteveAssist = "SteveAssist"
@@ -129,6 +133,7 @@ extension UIViewController {
 }
 
 extension UIViewController {
+
     // MARK: - Public - Functions
 
     public static func new(storyboard name: String = "Main") -> UIViewController {
@@ -151,6 +156,7 @@ extension UIViewController {
 }
 
 extension UIViewController {
+
     // MARK: - Public - Functions
 
     public func presentc(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
@@ -239,6 +245,7 @@ extension UIViewController {
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {
+
     // MARK: - UIGestureRecognizerDelegate
 
     public func gestureRecognizer(_: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -272,6 +279,7 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 
 open class NavigationControllor: UINavigationController {
+
     // MARK: - Properties
 
     open var hidesBottomBarWhen9ushed: Bool {
@@ -291,6 +299,7 @@ open class NavigationControllor: UINavigationController {
 }
 
 extension UINavigationController {
+
     // MARK: - Public - Functions
 
     public func removeAllMiddleViewControllers() {
@@ -323,6 +332,7 @@ extension UINavigationController {
 }
 
 open class TabBarControllor: UITabBarController {
+
     // MARK: - Properties
 
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
