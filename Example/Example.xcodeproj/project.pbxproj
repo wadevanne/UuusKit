@@ -333,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/../UuusKit/\"";
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/../UuusKit/\" \"${SRCROOT}/../Example/Example/\" \"${SRCROOT}/../Example/ExampleTests/\" \"${SRCROOT}/../Example/ExampleUITests/\"";
 		};
 		1C25C339D39D403F309D4E86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
