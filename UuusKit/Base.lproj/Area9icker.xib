@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-uE-B8P">
+                    <rect key="frame" x="8" y="20" width="359" height="425"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="gzr-Dn-1xT" appends="YES" id="5A4-Wx-R77"/>
+                    </connections>
+                </view>
                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCe-KI-mZT" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
                     <rect key="frame" x="8" y="453" width="359" height="206"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bYy-H2-yST">
@@ -30,7 +38,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8A-mK-JcK">
-                                            <rect key="frame" x="0.0" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="8" y="0.0" width="55" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="p8A-mK-JcK" secondAttribute="height" multiplier="5:4" id="YZu-AX-ENe"/>
                                             </constraints>
@@ -38,33 +46,33 @@
                                             <state key="normal" title="取消"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-Kp-aci">
-                                            <rect key="frame" x="55" y="12" width="249" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                            <rect key="frame" x="63" y="8" width="233" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSU-Gt-OEC">
-                                            <rect key="frame" x="304" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="296" y="0.0" width="55" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="sSU-Gt-OEC" secondAttribute="height" multiplier="5:4" id="n73-87-mff"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <state key="normal" title="完成"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sSU-Gt-OEC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fuR-3S-iHU" secondAttribute="leading" constant="20" symbolic="YES" id="0or-NL-5ZY"/>
-                                        <constraint firstItem="wdz-Kp-aci" firstAttribute="top" secondItem="fuR-3S-iHU" secondAttribute="top" constant="12" id="5IS-5w-gmB"/>
-                                        <constraint firstItem="p8A-mK-JcK" firstAttribute="leading" secondItem="fuR-3S-iHU" secondAttribute="leading" id="IQd-Ny-Nsd"/>
                                         <constraint firstItem="wdz-Kp-aci" firstAttribute="leading" secondItem="p8A-mK-JcK" secondAttribute="trailing" id="Ibm-mD-M5G"/>
                                         <constraint firstItem="p8A-mK-JcK" firstAttribute="top" secondItem="fuR-3S-iHU" secondAttribute="top" id="OYP-pf-Bxh"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p8A-mK-JcK" secondAttribute="trailing" constant="20" symbolic="YES" id="RpG-xj-95g"/>
-                                        <constraint firstAttribute="bottom" secondItem="wdz-Kp-aci" secondAttribute="bottom" constant="12" id="Wnd-Qv-Q2A"/>
                                         <constraint firstAttribute="bottom" secondItem="sSU-Gt-OEC" secondAttribute="bottom" id="bex-te-VOi"/>
-                                        <constraint firstAttribute="trailing" secondItem="sSU-Gt-OEC" secondAttribute="trailing" id="cnI-Uh-WVX"/>
                                         <constraint firstItem="sSU-Gt-OEC" firstAttribute="leading" secondItem="wdz-Kp-aci" secondAttribute="trailing" id="eHO-5W-i6w"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wdz-Kp-aci" secondAttribute="bottom" id="jLh-QO-VyF"/>
+                                        <constraint firstItem="p8A-mK-JcK" firstAttribute="leading" secondItem="fuR-3S-iHU" secondAttribute="leadingMargin" id="kJQ-No-0qP"/>
+                                        <constraint firstItem="wdz-Kp-aci" firstAttribute="top" secondItem="fuR-3S-iHU" secondAttribute="topMargin" id="rAZ-ms-jBS"/>
                                         <constraint firstItem="sSU-Gt-OEC" firstAttribute="top" secondItem="fuR-3S-iHU" secondAttribute="top" id="sAB-8l-vDU"/>
                                         <constraint firstAttribute="bottom" secondItem="p8A-mK-JcK" secondAttribute="bottom" id="tBX-NT-rgj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="sSU-Gt-OEC" secondAttribute="trailing" id="xr5-Xc-hFd"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -72,8 +80,8 @@
                                 </constraints>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SbX-e6-K4t">
-                                <rect key="frame" x="169" y="94" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SbX-e6-K4t">
+                                <rect key="frame" x="169" y="115" width="20" height="20"/>
                             </activityIndicatorView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFr-MP-aF9">
                                 <rect key="frame" x="0.0" y="44" width="359" height="162"/>
@@ -108,22 +116,28 @@
             </subviews>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="GCe-KI-mZT" firstAttribute="top" secondItem="GFh-uE-B8P" secondAttribute="bottom" constant="8" id="KWO-et-aul"/>
+                <constraint firstItem="GFh-uE-B8P" firstAttribute="leading" secondItem="hFh-XB-bF3" secondAttribute="leading" constant="8" id="L3l-bN-eJE"/>
+                <constraint firstItem="hFh-XB-bF3" firstAttribute="trailing" secondItem="GFh-uE-B8P" secondAttribute="trailing" constant="8" id="Zit-T9-GOX"/>
                 <constraint firstItem="hFh-XB-bF3" firstAttribute="bottom" secondItem="GCe-KI-mZT" secondAttribute="top" constant="214" id="hcE-Kr-SAV"/>
                 <constraint firstItem="hFh-XB-bF3" firstAttribute="trailing" secondItem="GCe-KI-mZT" secondAttribute="trailing" constant="8" id="pAJ-nw-1Z8"/>
+                <constraint firstItem="GFh-uE-B8P" firstAttribute="top" secondItem="hFh-XB-bF3" secondAttribute="top" id="qpb-qh-dCd"/>
                 <constraint firstItem="GCe-KI-mZT" firstAttribute="leading" secondItem="hFh-XB-bF3" secondAttribute="leading" constant="8" id="zfo-6G-HAT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hFh-XB-bF3"/>
             <connections>
                 <outlet property="activityIndicatorView" destination="SbX-e6-K4t" id="rSL-WK-pQC"/>
                 <outlet property="cancelButton" destination="p8A-mK-JcK" id="B6L-Rn-dtf"/>
+                <outlet property="downGesture" destination="beU-iS-MnQ" id="xbV-Cb-Z47"/>
                 <outlet property="ensureButton" destination="sSU-Gt-OEC" id="EG4-qi-U7w"/>
                 <outlet property="pickerTop" destination="hcE-Kr-SAV" id="hbU-l1-E2N"/>
                 <outlet property="pickerView" destination="iFr-MP-aF9" id="NNk-NP-GMf"/>
                 <outlet property="tapGesture" destination="gzr-Dn-1xT" id="fTt-Wo-sv2"/>
                 <outlet property="titleLabel" destination="wdz-Kp-aci" id="3g8-7e-KxR"/>
-                <outletCollection property="gestureRecognizers" destination="gzr-Dn-1xT" appends="YES" id="wPA-X2-0M0"/>
+                <outletCollection property="gestureRecognizers" destination="beU-iS-MnQ" appends="YES" id="qJT-EO-fZP"/>
             </connections>
         </view>
         <tapGestureRecognizer id="gzr-Dn-1xT"/>
+        <swipeGestureRecognizer direction="down" id="beU-iS-MnQ"/>
     </objects>
 </document>

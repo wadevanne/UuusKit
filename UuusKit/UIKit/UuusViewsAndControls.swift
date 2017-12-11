@@ -163,6 +163,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var downGesture: UISwipeGestureRecognizer!
     @IBOutlet var pickerTop: NSLayoutConstraint!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cancelButton: UIButton!
@@ -174,6 +175,10 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
         let neat9icker = xib as! Neat9icker
         neat9icker.tapGesture.rx.event.bind { [unowned neat9icker] sender in
+            neat9icker.removeAction(sender)
+            neat9icker.actions?(nil)
+        }.disposed(by: neat9icker.disposeBag)
+        neat9icker.downGesture.rx.event.bind { [unowned neat9icker] sender in
             neat9icker.removeAction(sender)
             neat9icker.actions?(nil)
         }.disposed(by: neat9icker.disposeBag)
@@ -400,6 +405,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var downGesture: UISwipeGestureRecognizer!
     @IBOutlet var pickerTop: NSLayoutConstraint!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cancelButton: UIButton!
@@ -412,6 +418,10 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     public class func xib(select date: Date? = nil, year: String? = nil, week: String? = nil, actions: completionc?) -> Week9icker {
         let week9icker = xib as! Week9icker
         week9icker.tapGesture.rx.event.bind { [unowned week9icker] sender in
+            week9icker.removeAction(sender)
+            week9icker.actions?(nil)
+        }.disposed(by: week9icker.disposeBag)
+        week9icker.downGesture.rx.event.bind { [unowned week9icker] sender in
             week9icker.removeAction(sender)
             week9icker.actions?(nil)
         }.disposed(by: week9icker.disposeBag)
@@ -667,6 +677,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var downGesture: UISwipeGestureRecognizer!
     @IBOutlet var pickerTop: NSLayoutConstraint!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cancelButton: UIButton!
@@ -679,6 +690,10 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     public class func xib(select province: String? = nil, city: String? = nil, district: String? = nil, actions: completionc?) -> Area9icker {
         let area9icker = xib as! Area9icker
         area9icker.tapGesture.rx.event.bind { [unowned area9icker] sender in
+            area9icker.removeAction(sender)
+            area9icker.actions?(nil)
+        }.disposed(by: area9icker.disposeBag)
+        area9icker.downGesture.rx.event.bind { [unowned area9icker] sender in
             area9icker.removeAction(sender)
             area9icker.actions?(nil)
         }.disposed(by: area9icker.disposeBag)
@@ -839,6 +854,7 @@ open class Date9icker: UuusView {
     // MARK: - IBOutlets
 
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var downGesture: UISwipeGestureRecognizer!
     @IBOutlet var pickerTop: NSLayoutConstraint!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var cancelButton: UIButton!
@@ -850,6 +866,10 @@ open class Date9icker: UuusView {
     public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
         let date9icker = xib as! Date9icker
         date9icker.tapGesture.rx.event.bind { [unowned date9icker] sender in
+            date9icker.removeAction(sender)
+            date9icker.actions?(nil)
+        }.disposed(by: date9icker.disposeBag)
+        date9icker.downGesture.rx.event.bind { [unowned date9icker] sender in
             date9icker.removeAction(sender)
             date9icker.actions?(nil)
         }.disposed(by: date9icker.disposeBag)

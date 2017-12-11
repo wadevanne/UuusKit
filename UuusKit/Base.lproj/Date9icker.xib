@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-Zn-6mL">
+                    <rect key="frame" x="8" y="20" width="359" height="425"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="pMi-ea-C4Z" appends="YES" id="Boj-vJ-gMV"/>
+                    </connections>
+                </view>
                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJU-5j-2lH" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
                     <rect key="frame" x="8" y="453" width="359" height="206"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="To2-h9-0zC">
@@ -30,7 +38,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LL9-PV-S7E">
-                                            <rect key="frame" x="0.0" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="8" y="0.0" width="55" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LL9-PV-S7E" secondAttribute="height" multiplier="5:4" id="3Lz-dg-ErF"/>
                                             </constraints>
@@ -38,17 +46,17 @@
                                             <state key="normal" title="取消"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-dQ-mSp">
-                                            <rect key="frame" x="55" y="12" width="249" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                            <rect key="frame" x="63" y="8" width="233" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-IZ-m4m">
-                                            <rect key="frame" x="304" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="296" y="0.0" width="55" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="E6g-IZ-m4m" secondAttribute="height" multiplier="5:4" id="foj-hs-u7p"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <state key="normal" title="完成"/>
                                         </button>
                                     </subviews>
@@ -57,14 +65,14 @@
                                         <constraint firstItem="LL9-PV-S7E" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" id="5YL-bg-IP2"/>
                                         <constraint firstAttribute="bottom" secondItem="E6g-IZ-m4m" secondAttribute="bottom" id="6iV-oT-UUW"/>
                                         <constraint firstAttribute="bottom" secondItem="LL9-PV-S7E" secondAttribute="bottom" id="6mc-y8-8YL"/>
-                                        <constraint firstItem="LL9-PV-S7E" firstAttribute="leading" secondItem="lBO-0G-fPS" secondAttribute="leading" id="FAI-To-S0Y"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="E6g-IZ-m4m" secondAttribute="trailing" id="MaY-zp-Juy"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LL9-PV-S7E" secondAttribute="trailing" constant="20" symbolic="YES" id="Q5C-TI-Geh"/>
                                         <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lBO-0G-fPS" secondAttribute="leading" constant="20" symbolic="YES" id="RdA-Rq-0p8"/>
-                                        <constraint firstItem="kpz-dQ-mSp" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="top" constant="12" id="aBR-w0-eP9"/>
                                         <constraint firstItem="kpz-dQ-mSp" firstAttribute="leading" secondItem="LL9-PV-S7E" secondAttribute="trailing" id="fEY-Qc-tcC"/>
-                                        <constraint firstAttribute="bottom" secondItem="kpz-dQ-mSp" secondAttribute="bottom" constant="12" id="gPm-zY-RSc"/>
+                                        <constraint firstItem="LL9-PV-S7E" firstAttribute="leading" secondItem="lBO-0G-fPS" secondAttribute="leadingMargin" id="hM1-Go-2IX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kpz-dQ-mSp" secondAttribute="bottom" id="iqv-4G-Zn6"/>
                                         <constraint firstItem="E6g-IZ-m4m" firstAttribute="leading" secondItem="kpz-dQ-mSp" secondAttribute="trailing" id="lH9-X9-L6w"/>
-                                        <constraint firstAttribute="trailing" secondItem="E6g-IZ-m4m" secondAttribute="trailing" id="uGN-5G-JGo"/>
+                                        <constraint firstItem="kpz-dQ-mSp" firstAttribute="top" secondItem="lBO-0G-fPS" secondAttribute="topMargin" id="tDh-AQ-cfu"/>
                                     </constraints>
                                 </view>
                                 <constraints>
@@ -104,19 +112,25 @@
             <constraints>
                 <constraint firstItem="cJU-5j-2lH" firstAttribute="leading" secondItem="4JJ-4W-uuS" secondAttribute="leading" constant="8" id="DXP-2Y-LPy"/>
                 <constraint firstItem="4JJ-4W-uuS" firstAttribute="trailing" secondItem="cJU-5j-2lH" secondAttribute="trailing" constant="8" id="G2m-Np-RNr"/>
+                <constraint firstItem="mYL-Zn-6mL" firstAttribute="top" secondItem="4JJ-4W-uuS" secondAttribute="top" id="Sui-I4-TvW"/>
+                <constraint firstItem="cJU-5j-2lH" firstAttribute="top" secondItem="mYL-Zn-6mL" secondAttribute="bottom" constant="8" id="dXJ-Kx-0nT"/>
+                <constraint firstItem="mYL-Zn-6mL" firstAttribute="leading" secondItem="4JJ-4W-uuS" secondAttribute="leading" constant="8" id="iX8-QX-lJT"/>
                 <constraint firstItem="4JJ-4W-uuS" firstAttribute="bottom" secondItem="cJU-5j-2lH" secondAttribute="top" constant="214" id="oYB-CY-LDe"/>
+                <constraint firstItem="4JJ-4W-uuS" firstAttribute="trailing" secondItem="mYL-Zn-6mL" secondAttribute="trailing" constant="8" id="sIZ-Ff-EEh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="4JJ-4W-uuS"/>
             <connections>
                 <outlet property="cancelButton" destination="LL9-PV-S7E" id="748-Rc-73P"/>
                 <outlet property="datePicker" destination="zkX-D4-Et3" id="Wwi-4d-vdf"/>
+                <outlet property="downGesture" destination="sXK-gk-3hK" id="8ug-eV-jQj"/>
                 <outlet property="ensureButton" destination="E6g-IZ-m4m" id="4YL-6D-KEu"/>
                 <outlet property="pickerTop" destination="oYB-CY-LDe" id="xyg-mV-L4a"/>
                 <outlet property="tapGesture" destination="pMi-ea-C4Z" id="5In-HR-1ky"/>
                 <outlet property="titleLabel" destination="kpz-dQ-mSp" id="pz1-v1-y3d"/>
-                <outletCollection property="gestureRecognizers" destination="pMi-ea-C4Z" appends="YES" id="oQ0-pE-uVR"/>
+                <outletCollection property="gestureRecognizers" destination="sXK-gk-3hK" appends="YES" id="Cxn-Lh-0Dd"/>
             </connections>
         </view>
         <tapGestureRecognizer id="pMi-ea-C4Z"/>
+        <swipeGestureRecognizer direction="down" id="sXK-gk-3hK"/>
     </objects>
 </document>
