@@ -24,13 +24,13 @@ extension UuusObject {
         public static let shared: String = {
             let identifier = Bundle.main.bundleIdentifier
             let keychain = Keychain(service: identifier ?? .empty)
-            var uuid = keychain[UIDevice.Identifier]
+            var uuid = keychain[UIDevice.identifier]
             if uuid == nil {
-                uuid = UserDefaults.standard.string(forKey: UIDevice.Identifier)
+                uuid = UserDefaults.standard.string(forKey: UIDevice.identifier)
                 if uuid == nil {
                     uuid = Uuid.dIFV
-                    keychain[UIDevice.Identifier] = uuid
-                    UserDefaults.standard.set(uuid, forKey: UIDevice.Identifier)
+                    keychain[UIDevice.identifier] = uuid
+                    UserDefaults.standard.set(uuid, forKey: UIDevice.identifier)
                     UserDefaults.standard.synchronize()
                 }
             }

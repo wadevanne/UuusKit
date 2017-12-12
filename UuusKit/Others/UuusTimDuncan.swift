@@ -64,7 +64,7 @@ public var statusHeight = uiapplication.statusBarFrame.height
 
 public func ceil<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
-        return CGFloat(ceil(comparable as! CGFloat)) as! T
+        return ceil(comparable as! CGFloat) as! T
     }
     if comparable is Double {
         return ceil(comparable as! Double) as! T
@@ -77,13 +77,26 @@ public func ceil<T>(_ comparable: T) -> T where T: Comparable {
 
 public func floor<T>(_ comparable: T) -> T where T: Comparable {
     if comparable is CGFloat {
-        return CGFloat(floor(comparable as! CGFloat)) as! T
+        return floor(comparable as! CGFloat) as! T
     }
     if comparable is Double {
         return floor(comparable as! Double) as! T
     }
     if comparable is Float {
         return floorf(comparable as! Float) as! T
+    }
+    return comparable
+}
+
+public func round<T>(_ comparable: T) -> T where T: Comparable {
+    if comparable is CGFloat {
+        return round(comparable as! CGFloat) as! T
+    }
+    if comparable is Double {
+        return round(comparable as! Double) as! T
+    }
+    if comparable is Float {
+        return roundf(comparable as! Float) as! T
     }
     return comparable
 }

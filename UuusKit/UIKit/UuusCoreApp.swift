@@ -143,7 +143,7 @@ extension UIDevice {
         return NSNumber(value: TARGET_OS_SIMULATOR).boolValue
     }
 
-    public static var Identifier = "DeviceIdentifier"
+    public static var identifier = "DeviceIdentifier"
 }
 
 extension UIDevice {
