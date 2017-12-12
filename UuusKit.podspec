@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   s.name         = "UuusKit"
-  s.version      = "3.9.9.0"
+  s.version      = "3.9.9.1"
   s.summary      = "UuusKit is a Swift extension, requires Swift 4.0 or higher."
   s.description  = <<-DESC
                     UuusKit is a Swift extension, requires Swift 4.0.0 or higher.
