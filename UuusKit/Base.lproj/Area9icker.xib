@@ -38,23 +38,23 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8A-mK-JcK">
-                                            <rect key="frame" x="8" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="8" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="p8A-mK-JcK" secondAttribute="height" multiplier="5:4" id="YZu-AX-ENe"/>
+                                                <constraint firstAttribute="width" secondItem="p8A-mK-JcK" secondAttribute="height" multiplier="1:1" id="YZu-AX-ENe"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="取消"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-Kp-aci">
-                                            <rect key="frame" x="63" y="8" width="233" height="28"/>
+                                            <rect key="frame" x="52" y="8" width="255" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSU-Gt-OEC">
-                                            <rect key="frame" x="296" y="0.0" width="55" height="44"/>
+                                            <rect key="frame" x="307" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="sSU-Gt-OEC" secondAttribute="height" multiplier="5:4" id="n73-87-mff"/>
+                                                <constraint firstAttribute="width" secondItem="sSU-Gt-OEC" secondAttribute="height" multiplier="1:1" id="n73-87-mff"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                             <state key="normal" title="完成"/>
