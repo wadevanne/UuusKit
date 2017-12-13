@@ -162,13 +162,13 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet var pickerTop: NSLayoutConstraint!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var ensureButton: UIButton!
-    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet public var tapGesture: UITapGestureRecognizer!
+    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
+    @IBOutlet public var pickerTop: NSLayoutConstraint!
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var cancelButton: UIButton!
+    @IBOutlet public var ensureButton: UIButton!
+    @IBOutlet public var pickerView: UIPickerView!
 
     // MARK: - Initialization
 
@@ -404,14 +404,14 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet var pickerTop: NSLayoutConstraint!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var ensureButton: UIButton!
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet public var tapGesture: UITapGestureRecognizer!
+    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
+    @IBOutlet public var pickerTop: NSLayoutConstraint!
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var cancelButton: UIButton!
+    @IBOutlet public var ensureButton: UIButton!
+    @IBOutlet public var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet public var pickerView: UIPickerView!
 
     // MARK: - Initialization
 
@@ -676,14 +676,14 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet var pickerTop: NSLayoutConstraint!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var ensureButton: UIButton!
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet public var tapGesture: UITapGestureRecognizer!
+    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
+    @IBOutlet public var pickerTop: NSLayoutConstraint!
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var cancelButton: UIButton!
+    @IBOutlet public var ensureButton: UIButton!
+    @IBOutlet public var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet public var pickerView: UIPickerView!
 
     // MARK: - Initialization
 
@@ -853,13 +853,13 @@ open class Date9icker: UuusView {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet var pickerTop: NSLayoutConstraint!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var ensureButton: UIButton!
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet public var tapGesture: UITapGestureRecognizer!
+    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
+    @IBOutlet public var pickerTop: NSLayoutConstraint!
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var cancelButton: UIButton!
+    @IBOutlet public var ensureButton: UIButton!
+    @IBOutlet public var datePicker: UIDatePicker!
 
     // MARK: - Initialization
 

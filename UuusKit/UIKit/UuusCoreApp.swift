@@ -61,7 +61,7 @@ extension UIDevice {
         case iPhone9P = "5.5-inch"
         /// "iPhone10,3" on iPhone X (CDMA)
         /// "iPhone10,6" on iPhone X (GSM)
-        case iPhoneX = "5.9-inch"
+        case iPhoneX = "5.8-inch"
 
         /// "iPad4,4" on iPad Mini 2 - Wifi (model A1489)
         /// "iPad4,5" on iPad Mini 2 - Wifi + Cellular (model A1490)
@@ -92,19 +92,19 @@ extension UIDevice {
         /// "iPad6,4" on iPad Pro 12.9" - Wifi + Cellular (model A1675)
         case iPadPro = "12.9-inch"
 
-        static func < (lhs: DeviceType, rhs: DeviceType) -> Bool {
+        public static func < (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue < rhs.hashValue
         }
 
-        static func <= (lhs: DeviceType, rhs: DeviceType) -> Bool {
+        public static func <= (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue <= rhs.hashValue
         }
 
-        static func > (lhs: DeviceType, rhs: DeviceType) -> Bool {
+        public static func > (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue > rhs.hashValue
         }
 
-        static func >= (lhs: DeviceType, rhs: DeviceType) -> Bool {
+        public static func >= (lhs: DeviceType, rhs: DeviceType) -> Bool {
             return lhs.hashValue >= rhs.hashValue
         }
     }
