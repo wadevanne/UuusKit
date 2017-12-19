@@ -28,6 +28,7 @@ extension UIDevice {
         /// "iPad2,7" on iPad Mini - Wifi + Cellular (model  A1455)
         case iPad
 
+        case visual
         case retina
 
         case appleWatch38 = "38mm"
@@ -85,11 +86,18 @@ extension UIDevice {
         /// "iPad5,4" on iPad Air 2 - Wifi + Cellular (model A1567)
         /// "iPad6,7" on iPad Pro 9.7" - Wifi (model A1584)
         /// "iPad6,8" on iPad Pro 9.7" - Wifi + Cellular (model A1652)
+        /// "iPad6,11" on iPad (5th generation) - Wifi (model A1822)
+        /// "iPad6,12" on iPad (5th generation) - Wifi + Cellular (model A1823)
         case iPadAir = "9.7-inch"
-        case iPadPrx = "10.5-inch"
+        /// "iPad7,3" on iPad Pro 10.5" - Wifi (model A1701)
+        /// "iPad7,4" on iPad Pro 10.5" - Wifi + Cellular (model A1709)
+        case iPadPrc = "10.5-inch"
         /// "iPad6,3" on iPad Pro 12.9" - Wifi (model A1673)
         /// "iPad6,4" on iPad Pro 12.9" - Wifi + Cellular (model A1674)
         /// "iPad6,4" on iPad Pro 12.9" - Wifi + Cellular (model A1675)
+        /// "iPad7,1" on iPad Pro 12.9" (2nd generation) - Wifi (model A1670)
+        /// "iPad7,2" on iPad Pro 12.9" (2nd generation) - Wifi + Cellular (model A1671)
+        /// "iPad7,2" on iPad Pro 12.9" (2nd generation) - Wifi + Cellular (model A1821)
         case iPadPro = "12.9-inch"
 
         public static func < (lhs: DeviceType, rhs: DeviceType) -> Bool {
@@ -115,19 +123,80 @@ extension UIDevice {
     // MARK: - Properties
 
     public static var type: DeviceType {
-        switch (screenHeight, screenWidth) {
-        case (320.0, 480.0), (480.0, 320.0):
-            return .iPhone4s
-        case (320.0, 568.0), (568.0, 320.0):
-            return .iPhoneSE
-        case (375.0, 667.0), (667.0, 375.0):
-            return .iPhone6
-        case (414.0, 736.0), (736.0, 414.0):
-            return .iPhone9P
-        case (375.0, 812.0), (812.0, 375.0):
-            return .iPhoneX
+        switch current.modelName {
+        case "iPhone1,1", "iPhone1,2",
+             "iPhone2,1":
+            return DeviceType.iPhone
+        case "iPad1,1",
+             "iPad2,1", "iPad2,2", "iPad2,3",
+             "iPad2,4", "iPad2,5", "iPad2,6",
+             "iPad2,7":
+            return DeviceType.iPad
+
+        case "i386":
+            if isPhone {
+                return DeviceType.iPhone
+            }
+            if isPad {
+                return DeviceType.iPad
+            }
+            return DeviceType.visual
+        case "x86_64":
+            switch (screenHeight, screenWidth) {
+            case (320.0, 480.0), (480.0, 320.0):
+                return DeviceType.iPhone4s
+            case (320.0, 568.0), (568.0, 320.0):
+                return DeviceType.iPhoneSE
+            case (375.0, 667.0), (667.0, 375.0):
+                return DeviceType.iPhone6
+            case (414.0, 736.0), (736.0, 414.0):
+                return DeviceType.iPhone9P
+            case (375.0, 812.0), (812.0, 375.0):
+                return DeviceType.iPhoneX
+            default:
+                return DeviceType.retina
+            }
+
+        case "iPhone3,1", "iPhone3,3",
+             "iPhone4,1":
+            return DeviceType.iPhone4s
+        case "iPhone5,1", "iPhone5,2",
+             "iPhone5,3", "iPhone5,4",
+             "iPhone6,1", "iPhone6,2",
+             "iPhone8,4":
+            return DeviceType.iPhoneSE
+        case "iPhone7,2",
+             "iPhone8,1",
+             "iPhone9,1", "iPhone9,3",
+             "iPhone10,1", "iPhone10,4":
+            return DeviceType.iPhone6
+        case "iPhone7,1",
+             "iPhone8,2",
+             "iPhone9,2", "iPhone9,4",
+             "iPhone10,2", "iPhone10,5":
+            return DeviceType.iPhone9P
+        case "iPhone10,3", "iPhone10,6":
+            return DeviceType.iPhoneX
+
+        case "iPad4,4", "iPad4,5", "iPad4,6",
+             "iPad4,7", "iPad4,8", "iPad4,9",
+             "iPad5,1", "iPad5,2":
+            return DeviceType.iPadmini
+        case "iPad3,1", "iPad3,2", "iPad3,3",
+             "iPad3,4", "iPad3,5", "iPad3,6",
+             "iPad4,1", "iPad4,2", "iPad4,3",
+             "iPad5,3", "iPad5,4",
+             "iPad6,7", "iPad6,8",
+             "iPad6,11", "iPad6,12":
+            return DeviceType.iPadAir
+        case "iPad7,3", "iPad7,4":
+            return DeviceType.iPadPrc
+        case "iPad6,3", "iPad6,4",
+             "iPad7,1", "iPad7,2":
+            return DeviceType.iPadPro
+
         default:
-            return .retina
+            return DeviceType.retina
         }
     }
 
@@ -156,7 +225,8 @@ extension UIDevice {
         let machine = systemInformation.machine
         let mirror = Mirror(reflecting: machine)
         let identifier = mirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            let int8 = element.value as? Int8
+            guard let value = int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         return identifier

@@ -217,6 +217,25 @@ extension UIViewController {
         nav.viewControllers = controllers
     }
 
+    /// override func viewWillAppear(_ animated: Bool) {
+    ///     super.viewWillAppear(animated)
+    ///     navigationController!.interfaceOrientationMaskAll = true
+    /// }
+    ///
+    /// override func viewWillDisappear(_ animated: Bool) {
+    ///     super.viewWillDisappear(animated)
+    ///     navigationController!.interfaceOrientationMaskAll = false
+    /// }
+    ///
+    /// override func viewDidDisappear(_ animated: Bool) {
+    ///     super.viewDidDisappear(animated)
+    ///     forceOrientation(.portrait)
+    /// }
+    public func forceOrientation(_ orientation: UIDeviceOrientation) {
+        if orientation == UIDevice.current.orientation { return }
+        UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
+    }
+
     public func initBackBarButtonItemPure() {
         if 0 < navigationController?.navigationBar.items?.count ?? 0 {
             navigationItem.backBarButtonItem = backBarButtonItemPure
