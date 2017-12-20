@@ -225,23 +225,38 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 
     public var current: Int? = 0
+    public var sbottom: CGFloat = 0
+
+    public var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
+
+    // MARK: - View Handling
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if #available(iOS 11.0, *) {
+            if sbottom == playground!.view.safeAreaInsets.bottom {
+                return
+            }
+            sbottom = playground!.view.safeAreaInsets.bottom
+            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
+        }
+    }
 
     // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
 
+        if #available(iOS 11.0, *) {
+            sbottom = playground!.view.safeAreaInsets.bottom
+        }
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        if #available(iOS 11.0, *) {
-            let c = UIDevice.type == .iPhoneX ? 204 : 216
-            let s = playground!.view.safeAreaInsets
-            pickerTop.constant = CGFloat(c) + s.bottom
-        } else {
-            pickerTop.constant = 216
-        }
+        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -463,23 +478,38 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Properties
 
     public var current: Week?
+    public var sbottom: CGFloat = 0
+
+    public var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
+
+    // MARK: - View Handling
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if #available(iOS 11.0, *) {
+            if sbottom == playground!.view.safeAreaInsets.bottom {
+                return
+            }
+            sbottom = playground!.view.safeAreaInsets.bottom
+            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
+        }
+    }
 
     // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
 
+        if #available(iOS 11.0, *) {
+            sbottom = playground!.view.safeAreaInsets.bottom
+        }
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        if #available(iOS 11.0, *) {
-            let c = UIDevice.type == .iPhoneX ? 204 : 216
-            let s = playground!.view.safeAreaInsets
-            pickerTop.constant = CGFloat(c) + s.bottom
-        } else {
-            pickerTop.constant = 216
-        }
+        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -517,9 +547,9 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open func pickerView(_: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch Type(rawValue: component)! {
         case .year:
-            return screenWidth * 0.18
+            return min(screenWidth, screenHeight) * 0.18
         case .week:
-            return screenWidth * 0.76
+            return min(screenWidth, screenHeight) * 0.76
         }
     }
 
@@ -743,23 +773,38 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     // MARK: - Properties
 
     public var address: Area?
+    public var sbottom: CGFloat = 0
+
+    public var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
+
+    // MARK: - View Handling
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if #available(iOS 11.0, *) {
+            if sbottom == playground!.view.safeAreaInsets.bottom {
+                return
+            }
+            sbottom = playground!.view.safeAreaInsets.bottom
+            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
+        }
+    }
 
     // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
 
+        if #available(iOS 11.0, *) {
+            sbottom = playground!.view.safeAreaInsets.bottom
+        }
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        if #available(iOS 11.0, *) {
-            let c = UIDevice.type == .iPhoneX ? 204 : 216
-            let s = playground!.view.safeAreaInsets
-            pickerTop.constant = CGFloat(c) + s.bottom
-        } else {
-            pickerTop.constant = 216
-        }
+        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -904,24 +949,39 @@ open class Date9icker: UuusView {
     // MARK: - Properties
 
     public var predate: Date?
+    public var sbottom: CGFloat = 0
     public var actions: completionc?
+
+    public var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
+
+    // MARK: - View Handling
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if #available(iOS 11.0, *) {
+            if sbottom == playground!.view.safeAreaInsets.bottom {
+                return
+            }
+            sbottom = playground!.view.safeAreaInsets.bottom
+            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
+        }
+    }
 
     // MARK: - Public - Functions
 
     open func push() {
         blotWindow()
 
+        if #available(iOS 11.0, *) {
+            sbottom = playground!.view.safeAreaInsets.bottom
+        }
         backgroundColor = .clear
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        if #available(iOS 11.0, *) {
-            let c = UIDevice.type == .iPhoneX ? 204 : 216
-            let s = playground!.view.safeAreaInsets
-            pickerTop.constant = CGFloat(c) + s.bottom
-        } else {
-            pickerTop.constant = 216
-        }
+        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
