@@ -113,7 +113,7 @@
             <constraints>
                 <constraint firstItem="VbI-Rm-Biw" firstAttribute="top" secondItem="1R8-1w-3h6" secondAttribute="bottom" constant="8" id="NIF-u1-M2P"/>
                 <constraint firstItem="VbI-Rm-Biw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Wza-bz-eCO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VbI-Rm-Biw" secondAttribute="top" constant="216" id="XDd-h7-GxA"/>
+                <constraint firstAttribute="bottom" secondItem="VbI-Rm-Biw" secondAttribute="top" constant="216" id="XDd-h7-GxA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VbI-Rm-Biw" secondAttribute="trailing" constant="10" id="eCB-jd-EA6"/>
                 <constraint firstItem="1R8-1w-3h6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="mPb-fi-8yx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1R8-1w-3h6" secondAttribute="trailing" constant="8" id="wzE-jl-m1y"/>

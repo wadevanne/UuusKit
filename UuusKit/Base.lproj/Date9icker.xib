@@ -115,7 +115,7 @@
                 <constraint firstItem="mYL-Zn-6mL" firstAttribute="top" secondItem="4JJ-4W-uuS" secondAttribute="top" id="Sui-I4-TvW"/>
                 <constraint firstItem="cJU-5j-2lH" firstAttribute="top" secondItem="mYL-Zn-6mL" secondAttribute="bottom" constant="8" id="dXJ-Kx-0nT"/>
                 <constraint firstItem="mYL-Zn-6mL" firstAttribute="leading" secondItem="4JJ-4W-uuS" secondAttribute="leading" constant="8" id="iX8-QX-lJT"/>
-                <constraint firstItem="4JJ-4W-uuS" firstAttribute="bottom" secondItem="cJU-5j-2lH" secondAttribute="top" constant="216" id="oYB-CY-LDe"/>
+                <constraint firstAttribute="bottom" secondItem="cJU-5j-2lH" secondAttribute="top" constant="216" id="oYB-CY-LDe"/>
                 <constraint firstItem="4JJ-4W-uuS" firstAttribute="trailing" secondItem="mYL-Zn-6mL" secondAttribute="trailing" constant="8" id="sIZ-Ff-EEh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="4JJ-4W-uuS"/>

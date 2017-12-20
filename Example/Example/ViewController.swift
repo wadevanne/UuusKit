@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+
+        button.image2Right(boundedUpright: button.frame.height)
     }
 
     override func viewWillAppear(_ animated: Bool) {

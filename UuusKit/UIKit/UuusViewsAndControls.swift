@@ -235,8 +235,13 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 204 : 216
+        if #available(iOS 11.0, *) {
+            let c = UIDevice.type == .iPhoneX ? 204 : 216
+            let s = playground!.view.safeAreaInsets
+            pickerTop.constant = CGFloat(c) + s.bottom
+        } else {
+            pickerTop.constant = 216
+        }
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -468,8 +473,13 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 204 : 216
+        if #available(iOS 11.0, *) {
+            let c = UIDevice.type == .iPhoneX ? 204 : 216
+            let s = playground!.view.safeAreaInsets
+            pickerTop.constant = CGFloat(c) + s.bottom
+        } else {
+            pickerTop.constant = 216
+        }
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -743,8 +753,13 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 204 : 216
+        if #available(iOS 11.0, *) {
+            let c = UIDevice.type == .iPhoneX ? 204 : 216
+            let s = playground!.view.safeAreaInsets
+            pickerTop.constant = CGFloat(c) + s.bottom
+        } else {
+            pickerTop.constant = 216
+        }
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
@@ -900,8 +915,13 @@ open class Date9icker: UuusView {
         pickerTop.constant = 0
         layoutIfNeeded()
 
-        let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 204 : 216
+        if #available(iOS 11.0, *) {
+            let c = UIDevice.type == .iPhoneX ? 204 : 216
+            let s = playground!.view.safeAreaInsets
+            pickerTop.constant = CGFloat(c) + s.bottom
+        } else {
+            pickerTop.constant = 216
+        }
         let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
