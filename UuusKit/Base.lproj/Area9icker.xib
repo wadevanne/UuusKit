@@ -19,22 +19,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-uE-B8P">
-                    <rect key="frame" x="8" y="20" width="359" height="425"/>
+                    <rect key="frame" x="8" y="20" width="359" height="423"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="gzr-Dn-1xT" appends="YES" id="5A4-Wx-R77"/>
                     </connections>
                 </view>
                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCe-KI-mZT" customClass="RoundViEffectView" customModule="UuusKit" customModuleProvider="target">
-                    <rect key="frame" x="8" y="453" width="359" height="206"/>
+                    <rect key="frame" x="10" y="451" width="355" height="206"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bYy-H2-yST">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="206"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="206"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ml-Ut-eOY">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fuR-3S-iHU">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8A-mK-JcK">
@@ -46,13 +46,13 @@
                                             <state key="normal" title="取消"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-Kp-aci">
-                                            <rect key="frame" x="52" y="8" width="255" height="28"/>
+                                            <rect key="frame" x="52" y="8" width="251" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSU-Gt-OEC">
-                                            <rect key="frame" x="307" y="0.0" width="44" height="44"/>
+                                            <rect key="frame" x="303" y="0.0" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="sSU-Gt-OEC" secondAttribute="height" multiplier="1:1" id="n73-87-mff"/>
                                             </constraints>
@@ -78,13 +78,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Acg-tz-urw"/>
                                 </constraints>
-                                <blurEffect style="regular"/>
+                                <blurEffect style="prominent"/>
                             </visualEffectView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SbX-e6-K4t">
-                                <rect key="frame" x="169" y="115" width="20" height="20"/>
+                                <rect key="frame" x="167" y="115" width="20" height="20"/>
                             </activityIndicatorView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFr-MP-aF9">
-                                <rect key="frame" x="0.0" y="44" width="359" height="162"/>
+                                <rect key="frame" x="0.0" y="44" width="355" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="rfH-kW-VhW"/>
                                 </constraints>
@@ -119,10 +119,10 @@
                 <constraint firstItem="GCe-KI-mZT" firstAttribute="top" secondItem="GFh-uE-B8P" secondAttribute="bottom" constant="8" id="KWO-et-aul"/>
                 <constraint firstItem="GFh-uE-B8P" firstAttribute="leading" secondItem="hFh-XB-bF3" secondAttribute="leading" constant="8" id="L3l-bN-eJE"/>
                 <constraint firstItem="hFh-XB-bF3" firstAttribute="trailing" secondItem="GFh-uE-B8P" secondAttribute="trailing" constant="8" id="Zit-T9-GOX"/>
-                <constraint firstItem="hFh-XB-bF3" firstAttribute="bottom" secondItem="GCe-KI-mZT" secondAttribute="top" constant="214" id="hcE-Kr-SAV"/>
-                <constraint firstItem="hFh-XB-bF3" firstAttribute="trailing" secondItem="GCe-KI-mZT" secondAttribute="trailing" constant="8" id="pAJ-nw-1Z8"/>
+                <constraint firstItem="hFh-XB-bF3" firstAttribute="bottom" secondItem="GCe-KI-mZT" secondAttribute="top" constant="216" id="hcE-Kr-SAV"/>
+                <constraint firstItem="hFh-XB-bF3" firstAttribute="trailing" secondItem="GCe-KI-mZT" secondAttribute="trailing" constant="10" id="pAJ-nw-1Z8"/>
                 <constraint firstItem="GFh-uE-B8P" firstAttribute="top" secondItem="hFh-XB-bF3" secondAttribute="top" id="qpb-qh-dCd"/>
-                <constraint firstItem="GCe-KI-mZT" firstAttribute="leading" secondItem="hFh-XB-bF3" secondAttribute="leading" constant="8" id="zfo-6G-HAT"/>
+                <constraint firstItem="GCe-KI-mZT" firstAttribute="leading" secondItem="hFh-XB-bF3" secondAttribute="leading" constant="10" id="zfo-6G-HAT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hFh-XB-bF3"/>
             <connections>

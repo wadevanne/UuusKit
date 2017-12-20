@@ -236,8 +236,8 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 206 : 214
-        let color = UIColor(white: 0, alpha: 0.5)
+        pickerTop.constant = iPhoneX ? 204 : 216
+        let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
             self.layoutIfNeeded()
@@ -469,8 +469,8 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 206 : 214
-        let color = UIColor(white: 0, alpha: 0.5)
+        pickerTop.constant = iPhoneX ? 204 : 216
+        let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
             self.layoutIfNeeded()
@@ -744,8 +744,8 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 206 : 214
-        let color = UIColor(white: 0, alpha: 0.5)
+        pickerTop.constant = iPhoneX ? 204 : 216
+        let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25) {
             self.backgroundColor = color
             self.layoutIfNeeded()
@@ -901,8 +901,8 @@ open class Date9icker: UuusView {
         layoutIfNeeded()
 
         let iPhoneX = UIDevice.type == .iPhoneX
-        pickerTop.constant = iPhoneX ? 206 : 214
-        let color = UIColor(white: 0, alpha: 0.5)
+        pickerTop.constant = iPhoneX ? 204 : 216
+        let color = UIColor(white: 0, alpha: 0.4)
         UIView.animate(withDuration: 0.25, animations: {
             self.backgroundColor = color
             self.layoutIfNeeded()
