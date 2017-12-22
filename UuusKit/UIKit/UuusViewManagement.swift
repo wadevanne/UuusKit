@@ -10,7 +10,7 @@ import PullToRefresh
 import RMUniversalAlert
 import RxSwift
 
-open class UuusController: UIViewController {
+open class ViewControllor: UIViewController {
 
     // MARK: - Classes and Structures
 

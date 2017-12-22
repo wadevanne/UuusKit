@@ -9,7 +9,7 @@
 import MapKit
 
 @IBDesignable
-open class MapControllor: UuusController {
+open class MapViewControllor: UIViewController {
 
     // MARK: - IBInspectable
 

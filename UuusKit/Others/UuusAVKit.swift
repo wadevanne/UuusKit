@@ -9,7 +9,7 @@
 import AVKit
 import RMUniversalAlert
 
-open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegate {
+open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     // MARK: - Classes and Structures
 
@@ -23,7 +23,7 @@ open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegat
 
         override init(frame: CGRect) {
             super.init(frame: frame)
-            let roll = #selector(ScanControllor.ScanView.roll)
+            let roll = #selector(ScanViewControllor.ScanView.roll)
             let name = NSNotification.Name.UIApplicationDidBecomeActive
             notificationc.addObserver(self, selector: roll, name: name, object: nil)
         }
@@ -272,7 +272,7 @@ open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegat
 
         let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
         let message = metadataObject?.stringValue ?? .empty
-        let cancelButtonTitle = "重新扫描".local
+        let cancelButtonTitle = "扫描".local
         let otherButtonTitles = ["好".local]
         RMUniversalAlert.show(in: self, withTitle: nil, message: message, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles) { [unowned self] alert, index in
             switch index {

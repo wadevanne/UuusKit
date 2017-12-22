@@ -13,7 +13,7 @@ extension EKEventStore {
 
     // MARK: - Public - Functions
 
-    public static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, completion: completionc? = nil) {
+    public static func newEvent(with title: String, location: String? = nil, isAllDay: Bool = false, startDate: Date, endDate: Date, alarms: [TimeInterval]? = nil, calendar: String? = nil, flash: String? = "新建提醒失败, 请到隐私设置日历权限".local, completion: completionc? = nil) {
         let eventStore = EKEventStore()
         eventStore.requestAccess(to: .event) { granted, error in
             DispatchQueue.main.async {
@@ -23,8 +23,9 @@ extension EKEventStore {
                 }
 
                 guard granted else {
-                    let local = "新建提醒失败, 请到隐私设置日历权限".local
-                    HUD.flash(.label(local), delay: 0.5)
+                    if let local = flash {
+                        HUD.flash(.label(local), delay: 0.5)
+                    }
                     completion?(nil)
                     return
                 }

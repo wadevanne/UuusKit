@@ -18,7 +18,6 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
         guard let root = UIApplication.shared.keyWindow?.rootViewController else {
             fatalError("AAImagePicker - Application key window not found. Please check UIWindow in AppDelegate.")
         }
-
         return root
     }
 
@@ -44,15 +43,13 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
     }
 
     func presentPicker(sourceType: UIImagePickerControllerSourceType) {
-
         guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
             return
         }
-
-        imagePicker.allowsEditing = options.allowsEditing
         imagePicker.delegate = self
-        imagePicker.modalPresentationStyle = .overCurrentContext
         imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = options.allowsEditing
+        imagePicker.modalPresentationStyle = .overCurrentContext
         rootViewController.present(imagePicker, animated: true, completion: nil)
     }
 
@@ -60,25 +57,24 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
 
         picker.dismiss(animated: true, completion: nil)
 
-        let imageType = options.allowsEditing ? UIImagePickerControllerEditedImage : UIImagePickerControllerOriginalImage
+        let edited = UIImagePickerControllerEditedImage
+        let origin = UIImagePickerControllerOriginalImage
 
-        var image = info[imageType] as! UIImage
-        image = image.fixOrientation()
+        let imageType = options.allowsEditing ? edited : origin
+        var image = (info[imageType] as! UIImage).fixOrientation()
 
         switch options.resizeType {
         case .width:
             image = image.resize(width: options.resizeValue)
-            break
         case .scale:
             image = image.resize(scale: options.resizeValue)
-            break
         default:
             break
         }
         getImage(image)
     }
 
-    open func present(_ options: AAImagePickerOptions? = nil, _ completion: @escaping ((UIImage) -> Void)) {
+    open func present(_ options: AAImagePickerOptions? = nil, _ completion: @escaping ((UIImage) -> Swift.Void)) {
 
         if let pickerOptions = options {
             self.options = pickerOptions
@@ -132,8 +128,6 @@ extension UIImage {
             transform = transform.scaledBy(x: -1, y: 1)
         }
 
-        // Now we draw the underlying CGImage into a new context, applying the transform
-        // calculated above.
         let ctx: CGContext = CGContext(data: nil, width: Int(size.width), height: Int(size.height),
                                        bitsPerComponent: cgImage!.bitsPerComponent, bytesPerRow: 0,
                                        space: cgImage!.colorSpace!,

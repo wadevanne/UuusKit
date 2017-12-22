@@ -56,6 +56,33 @@ extension UIView {
         }
     }
 
+    @IBInspectable open var shadowColor: UIColor {
+        get {
+            return layer.shadowColor?.uiColor ?? .clear
+        }
+        set {
+            layer.shadowColor = newValue.cgColor
+        }
+    }
+
+    @IBInspectable open var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
+    }
+
+    @IBInspectable open var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+
     // MARK: - Properties
 
     public var controller: UIViewController? {
@@ -95,40 +122,34 @@ extension UIView {
     }
 }
 
-open class CollectionControllor: UuusController {
+open class CollectionViewControllor: UICollectionViewController {
 
     // MARK: - Deinitialization
 
     deinit {
-        collectionView.removePullToRefresh(at: .top)
-        collectionView.removePullToRefresh(at: .bottom)
+        collectionView?.removePullToRefresh(at: .top)
+        collectionView?.removePullToRefresh(at: .bottom)
     }
-
-    // MARK: - Properties
-
-    open var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     // MARK: - View Handling
 
     open override func viewDidLoad() {
         super.viewDidLoad()
         /// even if content is smaller than bounds
-        collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = .white
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            if #available(iOS 11.0, *) {
-                make.edges.equalTo(view.safeAreaInsets)
-            } else {
-                make.edges.equalTo(view)
-            }
-        }
+        collectionView?.alwaysBounceVertical = true
     }
 
     // MARK: - Public - Functions
 
-    open func addPullToRefreshTop() {}
     open func addPullToRefreshBottom() {}
+    open func addPullToRefreshTop() {}
+    open func tryPullToRefreshBottom(last remove: Bool = true) {
+        if remove {
+            collectionView?.removePullToRefresh(at: .bottom)
+        } else if collectionView?.bottomPullToRefresh == nil {
+            addPullToRefreshBottom()
+        }
+    }
 }
 
 extension UICollectionViewCell {
@@ -154,6 +175,46 @@ extension UICollectionViewCell {
             let image = UIColor(white: 0.5, alpha: 0.5).image
             selectedBackgroundView = UIImageView(image: image)
             selectedBackgroundView?.bringToFront()
+        }
+    }
+}
+
+open class TableViewControllor: UITableViewController {
+
+    // MARK: - Deinitialization
+
+    deinit {
+        tableView.removePullToRefresh(at: .top)
+        tableView.removePullToRefresh(at: .bottom)
+    }
+
+    // MARK: - Public - Functions
+
+    open func addPullToRefreshBottom() {}
+    open func addPullToRefreshTop() {}
+    open func tryPullToRefreshBottom(last remove: Bool = true) {
+        if remove {
+            tableView.removePullToRefresh(at: .bottom)
+        } else if tableView.bottomPullToRefresh == nil {
+            addPullToRefreshBottom()
+        }
+    }
+}
+
+open class TableViowCell: UITableViewCell {
+
+    // MARK: - Properties
+
+    public var maximum: CGFloat = 0
+    public var spacing: CGFloat = 0
+
+    // MARK: - View Handling
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if spacing > 0 {
+            frame.origin.x = spacing
+            frame.size.width = maximum - spacing * 2
         }
     }
 }
