@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationController!.view.backgroundColor = .white
 
         if #available(iOS 10.0, *) {
             _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in

@@ -18,6 +18,7 @@ import UIKit
 
 // MARK: - Singleton
 
+public let uuus1mpi = 1.0 * .pi
 public let uuus2mpi = 2.0 * .pi
 public let uuusm2pi = 0.5 * .pi
 

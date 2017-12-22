@@ -243,25 +243,7 @@ open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegat
             }
         }
         session?.startRunning()
-
-        let status = AVCaptureDevice.authorizationStatus(for: .video)
-        if status == .restricted || status == .denied {
-            let dictionKey = "NSCameraUsageDescription"
-            let dictionary = Bundle.main.infoDictionary
-            let message = dictionary?[dictionKey] as? String
-            let cancelButtonTitle = "好的".local
-            let otherButtonTitles = ["设置".local]
-            RMUniversalAlert.show(in: self, withTitle: nil, message: message?.local, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles, tap: { [unowned self] alert, index in
-                switch index {
-                case alert.cancelButtonIndex:
-                    self.popController()
-                case alert.firstOtherButtonIndex:
-                    uiapplication.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-                default:
-                    break
-                }
-            })
-        }
+        presentCameraAlertController()
     }
 
     // MARK: - Public - Functions
@@ -290,17 +272,43 @@ open class ScanControllor: UuusController, AVCaptureMetadataOutputObjectsDelegat
 
         let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
         let message = metadataObject?.stringValue ?? .empty
-        let cancelButtonTitle = "好的".local
-        let otherButtonTitles = ["重新扫描".local]
+        let cancelButtonTitle = "重新扫描".local
+        let otherButtonTitles = ["好".local]
         RMUniversalAlert.show(in: self, withTitle: nil, message: message, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles) { [unowned self] alert, index in
             switch index {
             case alert.cancelButtonIndex:
-                self.popController()
-            case alert.firstOtherButtonIndex:
                 self.startRunning()
+            case alert.firstOtherButtonIndex:
+                self.popController()
             default:
                 break
             }
         }
+    }
+}
+
+extension UIViewController {
+    @discardableResult
+    public func presentCameraAlertController() -> Bool {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        if status == .restricted || status == .denied {
+            let dictionKey = "NSCameraUsageDescription"
+            let dictionary = Bundle.main.infoDictionary
+            let message = dictionary?[dictionKey] as? String
+            let cancelButtonTitle = "设置".local
+            let otherButtonTitles = ["好".local]
+            RMUniversalAlert.show(in: self, withTitle: nil, message: message?.local, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles, tap: { [unowned self] alert, index in
+                switch index {
+                case alert.cancelButtonIndex:
+                    uiapplication.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                case alert.firstOtherButtonIndex:
+                    self.popController()
+                default:
+                    break
+                }
+            })
+            return true
+        }
+        return false
     }
 }

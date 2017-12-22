@@ -6,7 +6,6 @@
 //  Copyright © 2017 com.uuus. All rights reserved.
 //
 
-import ALCameraViewController
 import PullToRefresh
 import RMUniversalAlert
 import RxSwift
@@ -244,23 +243,6 @@ extension UIViewController {
 
     open func reloadData() {}
     open func updateData() {}
-
-    public func showPhotoActionSheet(in viewController: UIViewController = UuusKit.playground!, withTitle title: String? = nil, message: String? = nil, popoverPresentationControllerBlock: ((RMPopoverPresentationController) -> Void)? = nil, croppingParameters: CroppingParameters = CroppingParameters(isEnabled: true), completion: @escaping CameraViewCompletion) {
-        let cancelButtonTitle = "取消".local
-        let photosButtonTitle = "相册".local
-        let cameraButtonTitle = "拍照".local
-        let otherButtonTitles = [photosButtonTitle, cameraButtonTitle]
-        RMUniversalAlert.showActionSheet(in: viewController, withTitle: title, message: message, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles, popoverPresentationControllerBlock: popoverPresentationControllerBlock) { [unowned self] alert, index in
-            switch index {
-            case alert.firstOtherButtonIndex:
-                self.presents(CameraViewController.imagePickerViewController(croppingParameters: croppingParameters, completion: completion))
-            case alert.firstOtherButtonIndex + 1:
-                self.presents(CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: false, completion: completion))
-            default:
-                break
-            }
-        }
-    }
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {
