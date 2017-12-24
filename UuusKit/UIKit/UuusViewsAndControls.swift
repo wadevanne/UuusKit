@@ -1070,11 +1070,10 @@ extension UITextField {
     // MARK: - Public - Functions
 
     /// block queue outside as exception
-    public func phone(check exception: Bool = true) -> Bool {
+    public func phone(check exception: Bool = true, errorString alert: String = "手机号码格式不正确".local) -> Bool {
         guard text?.isChinaPhone ?? false else {
             if exception {
-                let local = "手机号码格式不正确".local
-                HUD.flash(.label(local), delay: 0.5)
+                HUD.flash(.label(alert), delay: 0.5)
                 becomeFirstResponder()
             }
             return false
@@ -1083,11 +1082,10 @@ extension UITextField {
     }
 
     /// block queue outside as exception
-    public func email(check exception: Bool = true) -> Bool {
+    public func email(check exception: Bool = true, errorString alert: String = "电子邮箱格式不正确".local) -> Bool {
         guard text?.isValidEmail ?? false else {
             if exception {
-                let local = "电子邮箱格式不正确".local
-                HUD.flash(.label(local), delay: 0.5)
+                HUD.flash(.label(alert), delay: 0.5)
                 becomeFirstResponder()
             }
             return false
