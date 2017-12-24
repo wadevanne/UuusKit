@@ -22,6 +22,10 @@ open class UuusView: UIView {
     // MARK: - Properties
 
     open var disposeBag = DisposeBag()
+
+    open var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
 }
 
 extension UIView {
@@ -288,10 +292,6 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     public var current: Int? = 0
     public var sbottom: CGFloat = 0
 
-    public var iPhoneX: Bool {
-        return UIDevice.type == .iPhoneX
-    }
-
     // MARK: - View Handling
 
     open override func layoutSubviews() {
@@ -540,10 +540,6 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     public var current: Week?
     public var sbottom: CGFloat = 0
-
-    public var iPhoneX: Bool {
-        return UIDevice.type == .iPhoneX
-    }
 
     // MARK: - View Handling
 
@@ -836,10 +832,6 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     public var address: Area?
     public var sbottom: CGFloat = 0
 
-    public var iPhoneX: Bool {
-        return UIDevice.type == .iPhoneX
-    }
-
     // MARK: - View Handling
 
     open override func layoutSubviews() {
@@ -1012,10 +1004,6 @@ open class Date9icker: UuusView {
     public var predate: Date?
     public var sbottom: CGFloat = 0
     public var actions: completionc?
-
-    public var iPhoneX: Bool {
-        return UIDevice.type == .iPhoneX
-    }
 
     // MARK: - View Handling
 

@@ -117,7 +117,7 @@ open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsD
 
         open func scanned(_ rect: CGRect?) -> CGRect? {
             guard let rect = rect else { return nil }
-            let inset = CGFloat(64)
+            let inset = CGFloat(UIDevice.type >= .iPhone6 ? 80 : 64)
             var rectangle = rect.insetBy(dx: inset, dy: inset)
             let minimum = min(rectangle.width, rectangle.height)
             if rectangle.width != minimum {
