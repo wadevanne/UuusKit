@@ -38,7 +38,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFx-ho-lmK">
                                 <rect key="frame" x="50" y="125" width="65" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Pulldown"/>
+                                <state key="normal" title="Button" image="DropdownIndicator"/>
                                 <connections>
                                     <action selector="action:" destination="cbO-eF-nUV" eventType="touchUpInside" id="QJ0-fp-CHm"/>
                                 </connections>
@@ -57,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Pulldown" width="11" height="11"/>
+        <image name="DropdownIndicator" width="11" height="11"/>
     </resources>
 </document>

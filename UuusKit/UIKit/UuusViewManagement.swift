@@ -93,6 +93,10 @@ open class ViewControllor: UIViewController {
     }
 
     open var disposeBag = DisposeBag()
+
+    open var iPhoneX: Bool {
+        return UIDevice.type == .iPhoneX
+    }
 }
 
 extension UIViewController {
