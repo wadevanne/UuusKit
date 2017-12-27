@@ -40,6 +40,22 @@ public typealias failurec = ((_ error: Error?) -> Swift.Void)
 
 // MARK: - Properties
 
+public var iPhoneSE: Bool {
+    return UIDevice.type == .iPhoneSE
+}
+
+public var iPhone6: Bool {
+    return UIDevice.type == .iPhone6
+}
+
+public var iPhone9P: Bool {
+    return UIDevice.type == .iPhone9P
+}
+
+public var iPhoneX: Bool {
+    return UIDevice.type == .iPhoneX
+}
+
 public var bundleName: String {
     let infoDict = Bundle.main.infoDictionary!
     let bundleName = infoDict["CFBundleName"]

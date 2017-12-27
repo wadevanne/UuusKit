@@ -22,10 +22,6 @@ open class UuusView: UIView {
     // MARK: - Properties
 
     open var disposeBag = DisposeBag()
-
-    open var iPhoneX: Bool {
-        return UIDevice.type == .iPhoneX
-    }
 }
 
 extension UIView {
