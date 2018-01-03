@@ -272,14 +272,14 @@ open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsD
 
         let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject
         let message = metadataObject?.stringValue ?? .empty
-        let cancelButtonTitle = "扫描".local
-        let otherButtonTitles = ["好".local]
+        let cancelButtonTitle = "知道了".local
+        let otherButtonTitles = ["扫描".local]
         RMUniversalAlert.show(in: self, withTitle: nil, message: message, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles) { [unowned self] alert, index in
             switch index {
             case alert.cancelButtonIndex:
-                self.startRunning()
-            case alert.firstOtherButtonIndex:
                 self.popController()
+            case alert.firstOtherButtonIndex:
+                self.startRunning()
             default:
                 break
             }
@@ -295,14 +295,14 @@ extension UIViewController {
             let dictionKey = "NSCameraUsageDescription"
             let dictionary = Bundle.main.infoDictionary
             let message = dictionary?[dictionKey] as? String
-            let cancelButtonTitle = "设置".local
-            let otherButtonTitles = ["好".local]
+            let cancelButtonTitle = "知道了".local
+            let otherButtonTitles = ["设置".local]
             RMUniversalAlert.show(in: self, withTitle: nil, message: message?.local, cancelButtonTitle: cancelButtonTitle, destructiveButtonTitle: nil, otherButtonTitles: otherButtonTitles, tap: { [unowned self] alert, index in
                 switch index {
                 case alert.cancelButtonIndex:
-                    uiapplication.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-                case alert.firstOtherButtonIndex:
                     self.popController()
+                case alert.firstOtherButtonIndex:
+                    uiapplication.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
                 default:
                     break
                 }

@@ -203,6 +203,20 @@ extension UIViewController {
         }
     }
 
+    public func backToMars(under: UIViewController? = uiapplication.keyWindow?.rootViewController, selected index: Int, animated anime: Bool) {
+        if let tab = under as? UITabBarController {
+            tab.selectedIndex = index
+            backToMars(under: tab.selectedViewController, selected: index, animated: anime)
+        }
+        if let nav = under as? UINavigationController {
+            nav.popToRootViewController(animated: anime)
+            backToMars(under: nav.viewControllers.first, selected: index, animated: anime)
+        }
+        if let presented = under?.presentedViewController {
+            backToMars(under: presented, selected: index, animated: anime)
+        }
+    }
+
     public func fade(keyroot controller: UIViewController) {
         uiapplication.keyWindow?.layer.add(CATransition.fade, forKey: kCATransition)
         uiapplication.keyWindow?.rootViewController = controller

@@ -935,6 +935,17 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+open class UuusButton: UIButton {
+
+    // MARK: - Properties
+
+    open override var isEnabled: Bool {
+        didSet {
+            backgroundColor = isEnabled ? tintColor : shadowColor
+        }
+    }
+}
+
 extension UIButton {
 
     // MARK: - View Handling
