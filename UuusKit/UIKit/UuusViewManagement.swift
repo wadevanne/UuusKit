@@ -93,6 +93,13 @@ open class ViewControllor: UIViewController {
     }
 
     open var disposeBag = DisposeBag()
+
+    // MARK: - View Handling
+
+    open override func viewDidLoad() {
+        initBackBarButtonPure()
+        super.viewDidLoad()
+    }
 }
 
 extension UIViewController {
@@ -203,6 +210,16 @@ extension UIViewController {
         }
     }
 
+    public func popToRootController(animated flag: Bool = true) {
+        DispatchQueue.main.async {
+            if 2 > self.navigationController?.viewControllers.count ?? 0 {
+                self.dismiss(animated: flag)
+                return
+            }
+            self.navigationController?.popToRootViewController(animated: flag)
+        }
+    }
+
     public func backToMars(under: UIViewController? = uiapplication.keyWindow?.rootViewController, selected index: Int, animated anime: Bool) {
         if let tab = under as? UITabBarController {
             tab.selectedIndex = index
@@ -249,7 +266,7 @@ extension UIViewController {
         UIDevice.current.setValue(orientation.rawValue, forKey: "orientation")
     }
 
-    public func initBackBarButtonItemPure() {
+    public func initBackBarButtonPure() {
         if 0 < navigationController?.navigationBar.items?.count ?? 0 {
             navigationItem.backBarButtonItem = backBarButtonItemPure
         }

@@ -134,6 +134,7 @@ open class CollectionViewControllor: UICollectionViewController {
     // MARK: - View Handling
 
     open override func viewDidLoad() {
+        initBackBarButtonPure()
         super.viewDidLoad()
         /// even if content is smaller than bounds
         collectionView?.alwaysBounceVertical = true
@@ -186,6 +187,13 @@ open class TableViewControllor: UITableViewController {
     deinit {
         tableView.removePullToRefresh(at: .top)
         tableView.removePullToRefresh(at: .bottom)
+    }
+
+    // MARK: - View Handling
+
+    open override func viewDidLoad() {
+        initBackBarButtonPure()
+        super.viewDidLoad()
     }
 
     // MARK: - Public - Functions
