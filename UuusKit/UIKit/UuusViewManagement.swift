@@ -29,7 +29,8 @@ open class ViewControllor: UIViewController {
                 let frame = CGRect(origin: .zero, size: size)
                 let imageView = UIImageView(frame: frame)
                 imageView.animationImages = images
-                imageView.animationDuration = 0.75
+                let anime = RefreshView.animationDuration
+                imageView.animationDuration = anime
                 imageView.animationRepeatCount = 0
                 addSubview(imageView)
                 return imageView
@@ -38,6 +39,7 @@ open class ViewControllor: UIViewController {
             // MARK: - Properties
 
             open static var images: [UIImage]?
+            open static var animationDuration: TimeInterval = 1.25
 
             // MARK: - View Handling
 
@@ -69,14 +71,17 @@ open class ViewControllor: UIViewController {
         // MARK: - Initialization
 
         override init(refreshView: UIView, animator: RefreshViewAnimator, height: CGFloat, position: Position) {
-            let refreshView = RefreshView()
-            let height = refreshView.frame.height
-            refreshView.frame.size.height = height + 8
-            super.init(refreshView: refreshView, animator: animator, height: height, position: position)
-            animationDuration = 0.25
-            hideDelay = 0.25
-            springDamping = 1
-            initialSpringVelocity = 0
+            if let height = RefreshView.images?.first?.size.height {
+                let refreshView = RefreshView()
+                refreshView.frame.size.height = height + 8
+                super.init(refreshView: refreshView, animator: animator, height: height, position: position)
+                animationDuration = 0.25
+                hideDelay = 0.25
+                springDamping = 1
+                initialSpringVelocity = 0
+            } else {
+                super.init(refreshView: refreshView, animator: animator, height: height, position: position)
+            }
         }
     }
 
