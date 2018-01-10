@@ -966,12 +966,17 @@ extension UIButton {
     // MARK: - Public - Functions
 
     public func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
-        let titleText = titleLabel!.text!
         let titleFont = titleLabel!.font!
-        let titleWidth = titleText.aclinic(boundedUpright: boundedUpright, font: titleFont)
+        let titleText = title(for: .normal)
+
         let imageWidth = imageView!.image!.size.width
-        let labelWidth = (titleWidth + imageWidth > greatestAclinic) ? greatestAclinic - imageWidth : titleWidth
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageWidth - 4, bottom: 0, right: imageWidth + 4)
+        let titleWidth = titleText!.aclinic(boundedUpright: boundedUpright, font: titleFont)
+
+        let titleRight = imageWidth + (16.0 / 4.0)
+        let outOfRange = imageWidth + titleWidth > greatestAclinic
+        let labelWidth = outOfRange ? greatestAclinic - imageWidth - 16.0 : titleWidth
+
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: -titleRight, bottom: 0, right: titleRight)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth, bottom: 0, right: -labelWidth)
         frame.size = CGSize(width: labelWidth + imageWidth, height: boundedUpright ?? CGFloat(UInt8.min))
     }
