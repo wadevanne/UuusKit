@@ -66,6 +66,10 @@ public var playground: UIViewController? {
     return UIViewController.playground()
 }
 
+public var rootground: UIViewController? {
+    return uiapplication.keyWindow?.rootViewController
+}
+
 public var screenBounds = UIScreen.main.bounds
 public var screenHeight = screenBounds.height
 public var screenWidth = screenBounds.width
