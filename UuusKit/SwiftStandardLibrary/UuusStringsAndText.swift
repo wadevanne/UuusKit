@@ -35,6 +35,10 @@ extension String {
         return localise(self)
     }
 
+    public var digit: String {
+        return split { !"0123456789".contains($0) }.joined(separator: .empty)
+    }
+
     /// let a = "a bc  d    efg"
     ///
     /// print(a.unity)

@@ -36,9 +36,9 @@ extension EKEventStore {
                 event.isAllDay = isAllDay
                 event.startDate = startDate
                 event.endDate = endDate
-                alarms?.forEach({ interval in
+                alarms?.forEach { interval in
                     event.addAlarm(EKAlarm(relativeOffset: interval))
-                })
+                }
                 event.calendar = eventStore.newEKCalendar(calendar)
 
                 do {
