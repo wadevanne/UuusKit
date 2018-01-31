@@ -62,12 +62,16 @@ public var bundleName: String {
     return (bundleName as! String).local
 }
 
-public var playground: UIViewController? {
+public var playground: UIViewController! {
     return UIViewController.playground()
 }
 
-public var rootground: UIViewController? {
-    return uiapplication.keyWindow?.rootViewController
+public var uiTintColor: UIColor! {
+    return uiapplication.delegate!.window!!.tintColor
+}
+
+public var rootground: UIViewController! {
+    return uiapplication.keyWindow!.rootViewController
 }
 
 public var screenBounds = UIScreen.main.bounds
@@ -134,7 +138,7 @@ public func telephone(_ telephone: String) {
     let uiWebView = UIWebView()
     let url = URL(string: "tel:\(telephone)")
     uiWebView.loadRequest(URLRequest(url: url!))
-    playground?.view.addSubview(uiWebView)
+    playground.view.addSubview(uiWebView)
 }
 
 // MARK: - Private - Functions

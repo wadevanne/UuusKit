@@ -301,10 +301,10 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if #available(iOS 11.0, *) {
-            if sbottom == rootground!.view.safeAreaInsets.bottom {
+            if sbottom == rootground.view.safeAreaInsets.bottom {
                 return
             }
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
             pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         }
     }
@@ -315,7 +315,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         blotWindow()
 
         if #available(iOS 11.0, *) {
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
         }
         backgroundColor = .clear
         pickerTop.constant = 0
@@ -550,10 +550,10 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if #available(iOS 11.0, *) {
-            if sbottom == rootground!.view.safeAreaInsets.bottom {
+            if sbottom == rootground.view.safeAreaInsets.bottom {
                 return
             }
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
             pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         }
     }
@@ -564,7 +564,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         blotWindow()
 
         if #available(iOS 11.0, *) {
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
         }
         backgroundColor = .clear
         pickerTop.constant = 0
@@ -841,10 +841,10 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if #available(iOS 11.0, *) {
-            if sbottom == rootground!.view.safeAreaInsets.bottom {
+            if sbottom == rootground.view.safeAreaInsets.bottom {
                 return
             }
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
             pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         }
     }
@@ -855,7 +855,7 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         blotWindow()
 
         if #available(iOS 11.0, *) {
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
         }
         backgroundColor = .clear
         pickerTop.constant = 0
@@ -1030,10 +1030,10 @@ open class Date9icker: UuusView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         if #available(iOS 11.0, *) {
-            if sbottom == rootground!.view.safeAreaInsets.bottom {
+            if sbottom == rootground.view.safeAreaInsets.bottom {
                 return
             }
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
             pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
         }
     }
@@ -1044,7 +1044,7 @@ open class Date9icker: UuusView {
         blotWindow()
 
         if #available(iOS 11.0, *) {
-            sbottom = rootground!.view.safeAreaInsets.bottom
+            sbottom = rootground.view.safeAreaInsets.bottom
         }
         backgroundColor = .clear
         pickerTop.constant = 0

@@ -152,7 +152,7 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: self.name)
     }
 
-    public static func playground(under: UIViewController? = uiapplication.keyWindow?.rootViewController) -> UIViewController? {
+    public static func playground(under: UIViewController! = uiapplication.keyWindow!.rootViewController) -> UIViewController! {
         if let tab = under as? UITabBarController {
             return playground(under: tab.selectedViewController)
         }
