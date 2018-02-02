@@ -9,7 +9,6 @@
 import XCTest
 
 class ExampleUITests: XCTestCase {
-
     override func setUp() {
         super.setUp()
 

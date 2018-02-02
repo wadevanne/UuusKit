@@ -9,7 +9,6 @@
 import UIKit
 
 open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     let imagePicker = UIImagePickerController()
     var options: AAImagePickerOptions = AAImagePickerOptions()
     var getImage: ((UIImage) -> Swift.Void)!
@@ -54,7 +53,6 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
     }
 
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-
         picker.dismiss(animated: true, completion: nil)
 
         let edited = UIImagePickerControllerEditedImage
@@ -75,7 +73,6 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
     }
 
     open func present(_ options: AAImagePickerOptions? = nil, _ completion: @escaping ((UIImage) -> Swift.Void)) {
-
         if let pickerOptions = options {
             self.options = pickerOptions
         }
@@ -93,7 +90,6 @@ extension UIImage {
     // MARK: - Credits: http://stackoverflow.com/questions/5427656/ios-uiimagepickercontroller-result-image-orientation-after-upload
 
     func fixOrientation() -> UIImage {
-
         // No-op if the orientation is already correct
         if imageOrientation == UIImageOrientation.up {
             return self

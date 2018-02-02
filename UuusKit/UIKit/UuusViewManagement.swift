@@ -87,14 +87,14 @@ open class ViewControllor: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet open var tableView: UITableView!
+    @IBOutlet open var tableView: UITableView?
 
     // MARK: - Deinitialization
 
     deinit {
         notificationc.removeObserver(self)
-        tableView.removePullToRefresh(at: .top)
-        tableView.removePullToRefresh(at: .bottom)
+        tableView?.removePullToRefresh(at: .top)
+        tableView?.removePullToRefresh(at: .bottom)
     }
 
     // MARK: - Properties
@@ -118,8 +118,8 @@ open class ViewControllor: UIViewController {
     open func addPullToRefreshTop() {}
     open func tryPullToRefreshBottom(last remove: Bool = true) {
         if remove {
-            tableView.removePullToRefresh(at: .bottom)
-        } else if tableView.bottomPullToRefresh == nil {
+            tableView?.removePullToRefresh(at: .bottom)
+        } else if tableView?.bottomPullToRefresh == nil {
             addPullToRefreshBottom()
         }
     }
