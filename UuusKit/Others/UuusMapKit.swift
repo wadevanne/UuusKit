@@ -38,8 +38,7 @@ open class MapViewControllor: UIViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        let str = stevenash as? String
-        address = str?.local
+        address = (stevenash as? String)?.local
     }
 
     open override func viewDidAppear(_ animated: Bool) {

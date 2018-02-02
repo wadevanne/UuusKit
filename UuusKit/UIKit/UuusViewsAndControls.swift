@@ -85,12 +85,12 @@ extension UIView {
 
     // MARK: - Properties
 
-    public var controller: UIViewController? {
+    public var controller: UIViewController! {
         var next = superview?.next
         while next != nil, !next!.isKind(of: UIViewController.self) {
             next = next!.next
         }
-        return next as? UIViewController
+        return next as! UIViewController
     }
 }
 
@@ -127,9 +127,18 @@ open class CollectionViewControllor: UICollectionViewController {
     // MARK: - Deinitialization
 
     deinit {
+        notificationc.removeObserver(self)
         collectionView?.removePullToRefresh(at: .top)
         collectionView?.removePullToRefresh(at: .bottom)
     }
+
+    // MARK: - Properties
+
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return interfaceOrientationMaskAll ? .all : .portrait
+    }
+
+    open var disposeBag = DisposeBag()
 
     // MARK: - View Handling
 
@@ -185,9 +194,18 @@ open class TableViewControllor: UITableViewController {
     // MARK: - Deinitialization
 
     deinit {
+        notificationc.removeObserver(self)
         tableView.removePullToRefresh(at: .top)
         tableView.removePullToRefresh(at: .bottom)
     }
+
+    // MARK: - Properties
+
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return interfaceOrientationMaskAll ? .all : .portrait
+    }
+
+    open var disposeBag = DisposeBag()
 
     // MARK: - View Handling
 
