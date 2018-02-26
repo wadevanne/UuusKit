@@ -11,6 +11,10 @@ import MapKit
 @IBDesignable
 open class MapViewControllor: UIViewController {
 
+    // MARK: - IBOutlets
+
+    @IBOutlet var safeToolbar: UIToolbar!
+
     // MARK: - IBInspectable
 
     @IBInspectable public var address: String? {
@@ -38,6 +42,8 @@ open class MapViewControllor: UIViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+        safeToolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        safeToolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
         address = (stevenash as? String)?.local
     }
 

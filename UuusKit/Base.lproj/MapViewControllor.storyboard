@@ -17,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="BX5-iP-4sg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x84-ZO-Rg1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items/>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x84-ZO-Rg1" firstAttribute="leading" secondItem="BX5-iP-4sg" secondAttribute="leading" id="KHa-C6-6U6"/>
+                            <constraint firstItem="fcg-iV-pzH" firstAttribute="top" secondItem="x84-ZO-Rg1" secondAttribute="bottom" priority="750" id="TGF-SO-P7T"/>
+                            <constraint firstItem="x84-ZO-Rg1" firstAttribute="top" secondItem="BX5-iP-4sg" secondAttribute="top" id="coe-56-v6n"/>
+                            <constraint firstAttribute="trailing" secondItem="x84-ZO-Rg1" secondAttribute="trailing" id="g0y-5F-K6I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fcg-iV-pzH"/>
                     </view>
+                    <connections>
+                        <outlet property="safeToolbar" destination="x84-ZO-Rg1" id="yIm-YV-kyh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4Y-Ie-NCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

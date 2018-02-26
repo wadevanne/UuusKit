@@ -39,6 +39,13 @@ extension String {
         return split { !"0123456789".contains($0) }.joined(separator: .empty)
     }
 
+    public var latin: String {
+        let latin = NSMutableString(string: self)
+        CFStringTransform(latin, nil, kCFStringTransformToLatin, false)
+        CFStringTransform(latin, nil, kCFStringTransformStripDiacritics, false)
+        return latin.uppercased
+    }
+
     /// let a = "a bc  d    efg"
     ///
     /// print(a.unity)
@@ -119,16 +126,12 @@ extension String {
         return data?.base64EncodedData(options: .lineLength64Characters)
     }
 
-    public var debase64Data: Data? {
-        return Data(base64Encoded: self, options: .ignoreUnknownCharacters)
-    }
-
     public var enbase64String: String? {
         return data?.base64EncodedString(options: .lineLength64Characters)
     }
 
-    public var debase64String: String? {
-        return debase64Data?.string
+    public var debase64Data: Data? {
+        return Data(base64Encoded: self, options: .ignoreUnknownCharacters)
     }
 
     public subscript(range: Range<Int>) -> String {
@@ -158,7 +161,7 @@ extension String {
     }
 
     public func shieldedPhone(any: String = "****") -> String {
-        guard count > 10 else {
+        guard isChinaPhone else {
             return self
         }
         let white = String.white
@@ -168,7 +171,7 @@ extension String {
     }
 
     public func shieldedIdNum(any: String = "******") -> String {
-        guard count > 14 else {
+        guard isValidIdNum else {
             return self
         }
         let white = String.white
@@ -182,11 +185,11 @@ extension String {
     }
 
     public func match(regex: String, value: String) -> Bool {
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        let predicate = NSPredicate(format: "self matches %@", regex)
         return predicate.evaluate(with: value)
     }
 
-    public func numberOfLines(bounded: CGFloat?, font: UIFont) -> Int {
+    public func numberOfLines(bounded: CGFloat = CGFloat(UInt8.min), font: UIFont) -> Int {
         let eachHeight = String.empty.upright(boundedAclinic: bounded, font: font)
         let wholeHeight = upright(boundedAclinic: bounded, font: font)
         return Int((wholeHeight / eachHeight).rounded(.up))
@@ -196,16 +199,16 @@ extension String {
     /// ┃                ┃
     /// ┃________________┃ boundedUpright
     ///         aclinic
-    public func aclinic(boundedUpright: CGFloat?, font: UIFont) -> CGFloat {
-        return float(boundedUpright ?? CGFloat(UInt8.min), font: font, isBoundedVertical: true)
+    public func aclinic(boundedUpright: CGFloat = CGFloat(UInt8.min), font: UIFont) -> CGFloat {
+        return float(boundedUpright, font: font, isBoundedVertical: true)
     }
 
     ///  ________________
     /// :                : upright
     /// :________________:
     ///                 boundedAclinic
-    public func upright(boundedAclinic: CGFloat?, font: UIFont) -> CGFloat {
-        return float(boundedAclinic ?? CGFloat(UInt8.min), font: font, isBoundedVertical: false)
+    public func upright(boundedAclinic: CGFloat = CGFloat(UInt8.min), font: UIFont) -> CGFloat {
+        return float(boundedAclinic, font: font, isBoundedVertical: false)
     }
 
     // MARK: - Private - Functions

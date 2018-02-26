@@ -15,7 +15,7 @@ extension Double {
     public var currency: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.currencySymbol = "¥"
+        formatter.currencySymbol = "¥ "
         let number = NSNumber(value: self)
         return formatter.string(from: number)!
     }

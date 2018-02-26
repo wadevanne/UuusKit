@@ -15,10 +15,6 @@ open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsD
 
     open class ScanView: UuusView {
 
-        // MARK: - Singleton
-
-        private let line = "line"
-
         // MARK: - Initialization
 
         override init(frame: CGRect) {
@@ -87,6 +83,8 @@ open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsD
 
         private(set) var scanrect: CGRect?
 
+        private let line = "line"
+
         // MARK: - View Handling
 
         open override func draw(_ rect: CGRect) {
@@ -132,8 +130,7 @@ open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsD
         }
 
         @objc open func roll() {
-            let keys = moveLayer.animationKeys()
-            guard keys?.contains(line) ?? false else {
+            guard let keys = moveLayer.animationKeys(), keys.contains(line) else {
                 moveLayer.add(animation, forKey: line)
                 return
             }

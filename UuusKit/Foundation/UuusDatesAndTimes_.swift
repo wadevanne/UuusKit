@@ -103,24 +103,6 @@ extension Date {
     // MARK: - Public - Functions
 
     /// let a = "1992-02-29"
-    /// let b = "1992-02-29 20:00"
-    ///
-    /// let c: [Date.DateFormat] = [.yyyy_MM_dd]
-    /// let d: [Date.DateFormat] = [.yyyynMydr]
-    /// let e: [Date.DateFormat] = [.yyyy_MM_dd, .HHmm]
-    /// let f: [Date.DateFormat] = [.yyyynMydr, .HHmmss]
-    ///
-    /// let h = Date.string(of: a, input: c, as: e)
-    /// let i = Date.string(of: b, input: e, as: f)
-    /// let j = Date.string(of: b, input: e, as: d)
-    ///
-    /// print(h, i, j)
-    /// 1992-02-29 00:00 1992年2月29日 20:00:00 1992年2月29日
-    public static func string(of string: String, input: [DateFormat], as output: [DateFormat]) -> String {
-        return date(of: string, input: input)?.string(as: output) ?? string
-    }
-
-    /// let a = "1992-02-29"
     /// let b = [Date.DateFormat.yyyy_MM_dd]
     /// let c = Date.date(of: a, input: b)
     ///
@@ -192,28 +174,23 @@ extension Date {
     /// print(k, l, m)
     /// ("1992年2月29日 00:00:00", nil) ("1992年2月29日 00:00:00 - 20:00:00", Optional(1)) ("1992-02-29 00:00 - 03-09 20:00", Optional(10))
     public static func jointed(as output: [DateFormat], start: TimeInterval, end: TimeInterval? = nil) -> (String, Int?) {
-        guard end != nil else {
-            return (start.date.string(as: output), nil)
-        }
+        guard let end = end else { return (start.date.string(as: output), nil) }
 
         let white_space: String = .white + .short + .white
-
-        let output = output.sorted {
-            $0.hashValue > $1.hashValue
-        }
+        let output = output.sorted { $0.hashValue > $1.hashValue }
         guard output.first!.hashValue > DateFormat.whitespace.hashValue else {
-            return ("\(start.date.string(as: output))\(white_space)\(end!.date.string(as: output))", 1)
+            return ("\(start.date.string(as: output))\(white_space)\(end.date.string(as: output))", 1)
         }
 
         let components: Set<Calendar.Component> = [.day, .month, .year]
-        let endComponents = ccalendar.dateComponents(components, from: end!.date)
+        let endComponents = ccalendar.dateComponents(components, from: end.date)
         let startComponents = ccalendar.dateComponents(components, from: start.date)
 
         let day = startComponents.day == endComponents.day
         let year = startComponents.year == endComponents.year
         let month = startComponents.month == endComponents.month
 
-        let endDate = date(of: end!.date, _inout: [.yyyy_MM_dd]) ?? Date()
+        let endDate = date(of: end.date, _inout: [.yyyy_MM_dd]) ?? Date()
         let startDate = date(of: start.date, _inout: [.yyyy_MM_dd]) ?? Date()
         let dayInterval = Int((endDate.timestamp - startDate.timestamp).day) + 1
 
@@ -241,13 +218,13 @@ extension Date {
             case true:
                 return ("\(start.date.string(as: output))", 1) // (1970+01+01, 1)
             case false:
-                return ("\(start.date.string(as: output))\(white_space)\(end!.date.string(as: [output.last!]))", 1)
+                return ("\(start.date.string(as: output))\(white_space)\(end.date.string(as: [output.last!]))", 1)
             }
         default:
-            return ("\(start.date.string(as: output))\(white_space)\(end!.date.string(as: output))", dayInterval)
+            return ("\(start.date.string(as: output))\(white_space)\(end.date.string(as: output))", dayInterval)
         }
 
-        return ("\(start.date.string(as: output))\(white_space)\(end!.date.string(as: beauty))", dayInterval)
+        return ("\(start.date.string(as: output))\(white_space)\(end.date.string(as: beauty))", dayInterval)
     }
 
     public typealias OutputItem = ([DateFormat], start: TimeInterval, end: TimeInterval, format: String)
@@ -365,6 +342,29 @@ extension Date {
 
         return .short
     }
+
+    public static func daysLater(interval: (TimeInterval, TimeInterval)) -> String {
+        let lminute = TimeInterval.lminute
+        let onehour = TimeInterval.onehour
+        let oneday = TimeInterval.oneday
+        let future = Date.distantFuture
+        let before = Date.distantPast
+
+        let outputItem: [OutputItem] = [
+            ([.count], 0, lminute - 1, "%.f秒钟".local),
+            ([.count], lminute, onehour - 1, "%.f分钟".local),
+            ([.count], onehour, oneday - 1, "%.f小时".local),
+            ([.count], oneday, future.timestamp, "%.f天".local),
+        ]
+
+        let extentItem: [ExtentItem] = [
+            (before, interval.0.date, false, "后开始".local, "开始".local),
+            (interval.0.date, interval.1.date, false, "后结束".local, "结束".local),
+            (interval.1.date, future, true, "前".local, "已结束".local),
+        ]
+
+        return string(as: outputItem, timeInterval: extentItem)
+    }
 }
 
 extension Date {
@@ -436,14 +436,14 @@ extension TimeInterval {
         return Int(self) / 1000 % 60
     }
 
-    public var HHmm: String {
-        let Hm = "\(Int(hour)):\(minute)"
-        return Date.string(of: Hm, input: [.Hm], as: [.HHmm])
+    public var hhmm: String {
+        let hm = "\(Int(hour)):\(minute)"
+        return Date.date(of: hm, input: [.Hm])!.string(as: [.HHmm])
     }
 
-    public var HHmmss: String {
-        let Hms = "\(Int(hour)):\(minute):\(second)"
-        return Date.string(of: Hms, input: [.Hms], as: [.HHmmss])
+    public var hhmmss: String {
+        let hms = "\(Int(hour)):\(minute):\(second)"
+        return Date.date(of: hms, input: [.Hms])!.string(as: [.HHmmss])
     }
 
     public var oneweek: TimeInterval {
@@ -468,13 +468,13 @@ extension TimeInterval {
 
     public var history: String? {
         if Date() < date { return nil }
-        let future = Date.distantFuture
-        var output: [Date.OutputItem] = []
-        output += [([.HHmm], 0, oneday - 1, .marka)] // in same day
-        output += [([.HHmm], oneday, 2 * oneday - 1, "昨天".local + .marka)]
-        output += [([.HHmm], 2 * oneday, oneweek - 1, date.weekday.local + .marka)]
-        output += [([.MMyddr, .HHmm], oneweek, future.timestamp, .marka)]
-        let extent: [Date.ExtentItem] = [(date, future, true, nil, "现在".local)]
+        let output: [Date.OutputItem] = [
+            ([.HHmm], 0, oneday - 1, .marka), // in same day
+            ([.HHmm], oneday, 2 * oneday - 1, "昨天".local + .marka),
+            ([.HHmm], 2 * oneday, oneweek - 1, date.weekday + .marka),
+            ([.MMyddr, .HHmm], oneweek, Date.distantFuture.timestamp, .marka),
+        ]
+        let extent: [Date.ExtentItem] = [(date, .distantFuture, true, nil, "现在".local)]
         return Date.string(as: output, timeInterval: extent)
     }
 }

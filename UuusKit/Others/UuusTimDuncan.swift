@@ -16,6 +16,8 @@ import UIKit
 
 // MARK: - IBActions
 
+// MARK: - IBInspectable
+
 // MARK: - Singleton
 
 public let uuus1mpi = 1.0 * .pi

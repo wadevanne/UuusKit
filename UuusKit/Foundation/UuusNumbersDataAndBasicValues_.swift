@@ -28,15 +28,11 @@ extension Data {
         return base64EncodedData(options: .lineLength64Characters)
     }
 
-    public var debase64Data: Data? {
-        return Data(base64Encoded: self, options: .ignoreUnknownCharacters)
-    }
-
     public var enbase64String: String {
         return base64EncodedString(options: .lineLength64Characters)
     }
 
-    public var debase64String: String? {
-        return debase64Data?.string
+    public var debase64Data: Data? {
+        return Data(base64Encoded: self, options: .ignoreUnknownCharacters)
     }
 }

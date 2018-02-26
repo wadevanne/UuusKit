@@ -22,9 +22,7 @@ extension Array where Element == Date.DateFormat {
     // MARK: - Properties
 
     public var dateFormat: String {
-        let array = sorted {
-            $0.hashValue > $1.hashValue
-        }
+        let array = sorted { $0.hashValue > $1.hashValue }
         let maybe = "\(String.white)\(array.last!.rawValue)"
         let suffix = array.count > 1 ? maybe : String.empty
         return "\(array.first!.rawValue)\(suffix)"

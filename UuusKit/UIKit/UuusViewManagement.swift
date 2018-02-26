@@ -114,9 +114,7 @@ open class ViewControllor: UIViewController {
 
     // MARK: - Public - Functions
 
-    open func addPullToRefreshBottom() {}
-    open func addPullToRefreshTop() {}
-    open func tryPullToRefreshBottom(last remove: Bool = true) {
+    open override func tryPullToRefreshBottom(last remove: Bool = true) {
         if remove {
             tableView?.removePullToRefresh(at: .bottom)
         } else if tableView?.bottomPullToRefresh == nil {
@@ -188,21 +186,13 @@ extension UIViewController {
 
     // MARK: - Public - Functions
 
-    public func presentc(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
-        presentc(type.init(), assist: assist, animated: flag, completion: completion)
-    }
-
     public func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
-        let nav = NavigationControllor()
-        nav.addChildViewController(controller)
+        let navigation = NavigationControllor()
+        navigation.addChildViewController(controller)
         DispatchQueue.main.async {
-            self.present(nav, animated: flag, completion: completion)
+            self.present(navigation, animated: flag, completion: completion)
         }
-    }
-
-    public func presents(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
-        presents(type.init(), assist: assist, animated: flag, completion: completion)
     }
 
     public func presents(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
@@ -210,10 +200,6 @@ extension UIViewController {
         DispatchQueue.main.async {
             self.present(controller, animated: flag, completion: completion)
         }
-    }
-
-    public func pushController(type: UIViewController.Type, assist: Any? = nil, animated flag: Bool = true) {
-        pushController(type.init(), assist: assist, animated: flag)
     }
 
     public func pushController(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true) {
@@ -243,7 +229,7 @@ extension UIViewController {
         }
     }
 
-    public func backToMars(under: UIViewController? = uiapplication.keyWindow?.rootViewController, selected index: Int, animated anime: Bool) {
+    public func backToMars(under: UIViewController! = uiapplication.keyWindow!.rootViewController, selected index: Int, animated anime: Bool) {
         if let tab = under as? UITabBarController {
             tab.selectedIndex = index
             backToMars(under: tab.selectedViewController, selected: index, animated: anime)
@@ -258,16 +244,17 @@ extension UIViewController {
     }
 
     public func fade(keyroot controller: UIViewController) {
-        uiapplication.keyWindow?.layer.add(CATransition.fade, forKey: kCATransition)
-        uiapplication.keyWindow?.rootViewController = controller
+        uiapplication.keyWindow!.layer.add(CATransition.fade, forKey: kCATransition)
+        uiapplication.keyWindow!.rootViewController = controller
     }
 
     public func insert(below controller: UIViewController) {
-        guard let nav = controller.navigationController else { return }
-        var controllers = nav.viewControllers
-        guard let idx = controllers.index(of: controller) else { return }
-        controllers.insert(self, at: idx)
-        nav.viewControllers = controllers
+        if var controllers = controller.navigationController?.viewControllers {
+            if let index = controllers.index(of: controller) {
+                controllers.insert(self, at: index)
+                controller.navigationController!.viewControllers = controllers
+            }
+        }
     }
 
     /// override func viewWillAppear(_ animated: Bool) {
@@ -295,8 +282,12 @@ extension UIViewController {
         }
     }
 
-    open func reloadData() {}
-    open func updateData() {}
+    @objc open func addPullToRefreshBottom() {}
+    @objc open func addPullToRefreshTop() {}
+    @objc open func tryPullToRefreshBottom(last _: Bool) {}
+
+    @objc open func reloadData() {}
+    @objc open func updateData() {}
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {
@@ -380,9 +371,10 @@ extension UINavigationController {
 
     public func removeController(_ controller: UIViewController) {
         var controllers = viewControllers
-        guard let index = controllers.index(of: controller) else { return }
-        controllers.remove(at: index)
-        viewControllers = controllers
+        if let index = controllers.index(of: controller) {
+            controllers.remove(at: index)
+            viewControllers = controllers
+        }
     }
 }
 
@@ -399,10 +391,10 @@ open class TabBarControllor: UITabBarController {
     open func appendc(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
-            let nav = NavigationControllor()
-            nav.addChildViewController(controller)
-            nav.tabBarItem = tabBarItem
-            addChildViewController(nav)
+            let navigation = NavigationControllor()
+            navigation.addChildViewController(controller)
+            navigation.tabBarItem = tabBarItem
+            addChildViewController(navigation)
             return
         }
         nav.tabBarItem = tabBarItem

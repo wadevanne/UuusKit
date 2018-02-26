@@ -12,7 +12,7 @@ extension NSAttributedString {
 
     // MARK: - Public - Functions
 
-    public func numberOfLines(bounded: CGFloat?) -> Int {
+    public func numberOfLines(bounded: CGFloat = CGFloat(UInt8.min)) -> Int {
         let emptyString = NSAttributedString(string: .empty)
         let eachHeight = emptyString.upright(boundedAclinic: bounded)
         let wholeHeight = upright(boundedAclinic: bounded)
@@ -23,16 +23,16 @@ extension NSAttributedString {
     /// ┃                ┃
     /// ┃________________┃ boundedUpright
     ///         aclinic
-    public func aclinic(boundedUpright: CGFloat?) -> CGFloat {
-        return float(boundedUpright ?? CGFloat(UInt8.min), isBoundedVertical: true)
+    public func aclinic(boundedUpright: CGFloat = CGFloat(UInt8.min)) -> CGFloat {
+        return float(boundedUpright, isBoundedVertical: true)
     }
 
     ///  ________________
     /// :                : upright
     /// :________________:
     ///                 boundedAclinic
-    public func upright(boundedAclinic: CGFloat?) -> CGFloat {
-        return float(boundedAclinic ?? CGFloat(UInt8.min), isBoundedVertical: false)
+    public func upright(boundedAclinic: CGFloat = CGFloat(UInt8.min)) -> CGFloat {
+        return float(boundedAclinic, isBoundedVertical: false)
     }
 
     // MARK: - Private - Functions

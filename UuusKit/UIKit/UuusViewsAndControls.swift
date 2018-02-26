@@ -105,7 +105,7 @@ extension UIView {
             }
         }
 
-        uiapplication.keyWindow?.addSubview(self)
+        uiapplication.keyWindow!.addSubview(self)
         if superview != nil {
             snp.makeConstraints { make in
                 make.edges.equalTo(superview!)
@@ -151,9 +151,7 @@ open class CollectionViewControllor: UICollectionViewController {
 
     // MARK: - Public - Functions
 
-    open func addPullToRefreshBottom() {}
-    open func addPullToRefreshTop() {}
-    open func tryPullToRefreshBottom(last remove: Bool = true) {
+    open override func tryPullToRefreshBottom(last remove: Bool = true) {
         if remove {
             collectionView?.removePullToRefresh(at: .bottom)
         } else if collectionView?.bottomPullToRefresh == nil {
@@ -216,9 +214,7 @@ open class TableViewControllor: UITableViewController {
 
     // MARK: - Public - Functions
 
-    open func addPullToRefreshBottom() {}
-    open func addPullToRefreshTop() {}
-    open func tryPullToRefreshBottom(last remove: Bool = true) {
+    open override func tryPullToRefreshBottom(last remove: Bool = true) {
         if remove {
             tableView.removePullToRefresh(at: .bottom)
         } else if tableView.bottomPullToRefresh == nil {
@@ -240,12 +236,106 @@ open class TableViowCell: UITableViewCell {
         super.layoutSubviews()
         if spacing > 0 {
             frame.origin.x = spacing
-            frame.size.width = maximum - spacing * 2
+            let width = maximum - spacing * 2
+            frame.size.width = width
         }
     }
 }
 
-open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+open class Uuus9icker: UuusView {
+
+    // MARK: - Classes and Structures
+
+    public struct Part {
+
+        // MARK: - Initialization
+
+        public init(options: [Any]? = nil, index: Int? = nil, title: String? = nil) {
+            self.options = options
+            if let index = index {
+                current = index
+                return
+            }
+            guard let name = title else { return }
+            guard let array = options else { return }
+            for (index, value) in array.enumerated() {
+                if let dict = value as? [String: Any] {
+                    if name == dict["name"] as! String {
+                        current = index
+                        break
+                    }
+                }
+                if name == value as? String {
+                    current = index
+                    break
+                }
+            }
+        }
+
+        // MARK: - Properties
+
+        public var options: [Any]?
+        public var current: Int?
+
+        /// the chosen name
+        public var name: String {
+            return options(forKey: "name") as! String
+        }
+
+        /// the chosen five
+        public var five: [String]? {
+            return options(forKey: "five") as? [String]
+        }
+
+        /// the chosen date
+        public var date: [[String: Any]]? {
+            return options(forKey: "date") as? [[String: Any]]
+        }
+
+        /// the chosen week
+        public var week: [[String: Any]]? {
+            return options(forKey: "week") as? [[String: Any]]
+        }
+
+        /// the chosen area
+        public var area: [[String: Any]]? {
+            return options(forKey: "area") as? [[String: Any]]
+        }
+
+        /// the chosen city
+        public var city: [[String: Any]]? {
+            return options(forKey: "city") as? [[String: Any]]
+        }
+
+        // MARK: - Public - Functions
+
+        public func options(forKey key: String) -> Any? {
+            guard let count = options?.count else { return nil }
+            guard let index = current, index < count else {
+                if let dict = options as? [[String: Any]] {
+                    guard dict[0].keys.contains(key) else {
+                        return nil
+                    }
+                    return dict[0][key]
+                }
+                return options![0]
+            }
+            if let dict = options as? [[String: Any]] {
+                guard dict[index].keys.contains(key) else {
+                    return nil
+                }
+                return dict[index][key]
+            }
+            return options![index]
+        }
+
+        public func address(forRow row: Int) -> String! {
+            if let dict = options as? [[String: Any]] {
+                return dict[row]["name"] as! String
+            }
+            return options![row] as! String
+        }
+    }
 
     // MARK: - IBOutlets
 
@@ -255,46 +345,6 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet public var titleLabel: UILabel!
     @IBOutlet public var cancelButton: UIButton!
     @IBOutlet public var ensureButton: UIButton!
-    @IBOutlet public var pickerView: UIPickerView!
-
-    // MARK: - Initialization
-
-    public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
-        let neat9icker = xib as! Neat9icker
-        neat9icker.tapGesture.rx.event.bind { [unowned neat9icker] sender in
-            neat9icker.removeAction(sender)
-            neat9icker.actions?(nil)
-        }.disposed(by: neat9icker.disposeBag)
-        neat9icker.downGesture.rx.event.bind { [unowned neat9icker] sender in
-            neat9icker.removeAction(sender)
-            neat9icker.actions?(nil)
-        }.disposed(by: neat9icker.disposeBag)
-        neat9icker.cancelButton.rx.tap.bind { [unowned neat9icker] sender in
-            neat9icker.removeAction(sender)
-            neat9icker.actions?(nil)
-        }.disposed(by: neat9icker.disposeBag)
-        neat9icker.ensureButton.rx.tap.bind { [unowned neat9icker] sender in
-            neat9icker.removeAction(sender)
-            guard let index = neat9icker.current else { return }
-            neat9icker.actions?(neat9icker.options![index])
-        }.disposed(by: neat9icker.disposeBag)
-        neat9icker.options = options
-        neat9icker.actions = actions
-
-        guard let happening = option else { return neat9icker }
-        DispatchQueue.global().async {
-            for (index, value) in options.enumerated() {
-                if "\(value)" == "\(happening)" {
-                    neat9icker.current = index
-                    break
-                }
-            }
-            DispatchQueue.main.async {
-                neat9icker.pickerView.selectRow(neat9icker.current ?? 0, inComponent: 0, animated: true)
-            }
-        }
-        return neat9icker
-    }
 
     // MARK: - Closures
 
@@ -302,19 +352,25 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - Properties
 
-    public var options: [Any]? {
-        didSet {
-            if 0 < options?.count ?? 0 {
-                return
-            }
-            options = ["壹", "贰", "叁"]
-        }
-    }
-
-    public var current: Int? = 0
     public var sbottom: CGFloat = 0
 
     // MARK: - View Handling
+
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        tapGesture.rx.event.bind { [unowned self] sender in
+            self.removeAction(sender)
+            self.actions?(nil)
+        }.disposed(by: disposeBag)
+        downGesture.rx.event.bind { [unowned self] sender in
+            self.removeAction(sender)
+            self.actions?(nil)
+        }.disposed(by: disposeBag)
+        cancelButton.rx.tap.bind { [unowned self] sender in
+            self.removeAction(sender)
+            self.actions?(nil)
+        }.disposed(by: disposeBag)
+    }
 
     open override func layoutSubviews() {
         super.layoutSubviews()
@@ -356,6 +412,54 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
             self.removeFromSuperview()
         })
     }
+}
+
+open class Neat9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
+
+    // MARK: - IBOutlets
+
+    @IBOutlet public var pickerView: UIPickerView!
+
+    // MARK: - Initialization
+
+    public class func xib(in options: [Any], select option: Any? = nil, actions: completionc?) -> Neat9icker {
+        let neat9icker = xib as! Neat9icker
+        neat9icker.ensureButton.rx.tap.bind { [unowned neat9icker] sender in
+            neat9icker.removeAction(sender)
+            if let index = neat9icker.current {
+                neat9icker.actions?(neat9icker.options![index])
+            }
+        }.disposed(by: neat9icker.disposeBag)
+        neat9icker.options = options
+        neat9icker.actions = actions
+
+        guard let happening = option else { return neat9icker }
+        DispatchQueue.global().async {
+            for (index, value) in options.enumerated() {
+                if "\(value)" == "\(happening)" {
+                    neat9icker.current = index
+                    break
+                }
+            }
+            DispatchQueue.main.async {
+                neat9icker.pickerView.selectRow(neat9icker.current ?? 0, inComponent: 0, animated: true)
+            }
+        }
+        return neat9icker
+    }
+
+    // MARK: - Properties
+
+    public var options: [Any]? {
+        didSet {
+            if 0 < options?.count ?? 0 {
+                return
+            }
+            options = ["壹", "贰", "叁"]
+        }
+    }
+
+    public var current: Int? = 0
 
     // MARK: - UIPickerViewDataSource
 
@@ -379,7 +483,7 @@ open class Neat9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
-open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+open class Week9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - Enumerations
 
@@ -394,12 +498,11 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
         // MARK: - Initialization
 
-        init(date: Date? = nil, year: String? = nil, week: String? = nil) {
+        public init(date: Date? = nil, year: String? = nil, week: String? = nil) {
             var year = year
             if let int = date?.value(for: .year) {
                 year = "\(int)"
             }
-            typealias Part = Area9icker.Part
             self.year = Part(options: years, title: year)
             self.week = Part(options: self.year?.week, title: week)
 
@@ -427,8 +530,8 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
         // MARK: - Properties
 
-        public var year: Area9icker.Part?
-        public var week: Area9icker.Part?
+        public var year: Part?
+        public var week: Part?
 
         // MARK: - Public - Functions
 
@@ -507,12 +610,6 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - IBOutlets
 
-    @IBOutlet public var tapGesture: UITapGestureRecognizer!
-    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet public var pickerTop: NSLayoutConstraint!
-    @IBOutlet public var titleLabel: UILabel!
-    @IBOutlet public var cancelButton: UIButton!
-    @IBOutlet public var ensureButton: UIButton!
     @IBOutlet public var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet public var pickerView: UIPickerView!
 
@@ -520,18 +617,6 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     public class func xib(select date: Date? = nil, year: String? = nil, week: String? = nil, actions: completionc?) -> Week9icker {
         let week9icker = xib as! Week9icker
-        week9icker.tapGesture.rx.event.bind { [unowned week9icker] sender in
-            week9icker.removeAction(sender)
-            week9icker.actions?(nil)
-        }.disposed(by: week9icker.disposeBag)
-        week9icker.downGesture.rx.event.bind { [unowned week9icker] sender in
-            week9icker.removeAction(sender)
-            week9icker.actions?(nil)
-        }.disposed(by: week9icker.disposeBag)
-        week9icker.cancelButton.rx.tap.bind { [unowned week9icker] sender in
-            week9icker.removeAction(sender)
-            week9icker.actions?(nil)
-        }.disposed(by: week9icker.disposeBag)
         week9icker.ensureButton.rx.tap.bind { [unowned week9icker] sender in
             week9icker.removeAction(sender)
             week9icker.actions?(week9icker.current)
@@ -554,57 +639,9 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         return week9icker
     }
 
-    // MARK: - Closures
-
-    public var actions: completionc?
-
     // MARK: - Properties
 
     public var current: Week?
-    public var sbottom: CGFloat = 0
-
-    // MARK: - View Handling
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        if #available(iOS 11.0, *) {
-            if sbottom == rootground.view.safeAreaInsets.bottom {
-                return
-            }
-            sbottom = rootground.view.safeAreaInsets.bottom
-            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
-        }
-    }
-
-    // MARK: - Public - Functions
-
-    open func push() {
-        blotWindow()
-
-        if #available(iOS 11.0, *) {
-            sbottom = rootground.view.safeAreaInsets.bottom
-        }
-        backgroundColor = .clear
-        pickerTop.constant = 0
-        layoutIfNeeded()
-
-        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
-        let color = UIColor(white: 0, alpha: 0.4)
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundColor = color
-            self.layoutIfNeeded()
-        }
-    }
-
-    open func removeAction(_: Any) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.pickerTop.constant = 0
-            self.backgroundColor = .clear
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            self.removeFromSuperview()
-        })
-    }
 
     // MARK: - UIPickerViewDataSource
 
@@ -650,7 +687,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         case .year:
             current?.year?.current = row
             let options = current?.year?.week
-            current?.week = Area9icker.Part(options: options, title: nil)
+            current?.week = Part(options: options, title: nil)
             pickerView.reloadComponent(Type.week.hashValue)
             if let w = current?.week, 0 < w.options?.count ?? 0 {
                 pickerView.selectRow(w.current ?? 0, inComponent: Type.week.hashValue, animated: true)
@@ -661,7 +698,7 @@ open class Week9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
-open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
+open class Area9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - Enumerations
 
@@ -673,98 +710,11 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     // MARK: - Classes and Structures
 
-    public struct Part {
-
-        // MARK: - Initialization
-
-        public init(options: [Any]? = nil, title: String? = nil) {
-            self.options = options
-            guard let name = title else { return }
-            guard let array = options else { return }
-            for (index, value) in array.enumerated() {
-                if let dict = value as? [String: Any] {
-                    if name == dict["name"] as! String {
-                        current = index
-                        break
-                    }
-                }
-                if name == value as? String ?? .empty {
-                    current = index
-                    break
-                }
-            }
-        }
-
-        // MARK: - Properties
-
-        public var options: [Any]?
-        public var current: Int?
-
-        /// the chosen name
-        public var address: String {
-            return options(forKey: "name") as! String
-        }
-
-        /// the chosen five
-        public var five: [String]? {
-            return options(forKey: "five") as? [String]
-        }
-
-        /// the chosen date
-        public var date: [[String: Any]]? {
-            return options(forKey: "date") as? [[String: Any]]
-        }
-
-        /// the chosen week
-        public var week: [[String: Any]]? {
-            return options(forKey: "week") as? [[String: Any]]
-        }
-
-        /// the chosen area
-        public var area: [[String: Any]]? {
-            return options(forKey: "area") as? [[String: Any]]
-        }
-
-        /// the chosen city
-        public var city: [[String: Any]]? {
-            return options(forKey: "city") as? [[String: Any]]
-        }
-
-        // MARK: - Public - Functions
-
-        public func options(forKey key: String) -> Any? {
-            guard let count = options?.count else { return nil }
-            guard let index = current, index < count else {
-                if let dict = options as? [[String: Any]] {
-                    guard dict[0].keys.contains(key) else {
-                        return nil
-                    }
-                    return dict[0][key]
-                }
-                return options![0]
-            }
-            if let dict = options as? [[String: Any]] {
-                guard dict[index].keys.contains(key) else {
-                    return nil
-                }
-                return dict[index][key]
-            }
-            return options![index]
-        }
-
-        public func address(forRow row: Int) -> String! {
-            if let dict = options as? [[String: Any]] {
-                return dict[row]["name"] as! String
-            }
-            return options![row] as! String
-        }
-    }
-
     public struct Area {
 
         // MARK: - Initialization
 
-        init(province: String? = nil, city: String? = nil, district: String? = nil) {
+        public init(province: String? = nil, city: String? = nil, district: String? = nil) {
             self.province = Part(options: provinces, title: province)
             self.city = Part(options: self.province?.city, title: city)
             self.district = Part(options: self.city?.area, title: district)
@@ -786,21 +736,15 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         public var district: Part?
 
         public var address: String {
-            let p = province?.address ?? .empty
-            let c = city?.address ?? .empty
-            let d = district?.address ?? .empty
+            let p = province?.name ?? .empty
+            let c = city?.name ?? .empty
+            let d = district?.name ?? .empty
             return (p == c ? p : p + c) + d
         }
     }
 
     // MARK: - IBOutlets
 
-    @IBOutlet public var tapGesture: UITapGestureRecognizer!
-    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet public var pickerTop: NSLayoutConstraint!
-    @IBOutlet public var titleLabel: UILabel!
-    @IBOutlet public var cancelButton: UIButton!
-    @IBOutlet public var ensureButton: UIButton!
     @IBOutlet public var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet public var pickerView: UIPickerView!
 
@@ -808,18 +752,6 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
 
     public class func xib(select province: String? = nil, city: String? = nil, district: String? = nil, actions: completionc?) -> Area9icker {
         let area9icker = xib as! Area9icker
-        area9icker.tapGesture.rx.event.bind { [unowned area9icker] sender in
-            area9icker.removeAction(sender)
-            area9icker.actions?(nil)
-        }.disposed(by: area9icker.disposeBag)
-        area9icker.downGesture.rx.event.bind { [unowned area9icker] sender in
-            area9icker.removeAction(sender)
-            area9icker.actions?(nil)
-        }.disposed(by: area9icker.disposeBag)
-        area9icker.cancelButton.rx.tap.bind { [unowned area9icker] sender in
-            area9icker.removeAction(sender)
-            area9icker.actions?(nil)
-        }.disposed(by: area9icker.disposeBag)
         area9icker.ensureButton.rx.tap.bind { [unowned area9icker] sender in
             area9icker.removeAction(sender)
             area9icker.actions?(area9icker.address)
@@ -845,57 +777,9 @@ open class Area9icker: UuusView, UIPickerViewDataSource, UIPickerViewDelegate {
         return area9icker
     }
 
-    // MARK: - Closures
-
-    public var actions: completionc?
-
     // MARK: - Properties
 
     public var address: Area?
-    public var sbottom: CGFloat = 0
-
-    // MARK: - View Handling
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        if #available(iOS 11.0, *) {
-            if sbottom == rootground.view.safeAreaInsets.bottom {
-                return
-            }
-            sbottom = rootground.view.safeAreaInsets.bottom
-            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
-        }
-    }
-
-    // MARK: - Public - Functions
-
-    open func push() {
-        blotWindow()
-
-        if #available(iOS 11.0, *) {
-            sbottom = rootground.view.safeAreaInsets.bottom
-        }
-        backgroundColor = .clear
-        pickerTop.constant = 0
-        layoutIfNeeded()
-
-        pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
-        let color = UIColor(white: 0, alpha: 0.4)
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundColor = color
-            self.layoutIfNeeded()
-        }
-    }
-
-    open func removeAction(_: Any) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.pickerTop.constant = 0
-            self.backgroundColor = .clear
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            self.removeFromSuperview()
-        })
-    }
 
     // MARK: - UIPickerViewDataSource
 
@@ -983,7 +867,7 @@ extension UIButton {
 
     // MARK: - Public - Functions
 
-    public func image2Right(boundedUpright: CGFloat?, greatestAclinic: CGFloat = screenWidth) {
+    public func image2Right(boundedUpright: CGFloat = CGFloat(UInt8.min), greatestAclinic: CGFloat = screenWidth) {
         let titleFont = titleLabel!.font!
         let titleText = title(for: .normal)
 
@@ -994,40 +878,23 @@ extension UIButton {
         let outOfRange = imageWidth + titleWidth > greatestAclinic
         let labelWidth = outOfRange ? greatestAclinic - imageWidth - 16.0 : titleWidth
 
+        frame.size = CGSize(width: labelWidth + imageWidth, height: boundedUpright)
+
         titleEdgeInsets = UIEdgeInsets(top: 0, left: -titleRight, bottom: 0, right: titleRight)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth, bottom: 0, right: -labelWidth)
-        frame.size = CGSize(width: labelWidth + imageWidth, height: boundedUpright ?? CGFloat(UInt8.min))
     }
 }
 
-open class Date9icker: UuusView {
+open class Date9icker: Uuus9icker {
 
     // MARK: - IBOutlets
 
-    @IBOutlet public var tapGesture: UITapGestureRecognizer!
-    @IBOutlet public var downGesture: UISwipeGestureRecognizer!
-    @IBOutlet public var pickerTop: NSLayoutConstraint!
-    @IBOutlet public var titleLabel: UILabel!
-    @IBOutlet public var cancelButton: UIButton!
-    @IBOutlet public var ensureButton: UIButton!
     @IBOutlet public var datePicker: UIDatePicker!
 
     // MARK: - Initialization
 
     public class func xib(select date: Date? = nil, actions: completionc?) -> Date9icker {
         let date9icker = xib as! Date9icker
-        date9icker.tapGesture.rx.event.bind { [unowned date9icker] sender in
-            date9icker.removeAction(sender)
-            date9icker.actions?(nil)
-        }.disposed(by: date9icker.disposeBag)
-        date9icker.downGesture.rx.event.bind { [unowned date9icker] sender in
-            date9icker.removeAction(sender)
-            date9icker.actions?(nil)
-        }.disposed(by: date9icker.disposeBag)
-        date9icker.cancelButton.rx.tap.bind { [unowned date9icker] sender in
-            date9icker.removeAction(sender)
-            date9icker.actions?(nil)
-        }.disposed(by: date9icker.disposeBag)
         date9icker.ensureButton.rx.tap.bind { [unowned date9icker] sender in
             date9icker.removeAction(sender)
             date9icker.actions?(date9icker.datePicker.date)
@@ -1040,25 +907,10 @@ open class Date9icker: UuusView {
     // MARK: - Properties
 
     public var predate: Date?
-    public var sbottom: CGFloat = 0
-    public var actions: completionc?
-
-    // MARK: - View Handling
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        if #available(iOS 11.0, *) {
-            if sbottom == rootground.view.safeAreaInsets.bottom {
-                return
-            }
-            sbottom = rootground.view.safeAreaInsets.bottom
-            pickerTop.constant = sbottom + (iPhoneX ? 206 : 216)
-        }
-    }
 
     // MARK: - Public - Functions
 
-    open func push() {
+    open override func push() {
         blotWindow()
 
         if #available(iOS 11.0, *) {
@@ -1077,16 +929,6 @@ open class Date9icker: UuusView {
             if let predate = self.predate {
                 self.datePicker.setDate(predate, animated: true)
             }
-        })
-    }
-
-    open func removeAction(_: Any) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.pickerTop.constant = 0
-            self.backgroundColor = .clear
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            self.removeFromSuperview()
         })
     }
 }
