@@ -55,6 +55,5 @@ class ViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
 
-    @IBAction func action(_: UIButton) {
-    }
+    @IBAction func action(_: UIButton) {}
 }

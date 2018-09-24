@@ -14,11 +14,9 @@ import PKHUD
 open class UuusObject: NSObject {}
 
 extension UuusObject {
-
     // MARK: - Classes and Structures
 
     public class Uuid: NSObject {
-
         // MARK: - Singleton
 
         public static let shared: String = {
@@ -60,7 +58,6 @@ extension UuusObject {
 }
 
 extension UuusObject {
-
     // MARK: - Classes and Structures
 
     public class Base64Transform: TransformType {
@@ -84,7 +81,6 @@ extension UuusObject {
 }
 
 open class UuusRequest: NSObject {
-
     // MARK: - Enumerations
 
     public enum Loaded {
@@ -135,7 +131,6 @@ open class UuusRequest: NSObject {
 }
 
 open class UuusDelivery: NSObject {
-
     // MARK: - Initialization
 
     public override init() {
@@ -196,7 +191,6 @@ open class UuusDelivery: NSObject {
 open class UuusMagician: NSObject {}
 
 extension NSObject {
-
     // MARK: - Properties
 
     public static var name: String {

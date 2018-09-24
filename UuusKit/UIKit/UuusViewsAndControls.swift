@@ -12,7 +12,6 @@ import RxSwift
 import SnapKit
 
 open class UuusView: UIView {
-
     // MARK: - Deinitialization
 
     deinit {
@@ -25,7 +24,6 @@ open class UuusView: UIView {
 }
 
 extension UIView {
-
     // MARK: - IBInspectable
 
     @IBInspectable open var cornerRadius: CGFloat {
@@ -90,12 +88,11 @@ extension UIView {
         while next != nil, !next!.isKind(of: UIViewController.self) {
             next = next!.next
         }
-        return next as! UIViewController
+        return (next as! UIViewController)
     }
 }
 
 extension UIView {
-
     // MARK: - Public - Functions
 
     public func blotWindow() {
@@ -114,16 +111,15 @@ extension UIView {
     }
 
     public func bringToFront() {
-        superview?.bringSubview(toFront: self)
+        superview?.bringSubviewToFront(self)
     }
 
     public func sendToBack() {
-        superview?.sendSubview(toBack: self)
+        superview?.sendSubviewToBack(self)
     }
 }
 
 open class CollectionViewControllor: UICollectionViewController {
-
     // MARK: - Deinitialization
 
     deinit {
@@ -161,7 +157,6 @@ open class CollectionViewControllor: UICollectionViewController {
 }
 
 extension UICollectionViewCell {
-
     // MARK: - Properties
 
     private static var MettaArtest = "MettaArtest"
@@ -188,7 +183,6 @@ extension UICollectionViewCell {
 }
 
 open class TableViewControllor: UITableViewController {
-
     // MARK: - Deinitialization
 
     deinit {
@@ -224,7 +218,6 @@ open class TableViewControllor: UITableViewController {
 }
 
 open class TableViowCell: UITableViewCell {
-
     // MARK: - Properties
 
     public var maximum: CGFloat = 0
@@ -243,11 +236,9 @@ open class TableViowCell: UITableViewCell {
 }
 
 open class Uuus9icker: UuusView {
-
     // MARK: - Classes and Structures
 
     public struct Part {
-
         // MARK: - Initialization
 
         public init(options: [Any]? = nil, index: Int? = nil, title: String? = nil) {
@@ -331,9 +322,9 @@ open class Uuus9icker: UuusView {
 
         public func address(forRow row: Int) -> String! {
             if let dict = options as? [[String: Any]] {
-                return dict[row]["name"] as! String
+                return (dict[row]["name"] as! String)
             }
-            return options![row] as! String
+            return (options![row] as! String)
         }
     }
 
@@ -415,7 +406,6 @@ open class Uuus9icker: UuusView {
 }
 
 open class Neat9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
-
     // MARK: - IBOutlets
 
     @IBOutlet public var pickerView: UIPickerView!
@@ -484,7 +474,6 @@ open class Neat9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 open class Week9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
-
     // MARK: - Enumerations
 
     public enum `Type`: Int {
@@ -495,7 +484,6 @@ open class Week9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate 
     // MARK: - Classes and Structures
 
     public struct Week {
-
         // MARK: - Initialization
 
         public init(date: Date? = nil, year: String? = nil, week: String? = nil) {
@@ -699,7 +687,6 @@ open class Week9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 open class Area9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate {
-
     // MARK: - Enumerations
 
     public enum `Type`: Int {
@@ -711,7 +698,6 @@ open class Area9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate 
     // MARK: - Classes and Structures
 
     public struct Area {
-
         // MARK: - Initialization
 
         public init(province: String? = nil, city: String? = nil, district: String? = nil) {
@@ -846,7 +832,6 @@ open class Area9icker: Uuus9icker, UIPickerViewDataSource, UIPickerViewDelegate 
 }
 
 open class UuusButton: UIButton {
-
     // MARK: - Properties
 
     open override var isEnabled: Bool {
@@ -857,7 +842,6 @@ open class UuusButton: UIButton {
 }
 
 extension UIButton {
-
     // MARK: - View Handling
 
     open override func willMove(toSuperview newSuperview: UIView?) {
@@ -886,7 +870,6 @@ extension UIButton {
 }
 
 open class Date9icker: Uuus9icker {
-
     // MARK: - IBOutlets
 
     @IBOutlet public var datePicker: UIDatePicker!
@@ -934,7 +917,6 @@ open class Date9icker: Uuus9icker {
 }
 
 extension UITextField {
-
     // MARK: - Public - Functions
 
     /// block queue outside as exception

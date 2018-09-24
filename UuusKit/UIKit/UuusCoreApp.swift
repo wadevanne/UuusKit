@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIDevice {
-
     // MARK: - Enumerations
 
     public enum DeviceType: String {
@@ -119,7 +118,6 @@ extension UIDevice {
 }
 
 extension UIDevice {
-
     // MARK: - Properties
 
     public static var type: DeviceType {
@@ -216,7 +214,6 @@ extension UIDevice {
 }
 
 extension UIDevice {
-
     // MARK: - Properties
 
     public var modelName: String {

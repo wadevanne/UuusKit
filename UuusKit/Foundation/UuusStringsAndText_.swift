@@ -9,7 +9,6 @@
 import UIKit
 
 extension NSAttributedString {
-
     // MARK: - Public - Functions
 
     public func numberOfLines(bounded: CGFloat = CGFloat(UInt8.min)) -> Int {

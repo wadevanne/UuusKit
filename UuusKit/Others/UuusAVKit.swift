@@ -10,17 +10,15 @@ import AVKit
 import RMUniversalAlert
 
 open class ScanViewControllor: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
     // MARK: - Classes and Structures
 
     open class ScanView: UuusView {
-
         // MARK: - Initialization
 
         override init(frame: CGRect) {
             super.init(frame: frame)
             let roll = #selector(ScanViewControllor.ScanView.roll)
-            let name = NSNotification.Name.UIApplicationDidBecomeActive
+            let name = UIApplication.didBecomeActiveNotification
             notificationc.addObserver(self, selector: roll, name: name, object: nil)
         }
 
@@ -299,7 +297,7 @@ extension UIViewController {
                 case alert.cancelButtonIndex:
                     self.popController()
                 case alert.firstOtherButtonIndex:
-                    uiapplication.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                    uiapplication.openURL(URL(string: UIApplication.openSettingsURLString)!)
                 default:
                     break
                 }

@@ -41,7 +41,7 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
         return alertController
     }
 
-    func presentPicker(sourceType: UIImagePickerControllerSourceType) {
+    func presentPicker(sourceType: UIImagePickerController.SourceType) {
         guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
             return
         }
@@ -52,11 +52,11 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
         rootViewController.present(imagePicker, animated: true, completion: nil)
     }
 
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
 
-        let edited = UIImagePickerControllerEditedImage
-        let origin = UIImagePickerControllerOriginalImage
+        let edited = UIImagePickerController.InfoKey.editedImage
+        let origin = UIImagePickerController.InfoKey.originalImage
 
         let imageType = options.allowsEditing ? edited : origin
         var image = (info[imageType] as! UIImage).fixOrientation()
@@ -86,12 +86,11 @@ open class AAImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigatio
 }
 
 extension UIImage {
-
     // MARK: - Credits: http://stackoverflow.com/questions/5427656/ios-uiimagepickercontroller-result-image-orientation-after-upload
 
     func fixOrientation() -> UIImage {
         // No-op if the orientation is already correct
-        if imageOrientation == UIImageOrientation.up {
+        if imageOrientation == UIImage.Orientation.up {
             return self
         }
 
@@ -99,27 +98,27 @@ extension UIImage {
         // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
         var transform: CGAffineTransform = CGAffineTransform.identity
 
-        if imageOrientation == UIImageOrientation.down || imageOrientation == UIImageOrientation.downMirrored {
+        if imageOrientation == UIImage.Orientation.down || imageOrientation == UIImage.Orientation.downMirrored {
             transform = transform.translatedBy(x: size.width, y: size.height)
             transform = transform.rotated(by: CGFloat(uuus1mpi))
         }
 
-        if imageOrientation == UIImageOrientation.left || imageOrientation == UIImageOrientation.leftMirrored {
+        if imageOrientation == UIImage.Orientation.left || imageOrientation == UIImage.Orientation.leftMirrored {
             transform = transform.translatedBy(x: size.width, y: 0)
             transform = transform.rotated(by: CGFloat(uuusm2pi))
         }
 
-        if imageOrientation == UIImageOrientation.right || imageOrientation == UIImageOrientation.rightMirrored {
+        if imageOrientation == UIImage.Orientation.right || imageOrientation == UIImage.Orientation.rightMirrored {
             transform = transform.translatedBy(x: 0, y: size.height)
             transform = transform.rotated(by: CGFloat(-uuusm2pi))
         }
 
-        if imageOrientation == UIImageOrientation.upMirrored || imageOrientation == UIImageOrientation.downMirrored {
+        if imageOrientation == UIImage.Orientation.upMirrored || imageOrientation == UIImage.Orientation.downMirrored {
             transform = transform.translatedBy(x: size.width, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
         }
 
-        if imageOrientation == UIImageOrientation.leftMirrored || imageOrientation == UIImageOrientation.rightMirrored {
+        if imageOrientation == UIImage.Orientation.leftMirrored || imageOrientation == UIImage.Orientation.rightMirrored {
             transform = transform.translatedBy(x: size.height, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
         }
@@ -131,10 +130,10 @@ extension UIImage {
 
         ctx.concatenate(transform)
 
-        if imageOrientation == UIImageOrientation.left ||
-            imageOrientation == UIImageOrientation.leftMirrored ||
-            imageOrientation == UIImageOrientation.right ||
-            imageOrientation == UIImageOrientation.rightMirrored {
+        if imageOrientation == UIImage.Orientation.left ||
+            imageOrientation == UIImage.Orientation.leftMirrored ||
+            imageOrientation == UIImage.Orientation.right ||
+            imageOrientation == UIImage.Orientation.rightMirrored {
             ctx.draw(cgImage!, in: CGRect(x: 0, y: 0, width: size.height, height: size.width))
         } else {
             ctx.draw(cgImage!, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -146,7 +145,7 @@ extension UIImage {
 
     func resize(scale: CGFloat) -> UIImage {
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: size.width * scale, height: size.height * scale)))
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.image = self
         UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
         imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -157,7 +156,7 @@ extension UIImage {
 
     func resize(width: CGFloat) -> UIImage {
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: width, height: CGFloat(ceil(width / size.width * size.height)))))
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.image = self
         UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
         imageView.layer.render(in: UIGraphicsGetCurrentContext()!)

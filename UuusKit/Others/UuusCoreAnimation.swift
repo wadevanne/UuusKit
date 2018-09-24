@@ -9,7 +9,6 @@
 import QuartzCore
 
 open class PieLayor: CAShapeLayer {
-
     // MARK: - Initialization
 
     public init(arcCenter center: CGPoint, radius: CGFloat, startAngle zero: CGFloat = 0, endAngle nine: CGFloat = CGFloat(uuus2mpi), clockwise: Bool = true, lineWidth width: CGFloat = 3, strokeColor color: CGColor = .lightGray) {
@@ -29,13 +28,12 @@ open class PieLayor: CAShapeLayer {
 }
 
 extension CATransition {
-
     // MARK: - Properties
 
     public static var fade: CATransition {
         let transition = CATransition()
-        transition.type = kCATransitionFade
-        transition.subtype = kCATransitionFromTop
+        transition.type = CATransitionType.fade
+        transition.subtype = CATransitionSubtype.fromTop
         transition.duration = 0.25
         return transition
     }

@@ -9,7 +9,6 @@
 import UIKit
 
 extension String {
-
     // MARK: - Singleton
 
     public static let empty = ""
@@ -24,7 +23,6 @@ extension String {
 }
 
 extension String {
-
     // MARK: - Properties
 
     public var data: Data? {
@@ -142,7 +140,6 @@ extension String {
 }
 
 extension String {
-
     // MARK: - Public - Functions
 
     public func formattedPhone(any: Character = Character(String.white)) -> String {
@@ -218,7 +215,7 @@ extension String {
         let width = !isBoundedVertical ? float : CGFloat.greatestFiniteMagnitude
         let size = CGSize(width: width, height: height)
         let options = NSStringDrawingOptions.usesLineFragmentOrigin
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSAttributedString.Key.font: font]
         let rect = nsstr.boundingRect(with: size, options: options, attributes: attributes, context: nil)
         return isBoundedVertical ? rect.width : rect.height
     }

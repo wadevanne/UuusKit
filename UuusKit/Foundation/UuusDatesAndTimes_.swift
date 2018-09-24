@@ -9,7 +9,6 @@
 import Foundation
 
 extension Date {
-
     // MARK: - Enumerations
 
     public enum DateFormat: String {
@@ -54,7 +53,6 @@ extension Date {
 }
 
 extension Date {
-
     // MARK: - Properties
 
     public var timestamp: TimeInterval {
@@ -99,7 +97,6 @@ extension Date {
 }
 
 extension Date {
-
     // MARK: - Public - Functions
 
     /// let a = "1992-02-29"
@@ -368,7 +365,6 @@ extension Date {
 }
 
 extension Date {
-
     // MARK: - Public - Functions
 
     /// let a = "1992-02-29"
@@ -401,7 +397,6 @@ extension Date {
 }
 
 extension TimeInterval {
-
     // MARK: - Singleton
 
     public static let oneweek: TimeInterval = 7 * oneday
@@ -412,7 +407,6 @@ extension TimeInterval {
 }
 
 extension TimeInterval {
-
     // MARK: - Properties
 
     public var date: Date {

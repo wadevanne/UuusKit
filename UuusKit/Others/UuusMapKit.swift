@@ -10,7 +10,6 @@ import MapKit
 
 @IBDesignable
 open class MapViewControllor: UIViewController {
-
     // MARK: - IBOutlets
 
     @IBOutlet var safeToolbar: UIToolbar!
@@ -83,7 +82,7 @@ open class MapViewControllor: UIViewController {
 
     open func setRegion(_ centerCoordinate: CLLocationCoordinate2D?) {
         let coordinate = centerCoordinate ?? CLLocationCoordinate2D()
-        let region = MKCoordinateRegionMakeWithDistance(coordinate, 2046, 2046)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2046, longitudinalMeters: 2046)
         mapView.setRegion(region, animated: true)
     }
 

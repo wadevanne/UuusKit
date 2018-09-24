@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIColor {
-
     // MARK: - Initialization
 
     public convenience init(hexColor: String) {
@@ -26,7 +25,6 @@ extension UIColor {
 }
 
 extension UIColor {
-
     // MARK: - Properties
 
     public var image: UIImage {

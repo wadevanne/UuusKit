@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIImage {
-
     // MARK: - Public - Functions
 
     public func colors(at point: CGPoint, count: Int) -> [UIColor] {

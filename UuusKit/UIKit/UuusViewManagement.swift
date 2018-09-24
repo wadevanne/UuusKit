@@ -11,15 +11,12 @@ import RMUniversalAlert
 import RxSwift
 
 open class ViewControllor: UIViewController {
-
     // MARK: - Classes and Structures
 
     open class PullToRofresh: PullToRefresh {
-
         // MARK: - Classes and Structures
 
         open class RefreshView: UIView {
-
             // MARK: - Lazy Initialization
 
             private(set) lazy var indicator: UIImageView? = {
@@ -38,8 +35,8 @@ open class ViewControllor: UIViewController {
 
             // MARK: - Properties
 
-            open static var images: [UIImage]?
-            open static var animationDuration: TimeInterval = 1.25
+            public static var images: [UIImage]?
+            public static var animationDuration: TimeInterval = 1.25
 
             // MARK: - View Handling
 
@@ -124,7 +121,6 @@ open class ViewControllor: UIViewController {
 }
 
 extension UIViewController {
-
     // MARK: - Properties
 
     private static var SteveAssist = "SteveAssist"
@@ -160,7 +156,6 @@ extension UIViewController {
 }
 
 extension UIViewController {
-
     // MARK: - Public - Functions
 
     public static func new(storyboard name: String = "Main") -> UIViewController {
@@ -183,13 +178,12 @@ extension UIViewController {
 }
 
 extension UIViewController {
-
     // MARK: - Public - Functions
 
     public func presentc(_ controller: UIViewController, assist: Any? = nil, animated flag: Bool = true, completion: (() -> Swift.Void)? = nil) {
         controller.stevenash = assist
         let navigation = NavigationControllor()
-        navigation.addChildViewController(controller)
+        navigation.addChild(controller)
         DispatchQueue.main.async {
             self.present(navigation, animated: flag, completion: completion)
         }
@@ -291,7 +285,6 @@ extension UIViewController {
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {
-
     // MARK: - UIGestureRecognizerDelegate
 
     public func gestureRecognizer(_: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -304,10 +297,10 @@ extension UIViewController: UIGestureRecognizerDelegate {
     // MARK: - KVO
 
     public func addObserver4Keyboard() {
-        notificationc.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationc.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: .UIKeyboardDidShow, object: nil)
-        notificationc.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: .UIKeyboardWillHide, object: nil)
-        notificationc.addObserver(self, selector: #selector(keyboardWasHidden(_:)), name: .UIKeyboardDidHide, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWillBeShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationc.addObserver(self, selector: #selector(keyboardWasHidden(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
     }
 
     public func removeObserver() {
@@ -325,11 +318,10 @@ extension UIViewController: UIGestureRecognizerDelegate {
 }
 
 open class NavigationControllor: UINavigationController {
-
     // MARK: - Properties
 
     open var hidesBottomBarWhen9ushed: Bool {
-        return childViewControllers.count > 0
+        return children.count > 0
     }
 
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -345,7 +337,6 @@ open class NavigationControllor: UINavigationController {
 }
 
 extension UINavigationController {
-
     // MARK: - Public - Functions
 
     public func removeAllMiddleViewControllers() {
@@ -379,7 +370,6 @@ extension UINavigationController {
 }
 
 open class TabBarControllor: UITabBarController {
-
     // MARK: - Properties
 
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -392,18 +382,18 @@ open class TabBarControllor: UITabBarController {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         guard let nav = controller as? UINavigationController else {
             let navigation = NavigationControllor()
-            navigation.addChildViewController(controller)
+            navigation.addChild(controller)
             navigation.tabBarItem = tabBarItem
-            addChildViewController(navigation)
+            addChild(navigation)
             return
         }
         nav.tabBarItem = tabBarItem
-        addChildViewController(nav)
+        addChild(nav)
     }
 
     open func appends(_ controller: UIViewController, title: String?, image: UIImage?, selectedImage: UIImage?) {
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         controller.tabBarItem = tabBarItem
-        addChildViewController(controller)
+        addChild(controller)
     }
 }

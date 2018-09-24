@@ -9,7 +9,6 @@
 import Foundation
 
 extension Array {
-
     // MARK: - Properties
 
     public var data: Data? {
@@ -18,7 +17,6 @@ extension Array {
 }
 
 extension Array where Element == Date.DateFormat {
-
     // MARK: - Properties
 
     public var dateFormat: String {
@@ -30,7 +28,6 @@ extension Array where Element == Date.DateFormat {
 }
 
 extension Dictionary {
-
     // MARK: - Properties
 
     public var data: Data? {
@@ -52,7 +49,6 @@ extension Dictionary {
 }
 
 extension Dictionary {
-
     // MARK: - Public - Functions
 
     @discardableResult
